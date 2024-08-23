@@ -1,3 +1,7 @@
+<?php 
+session_start();
+
+?>
 <script src="js.js"></script>
 
 <!DOCTYPE html>
@@ -17,7 +21,7 @@
 
   <?php
 
-  require_once 'Creat_form.php';
+  require_once 'class/Creat_form.php';
 
   $label_1 = "label_1";
 
@@ -49,37 +53,53 @@
     [$label_1, "", $label_1_text]
   ];
 
+
+  /*
   $monFormulaire1_input_1 = [
     [$input_1, "input"],
     [$input_1, "placeholder", $label_1_text],
     [$input_1, "onkeyup", $input_1_onkeyup]
   ];
 
+  */
+  $monFormulaire1_input_1 = [
+    [$input_1, "input"],
+    [$input_1, "placeholder", $label_1_text]
+  ];
 
   $monFormulaire1_label_2 = [
     [$label_2, "label"],
     [$label_2, "", $label_2_text]
   ];
 
-
+/*
   $monFormulaire1_input_2 = [
     [$input_2, "input"],
     [$input_2, "placeholder", $label_2_text],
     [$input_2, "onkeyup", $input_1_onkeyup]
   ];
 
+*/
 
+$monFormulaire1_input_2 = [
+  [$input_2, "input"],
+  [$input_2, "placeholder", $label_2_text]
+];
 
+  //onclick_send
   $monFormulaire1_div_1 = [
     [$btn2, "div"],
     [$btn2, "", "<a href='" . $src_info . "'>" . $info___ . "</a>"],
     [$btn2, "class", "xx"]
+    
+
   ];
 
 
   $monFormulaire1_div_2 = [
     [$btn, "div"],
     [$btn, "class", "submit"],
+    [$btn, "onclick", $input_1_onkeyup],
     [$btn, "", "submit"]
   ];
 

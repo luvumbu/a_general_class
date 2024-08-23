@@ -1,4 +1,13 @@
 <?php
+
+require_once "CheckFileExists.php";
+require_once "Delete_file.php";
+
+require_once "DatabaseHandler.php";
+
+
+
+
 // Définition d'une classe appelée `Creat_form`
 class Creat_form
 {
@@ -8,10 +17,17 @@ class Creat_form
     // Propriété publique pour stocker des informations sur les enfants du formulaire
     public $child_info = [];
     public $array_select_Atribut = [];
-
     public $nom_dossier;
     public $nom_fichier;
     public $path;
+    public $config_bool = true;
+    public $path_config = "class/path_config.php";
+    public $bool_config = false;
+
+    public $config_dbname  = false;
+    public $config_password  = false;
+    public $databaseHandler_verif = false;
+
 
     // Constructeur de la classe, qui initialise les propriétés et génère du code JavaScript pour créer un élément HTML
     function __construct($name_form, $name_type, $para)
@@ -20,6 +36,32 @@ class Creat_form
         $this->name_form = $name_form;
         $this->name_type = $name_type;
         // Génération de code JavaScript pour créer un nouvel élément HTML et lui attribuer un ID
+        //$_SESSION["ok"]= time();
+
+
+
+
+        $_SESSION["DatabaseHandler_switch"] = "DatabaseHandler_switch";
+
+        if (CheckFileExists($this->path_config)) {
+
+            require_once $this->path_config;
+            $this->config_dbname  = $config_dbname;
+            $this->config_password  = $config_password;
+            //$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+
+
+
+            $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+            $this->databaseHandler_verif = $databaseHandler->verif;
+
+
+            if ($this->databaseHandler_verif) {
+            } else {
+                delete_file($this->path_config);
+            }
+        } else {
+        }
 ?>
         <script>
             var envoyer = true;
@@ -77,6 +119,8 @@ class Creat_form
         }
         ?>
         <script>
+            //  onclick 
+
             function input_1_onkeyup(_this) {
                 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
                 const myTimeout_1 = setTimeout(myGreeting, 100);
@@ -125,84 +169,126 @@ class Creat_form
                     console.log("002 : " + list_id[xx]);
                 }
             }
+
+
+ 
         </script>
     <?php
 
         // var_dump($this->array_select_Atribut) ; 
     }
 
-    function select_Atribut($value,$nom_dossier, $nom_fichier)
+    function select_Atribut($value, $nom_dossier, $nom_fichier)
     {
         for ($a = 0; $a < count($this->child_info); $a++) {
 
-           
+
             if ($this->child_info[$a][1] == $value) {
                 $this->array_select_Atribut[] = array($this->child_info[$a][0], $this->child_info[$a][1]);
                 //var_dump($this->array_select_Atribut) ; 
-              
+
             }
         }
 
 
 
- 
-    
-    $this->nom_dossier = $nom_dossier ; 
-    
-    $this->nom_fichier = $nom_fichier ; 
-    $this->path = $nom_dossier."/".$nom_fichier ; 
-    
-            // Chemin complet du fichier
-     
-    
-            // Vérifie si le dossier existe, sinon le créer
-            if (!is_dir($nom_dossier)) {
-                mkdir($nom_dossier, 0777, true);
-            }
-    
-            // Ouvre le fichier en mode écriture (création ou écrasement)
-            $fichier = fopen($this->path, 'w');
-    
-            if ($fichier) {
+
+
+        $this->nom_dossier = $nom_dossier;
+
+        $this->nom_fichier = $nom_fichier;
+        $this->path = $nom_dossier . "/" . $nom_fichier;
+
+        // Chemin complet du fichier
+
+
+        // Vérifie si le dossier existe, sinon le créer
+        if (!is_dir($nom_dossier)) {
+            mkdir($nom_dossier, 0777, true);
+        }
+
+        // Ouvre le fichier en mode écriture (création ou écrasement)
+        $fichier = fopen($this->path, 'w');
+
+        if ($fichier) {
+
+
+            if ($this->config_bool) {
+
+
+
                 // Initialisation du contenu du fichier avec l'ouverture du tag PHP
                 $contenu = "<?php\n";
-            
+                $contenu .= "session_start();";
+                $contenu .= "\n";
+
+
+                $contenu .= 'require_once "../class/DatabaseHandler.php";';
+                $contenu .= "\n";
+
+                $contenu .= "\n";
+
+
+
+
+
+
+
+
+                $contenu .= "\n";
+
+
+
+
+
+                // demande la liste de table contenant root 
+
+                // fonction ok 22/07/2024  X1-
+                //var_dump($databaseHandler->getListOfTables());
+                // fonction ok 22/07/2024  X1_
+                $contenu .= "\n";
+                //  $contenu .='$databaseHandler->getTables("root")';
+                $contenu .= "\n";
+
+
+
+
+
                 // Boucle pour ajouter chaque élément de `$this->array_select_Atribut` au contenu
                 for ($xa = 0; $xa < count($this->array_select_Atribut); $xa++) {
                     // Récupère la première valeur de l'élément courant dans `$this->array_select_Atribut`
                     $data_x = $this->array_select_Atribut[$xa][0];
-                    
+
                     // Ajoute la valeur récupérée au contenu du fichier, suivi d'une nouvelle ligne
-                    $contenu .='$'.$data_x.'=$_POST["'.$data_x.'"];';
-                    $contenu .="\n";
-                    $contenu .='echo $'.$data_x.';';
-                    $contenu .="\n";
+                    $contenu .= '$' . $data_x . '=$_POST["' . $data_x . '"];';
+                    $contenu .= "\n";
 
-
-
-                   
-
-
-                 
-
+                    $contenu .= "\n";
                 }
-                
+                $contenu .= 'require_once "../DatabaseHandler/' . $this->nom_fichier . '";';
+
+
+                $contenu .= "\n";
+
+
                 // Ajoute la fermeture du tag PHP au contenu
                 $contenu .= "?>\n";
-            
+
                 // Écrit le contenu dans le fichier
+
                 fwrite($fichier, $contenu);
-            
                 // Ferme le fichier
                 fclose($fichier);
-                
+
+
+
+
                 // Message de confirmation
             } else {
                 // Message d'erreur en cas de problème avec l'ouverture du fichier
                 echo "Erreur lors de la création du fichier.";
             }
-            
-        
+        }
     }
     function add_child_array($list_array)
     {
@@ -277,13 +363,6 @@ class Creat_form
 <?php
         }
     }
-
-
-
-
-
-
-
 }
 
 /*
