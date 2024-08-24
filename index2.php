@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 
 ?>
@@ -43,7 +43,7 @@ session_start();
 
 
   $monFormulaire1 = new Creat_form("form_p_name", "form", "");
- 
+
   // si la valeur est vide elle ajout l'element apres le body 
   // si non c'est la valeur de d'identifiant qui est pris en compte 
   $monFormulaire1->construct_setAtribut("class", "monFormulaire1");
@@ -72,7 +72,7 @@ session_start();
     [$label_2, "", $label_2_text]
   ];
 
-/*
+  /*
   $monFormulaire1_input_2 = [
     [$input_2, "input"],
     [$input_2, "placeholder", $label_2_text],
@@ -81,19 +81,30 @@ session_start();
 
 */
 
-$monFormulaire1_input_2 = [
-  [$input_2, "input"],
-  [$input_2, "placeholder", $label_2_text]
-];
+  $monFormulaire1_input_2 = [
+    [$input_2, "input"],
+    [$input_2, "placeholder", $label_2_text]
+  ];
 
   //onclick_send
   $monFormulaire1_div_1 = [
     [$btn2, "div"],
     [$btn2, "", "<a href='" . $src_info . "'>" . $info___ . "</a>"],
     [$btn2, "class", "xx"]
-    
+
 
   ];
+
+
+  $monFormulaire1_div_2 = [
+    [$btn, "div"],
+    [$btn, "class", "submit"],
+    [$btn, "onclick", $input_1_onkeyup],
+
+
+    [$btn, "", "submit"]
+  ];
+
 
 
   $monFormulaire1_div_2 = [
@@ -104,46 +115,42 @@ $monFormulaire1_input_2 = [
   ];
 
 
+
+
+  $monFormulaire1->select_Atribut("input", "select", "form_p_name.php");
+
+
   $monFormulaire1->add_child_array($monFormulaire1_label_1);
   $monFormulaire1->add_child_array($monFormulaire1_input_1);
   $monFormulaire1->add_child_array($monFormulaire1_label_2);
   $monFormulaire1->add_child_array($monFormulaire1_input_2);
   $monFormulaire1->add_child_array($monFormulaire1_div_1);
-  $monFormulaire1->add_child_array($monFormulaire1_div_2);
-  /*
-    $monFormulaire1->add_child($label_1,"label") ; 
-    $monFormulaire1->child_setAtribut($label_1,"", $label_1_text) ; 
-*/
-
-  /*
-    $monFormulaire1->add_child($input_1,"input") ; 
-    $monFormulaire1->child_setAtribut($input_1,"placeholder", $label_1_text) ; 
-    $monFormulaire1->child_setAtribut($input_1,"onkeyup",$input_1_onkeyup) ; 
-*/
- /*
 
 
-    $monFormulaire1->add_child($btn2,"div") ; 
-    $monFormulaire1->child_setAtribut($btn2,"", "<a href='".$src_info."'>".$info___."</a>") ; 
-    $monFormulaire1->child_setAtribut($btn2,"class", "xx") ; 
-*/
 
 
-  /*
 
-    $monFormulaire1->add_child($btn,"div") ; 
-    $monFormulaire1->child_setAtribut($btn,"class", "submit") ; 
- 
 
-    $monFormulaire1->child_setAtribut($btn,"", "submit") ;
-    
-    */
 
-   
-    
-    $monFormulaire1->select_Atribut("input","select","form_p_name.php");
-    $monFormulaire1->select_Atribut_function("input");
+
+
+
+  if ($monFormulaire1->databaseHandler_verif == 1) {
+
+    $monFormulaire1_div_3 = [
+      [$btn, "div"],
+      [$btn, "style", "background-color:blue;"]
+    ];
+  }
   
+  $_SESSION["path_config"] = $monFormulaire1->databaseHandler_verif ;
+
+
+  $monFormulaire1->add_child_array($monFormulaire1_div_2);
+  $monFormulaire1->add_child_array($monFormulaire1_div_3);
+  $monFormulaire1->select_Atribut("input", "select", "form_p_name.php");
+  $monFormulaire1->select_Atribut_function("input");
+
 
 
 

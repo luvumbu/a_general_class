@@ -2,12 +2,7 @@
 
 require_once "CheckFileExists.php";
 require_once "Delete_file.php";
-
 require_once "DatabaseHandler.php";
-
-
-
-
 // Définition d'une classe appelée `Creat_form`
 class Creat_form
 {
@@ -57,6 +52,7 @@ class Creat_form
 
 
             if ($this->databaseHandler_verif) {
+              
             } else {
                 delete_file($this->path_config);
             }
@@ -122,6 +118,7 @@ class Creat_form
             //  onclick 
 
             function input_1_onkeyup(_this) {
+                _this.style.opacity = 0.2;
                 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
                 const myTimeout_1 = setTimeout(myGreeting, 100);
 
@@ -133,6 +130,8 @@ class Creat_form
                 }
 
                 function myGreeting_2() {
+                _this.style.opacity = 1;
+
                     envoyer = true;
                     //alert() ; 
                     var ok = new Information("<?php echo $this->path ?>"); // création de la classe 
@@ -161,6 +160,7 @@ class Creat_form
                         console.log(ok.info()); // demande l'information dans le tableau
                         ok.push(); // envoie l'information au code pkp 
                     */
+                //   location.reload() ; 
                 }
                 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
                 for (var xx = 0; xx < list_id.length; xx++) {
