@@ -330,7 +330,25 @@ $databaseHandler->set_column_types("LONGTEXT");
 $databaseHandler->set_column_types("TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
 $databaseHandler->add_table('social_media');
 
+
+
+
+
+$req_sqlxx = 'SELECT * FROM `'.$input_1.'` WHERE `nom_user`="'.$input_1.'"  AND `password_user` ="'.$input_2.'" ';
+$databaseHandlerxx = new DatabaseHandler($input_1, $input_2);
+$databaseHandlerxx->getDataFromTable($req_sqlxx, "nom_user");
+
+
+if(count($databaseHandlerxx->tableList_info)>0) {
+   
+}
+else {
 $databaseHandler->action_sql("INSERT INTO `$input_1` (nom_user,password_user) VALUES ('$input_1','$input_2')") ;
+ 
+}
+
+
+
 
 
 
@@ -347,10 +365,7 @@ $databaseHandler->action_sql("INSERT INTO `$input_1` (nom_user,password_user) VA
 
 
 
-
-//$databaseHandler->action_sql("INSERT INTO `$input_1` (nom_user,password_user) VALUES ('$input_1','$input_2')") ;
-
-
+ 
 
 
 ?>

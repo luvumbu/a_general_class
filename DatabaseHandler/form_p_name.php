@@ -1,9 +1,12 @@
 <?php
+
 require_once '../class/CheckFileExists.php';
 
 if ($_SESSION["path_config"] == 1) {
- 
+
 $path = "../class/path_config.php";
+
+
 if (!checkFileExists($path)) {
   $databaseHandler = new DatabaseHandler($input_1, $input_2);
   $databaseHandler->action_sql("DROP TABLE projet_child") ;
@@ -16,7 +19,11 @@ if (!checkFileExists($path)) {
 
   require_once '../class/path_config.php';
   //echo $config_dbname ;
-  require_once 'form_p_name_log.php';
+  
+
+  require_once '../DatabaseHandler/form_p_name_log.php';
+  
+ 
 } else {
 
   $req_sql = "SELECT * FROM `social_media` WHERE 1";
@@ -39,4 +46,6 @@ if (!checkFileExists($path)) {
     fclose($f);
   }
 }
+
+
  

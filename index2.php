@@ -13,48 +13,62 @@ session_start();
   <title>Document</title>
 </head>
 
+
+
 <body>
-  <link rel="stylesheet" href="monFormulaire1.css">
-
-
-
-
+  <!-- <link rel="stylesheet" href="monFormulaire1.css"> -->
   <?php
 
   require_once 'class/Creat_form.php';
 
-  $label_1 = "label_1";
 
-  $label_1_text = "Dbname";
-  $label_2_text = "Username";
-
-  $input_1 = "input_1";
-  $input_1_onkeyup = $input_1 . "_onkeyup(this)";
+  if (!isset($_SESSION["session_log"])) {
 
 
-  $label_2 = "label_2";
-  $input_2 = "input_2";
-  $input_2_onkeyup = $input_2 . "_onkeyup(this)";
-  $btn = "btn";
 
-  $btn2 = "xx";
-  $info___ = "Mot de passe oublié";
-  $src_info = "http://google.com";
+    $label_1 = "label_1";
 
+    $label_1_text = "Dbname";
+    $label_2_text = "Username";
 
-  $monFormulaire1 = new Creat_form("form_p_name", "form", "");
-
-  // si la valeur est vide elle ajout l'element apres le body 
-  // si non c'est la valeur de d'identifiant qui est pris en compte 
-  $monFormulaire1->construct_setAtribut("class", "monFormulaire1");
-
-  $monFormulaire1_label_1 = [
-    [$label_1, "label"],
-    [$label_1, "", $label_1_text]
-  ];
+    $input_1 = "input_1";
+    $input_1_onkeyup = $input_1 . "_onkeyup(this)";
 
 
-  /*
+    $label_2 = "label_2";
+    $input_2 = "input_2";
+    $input_2_onkeyup = $input_2 . "_onkeyup(this)";
+    $btn = "btn";
+
+    $btn2 = "xx";
+    $info___ = "Mot de passe oublié";
+    $src_info = "http://google.com";
+
+    $monFormulaire1 = new Creat_form("form_p_name", "form", "");
+    $monFormulaire1->stylesheet("monFormulaire1.css");
+    /*
+  $monFormulaire1->stylesheet("monFormulaire2css") ; 
+  $monFormulaire1->stylesheet("monFormulaire3.css") ; 
+  $monFormulaire1->stylesheet("monFormulaire4.css") ; 
+  $monFormulaire1->stylesheet("monFormulaire5.css") ; 
+  $monFormulaire1->stylesheet("monFormulaire6.css") ; 
+*/
+    // si la valeur est vide elle ajout l'element apres le body 
+    // si non c'est la valeur de d'identifiant qui est pris en compte 
+    $monFormulaire1->construct_setAtribut("class", "monFormulaire1");
+
+
+
+
+
+
+    $monFormulaire1_label_1 = [
+      [$label_1, "label"],
+      [$label_1, "", $label_1_text]
+    ];
+
+
+    /*
   $monFormulaire1_input_1 = [
     [$input_1, "input"],
     [$input_1, "placeholder", $label_1_text],
@@ -62,17 +76,17 @@ session_start();
   ];
 
   */
-  $monFormulaire1_input_1 = [
-    [$input_1, "input"],
-    [$input_1, "placeholder", $label_1_text]
-  ];
+    $monFormulaire1_input_1 = [
+      [$input_1, "input"],
+      [$input_1, "placeholder", $label_1_text]
+    ];
 
-  $monFormulaire1_label_2 = [
-    [$label_2, "label"],
-    [$label_2, "", $label_2_text]
-  ];
+    $monFormulaire1_label_2 = [
+      [$label_2, "label"],
+      [$label_2, "", $label_2_text]
+    ];
 
-  /*
+    /*
   $monFormulaire1_input_2 = [
     [$input_2, "input"],
     [$input_2, "placeholder", $label_2_text],
@@ -81,85 +95,60 @@ session_start();
 
 */
 
-  $monFormulaire1_input_2 = [
-    [$input_2, "input"],
-    [$input_2, "placeholder", $label_2_text]
-  ];
-
-  //onclick_send
-  $monFormulaire1_div_1 = [
-    [$btn2, "div"],
-    [$btn2, "", "<a href='" . $src_info . "'>" . $info___ . "</a>"],
-    [$btn2, "class", "xx"]
-
-
-  ];
-
-
-  $monFormulaire1_div_2 = [
-    [$btn, "div"],
-    [$btn, "class", "submit"],
-    [$btn, "onclick", $input_1_onkeyup],
-
-
-    [$btn, "", "submit"]
-  ];
-
-
-
-  $monFormulaire1_div_2 = [
-    [$btn, "div"],
-    [$btn, "class", "submit"],
-    [$btn, "onclick", $input_1_onkeyup],
-    [$btn, "", "submit"]
-  ];
-
-
-
-
-  $monFormulaire1->select_Atribut("input", "select", "form_p_name.php");
-
-
-  $monFormulaire1->add_child_array($monFormulaire1_label_1);
-  $monFormulaire1->add_child_array($monFormulaire1_input_1);
-  $monFormulaire1->add_child_array($monFormulaire1_label_2);
-  $monFormulaire1->add_child_array($monFormulaire1_input_2);
-  $monFormulaire1->add_child_array($monFormulaire1_div_1);
-
-
-
-
-
-
-
-
-
-
-  if ($monFormulaire1->databaseHandler_verif == 1) {
-
-    $monFormulaire1_div_3 = [
-      [$btn, "div"],
-      [$btn, "style", "background-color:blue;"]
+    $monFormulaire1_input_2 = [
+      [$input_2, "input"],
+      [$input_2, "placeholder", $label_2_text]
     ];
+
+    //onclick_send
+    $monFormulaire1_div_1 = [
+      [$btn2, "div"],
+      [$btn2, "", "<a href='" . $src_info . "'>" . $info___ . "</a>"],
+      [$btn2, "class", "xx"]
+    ];
+
+    $monFormulaire1_div_2 = [
+      [$btn, "div"],
+      [$btn, "class", "submit"],
+      [$btn, "onclick", $input_1_onkeyup],
+      [$btn, "", "submit"]
+    ];
+
+    $monFormulaire1_div_2 = [
+      [$btn, "div"],
+      [$btn, "class", "submit"],
+      [$btn, "onclick", $input_1_onkeyup],
+      [$btn, "", "submit"]
+    ];
+
+    $monFormulaire1->select_Atribut("input", "select", "form_p_name.php");
+    $monFormulaire1->add_child_array($monFormulaire1_label_1);
+    $monFormulaire1->add_child_array($monFormulaire1_input_1);
+    $monFormulaire1->add_child_array($monFormulaire1_label_2);
+    $monFormulaire1->add_child_array($monFormulaire1_input_2);
+    $monFormulaire1->add_child_array($monFormulaire1_div_1);
+
+    if ($monFormulaire1->databaseHandler_verif == 1) {
+
+      $monFormulaire1_div_3 = [
+        [$btn, "div"],
+        [$btn, "style", "background-color:blue;"]
+      ];
+    }
+
+    $_SESSION["path_config"] = $monFormulaire1->databaseHandler_verif;
+    $monFormulaire1->add_child_array($monFormulaire1_div_2);
+    $monFormulaire1->select_Atribut("input", "select", "form_p_name.php");
+    $monFormulaire1->select_Atribut_function("input");
+    $monFormulaire1->add_child_array($monFormulaire1_div_3);
+  } else {
+    require_once 'session_log.php';
   }
-  
-  $_SESSION["path_config"] = $monFormulaire1->databaseHandler_verif ;
-
-
-  $monFormulaire1->add_child_array($monFormulaire1_div_2);
-  $monFormulaire1->add_child_array($monFormulaire1_div_3);
-  $monFormulaire1->select_Atribut("input", "select", "form_p_name.php");
-  $monFormulaire1->select_Atribut_function("input");
-
-
-
-
-
-
 
 
 
   ?>
+
 
 
 
@@ -182,7 +171,8 @@ session_start();
 </style>
 
 
-</html>
+
+
 
 
 </body>

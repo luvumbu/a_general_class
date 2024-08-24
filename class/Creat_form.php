@@ -54,7 +54,15 @@ class Creat_form
             if ($this->databaseHandler_verif) {
               
             } else {
-                delete_file($this->path_config);
+
+
+               
+
+                
+
+               if(!isset($_SESSION["session_log"])){
+                     delete_file($this->path_config);
+               }
             }
         } else {
         }
@@ -95,7 +103,12 @@ class Creat_form
     <?php
     }
 
-
+function stylesheet ($source) {
+    ?>
+<link rel="stylesheet" href="monFormulaire1.css">
+    <?php 
+    echo '<link rel="stylesheet" href="'.$source.'">'; 
+}
     function select_Atribut_function()
     {
     ?>
@@ -128,6 +141,8 @@ class Creat_form
                     }
                     envoyer = false;
                 }
+
+ 
 
                 function myGreeting_2() {
                 _this.style.opacity = 1;

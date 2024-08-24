@@ -1,88 +1,58 @@
-:root {
-    --font-family: 'Arial', sans-serif;
-    --background-color-body: #f8f3e1; /* Beige chaud pour le fond */
-    --text-color-primary: #333333;
-    --background-color-form: #ffffff;
-    --border-color: #e0e0e0;
-    --label-color: #6b4226; /* Marron terreux pour les labels */
-    --input-border-color: #c4a484; /* Couleur sable pour les bordures */
-    --input-background-color: #f4f1e0; /* Beige clair pour les champs d'entrée */
-    --button-background-color: #d94f2b; /* Rouge terre cuite pour les boutons */
-    --button-hover-background-color: #b03d23; /* Rouge plus sombre au survol */
-    --button-text-color: #ffffff;
-    --link-color: #318f49; /* Vert vibrant pour les liens */
-    --link-hover-color: #276a34; /* Vert foncé au survol */
-    --font-weight-bold: 600;
-    --border-radius: 10px;
-    --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    --padding-standard: 12px;
-    --transition-standard: background-color 0.3s ease;
-}
-
 body {
-    font-family: var(--font-family);
-    background-color: var(--background-color-body);
-    color: var(--text-color-primary);
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
     padding: 50px;
     margin: 0;
 }
 
 .monFormulaire1 {
-    background-color: var(--background-color-form);
+    background-color: #ffffff;
     padding: 20px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    max-width: 350px;
     margin: 0 auto;
-    margin-top: 100px;
-    border: 1px solid var(--border-color);
+    margin-top:150px ; 
 }
 
 .monFormulaire1 label {
-    font-weight: var(--font-weight-bold);
+    font-weight: bold;
     display: block;
-    margin-bottom: 8px;
-    color: var(--label-color);
+    margin-bottom: 10px;
+    color: #333;
 }
 
 .monFormulaire1 input {
     width: 100%;
-    padding: var(--padding-standard);
+    padding: 10px;
     margin-bottom: 20px;
-    border: 1px solid var(--input-border-color);
+    border: 1px solid #ddd;
     border-radius: 5px;
     box-sizing: border-box;
     font-size: 14px;
-    color: var(--text-color-primary);
-    background-color: var(--input-background-color);
+    color: #555;
+    background-color: #f9f9f9;
 }
 
 .submit {
-    background-color: var(--button-background-color);
-    color: var(--button-text-color);
+    background-color: #000000;
+    color: #ffffff;
     border: none;
     cursor: pointer;
     font-size: 16px;
-    font-weight: var(--font-weight-bold);
+    font-weight: bold;
     text-align: center;
-    border-radius: 5px;
-    padding: var(--padding-standard);
-    transition: var(--transition-standard);
+    border-radius: 8px;
+    padding: 12px;
 }
 
 .submit:hover {
-    background-color: var(--button-hover-background-color);
+    background-color: #333333;
 }
 
 #afficherInfos {
     margin-top: 10px;
     cursor: pointer;
-    color: var(--link-color);
-    text-decoration: none;
-    font-weight: var(--font-weight-bold);
-}
 
-#afficherInfos:hover {
-    color: var(--link-hover-color);
     text-decoration: underline;
 }
