@@ -2,26 +2,13 @@
 session_start() ; 
 //echo $_SESSION["img_user"] ; 
 require_once '../class/path_config.php' ; 
-require_once '../class/DatabaseHandler.php' ; 
- 
-$file_path =  $_SESSION["file_path"]  ; 
- 
-
- 
+require_once '../class/DatabaseHandler.php' ;  
+$file_path =  $_SESSION["file_path"]  ;  
 require_once '../class/ImageResizer.php'; // Assurez-vous que le fichier contenant la classe est inclus
-
-
- 
 // Chemin vers l'image source
-
-
 $imagePath = '../img_user_action/'.$file_path;
-
- 
-
 // Créer une instance de la classe ImageResizer
 $resizer = new ImageResizer($imagePath);
-
 // Redimensionner l'image à une nouvelle largeur et hauteur
 $resizer->resize(400, 400);
 

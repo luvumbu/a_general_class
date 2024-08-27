@@ -49,9 +49,11 @@
 
 
         $name_projet_ = AsciiConverter::asciiToString($name_projet[$a]);
+        $title_projet_ = AsciiConverter::asciiToString($title_projet[$a]);
+
     ?>
         <div class="card">
-
+            <input type="text" value="<?php echo $title_projet_; ?>" onkeyup="style_blog_3_2_up(this)" title="<?php echo  $id_projet[$a] ?>" id="<?php echo  't_' . $id_projet[$a] ?>" placeholder="MON TITRE" class="title_projet">
 
 
 
@@ -145,8 +147,33 @@
             <div class="projet">
                 <div title="<?php echo  $id_projet[$a] ?>" class="<?php echo  $id_projet[$a] ?>" onclick="img_user_action(this)"> Modifier la photo</div>
             </div>
-            <img class="add_element" width="50" height="50" src="https://img.icons8.com/ios/50/add--v1.png" alt="add--v1" />
 
+
+
+            <div class="display_flex">
+                <div>
+                    <img class="add_element" width="50" height="50" src="https://img.icons8.com/ios/50/add--v1.png" alt="add--v1" />
+
+                </div>
+<?php 
+
+if( $visibility_1_projet[$a]!=""){
+    ?>
+    <div>
+    <img width="50" name="<?php echo $visibility_1_projet[$a] ?>" title="<?php echo  $id_projet[$a] ?>" onclick="visibility_1_projet(this)" class="add_element" height="50" src="https://img.icons8.com/ios-glyphs/50/invisible.png" alt="invisible"/>
+    </div>
+<?php 
+}
+else {
+?>
+                <div>
+                    <img width="50" name="<?php echo $visibility_1_projet[$a] ?>" title="<?php echo  $id_projet[$a] ?>" onclick="visibility_1_projet(this)" class="add_element" height="50" src="https://img.icons8.com/ios/50/invisible.png" alt="invisible" />
+                </div>
+<?php 
+}
+?>
+
+            </div>
 
         </div>
     <?php
@@ -155,6 +182,41 @@
 </div>
 
 <script>
+
+
+function visibility_1_projet(_this) {
+
+    var img1 ="https://img.icons8.com/ios-glyphs/50/invisible.png" ; 
+    var img2 ="https://img.icons8.com/ios/50/invisible.png" ; 
+
+
+    var ok = new Information("update/visibility_1_projet.php");
+
+    if(_this.src==img1){
+       var visibility_1_projet = "";
+       _this.src = img2 ; 
+    }
+    else {
+        _this.src=img1 ; 
+       var visibility_1_projet = "(0-0)";
+       _this.src = img1 ; 
+
+
+    }
+
+    
+
+            ok.add("visibility_1_projet",visibility_1_projet);
+            ok.add("id_projet", _this.title);
+ 
+
+
+
+
+            ok.push();
+
+}
+ 
     function execCmd(command, value = null) {
         document.execCommand(command, false, value);
     }
@@ -168,9 +230,21 @@
 
             var id_projet = document.getElementById(_this.title);
 
+
+
+            var title_projet = document.getElementById('t_' + _this.title).value;
+
+
+
+
+
             var ok = new Information("update/style_blog_3_2_up.php");
             ok.add("name_projet", id_projet.innerHTML);
             ok.add("id_projet", _this.title);
+            ok.add("title_projet", title_projet);
+
+
+
 
             ok.push();
 
@@ -187,6 +261,10 @@
 </script>
 
 <style>
+    .display_flex {
+        display: flex;
+        justify-content: space-around;
+    }
     .projet {
         background-color: black;
         padding: 25px;
@@ -194,9 +272,10 @@
         text-align: center;
         color: white;
     }
+
     .projet div {
-        padding : 15px ; 
-        
+        padding: 15px;
+
     }
 
     .editor {
@@ -225,7 +304,7 @@
     .taille_img {
         width: 400px;
         text-align: center;
-   
+
         margin: auto;
         margin-top: 50px;
         margin-bottom: 50px;
@@ -238,5 +317,15 @@
         padding-top: 50px;
         padding-bottom: 50px;
         margin-top: 25px;
+    }
+
+    .title_projet {
+        width: 100%;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        padding: 15px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+
+
     }
 </style>
