@@ -51,6 +51,74 @@
         $name_projet_ = AsciiConverter::asciiToString($name_projet[$a]);
         $title_projet_ = AsciiConverter::asciiToString($title_projet[$a]);
 
+
+        $req_sql__ = "SELECT * FROM `projet_child` WHERE `id_parent_projet_child` ='" . $id_projet[$a] . "' ";
+
+        $databaseHandler__ = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler__->getDataFromTable($req_sql__, "id_projet_child");
+        $id_projet_child = $databaseHandler__->tableList_info;
+
+
+        $databaseHandler__ = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler__->getDataFromTable($req_sql__, "id_user_projet_child");
+        $id_user_projet_child = $databaseHandler__->tableList_info;
+
+
+        $databaseHandler__ = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler__->getDataFromTable($req_sql__, "id_sha1_projet_child");
+        $id_sha1_projet_child = $databaseHandler__->tableList_info;
+
+
+        $databaseHandler__ = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler__->getDataFromTable($req_sql__, "id_sha1_parent_projet_child");
+        $id_sha1_parent_projet_child = $databaseHandler__->tableList_info;
+
+
+        $databaseHandler__ = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler__->getDataFromTable($req_sql__, "id_parent_projet_child");
+        $id_parent_projet_child = $databaseHandler__->tableList_info;
+
+
+        $databaseHandler__ = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler__->getDataFromTable($req_sql__, "name_projet_child");
+        $name_projet_child = $databaseHandler__->tableList_info;
+
+
+        $databaseHandler__ = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler__->getDataFromTable($req_sql__, "statue_projet_child");
+        $statue_projet_child = $databaseHandler__->tableList_info;
+
+
+        $databaseHandler__ = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler__->getDataFromTable($req_sql__, "title_projet_child");
+        $title_projet_child = $databaseHandler__->tableList_info;
+
+
+        $databaseHandler__ = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler__->getDataFromTable($req_sql__, "description_projet_child");
+        $description_projet_child = $databaseHandler__->tableList_info;
+
+
+        $databaseHandler__ = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler__->getDataFromTable($req_sql__, "visibility_1_projet_child");
+        $visibility_1_projet_child = $databaseHandler__->tableList_info;
+
+
+        $databaseHandler__ = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler__->getDataFromTable($req_sql__, "img_projet_child_src");
+        $img_projet_child_src = $databaseHandler__->tableList_info;
+
+
+
+
+
+
+
+
+
+        //  var_dump($id_sha1_projet__ ) ; 
+
+
     ?>
         <div class="card">
             <input type="text" value="<?php echo $title_projet_; ?>" onkeyup="style_blog_3_2_up(this)" title="<?php echo  $id_projet[$a] ?>" id="<?php echo  't_' . $id_projet[$a] ?>" placeholder="MON TITRE" class="title_projet">
@@ -186,22 +254,101 @@
             </div>
 
         </div>
+        <?php
+        if (count($id_projet_child) > 0) {
+
+
+
+            for ($z = 0; $z < count($id_projet_child); $z++) {
+        ?>
+
+                <div class="card card_child">
+
+                    <div class="input_child_div">
+
+                        <input type="text" value="<?php echo $title_projet_child[$a] ?>" title=" <?php echo $id_projet_child[$a] ?>">
+
+                    </div>
+                    <div class="child_photo">
+                        Ajouter une photo
+                    </div>
+
+                    <div class="textarea_child_div">
+                        <textarea title=" <?php echo $id_projet_child[$a] ?>" id=""><?php echo $description_projet_child[$a] ?></textarea>
+
+                    </div>
+
+
+
+                    <div class="display_flex">
+                                            <div>
+                    <img width="50" class="add_element" height="50" src="https://img.icons8.com/ios/50/delete-forever--v1.png" alt="delete-forever--v1"/>
+                    </div>
+                    <div>
+<?php 
+
+
+if ($visibility_1_projet_child[$z] != "") {
+    ?>
+        <div>
+            <img width="50" name="<?php echo $visibility_1_projet_child[$z] ?>" title="<?php echo  $id_projet[$z] ?>" onclick="visibility_1_projet_child(this)" class="add_element" height="50" src="https://img.icons8.com/ios-glyphs/50/invisible.png" alt="invisible" />
+        </div>
+    <?php
+    } else {
+    ?>
+        <div>
+            <img width="50" name="<?php echo $visibility_1_projet_child[$z] ?>" title="<?php echo  $id_projet[$z] ?>" onclick="visibility_1_projet_child(this)" class="add_element" height="50" src="https://img.icons8.com/ios/50/invisible.png" alt="invisible" />
+        </div>
     <?php
     }
+
+
     ?>
+                    </div>
+                    </div>
+                    </div>
+                <?php
+            }
+                ?>
+
+
+                <?php
+
+
+
+
+
+
+                ?>
+               
+            <?php
+        }
+            ?>
+
+
+        <?php
+    }
+        ?>
 </div>
 
 <script>
     function projet_child(_this) {
 
-  
-  
+
+        _this.style.display = "none";
         var ok = new Information("add/projet_child.php");
-        ok.add("id_sha1_projet",_this.className);
-        ok.add("id_projet",_this.title);
-       
+        ok.add("id_sha1_projet", _this.className);
+        ok.add("id_projet", _this.title);
+
         ok.push();
-    
+
+
+        const myTimeout = setTimeout(myGreeting, 100);
+
+        function myGreeting() {
+            location.reload();
+        }
+
     }
 
 
@@ -213,7 +360,7 @@
         const myTimeout = setTimeout(myGreeting, 100);
 
         function myGreeting() {
-location.reload() ; 
+            location.reload();
         }
 
 
@@ -299,6 +446,38 @@ location.reload() ;
 </script>
 
 <style>
+    .card_child{
+        background-color: #cac8d4;
+    }
+    .child_photo{
+        text-align: center;
+        justify-content: space-around;
+        background-color: black;
+        color:white ; 
+        padding: 25px;
+        margin-top: 25px;
+        margin-bottom: 50;
+
+    }
+
+    .input_child_div input {
+        width: 100%;
+        margin: auto;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        padding: 15px;
+    }
+
+    .textarea_child_div textarea {
+        width: 100%;
+        margin: auto;
+        margin-top: 25px;
+        height: 100px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        margin-bottom: 50px;
+
+
+    }
+
     .display_flex {
         display: flex;
         justify-content: space-around;
@@ -313,11 +492,11 @@ location.reload() ;
         margin-top: 25px;
         text-align: center;
         color: white;
-     
+
     }
 
     .sup_projet {
-        background-color: rgba(200,15,15,0.8);
+        background-color: rgba(200, 15, 15, 0.8);
     }
 
     .projet div {
@@ -330,7 +509,8 @@ location.reload() ;
     }
 
     .projet:hover,
-    .sup_projet:hover {
+    .sup_projet:hover,
+    .child_photo:hover {
         cursor: pointer;
     }
 
