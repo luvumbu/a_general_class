@@ -162,7 +162,7 @@
             ?>
 
             <div class="display_flex">
-                <div onclick="projet_child(this)" title="<?php echo  $id_projet[$a] ?>">
+                <div onclick="projet_child(this)" class="<?php echo  $id_sha1_projet[$a] ?>" title="<?php echo  $id_projet[$a] ?>">
                     <img class="add_element" width="50" height="50" src="https://img.icons8.com/ios/50/add--v1.png" alt="add--v1" />
 
                 </div>
@@ -193,11 +193,15 @@
 
 <script>
     function projet_child(_this) {
+
+  
+  
         var ok = new Information("add/projet_child.php");
-        ok.add("name_projet", id_projet.innerHTML);
-        ok.add("id_projet", _this.title);
-        ok.add("title_projet", title_projet);
+        ok.add("id_sha1_projet",_this.className);
+        ok.add("id_projet",_this.title);
+       
         ok.push();
+    
     }
 
 
@@ -309,6 +313,7 @@ location.reload() ;
         margin-top: 25px;
         text-align: center;
         color: white;
+     
     }
 
     .sup_projet {

@@ -136,7 +136,10 @@ $databaseHandler->set_column_names("id_projet_child");
 $databaseHandler->set_column_names("id_user_projet_child");
 
 $databaseHandler->set_column_names("id_sha1_projet_child");
+
 $databaseHandler->set_column_names("id_sha1_parent_projet_child");
+$databaseHandler->set_column_names("id_parent_projet_child");
+
 
 
 $databaseHandler->set_column_names("name_projet_child"); 
@@ -161,6 +164,8 @@ $databaseHandler->set_column_names("date_inscription_projet_child");
 $databaseHandler->set_column_types("INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY");
 
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
