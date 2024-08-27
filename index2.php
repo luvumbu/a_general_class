@@ -22,6 +22,8 @@ session_start();
   require_once 'class/Creat_form.php';
 
 
+
+
   if (!isset($_SESSION["session_log"])) {
 
 
@@ -78,7 +80,9 @@ session_start();
   */
     $monFormulaire1_input_1 = [
       [$input_1, "input"],
-      [$input_1, "placeholder", $label_1_text]
+      [$input_1, "placeholder", $label_1_text],
+      [$input_1, "value", "root"]
+
     ];
 
     $monFormulaire1_label_2 = [
@@ -97,7 +101,8 @@ session_start();
 
     $monFormulaire1_input_2 = [
       [$input_2, "input"],
-      [$input_2, "placeholder", $label_2_text]
+      [$input_2, "placeholder", $label_2_text],
+      [$input_2, "value", "root"]
     ];
 
     //onclick_send
@@ -142,6 +147,7 @@ session_start();
     $monFormulaire1->select_Atribut_function("input");
     $monFormulaire1->add_child_array($monFormulaire1_div_3);
   } else {
+    require_once 'class/path_config.php';
     require_once 'session_log.php';
   }
 
