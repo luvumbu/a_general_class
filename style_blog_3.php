@@ -261,74 +261,132 @@
 
             for ($z = 0; $z < count($id_projet_child); $z++) {
         ?>
-
                 <div class="card card_child">
+                <div class="input_child_div">
 
-                    <div class="input_child_div">
+<input type="text" value="<?php echo $title_projet_child[$a] ?>" title=" <?php echo $id_projet_child[$a] ?>">
 
-                        <input type="text" value="<?php echo $title_projet_child[$a] ?>" title=" <?php echo $id_projet_child[$a] ?>">
+</div>
+                    <div class="custom-editor">
+                        <div id="editor-container">
+                            <div id="toolbar">
+                                <div>
+                                    <button  onclick="style_blog_3_2_up(this); execCmd('bold')"><strong>Gras</strong></button>
+                                    <button  onclick="style_blog_3_2_up(this); execCmd('italic')"><em>Italique</em></button>
+                                    <button  onclick="style_blog_3_2_up(this); execCmd('underline')"><u>Souligner</u></button>
+                                    <button  onclick="style_blog_3_2_up(this); execCmd('strikeThrough')">Barré</button>
+                                    <select  onchange="style_blog_3_2_up(this); execCmd('formatBlock', this.value)">
+                                        <option value="">Style de texte</option>
+                                        <option value="h1">Titre 1</option>
+                                        <option value="h2">Titre 2</option>
+                                        <option value="h3">Titre 3</option>
+                                        <option value="p">Paragraphe</option>
+                                    </select>
+                                    <select  onchange="style_blog_3_2_up(this); execCmd('fontSize', this.value)">
+                                        <option value="3">Taille de police</option>
+                                        <option value="1">Très petit</option>
+                                        <option value="2">Petit</option>
+                                        <option value="3">Normal</option>
+                                        <option value="4">Grand</option>
+                                        <option value="5">Très grand</option>
+                                        <option value="6">Gigantesque</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <button  onclick="style_blog_3_2_up(this); execCmd('justifyLeft')">Gauche</button>
+                                    <button  onclick="style_blog_3_2_up(this); execCmd('justifyCenter')">Centrer</button>
+                                    <button  onclick="style_blog_3_2_up(this); execCmd('justifyRight')">Droite</button>
+                                    <button  onclick="style_blog_3_2_up(this); execCmd('justifyFull')">Justifier</button>
+                                    <button  onclick="style_blog_3_2_up(this); execCmd('insertUnorderedList')">Puces</button>
+                                    <button  onclick="style_blog_3_2_up(this); execCmd('insertOrderedList')">Numéros</button>
 
+
+                                    <div>
+
+
+                                    </div>
+                                    <div>
+
+
+                                    </div>
+                                    <button  onclick="style_blog_3_2_up(this); execCmd('createLink', prompt('Entrer URL', 'http://'))">Lien</button>
+                                    <button  onclick="style_blog_3_2_up(this); execCmd('unlink')">Supprimer Lien</button>
+                                </div>
+                                <div style="margin-top: 25px;">
+                                    <div>
+                                        <a>Couleur text</a>
+                                        <input value="couleur" type="color" onchange="style_blog_3_2_up(this); execCmd('foreColor', this.value)" title="Couleur du texte" />
+                                    </div>
+                                    <div>
+                                        <a>Couleur arrier</a>
+                                        <input type="color" onchange="style_blog_3_2_up(this); execCmd('backColor', this.value)" title="Couleur de fond" />
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div  onkeyup="style_blog_3_2_up(this)" class="editor" contenteditable="true"></div>
+                        </div>
                     </div>
+
+
+ 
                     <div class="child_photo">
                         Ajouter une photo
                     </div>
 
-                    <div class="textarea_child_div">
-                        <textarea title=" <?php echo $id_projet_child[$a] ?>" id=""><?php echo $description_projet_child[$a] ?></textarea>
-
-                    </div>
+       
 
 
 
                     <div class="display_flex">
-                                            <div>
-                    <img width="50" class="add_element" height="50" src="https://img.icons8.com/ios/50/delete-forever--v1.png" alt="delete-forever--v1"/>
+                        <div>
+                            <img width="50" class="add_element" height="50" src="https://img.icons8.com/ios/50/delete-forever--v1.png" alt="delete-forever--v1" />
+                        </div>
+                        <div>
+                            <?php
+
+
+                            if ($visibility_1_projet_child[$z] != "") {
+                            ?>
+                                <div>
+                                    <img width="50" name="<?php echo $visibility_1_projet_child[$z] ?>" title="<?php echo  $id_projet[$z] ?>" onclick="visibility_1_projet_child(this)" class="add_element" height="50" src="https://img.icons8.com/ios-glyphs/50/invisible.png" alt="invisible" />
+                                </div>
+                            <?php
+                            } else {
+                            ?>
+                                <div>
+                                    <img width="50" name="<?php echo $visibility_1_projet_child[$z] ?>" title="<?php echo  $id_projet[$z] ?>" onclick="visibility_1_projet_child(this)" class="add_element" height="50" src="https://img.icons8.com/ios/50/invisible.png" alt="invisible" />
+                                </div>
+                            <?php
+                            }
+
+
+                            ?>
+                        </div>
                     </div>
-                    <div>
-<?php 
-
-
-if ($visibility_1_projet_child[$z] != "") {
-    ?>
-        <div>
-            <img width="50" name="<?php echo $visibility_1_projet_child[$z] ?>" title="<?php echo  $id_projet[$z] ?>" onclick="visibility_1_projet_child(this)" class="add_element" height="50" src="https://img.icons8.com/ios-glyphs/50/invisible.png" alt="invisible" />
-        </div>
-    <?php
-    } else {
-    ?>
-        <div>
-            <img width="50" name="<?php echo $visibility_1_projet_child[$z] ?>" title="<?php echo  $id_projet[$z] ?>" onclick="visibility_1_projet_child(this)" class="add_element" height="50" src="https://img.icons8.com/ios/50/invisible.png" alt="invisible" />
-        </div>
-    <?php
-    }
-
-
-    ?>
-                    </div>
-                    </div>
-                    </div>
-                <?php
-            }
-                ?>
-
-
-                <?php
-
-
-
-
-
-
-                ?>
-               
+                </div>
             <?php
-        }
+            }
             ?>
 
 
+            <?php
+
+
+
+
+
+
+            ?>
+
         <?php
-    }
+        }
         ?>
+
+
+    <?php
+    }
+    ?>
 </div>
 
 <script>
@@ -446,14 +504,15 @@ if ($visibility_1_projet_child[$z] != "") {
 </script>
 
 <style>
-    .card_child{
+    .card_child {
         background-color: #cac8d4;
     }
-    .child_photo{
+
+    .child_photo {
         text-align: center;
         justify-content: space-around;
         background-color: black;
-        color:white ; 
+        color: white;
         padding: 25px;
         margin-top: 25px;
         margin-bottom: 50;
