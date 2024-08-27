@@ -1,11 +1,11 @@
  
 
-<div class="row">
+<div class="row rowrow">
   <div class="leftcolumn">
 
     <?php
 
-   // require_once 'style_blog_3.php';
+    require_once 'style_blog_3.php';
 
     ?>
 
@@ -33,3 +33,5 @@
 //require_once 'style_blog_7.php';
 
 ?>
+
+ 

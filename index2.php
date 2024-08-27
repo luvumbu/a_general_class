@@ -20,6 +20,8 @@ session_start();
   <?php
 
   require_once 'class/Creat_form.php';
+  require_once 'class/AsciiConverter.php';
+
 
 
 

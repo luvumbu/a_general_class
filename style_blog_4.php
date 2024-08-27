@@ -1,7 +1,7 @@
 <?php 
 
 
-var_dump($_SESSION["session_general"]);
+//var_dump($_SESSION["session_general"]);
  
 
 
@@ -32,9 +32,11 @@ $img_user = $databaseHandler->tableList_info;
 
 <div class="card">
   <h2>
-  <input name="user_onkeyup"   id="<?php echo 'user_onkeyup_input' ?>" onkeyup="onkeyup_action(this)" type="text" placeholder=" About Me" class="root_input_1" value="<?php  echo $title_user[0] ?>">
+  <input name="user_onkeyup" placeholder="Titre"  id="<?php echo 'user_onkeyup_input' ?>" onkeyup="onkeyup_action(this)" type="text" placeholder=" About Me" class="root_input_1" value="<?php  echo $title_user[0] ?>">
  </h2>
- <a href="img_user_action/index.php">
+ 
+
+ <div onclick="img_user_action(this)" class="user_log" title="user_log">
  <?php 
 if($img_user[0]==""){
 echo ' <div class="fakeimg" style="height:100px;"></div>' ;  
@@ -68,8 +70,8 @@ if (checkFileExists($path)) {
 }
  ?>
 
-</a>
-  <textarea name="user_onkeyup"  id="<?php echo 'user_onkeyup_textarea' ?>" onkeyup="onkeyup_action(this)" class="root_input_2" id=""><?php  echo $description_user[0]?></textarea>
+</div>
+  <textarea placeholder="Déscription" name="user_onkeyup"  id="<?php echo 'user_onkeyup_textarea' ?>" onkeyup="onkeyup_action(this)" class="root_input_2" id=""><?php  echo $description_user[0]?></textarea>
 </div>
 
 
@@ -185,6 +187,32 @@ function myGreeting() {
 
 
 
+
+
+  }
+
+  function img_user_action(_this) {
+    console.log(_this.title) ; 
+
+var ok = new Information("cookie/img_user_action.php"); // création de la classe 
+ 
+ok.add("cookie_img", _this.className); // ajout d'une deuxieme information denvoi  
+ok.add("cookie_title", _this.title); // ajout d'une deuxieme information denvoi  
+
+console.log(ok.info()); // demande l'information dans le tableau
+ok.push(); // envoie l'information au code pkp 
+
+ 
+  
+
+
+  
+
+const myTimeout = setTimeout(myGreeting, 250);
+
+function myGreeting() {
+  window.location.replace("img_user_action/index.php");
+}
 
 
   }

@@ -45,7 +45,11 @@
               console.log(ok.info()); // demande l'information dans le tableau
               ok.push(); // envoie l'information au code pkp 
 
- 
+              const myTimeout = setTimeout(myGreeting, 100);
+
+function myGreeting() {
+   location.reload() ; 
+}
 
   }
 </script>
