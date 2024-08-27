@@ -194,6 +194,10 @@
         text-align: center;
         color: white;
     }
+    .projet div {
+        padding : 15px ; 
+        
+    }
 
     .editor {
         overflow-y: scroll;
@@ -221,7 +225,7 @@
     .taille_img {
         width: 400px;
         text-align: center;
-        background-color: red;
+   
         margin: auto;
         margin-top: 50px;
         margin-bottom: 50px;

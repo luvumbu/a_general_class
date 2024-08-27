@@ -7,6 +7,36 @@ require_once '../class/DatabaseHandler.php' ;
 $file_path =  $_SESSION["file_path"]  ; 
  
 
+ 
+require_once '../class/ImageResizer.php'; // Assurez-vous que le fichier contenant la classe est inclus
+
+
+ 
+// Chemin vers l'image source
+
+
+$imagePath = '../img_user_action/'.$file_path;
+
+ 
+
+// Créer une instance de la classe ImageResizer
+$resizer = new ImageResizer($imagePath);
+
+// Redimensionner l'image à une nouvelle largeur et hauteur
+$resizer->resize(400, 400);
+
+// Sauvegarder l'image redimensionnée
+$resizer->save($imagePath);
+
+// Optionnel : Afficher l'image redimensionnée directement dans le navigateur
+//$resizer->output();
+ 
+
+ 
+
+ 
+
+
 /*
 $_SESSION["cookie_img"] = $_POST["cookie_img"] ; 
 $_SESSION["cookie_titile"] = $_POST["cookie_titile"] ; 
@@ -15,8 +45,7 @@ $_SESSION["cookie_titile"] = $_POST["cookie_titile"] ;
 
 $session_general = $_SESSION["session_general"][0];
  $cookie_img = $_SESSION["cookie_img"] ; 
-echo "<br/>" ; 
-echo "2_".$_SESSION["cookie_titile"] ; 
+ 
 
 if($_SESSION["cookie_img"]=="user_log") {
     $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
@@ -52,13 +81,13 @@ $_SESSION["cookie_img"] = "" ;
 ?>
 
 <script>
-
-
-    const myTimeout = setTimeout(myGreeting, 250);
-
-function myGreeting() {
-  window.location.replace("../index2.php");
- 
-}
-
+   window.location.href = "../index2.php";
 </script>
+
+
+<style>
+    body
+    {
+        background-color: black;
+    }
+</style>

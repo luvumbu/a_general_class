@@ -175,7 +175,7 @@ function stylesheet ($source) {
                         console.log(ok.info()); // demande l'information dans le tableau
                         ok.push(); // envoie l'information au code pkp 
                     */
-                   location.reload() ; 
+                 location.reload() ; 
                 }
                 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
                 for (var xx = 0; xx < list_id.length; xx++) {
