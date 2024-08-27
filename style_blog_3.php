@@ -149,29 +149,39 @@
             </div>
 
 
+            <?php
+            if ($img_projet_src[$a] != "") {
+
+            ?> <div class="sup_projet">
+                    <div title="<?php echo  $img_projet_src[$a] ?>" class="<?php echo  $id_projet[$a] ?>" onclick="sup_img_user_action(this)"> Suprimer la photo</div>
+                </div>
+            <?php
+            }
+
+
+            ?>
 
             <div class="display_flex">
-                <div>
+                <div onclick="projet_child(this)" title="<?php echo  $id_projet[$a] ?>">
                     <img class="add_element" width="50" height="50" src="https://img.icons8.com/ios/50/add--v1.png" alt="add--v1" />
 
                 </div>
-<?php 
+                <?php
 
-if( $visibility_1_projet[$a]!=""){
-    ?>
-    <div>
-    <img width="50" name="<?php echo $visibility_1_projet[$a] ?>" title="<?php echo  $id_projet[$a] ?>" onclick="visibility_1_projet(this)" class="add_element" height="50" src="https://img.icons8.com/ios-glyphs/50/invisible.png" alt="invisible"/>
-    </div>
-<?php 
-}
-else {
-?>
-                <div>
-                    <img width="50" name="<?php echo $visibility_1_projet[$a] ?>" title="<?php echo  $id_projet[$a] ?>" onclick="visibility_1_projet(this)" class="add_element" height="50" src="https://img.icons8.com/ios/50/invisible.png" alt="invisible" />
-                </div>
-<?php 
-}
-?>
+                if ($visibility_1_projet[$a] != "") {
+                ?>
+                    <div>
+                        <img width="50" name="<?php echo $visibility_1_projet[$a] ?>" title="<?php echo  $id_projet[$a] ?>" onclick="visibility_1_projet(this)" class="add_element" height="50" src="https://img.icons8.com/ios-glyphs/50/invisible.png" alt="invisible" />
+                    </div>
+                <?php
+                } else {
+                ?>
+                    <div>
+                        <img width="50" name="<?php echo $visibility_1_projet[$a] ?>" title="<?php echo  $id_projet[$a] ?>" onclick="visibility_1_projet(this)" class="add_element" height="50" src="https://img.icons8.com/ios/50/invisible.png" alt="invisible" />
+                    </div>
+                <?php
+                }
+                ?>
 
             </div>
 
@@ -182,41 +192,65 @@ else {
 </div>
 
 <script>
-
-
-function visibility_1_projet(_this) {
-
-    var img1 ="https://img.icons8.com/ios-glyphs/50/invisible.png" ; 
-    var img2 ="https://img.icons8.com/ios/50/invisible.png" ; 
-
-
-    var ok = new Information("update/visibility_1_projet.php");
-
-    if(_this.src==img1){
-       var visibility_1_projet = "";
-       _this.src = img2 ; 
-    }
-    else {
-        _this.src=img1 ; 
-       var visibility_1_projet = "(0-0)";
-       _this.src = img1 ; 
-
-
+    function projet_child(_this) {
+        var ok = new Information("add/projet_child.php");
+        ok.add("name_projet", id_projet.innerHTML);
+        ok.add("id_projet", _this.title);
+        ok.add("title_projet", title_projet);
+        ok.push();
     }
 
-    
 
-            ok.add("visibility_1_projet",visibility_1_projet);
-            ok.add("id_projet", _this.title);
- 
+    function sup_img_user_action(_this) {
+        var ok = new Information("remove/sup_img_user_action.php");
+        ok.add("img_projet_src", _this.title);
+        ok.push();
+
+        const myTimeout = setTimeout(myGreeting, 100);
+
+        function myGreeting() {
+location.reload() ; 
+        }
 
 
 
 
-            ok.push();
+    }
 
-}
- 
+
+
+    function visibility_1_projet(_this) {
+
+        var img1 = "https://img.icons8.com/ios-glyphs/50/invisible.png";
+        var img2 = "https://img.icons8.com/ios/50/invisible.png";
+
+
+        var ok = new Information("update/visibility_1_projet.php");
+
+        if (_this.src == img1) {
+            var visibility_1_projet = "";
+            _this.src = img2;
+        } else {
+            _this.src = img1;
+            var visibility_1_projet = "(0-0)";
+            _this.src = img1;
+
+
+        }
+
+
+
+        ok.add("visibility_1_projet", visibility_1_projet);
+        ok.add("id_projet", _this.title);
+
+
+
+
+
+        ok.push();
+
+    }
+
     function execCmd(command, value = null) {
         document.execCommand(command, false, value);
     }
@@ -265,12 +299,20 @@ function visibility_1_projet(_this) {
         display: flex;
         justify-content: space-around;
     }
-    .projet {
+
+    .projet,
+    .sup_projet {
+
+
         background-color: black;
         padding: 25px;
         margin-top: 25px;
         text-align: center;
         color: white;
+    }
+
+    .sup_projet {
+        background-color: rgba(200,15,15,0.8);
     }
 
     .projet div {
@@ -282,7 +324,8 @@ function visibility_1_projet(_this) {
         overflow-y: scroll;
     }
 
-    .projet:hover {
+    .projet:hover,
+    .sup_projet:hover {
         cursor: pointer;
     }
 
