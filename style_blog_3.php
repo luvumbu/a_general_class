@@ -243,6 +243,7 @@
                     <img class="add_element" width="50" height="50" src="https://img.icons8.com/ios/50/add--v1.png" alt="add--v1" />
 
                 </div>
+                
                 <?php
 
                 if ($visibility_1_projet[$a] != "") {
@@ -253,12 +254,21 @@
                 <?php
                 } else {
                 ?>
-                    <div>
+                    <div id="<?php echo  'confirmer_'.$id_projet[$a] ?>">
                         <img width="50" name="<?php echo $visibility_1_projet[$a] ?>" title="<?php echo  $id_projet[$a] ?>" onclick="visibility_1_projet(this)" class="add_element" height="50" src="https://img.icons8.com/ios/50/invisible.png" alt="invisible" />
                     </div>
                 <?php
                 }
                 ?>
+                <div>
+                <img title="<?php echo  $id_projet[$a] ?>" onclick="remove_projet_(this)" class="add_element" width="50" height="50" src="https://img.icons8.com/ios/50/delete-forever--v1.png" alt="delete-forever--v1"/>
+                </div>
+
+                <div>
+                <img  class="display_none" id="<?php echo  'remove_'.$id_projet[$a] ?>" title="<?php echo  $id_projet[$a] ?>" onclick="remove_projet(this)" class="add_element" width="50" height="50" src="https://img.icons8.com/fluency/50/delete-forever.png" alt="delete-forever"/>
+                            
+                </div>
+
 
             </div>
 
@@ -402,6 +412,36 @@
 </div>
 
 <script>
+
+
+function remove_projet_(_this) {
+
+   
+    _this.style.display="none" ; 
+
+   
+   document.getElementById('remove_'+_this.title).className ="add_element" ;
+ 
+}
+
+    function remove_projet(_this){
+     
+         _this.style.display = "none";
+        var ok = new Information("remove/remove_projet.php");
+    
+        ok.add("id_projet", _this.title);
+
+        ok.push();
+
+
+        const myTimeout = setTimeout(myGreeting, 100);
+
+        function myGreeting() {
+           location.reload();
+        }
+
+
+    }
     function projet_child(_this) {
 
 
@@ -514,6 +554,9 @@
 </script>
 
 <style>
+    .display_none{
+      opacity: 0;
+    }
     .card_child {
         background-color: #cac8d4;
     }
