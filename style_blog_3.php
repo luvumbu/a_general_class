@@ -53,7 +53,7 @@
 
         $description_projet_ = AsciiConverter::asciiToString($description_projet[$a]);
 
- 
+
         $req_sql__ = "SELECT * FROM `projet_child` WHERE `id_parent_projet_child` ='" . $id_projet[$a] . "' ";
 
         $databaseHandler__ = new DatabaseHandler($config_dbname, $config_password);
@@ -125,13 +125,24 @@
         <div class="card">
             <input type="text" value="<?php echo $title_projet_; ?>" onkeyup="style_blog_3_2_up(this)" title="<?php echo  $id_projet[$a] ?>" id="<?php echo  't_' . $id_projet[$a] ?>" placeholder="MON TITRE" class="title_projet">
             <input type="text" style="opacity: 0.3;" value="<?php echo $description_projet_; ?>" onkeyup="style_blog_3_2_up(this)" title="<?php echo  $id_projet[$a] ?>" id="<?php echo  'h_' . $id_projet[$a] ?>" placeholder="autre element" class="title_projet">
+            <input type="text" class="input_group" placeholder="ajouter un groupe">
+        
+            <select class="form_select" aria-label="Default select example">
+                <option selected>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+<div>
+<img  class="add_element" width="35" height="35" src="https://img.icons8.com/ultraviolet/35/plus--v1.png" alt="plus--v1"/>
 
-<div onclick="editor_container(this)" title="<?php echo  $id_projet[$a] ?>">
-<img class="add_element" width="47" height="47" src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/47/external-design-design-thinking-flatart-icons-outline-flatarticons-6.png" alt="external-design-design-thinking-flatart-icons-outline-flatarticons-6"/>
 </div>
+            <div onclick="editor_container(this)" title="<?php echo  $id_projet[$a] ?>">
+                <img class="add_element" width="47" height="47" src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/47/external-design-design-thinking-flatart-icons-outline-flatarticons-6.png" alt="external-design-design-thinking-flatart-icons-outline-flatarticons-6" />
+            </div>
 
-            <div class="custom-editor"  >
-                <div  class="display_none2" id="<?php echo  "editor-container_".$id_projet[$a] ?>">
+            <div class="custom-editor">
+                <div class="display_none2" id="<?php echo  "editor-container_" . $id_projet[$a] ?>">
                     <div id="toolbar">
                         <div>
                             <button title="<?php echo  $id_projet[$a] ?>" onclick="style_blog_3_2_up(this); execCmd('bold')"><strong>Gras</strong></button>
@@ -246,7 +257,7 @@
                     <img class="add_element" width="50" height="50" src="https://img.icons8.com/ios/50/add--v1.png" alt="add--v1" />
 
                 </div>
-                
+
                 <?php
 
                 if ($visibility_1_projet[$a] != "") {
@@ -257,19 +268,19 @@
                 <?php
                 } else {
                 ?>
-                    <div id="<?php echo  'confirmer_'.$id_projet[$a] ?>">
+                    <div id="<?php echo  'confirmer_' . $id_projet[$a] ?>">
                         <img width="50" name="<?php echo $visibility_1_projet[$a] ?>" title="<?php echo  $id_projet[$a] ?>" onclick="visibility_1_projet(this)" class="add_element" height="50" src="https://img.icons8.com/ios/50/invisible.png" alt="invisible" />
                     </div>
                 <?php
                 }
                 ?>
                 <div>
-                <img title="<?php echo  $id_projet[$a] ?>" onclick="remove_projet_(this)" class="add_element" width="50" height="50" src="https://img.icons8.com/ios/50/delete-forever--v1.png" alt="delete-forever--v1"/>
+                    <img title="<?php echo  $id_projet[$a] ?>" onclick="remove_projet_(this)" class="add_element" width="50" height="50" src="https://img.icons8.com/ios/50/delete-forever--v1.png" alt="delete-forever--v1" />
                 </div>
 
                 <div>
-                <img  class="display_none" id="<?php echo  'remove_'.$id_projet[$a] ?>" title="<?php echo  $id_projet[$a] ?>" onclick="remove_projet(this)" class="add_element" width="50" height="50" src="https://img.icons8.com/fluency/50/delete-forever.png" alt="delete-forever"/>
-                            
+                    <img class="display_none" id="<?php echo  'remove_' . $id_projet[$a] ?>" title="<?php echo  $id_projet[$a] ?>" onclick="remove_projet(this)" class="add_element" width="50" height="50" src="https://img.icons8.com/fluency/50/delete-forever.png" alt="delete-forever" />
+
                 </div>
 
 
@@ -415,44 +426,42 @@
 </div>
 
 <script>
-
     function editor_container(_this) {
-        console.log(_this.title) ; 
-
- 
-var editor_container_ =   document.getElementById("editor-container_"+_this.title)  ;
- 
+        console.log(_this.title);
 
 
-if( editor_container_.className =="add_element" ){
-    editor_container_.className = "display_none2" ; 
-}
-else {
-    editor_container_.className = "add_element" ; 
+        var editor_container_ = document.getElementById("editor-container_" + _this.title);
 
-}
-      
-        
-        
+
+
+        if (editor_container_.className == "add_element") {
+            editor_container_.className = "display_none2";
+        } else {
+            editor_container_.className = "add_element";
+
+        }
+
+
+
 
     }
 
 
-function remove_projet_(_this) {
+    function remove_projet_(_this) {
 
-   
-    _this.style.display="none" ; 
 
-   
-   document.getElementById('remove_'+_this.title).className ="add_element" ;
- 
-}
+        _this.style.display = "none";
 
-    function remove_projet(_this){
-     
-         _this.style.display = "none";
+
+        document.getElementById('remove_' + _this.title).className = "add_element";
+
+    }
+
+    function remove_projet(_this) {
+
+        _this.style.display = "none";
         var ok = new Information("remove/remove_projet.php");
-    
+
         ok.add("id_projet", _this.title);
 
         ok.push();
@@ -461,11 +470,12 @@ function remove_projet_(_this) {
         const myTimeout = setTimeout(myGreeting, 100);
 
         function myGreeting() {
-           location.reload();
+            location.reload();
         }
 
 
     }
+
     function projet_child(_this) {
 
 
@@ -562,7 +572,7 @@ function remove_projet_(_this) {
             ok.add("name_projet", id_projet.innerHTML);
             ok.add("id_projet", _this.title);
             ok.add("title_projet", title_projet);
-            ok.add("description_projet", description_projet); 
+            ok.add("description_projet", description_projet);
             ok.push();
 
             onkeyup_action_bool = true;
@@ -578,12 +588,20 @@ function remove_projet_(_this) {
 </script>
 
 <style>
-    .display_none{
-      opacity: 0;
+   
+    .form_select,.input_group{
+        padding: 10px;
+        border:1px solid rgba(0, 0, 0, 0.2) ; 
+        color :  rgba(0, 0, 0, 0.6) ;  
     }
-    .display_none2{
+    .display_none {
+        opacity: 0;
+    }
+
+    .display_none2 {
         display: none;
     }
+
     .card_child {
         background-color: #cac8d4;
     }
