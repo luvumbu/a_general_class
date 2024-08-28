@@ -51,7 +51,9 @@
         $name_projet_ = AsciiConverter::asciiToString($name_projet[$a]);
         $title_projet_ = AsciiConverter::asciiToString($title_projet[$a]);
 
+        $description_projet_ = AsciiConverter::asciiToString($description_projet[$a]);
 
+ 
         $req_sql__ = "SELECT * FROM `projet_child` WHERE `id_parent_projet_child` ='" . $id_projet[$a] . "' ";
 
         $databaseHandler__ = new DatabaseHandler($config_dbname, $config_password);
@@ -122,6 +124,7 @@
     ?>
         <div class="card">
             <input type="text" value="<?php echo $title_projet_; ?>" onkeyup="style_blog_3_2_up(this)" title="<?php echo  $id_projet[$a] ?>" id="<?php echo  't_' . $id_projet[$a] ?>" placeholder="MON TITRE" class="title_projet">
+            <input type="text" style="opacity: 0.3;" value="<?php echo $description_projet_; ?>" onkeyup="style_blog_3_2_up(this)" title="<?php echo  $id_projet[$a] ?>" id="<?php echo  'h_' . $id_projet[$a] ?>" placeholder="autre element" class="title_projet">
 
 
 
@@ -485,6 +488,7 @@
 
 
             var title_projet = document.getElementById('t_' + _this.title).value;
+            var description_projet = document.getElementById('h_' + _this.title).value;
 
 
 
@@ -494,10 +498,7 @@
             ok.add("name_projet", id_projet.innerHTML);
             ok.add("id_projet", _this.title);
             ok.add("title_projet", title_projet);
-
-
-
-
+            ok.add("description_projet", description_projet); 
             ok.push();
 
             onkeyup_action_bool = true;
