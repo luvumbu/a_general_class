@@ -230,6 +230,12 @@
             ?>
 
             <div class="display_flex">
+
+                <div>
+                    <div class="add_element">
+                        <img width="50" height="50" src="https://img.icons8.com/color/50/calendar--v1.png" alt="calendar--v1" />
+                    </div>
+                </div>
                 <div onclick="projet_child(this)" class="<?php echo  $id_sha1_projet[$a] ?>" title="<?php echo  $id_projet[$a] ?>">
                     <img class="add_element" width="50" height="50" src="https://img.icons8.com/ios/50/add--v1.png" alt="add--v1" />
 
@@ -262,27 +268,27 @@
             for ($z = 0; $z < count($id_projet_child); $z++) {
         ?>
                 <div class="card card_child">
-                <div class="input_child_div">
+                    <div class="input_child_div">
 
-<input type="text" value="<?php echo $title_projet_child[$a] ?>" title=" <?php echo $id_projet_child[$a] ?>">
+                        <input placeholder="Mon titre" type="text" value="<?php echo $title_projet_child[$a] ?>" title=" <?php echo $id_projet_child[$a] ?>">
 
-</div>
+                    </div>
                     <div class="custom-editor">
                         <div id="editor-container">
                             <div id="toolbar">
                                 <div>
-                                    <button  onclick="style_blog_3_2_up(this); execCmd('bold')"><strong>Gras</strong></button>
-                                    <button  onclick="style_blog_3_2_up(this); execCmd('italic')"><em>Italique</em></button>
-                                    <button  onclick="style_blog_3_2_up(this); execCmd('underline')"><u>Souligner</u></button>
-                                    <button  onclick="style_blog_3_2_up(this); execCmd('strikeThrough')">Barré</button>
-                                    <select  onchange="style_blog_3_2_up(this); execCmd('formatBlock', this.value)">
+                                    <button onclick="style_blog_3_2_up(this); execCmd('bold')"><strong>Gras</strong></button>
+                                    <button onclick="style_blog_3_2_up(this); execCmd('italic')"><em>Italique</em></button>
+                                    <button onclick="style_blog_3_2_up(this); execCmd('underline')"><u>Souligner</u></button>
+                                    <button onclick="style_blog_3_2_up(this); execCmd('strikeThrough')">Barré</button>
+                                    <select onchange="style_blog_3_2_up(this); execCmd('formatBlock', this.value)">
                                         <option value="">Style de texte</option>
                                         <option value="h1">Titre 1</option>
                                         <option value="h2">Titre 2</option>
                                         <option value="h3">Titre 3</option>
                                         <option value="p">Paragraphe</option>
                                     </select>
-                                    <select  onchange="style_blog_3_2_up(this); execCmd('fontSize', this.value)">
+                                    <select onchange="style_blog_3_2_up(this); execCmd('fontSize', this.value)">
                                         <option value="3">Taille de police</option>
                                         <option value="1">Très petit</option>
                                         <option value="2">Petit</option>
@@ -293,12 +299,12 @@
                                     </select>
                                 </div>
                                 <div>
-                                    <button  onclick="style_blog_3_2_up(this); execCmd('justifyLeft')">Gauche</button>
-                                    <button  onclick="style_blog_3_2_up(this); execCmd('justifyCenter')">Centrer</button>
-                                    <button  onclick="style_blog_3_2_up(this); execCmd('justifyRight')">Droite</button>
-                                    <button  onclick="style_blog_3_2_up(this); execCmd('justifyFull')">Justifier</button>
-                                    <button  onclick="style_blog_3_2_up(this); execCmd('insertUnorderedList')">Puces</button>
-                                    <button  onclick="style_blog_3_2_up(this); execCmd('insertOrderedList')">Numéros</button>
+                                    <button onclick="style_blog_3_2_up(this); execCmd('justifyLeft')">Gauche</button>
+                                    <button onclick="style_blog_3_2_up(this); execCmd('justifyCenter')">Centrer</button>
+                                    <button onclick="style_blog_3_2_up(this); execCmd('justifyRight')">Droite</button>
+                                    <button onclick="style_blog_3_2_up(this); execCmd('justifyFull')">Justifier</button>
+                                    <button onclick="style_blog_3_2_up(this); execCmd('insertUnorderedList')">Puces</button>
+                                    <button onclick="style_blog_3_2_up(this); execCmd('insertOrderedList')">Numéros</button>
 
 
                                     <div>
@@ -309,8 +315,8 @@
 
 
                                     </div>
-                                    <button  onclick="style_blog_3_2_up(this); execCmd('createLink', prompt('Entrer URL', 'http://'))">Lien</button>
-                                    <button  onclick="style_blog_3_2_up(this); execCmd('unlink')">Supprimer Lien</button>
+                                    <button onclick="style_blog_3_2_up(this); execCmd('createLink', prompt('Entrer URL', 'http://'))">Lien</button>
+                                    <button onclick="style_blog_3_2_up(this); execCmd('unlink')">Supprimer Lien</button>
                                 </div>
                                 <div style="margin-top: 25px;">
                                     <div>
@@ -324,21 +330,24 @@
 
                                 </div>
                             </div>
-                            <div  onkeyup="style_blog_3_2_up(this)" class="editor" contenteditable="true"></div>
+                            <div onkeyup="style_blog_3_2_up(this)" class="editor" contenteditable="true"></div>
                         </div>
                     </div>
 
 
- 
+
                     <div class="child_photo">
                         Ajouter une photo
                     </div>
 
-       
+
 
 
 
                     <div class="display_flex">
+                        <div class="add_element">
+                            <img width="50" height="50" src="https://img.icons8.com/color/50/calendar--v1.png" alt="calendar--v1" />
+                        </div>
                         <div>
                             <img width="50" class="add_element" height="50" src="https://img.icons8.com/ios/50/delete-forever--v1.png" alt="delete-forever--v1" />
                         </div>
