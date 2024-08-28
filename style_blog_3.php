@@ -126,10 +126,12 @@
             <input type="text" value="<?php echo $title_projet_; ?>" onkeyup="style_blog_3_2_up(this)" title="<?php echo  $id_projet[$a] ?>" id="<?php echo  't_' . $id_projet[$a] ?>" placeholder="MON TITRE" class="title_projet">
             <input type="text" style="opacity: 0.3;" value="<?php echo $description_projet_; ?>" onkeyup="style_blog_3_2_up(this)" title="<?php echo  $id_projet[$a] ?>" id="<?php echo  'h_' . $id_projet[$a] ?>" placeholder="autre element" class="title_projet">
 
+<div onclick="editor_container(this)" title="<?php echo  $id_projet[$a] ?>">
+<img class="add_element" width="47" height="47" src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/47/external-design-design-thinking-flatart-icons-outline-flatarticons-6.png" alt="external-design-design-thinking-flatart-icons-outline-flatarticons-6"/>
+</div>
 
-
-            <div class="custom-editor">
-                <div id="editor-container">
+            <div class="custom-editor"  >
+                <div  class="display_none2" id="<?php echo  "editor-container_".$id_projet[$a] ?>">
                     <div id="toolbar">
                         <div>
                             <button title="<?php echo  $id_projet[$a] ?>" onclick="style_blog_3_2_up(this); execCmd('bold')"><strong>Gras</strong></button>
@@ -185,8 +187,9 @@
 
                         </div>
                     </div>
-                    <div title="<?php echo  $id_projet[$a] ?>" id="<?php echo  $id_projet[$a] ?>" onkeyup="style_blog_3_2_up(this)" class="editor" contenteditable="true"><?php echo $name_projet_ ?></div>
                 </div>
+                <div title="<?php echo  $id_projet[$a] ?>" id="<?php echo  $id_projet[$a] ?>" onkeyup="style_blog_3_2_up(this)" class="editor" contenteditable="true"><?php echo $name_projet_ ?></div>
+
             </div>
 
             <?php
@@ -413,6 +416,27 @@
 
 <script>
 
+    function editor_container(_this) {
+        console.log(_this.title) ; 
+
+ 
+var editor_container_ =   document.getElementById("editor-container_"+_this.title)  ;
+ 
+
+
+if( editor_container_.className =="add_element" ){
+    editor_container_.className = "display_none2" ; 
+}
+else {
+    editor_container_.className = "add_element" ; 
+
+}
+      
+        
+        
+
+    }
+
 
 function remove_projet_(_this) {
 
@@ -556,6 +580,9 @@ function remove_projet_(_this) {
 <style>
     .display_none{
       opacity: 0;
+    }
+    .display_none2{
+        display: none;
     }
     .card_child {
         background-color: #cac8d4;
