@@ -3,6 +3,12 @@
 <div class="class_t">
     <?php
 
+
+
+    echo $_SESSION['session_id_projet'];
+ 
+    echo $_SESSION['session_id_group'];
+    echo "<br/>";
     $req_sql = 'SELECT * FROM `projet` WHERE `id_user_projet` = "' . $_SESSION["session_general"][0] . '" ORDER BY `projet`.`id_projet` DESC';
 
     $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
@@ -567,7 +573,20 @@ for ($n = 0; $n < count($name_group); $n++) {
 
 
 
- 
+
+
+
+        const myTimeout = setTimeout(myGreeting, 1000);
+
+        function myGreeting() {
+
+
+
+            var ok = new Information("update/update_add_group.php");
+            ok.push();
+
+        }
+
 
 
 
@@ -770,7 +789,8 @@ for ($n = 0; $n < count($name_group); $n++) {
         border: 1px solid rgba(0, 0, 0, 0.2);
         color: rgba(0, 0, 0, 0.6);
     }
-    .form_select{
+
+    .form_select {
         margin-top: 150px;
     }
 
