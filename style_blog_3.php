@@ -625,8 +625,17 @@ function myGreeting() {
         document.getElementById("div_selection_" + _this.title).name = select_name_group_;
 
 
+ 
+
+ 
+
+        var ok = new Information("update/select_name_group.php");
+
+        ok.add("id_projet", _this.title);
+        ok.add("group_projet", _this.value);
 
 
+        ok.push();
 
 
 
