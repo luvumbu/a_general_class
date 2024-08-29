@@ -4,7 +4,11 @@
     <?php
 
 
+
+    echo $_SESSION['session_id_projet'];
  
+    echo $_SESSION['session_id_group'];
+    echo "<br/>";
     $req_sql = 'SELECT * FROM `projet` WHERE `id_user_projet` = "' . $_SESSION["session_general"][0] . '" ORDER BY `projet`.`id_projet` DESC';
 
     $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
@@ -49,46 +53,21 @@
 
 
 
-    $req_sql_2 = "SELECT * FROM `group_projet` WHERE `id_user_group`='" . $_SESSION["session_general"][0] . "' ORDER BY `group_projet`.`id_group` DESC ";
-
+ 
     $databaseHandler_2 = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler_2->getDataFromTable($req_sql_2, "id_group");
+    $databaseHandler_2->getDataFromTable($req_sql, "group_projet");
     $id_group = $databaseHandler_2->tableList_info;
 
+var_dump($id_group) ; 
 
+    /*
 
     $databaseHandler_2 = new DatabaseHandler($config_dbname, $config_password);
     $databaseHandler_2->getDataFromTable($req_sql_2, "name_group");
     $name_group = $databaseHandler_2->tableList_info;
-
-    $databaseHandler_2 = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler_2->getDataFromTable($req_sql_2, "id_group");
-    $id_group = $databaseHandler_2->tableList_info;
-
-
-
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql, "group_projet");
-    $group_projet = $databaseHandler->tableList_info;
- 
+*/
 
  
-
-
-
- 
-
- 
-
-
-
-
-
-
-
-
-
 
 
 
@@ -160,26 +139,11 @@
 
 
 
-       
-
- 
-         
-$valeur_a_chercher = $group_projet[$a];
-
-$resultat = chercherIndex($id_group, $valeur_a_chercher);
 
 
- 
 
+echo $name_group[$a] ; 
 
- 
- 
-
-$resultat = chercherIndex($id_group, $valeur_a_chercher);
- 
- 
- 
- 
 
     ?>
         <div class="card">
@@ -206,13 +170,6 @@ $id_group
                 <?php
 
                 $n_s = "";
-
-             
-                    echo ' <option  id="select_name_group_' . $name_group[$resultat] . '"  value="' . $name_group[$resultat] . '">' . $name_group[$resultat]. '</option>';
-  
-           
-             
-                
                 for ($n = 0; $n < count($name_group); $n++) {
 
                     echo ' <option  id="select_name_group_' . $id_group[$n] . '"  value="' . $id_group[$n] . '">' . $name_group[$n] . '</option>';
@@ -253,7 +210,7 @@ for ($n = 0; $n < count($name_group); $n++) {
 
 
 
- 
+
 
 
             ?>
@@ -261,8 +218,8 @@ for ($n = 0; $n < count($name_group); $n++) {
 
 
             <div class="div_selection">
-                <input onkeyup="input_div_selection(this)" class="<?php echo $resultat ?>" id="<?php echo  'div_selection_' . $id_projet[$a] ?>" value="<?php echo $name_group[$resultat]?>" style="position: relative;top:-25px" type="text"><img width="50" height="50" src="https://img.icons8.com/color/50/clear-symbol--v1.png" alt="clear-symbol--v1" />
-                    <div class="modif_group" onclick="modif_group(this)">Modifier le nom du groupe</div>
+                <input class="<?php echo $n_s ?>" id="<?php echo  'div_selection_' . $id_projet[$a] ?>" value="<?php echo $name_group[$n_] ?>" style="position: relative;top:-25px" type="text"><img width="50" height="50" src="https://img.icons8.com/color/50/clear-symbol--v1.png" alt="clear-symbol--v1" />
+
             </div>
 
 
@@ -558,51 +515,6 @@ for ($n = 0; $n < count($name_group); $n++) {
 </div>
 
 <script>
-
-
-function input_div_selection(_this) {
-   
-    const myTimeout = setTimeout(myGreeting, 500);
-
-function deux_a() {
-    onkeyup_action_bool2 = false;
-    console.log(_this.className);
-    console.log(_this.value);
-
-/*
-    var id_projet = document.getElementById(_this.title);
-
-
-
-    var title_projet = document.getElementById('t_' + _this.title).value;
-    var description_projet = document.getElementById('h_' + _this.title).value;
-
-*/
-
-/*
-
-    var ok = new Information("update/style_blog_3_2_up.php");
-    ok.add("name_projet", id_projet.innerHTML);
-    ok.add("id_projet", _this.title);
-    ok.add("title_projet", title_projet);
-    ok.add("description_projet", description_projet);
-    ok.push();
-*/
-    onkeyup_action_bool = true;
-}
-
-function myGreeting() {
-    if (onkeyup_action_bool2 == false) {
-        onkeyup_action_bool2 = true;
-        const deux = setTimeout(deux_a, 500);
-    }
-}
-
-
-
-}
-
-    var input_change =true ; 
     function select_name_group(_this) {
 
 
@@ -615,18 +527,7 @@ function myGreeting() {
         document.getElementById("div_selection_" + _this.title).value = select_name_group_;
 
 
-        
-        
         document.getElementById("div_selection_" + _this.title).className = _this.value;
-
-
-
-        document.getElementById("div_selection_" + _this.title).title = _this.value;
-        document.getElementById("div_selection_" + _this.title).name = select_name_group_;
-
-
-
-
 
 
 
@@ -635,20 +536,9 @@ function myGreeting() {
     function add_group(_this) {
 
 
-        
 
-    
- 
-input_change = false ; 
 
         var name_group = document.getElementById("name_group_" + _this.title).value;
-
- 
-
-        var name_group = document.getElementById("div_selection_"+_this.title).value =name_group;
-        console.log(name_group) ; 
-
- 
         var form_select = document.getElementById("form_select_" + _this.title);
 
 
@@ -684,7 +574,8 @@ input_change = false ;
         ok.push();
 
 
- 
+
+
 
 
 
@@ -871,29 +762,9 @@ input_change = false ;
             }
         }
     }
-
-    function modif_group(_this) {
-        console.log(_this.title) ; 
-        console.log(_this.className) ; 
-
-        console.log(_this.name) ; 
-
-
-    }
 </script>
 
 <style>
-    .modif_group{
-        background-color: rgba(0, 0, 255, 0.8);
-        width: 250px;
-
-        text-align: center;
-        padding: 10px ;
-        color: white;
-        border-radius: 5px;
-
-
-    }
     .div_selection input {
         position: relative;
         top: -25px;
@@ -999,8 +870,7 @@ input_change = false ;
 
     .projet:hover,
     .sup_projet:hover,
-    .child_photo:hover ,
-    .modif_group:hover{
+    .child_photo:hover {
         cursor: pointer;
     }
 

@@ -21,8 +21,10 @@ session_start();
 
   require_once 'class/Creat_form.php';
   require_once 'class/AsciiConverter.php';
+  require_once 'class/chercherIndex.php';
 
 
+  
 
 
 
