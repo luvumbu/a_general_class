@@ -170,7 +170,7 @@ $resultat = chercherIndex($id_group, $valeur_a_chercher);
 
 
  
-
+ 
 
  
  
@@ -254,16 +254,18 @@ for ($n = 0; $n < count($name_group); $n++) {
 
 
  
-
+ 
 
             ?>
+ 
 
-
-
-            <div class="div_selection">
-                <input onkeyup="input_div_selection(this)" class="<?php echo $resultat ?>" id="<?php echo  'div_selection_' . $id_projet[$a] ?>" value="<?php echo $name_group[$resultat]?>" style="position: relative;top:-25px" type="text"><img width="50" height="50" src="https://img.icons8.com/color/50/clear-symbol--v1.png" alt="clear-symbol--v1" />
+<div class="display_none" id="<?php echo "parent_div_".$id_projet[$a]  ?>">
+                <div class="div_selection">
+                <input onkeyup="input_div_selection(this)" title="<?php echo $id_group[$a]  ?>"  class="<?php echo $resultat ?>" id="<?php echo  'div_selection_' . $id_projet[$a] ?>" value="<?php echo $name_group[$resultat]?>" style="position: relative;top:-25px" type="text"><img width="50" height="50" src="https://img.icons8.com/color/50/clear-symbol--v1.png" alt="clear-symbol--v1" />
                     <div class="modif_group" onclick="modif_group(this)">Modifier le nom du groupe</div>
             </div>
+</div>
+
 
 
 
@@ -566,9 +568,16 @@ function input_div_selection(_this) {
 
 function deux_a() {
     onkeyup_action_bool2 = false;
-    console.log(_this.className);
+ 
+   
+    console.log(_this.title);
     console.log(_this.value);
 
+
+    let optionElement = document.getElementById("select_name_group_"+_this.title);
+
+// Modifier le texte de l'option
+optionElement.textContent = _this.value;
 /*
     var id_projet = document.getElementById(_this.title);
 
@@ -604,8 +613,9 @@ function myGreeting() {
 
     var input_change =true ; 
     function select_name_group(_this) {
-
-
+ 
+      document.getElementById("parent_div_"+_this.title).className="" ; 
+        
 
 
         var select_name_group_ = document.getElementById("select_name_group_" + _this.value).innerHTML;
@@ -613,6 +623,7 @@ function myGreeting() {
 
 
         document.getElementById("div_selection_" + _this.title).value = select_name_group_;
+      
 
 
         
@@ -697,7 +708,7 @@ input_change = false ;
 
 
 
-        const myTimeout = setTimeout(myGreeting, 1000);
+        const myTimeout = setTimeout(myGreeting, 250);
 
         function myGreeting() {
 
@@ -705,6 +716,8 @@ input_change = false ;
 
             var ok = new Information("update/update_add_group.php");
             ok.push();
+location.reload() ; 
+
 
         }
 
