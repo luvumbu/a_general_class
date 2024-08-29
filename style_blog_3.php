@@ -93,7 +93,7 @@
 
 
     for ($a = 0; $a < count($id_sha1_projet); $a++) {
-
+/*
 
         $name_projet_ = AsciiConverter::asciiToString($name_projet[$a]);
         $title_projet_ = AsciiConverter::asciiToString($title_projet[$a]);
@@ -158,7 +158,7 @@
         $img_projet_child_src = $databaseHandler__->tableList_info;
 
 
-
+*/
 
        
 
@@ -426,6 +426,9 @@ for ($n = 0; $n < count($name_group); $n++) {
 
 
             for ($z = 0; $z < count($id_projet_child); $z++) {
+
+                echo $z."<br/>" ; 
+                /*
         ?>
                 <div class="card card_child">
                     <div class="input_child_div">
@@ -535,6 +538,8 @@ for ($n = 0; $n < count($name_group); $n++) {
                     </div>
                 </div>
             <?php
+
+            */
             }
             ?>
 
