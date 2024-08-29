@@ -261,8 +261,7 @@ for ($n = 0; $n < count($name_group); $n++) {
 
 <div class="display_none" id="<?php echo "parent_div_".$id_projet[$a]  ?>">
                 <div class="div_selection">
-                <input onkeyup="input_div_selection(this)" title="<?php echo $id_group[$a]  ?>"  class="<?php echo $resultat ?>" id="<?php echo  'div_selection_' . $id_projet[$a] ?>" value="<?php echo $name_group[$resultat]?>" style="position: relative;top:-25px" type="text"><img width="50" height="50" src="https://img.icons8.com/color/50/clear-symbol--v1.png" alt="clear-symbol--v1" />
-                    <div class="modif_group" onclick="modif_group(this)">Modifier le nom du groupe</div>
+                <input style="margin-top:15px" onkeyup="input_div_selection(this)" title="<?php echo $id_group[$a]  ?>"  class="<?php echo $resultat ?>" id="<?php echo  'div_selection_' . $id_projet[$a] ?>" value="<?php echo $name_group[$resultat]?>" style="position: relative;top:-25px" type="text">
             </div>
 </div>
 
@@ -588,15 +587,23 @@ optionElement.textContent = _this.value;
 
 */
 
-/*
 
-    var ok = new Information("update/style_blog_3_2_up.php");
-    ok.add("name_projet", id_projet.innerHTML);
-    ok.add("id_projet", _this.title);
-    ok.add("title_projet", title_projet);
-    ok.add("description_projet", description_projet);
+ 
+ 
+
+    var ok = new Information("update/input_div_selection.php");
+ 
+ 
+
+    ok.add("id_group", _this.title);
+    ok.add("name_group", _this.value);
+
+
+
     ok.push();
-*/
+
+  
+ 
     onkeyup_action_bool = true;
 }
 
