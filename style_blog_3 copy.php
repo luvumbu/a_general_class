@@ -47,22 +47,11 @@
 
 
 
-    $req_sql_2 = "SELECT * FROM `group_projet` WHERE `id_user_group`='" . $_SESSION["session_general"][0] . "' ORDER BY `group_projet`.`id_group` DESC ";
-
+    $req_sql_2 = "SELECT * FROM `group_projet` WHERE `id_user_group`='".$_SESSION["session_general"][0]."' ";
     $databaseHandler_2 = new DatabaseHandler($config_dbname, $config_password);
     $databaseHandler_2->getDataFromTable($req_sql_2, "id_group");
     $id_group = $databaseHandler_2->tableList_info;
-
-
-
-    $databaseHandler_2 = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler_2->getDataFromTable($req_sql_2, "name_group");
-    $name_group = $databaseHandler_2->tableList_info;
-
-
-
-
-
+   
 
     for ($a = 0; $a < count($id_sha1_projet); $a++) {
 
@@ -137,86 +126,25 @@
 
 
 
+        //  var_dump($id_sha1_projet__ ) ; 
+
 
     ?>
         <div class="card">
             <input type="text" value="<?php echo $title_projet_; ?>" onkeyup="style_blog_3_2_up(this)" title="<?php echo  $id_projet[$a] ?>" id="<?php echo  't_' . $id_projet[$a] ?>" placeholder="MON TITRE" class="title_projet">
             <input type="text" style="opacity: 0.3;" value="<?php echo $description_projet_; ?>" onkeyup="style_blog_3_2_up(this)" title="<?php echo  $id_projet[$a] ?>" id="<?php echo  'h_' . $id_projet[$a] ?>" placeholder="autre element" class="title_projet">
+            <input type="text" class="input_group" placeholder="ajouter un groupe">
 
-            <input type="text" id="<?php echo  "name_group_" . $id_projet[$a] ?>" title="<?php echo  $id_projet[$a] ?>" id="<?php echo  'h_' . $id_projet[$a] ?>" class="input_group" placeholder="ajouter un groupe">
-
-
-            <?php
-
-
-            /*
-
-$name_group
-$id_group
-
-*/
-            ?>
-            <select onchange="select_name_group(this)" title="<?php echo  $id_projet[$a] ?>" id="<?php echo  "form_select_" . $id_projet[$a] ?>" class="form_select" aria-label="Default select example">
-
-                <?php
-
-                $n_s = "";
-                for ($n = 0; $n < count($name_group); $n++) {
-
-                    echo ' <option  id="select_name_group_' . $id_group[$n] . '"  value="' . $id_group[$n] . '">' . $name_group[$n] . '</option>';
-                    $n_s = $id_group[$n];
-                }
-                ?>
-
-
+            <select class="form_select" aria-label="Default select example">
+                <option selected>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
             </select>
-
-
-
-            <div onclick="add_group(this)" title="<?php echo  $id_projet[$a] ?>">
+            <div>
                 <img class="add_element" width="35" height="35" src="https://img.icons8.com/ultraviolet/35/plus--v1.png" alt="plus--v1" />
 
             </div>
-
-            <?php
-            //echo "".$name_group[$n_] ;  
-            $image_remove = '<img   width="50" height="50" src="https://img.icons8.com/pulsar-line/50/clear-symbol.png" alt="clear-symbol"/>';
-
-
-            /*
-for ($n = 0; $n < count($name_group); $n++) {
-
-    ?>
-    <br/> 
-    <div class="div_selection">
-    <input value="<?php echo $name_group[$n] ?>" style="position: relative;top:-25px" type="text"><img width="50" height="50" src="https://img.icons8.com/color/50/clear-symbol--v1.png" alt="clear-symbol--v1"/>
-
-    </div>
-    <?php 
-
-}
- 
-    */
-
-
-
-
-
-
-
-            ?>
-
-
-
-            <div class="div_selection">
-                <input class="<?php echo $n_s ?>" id="<?php echo  'div_selection_' . $id_projet[$a] ?>" value="<?php echo $name_group[$n_] ?>" style="position: relative;top:-25px" type="text"><img width="50" height="50" src="https://img.icons8.com/color/50/clear-symbol--v1.png" alt="clear-symbol--v1" />
-
-            </div>
-
-
-
-
-
             <div onclick="editor_container(this)" title="<?php echo  $id_projet[$a] ?>">
                 <img class="add_element" width="47" height="47" src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/47/external-design-design-thinking-flatart-icons-outline-flatarticons-6.png" alt="external-design-design-thinking-flatart-icons-outline-flatarticons-6" />
             </div>
@@ -506,82 +434,7 @@ for ($n = 0; $n < count($name_group); $n++) {
 </div>
 
 <script>
-    function select_name_group(_this) {
-
-
-
-
-        var select_name_group_ = document.getElementById("select_name_group_" + _this.value).innerHTML;
-
-
-
-        document.getElementById("div_selection_" + _this.title).value = select_name_group_;
-
-
-        document.getElementById("div_selection_" + _this.title).className = _this.value;
-
-
-
-    }
-
-    function add_group(_this) {
-
-
-
-
-        var name_group = document.getElementById("name_group_" + _this.title).value;
-        var form_select = document.getElementById("form_select_" + _this.title);
-
-
-
-
-        // Create an "li" node:
-        const node = document.createElement("option");
-
-        // Create a text node:
-        const textnode = document.createTextNode(name_group);
-        node.setAttribute("selected", "");
-        node.setAttribute("value", name_group);
-
-
-        // Append the text node to the "li" node:
-        node.appendChild(textnode);
-
-        // Append the "li" node to the list:
-        form_select.appendChild(node);
-
-
-
-
-
-
-
-        var ok = new Information("add/add_group.php");
-
-        ok.add("id_projet", _this.title);
-        ok.add("name_group", name_group);
-
-
-        ok.push();
-
-
-
-
- 
-
-
-
-
-
-
-    }
-
     function editor_container(_this) {
-
-
-
-
-
         console.log(_this.title);
 
 
@@ -743,35 +596,11 @@ for ($n = 0; $n < count($name_group); $n++) {
 </script>
 
 <style>
-    .div_selection input {
-        position: relative;
-        top: -25px;
-        padding: 15px;
-        margin-right: 20px;
-        width: 50%;
-        border: 1px solid rgba(0, 0, 0, 0.2);
-    }
-
-    .input_group_ {
-        margin-top: 50px;
-        width: 40%;
-
-    }
-
-    .input_group_ input {
-
-        padding: 10px;
-        border: 1px solid rgba(0, 0, 0, 0.2);
-    }
-
     .form_select,
     .input_group {
         padding: 10px;
         border: 1px solid rgba(0, 0, 0, 0.2);
         color: rgba(0, 0, 0, 0.6);
-    }
-    .form_select{
-        margin-top: 150px;
     }
 
     .display_none {

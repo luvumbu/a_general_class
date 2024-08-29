@@ -68,6 +68,9 @@ $databaseHandler->add_table($input_1);
 
 
 
+
+
+
 $databaseHandler = new DatabaseHandler($input_1,$input_2); 
 
 
@@ -90,12 +93,15 @@ $databaseHandler->set_column_names("img_projet_src");
 $databaseHandler->set_column_names("img_projet_visibility");
 
 
+$databaseHandler->set_column_names("group_projet");
 
 $databaseHandler->set_column_names("date_inscription_projet");
 
 $databaseHandler->set_column_types("INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY");
 
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
@@ -215,6 +221,22 @@ $databaseHandler->add_table("projet_child");
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 $databaseHandler = new DatabaseHandler($input_1,$input_2); 
 
 
@@ -271,6 +293,13 @@ $databaseHandler->add_table($input_1."_child");
 
 
 
+
+
+
+
+
+
+//
 
 
 
@@ -336,6 +365,77 @@ $databaseHandler->set_column_types("TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDAT
 $databaseHandler->add_table('social_media');
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$databaseHandler = new DatabaseHandler($input_1,$input_2); 
+
+
+
+$databaseHandler->set_column_names("id_group");
+$databaseHandler->set_column_names("id_user_group");
+
+$databaseHandler->set_column_names("id_sha1_group");
+
+$databaseHandler->set_column_names("name_group"); 
+$databaseHandler->set_column_names("statue_group"); 
+
+$databaseHandler->set_column_names("title_group"); 
+$databaseHandler->set_column_names("description_group"); 
+
+
+$databaseHandler->set_column_names("password_group");
+$databaseHandler->set_column_names("visibility_1_group");
+$databaseHandler->set_column_names("visibility_2_group");
+$databaseHandler->set_column_names("img_projet_src_group");
+$databaseHandler->set_column_names("img_projet_visibility_group");
+
+
+
+$databaseHandler->set_column_names("date_inscription_group");
+
+$databaseHandler->set_column_types("INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY");
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+
+$databaseHandler->set_column_types("LONGTEXT");
+$databaseHandler->set_column_types("TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
+$databaseHandler->add_table('group_projet');
 
 
 
