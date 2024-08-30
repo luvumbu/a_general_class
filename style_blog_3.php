@@ -134,8 +134,11 @@ for ($n = 0; $n < count($name_group); $n++) {
 
                 if (checkFileExists("img_user_action/" . $img_projet_src[$a])) {
             ?>
+
                     <div class="taille_img">
-                        <img src="<?php echo  'img_user_action/' . $img_projet_src[$a]  ?>" alt="" srcset="">
+                        <div title="<?php echo  $id_projet[$a] ?>" class="<?php echo  $id_projet[$a] ?>" onclick="img_user_action(this)">
+                            <img src="<?php echo  'img_user_action/' . $img_projet_src[$a]  ?>" alt="" srcset="">
+                        </div>
                     </div>
                 <?php
                 } else {
@@ -156,15 +159,15 @@ for ($n = 0; $n < count($name_group); $n++) {
 
 
             <?php
-           
 
-            ?> 
-            
+
+            ?>
+
             <div class="sup_projet">
-                    <div title="<?php echo  $img_projet_src[$a] ?>" class="<?php echo  $id_projet[$a] ?>" onclick="sup_img_user_action(this)"> Suprimer la photo</div>
-                </div>
+                <div title="<?php echo  $img_projet_src[$a] ?>" class="<?php echo  $id_projet[$a] ?>" onclick="sup_img_user_action(this)"> Suprimer la photo</div>
+            </div>
             <?php
-         
+
 
 
             ?>
@@ -315,7 +318,7 @@ for ($n = 0; $n < count($name_group); $n++) {
 
 
 
-/*
+        /*
 
 $req_sql__ = "SELECT * FROM `projet_child` WHERE `id_parent_projet_child` ='" . $id_projet[$a] . "' ";
  
@@ -324,9 +327,9 @@ $databaseHandler__->getDataFromTable($req_sql__, "id_projet_child");
 $id_projet_child = $databaseHandler__->tableList_info;
 
  */
-  
 
- 
+
+
         require  'style_blog_3_child.php';
 
         ?>

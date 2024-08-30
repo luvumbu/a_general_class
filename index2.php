@@ -178,6 +178,12 @@ session_start();
     margin-top: 10px;
     margin-bottom: 10px;
   }
+  .taille_img:hover,
+  .user_log:hover
+  
+  {
+    cursor: pointer;
+  }
 </style>
 
 
