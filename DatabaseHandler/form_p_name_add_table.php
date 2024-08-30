@@ -95,12 +95,30 @@ $databaseHandler->set_column_names("img_projet_visibility");
 
 $databaseHandler->set_column_names("group_projet");
 
+
+
+$databaseHandler->set_column_names("heure_debut_projet");
+$databaseHandler->set_column_names("date_debut_projet");
+
+
+
+$databaseHandler->set_column_names("heure_fin_projet");
+$databaseHandler->set_column_names("date_fin_projet");
+
+
+
 $databaseHandler->set_column_names("date_inscription_projet");
 
 $databaseHandler->set_column_types("INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY");
 
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
 
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
