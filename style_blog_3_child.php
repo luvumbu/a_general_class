@@ -38,6 +38,28 @@
                  <input onkeyup="onkeyup_src_input(this)" placeholder="Mon titre" type="text" value="<?php echo $title_projet_child_ ?>" id="<?php echo "input_1c_" . $id_projet_child[$z] ?>" title="<?php echo $id_projet_child[$z] ?>">
 
              </div>
+
+             <?php
+
+                if ($img_projet_child_src[$z] != "") {
+                ?>
+
+                 <div class="taille_img">
+                     <img src="<?php echo "img_user_action/" . $img_projet_child_src[$z]; ?>" alt="">
+
+                 </div>
+             <?php
+                }
+
+                ?>
+
+
+             <div class="child_photo">
+                 <div onclick="img_user_action_child(this);img_user_action(this) ;" class="<?php echo $id_projet_child[$z] ?>">
+                     Ajouter une photo
+                 </div>
+             </div>
+
              <div class="custom-editor">
                  <div id="editor-container">
                      <div id="toolbar">
@@ -102,6 +124,7 @@
 
 
 
+
              <div class="display_flex">
                  <div onclick="onkeyup_src_input(this);" class="val_form" title="<?php echo $id_projet_child[$z] ?>">Valider</div>
 
@@ -111,8 +134,11 @@
                  </div>
              </div>
 
-             <div class="child_photo" title="<?php echo $id_projet_child[$z] ?>">
-                 Ajouter une photo
+
+             <div class="child_photo">
+                 <div onclick="img_user_action_child(this);img_user_action(this) ;" class="<?php echo $id_projet_child[$z] ?>">
+                     Ajouter une photo
+                 </div>
              </div>
 
 
@@ -124,7 +150,7 @@
                  <div class="add_element">
                      <img width="50" height="50" src="https://img.icons8.com/color/50/calendar--v1.png" alt="calendar--v1" />
                  </div>
-                 <div>
+                 <div title="<?php echo $id_projet_child[$z] ?>" onclick="remove_projet_child(this)">
                      <img width="50" class="add_element" height="50" src="https://img.icons8.com/ios/50/delete-forever--v1.png" alt="delete-forever--v1" />
                  </div>
                  <div>
@@ -157,6 +183,44 @@
 
 
  <script>
+     function img_user_action_child() {
+
+         console.log("img_user_action_chil");
+
+         var ok = new Information("cookie/img_user_action_chil.php"); // création de la classe 
+         //    ok.add("id_projet_child", _this.title); // ajout de l'information pour lenvoi 
+
+         console.log(ok.info()); // demande l'information dans le tableau
+         ok.push(); // envoie l'information au code pkp 
+
+
+     }
+
+     function remove_projet_child(_this) {
+
+
+         var ok = new Information("remove/remove_projet_child.php"); // création de la classe 
+         ok.add("id_projet_child", _this.title); // ajout de l'information pour lenvoi 
+
+         console.log(ok.info()); // demande l'information dans le tableau
+         ok.push(); // envoie l'information au code pkp 
+
+
+
+         const myTimeout = setTimeout(myGreeting, 250);
+
+         function myGreeting() {
+
+             location.reload();
+         }
+
+
+
+
+
+
+     }
+
      function onkeyup_src_input(_this) {
          const myTimeout = setTimeout(myGreeting, 500);
 

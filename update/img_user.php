@@ -21,6 +21,20 @@ $resizer->save($imagePath);
 
  
 
+ if(isset($_SESSION["img_user_action_chil"])) {
+
+
+
+ 
+$cookie_img = $_SESSION["cookie_img"] ; 
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->action_sql("UPDATE `projet_child` SET `img_projet_child_src` = '$file_path' WHERE `id_projet_child` = '$cookie_img'") ;
+unset($_SESSION["img_user_action_chil"]);
+
+ }
+ else {
+  
  
 
 
@@ -28,6 +42,9 @@ $resizer->save($imagePath);
 $_SESSION["cookie_img"] = $_POST["cookie_img"] ; 
 $_SESSION["cookie_titile"] = $_POST["cookie_titile"] ; 
 */
+
+
+//echo $_SESSION["cookie_img"]  ; 
 
 
 $session_general = $_SESSION["session_general"][0];
@@ -48,7 +65,7 @@ else {
  
 
 
- 
+  
 
  
 
@@ -63,10 +80,9 @@ $_SESSION["file_path"]  ="" ;
 $_SESSION["cookie_img"] = "" ; 
   
 
- 
+}
  
 ?>
-
 <script>
    window.location.href = "../index2.php";
 </script>
@@ -75,6 +91,6 @@ $_SESSION["cookie_img"] = "" ;
 <style>
     body
     {
-        background-color: black;
+         background-color: black;
     }
 </style>
