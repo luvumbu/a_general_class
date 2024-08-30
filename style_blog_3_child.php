@@ -19,6 +19,7 @@
             $title_projet_child_  =  AsciiConverter::asciiToString($title_projet_child[$z]);
 
             $description_projet_child_  =  AsciiConverter::asciiToString($description_projet_child[$z]);
+            $name_projet_child_  =  AsciiConverter::asciiToString($name_projet_child[$z]);
 
 
     ?>
@@ -27,6 +28,12 @@
 
          <div class="card card_child">
              <div class="input_child_div">
+
+                 <input onkeyup="onkeyup_src_input(this)" placeholder="Mon titre" type="text" value="<?php echo $name_projet_child_ ?>" id="<?php echo "input_3c_" . $id_projet_child[$z] ?>" title="<?php echo $id_projet_child[$z] ?>">
+
+             </div>
+
+             <div class="input_child_div" style="opacity: 0.3; margin-top:25px;margin-bottom:25px">
 
                  <input onkeyup="onkeyup_src_input(this)" placeholder="Mon titre" type="text" value="<?php echo $title_projet_child_ ?>" id="<?php echo "input_1c_" . $id_projet_child[$z] ?>" title="<?php echo $id_projet_child[$z] ?>">
 
@@ -94,20 +101,20 @@
              </div>
 
 
-             
+
              <div class="display_flex">
-             <div onclick="onkeyup_src_input(this);" class="val_form" title="<?php echo $id_projet_child[$z] ?>">Valider</div>
+                 <div onclick="onkeyup_src_input(this);" class="val_form" title="<?php echo $id_projet_child[$z] ?>">Valider</div>
 
-                <div>
-                <button onclick="del_form(this)" class="del_form"  title="<?php echo $id_projet_child[$z] ?>"><strong>Tout effacer</strong></button>
+                 <div>
+                     <button onclick="del_form(this)" class="del_form" title="<?php echo $id_projet_child[$z] ?>"><strong>Tout effacer</strong></button>
 
-                </div>
+                 </div>
              </div>
-             
+
              <div class="child_photo" title="<?php echo $id_projet_child[$z] ?>">
                  Ajouter une photo
              </div>
-             
+
 
 
 
@@ -159,6 +166,7 @@
 
              var input_1c_ = document.getElementById("input_1c_" + _this.title).value;
              var input_2c_ = document.getElementById("input_2c_" + _this.title).innerHTML;
+             var input_3c_ = document.getElementById("input_3c_" + _this.title).value;
 
 
 
@@ -176,6 +184,9 @@
              ok.add("id_projet_child", _this.title); // ajout de l'information pour lenvoi 
              ok.add("title_projet_child", input_1c_); // ajout d'une deuxieme information denvoi  
              ok.add("description_projet_child", input_2c_); // ajout d'une deuxieme information denvoi  
+             ok.add("name_projet_child", input_3c_); // ajout d'une deuxieme information denvoi  
+
+
 
              console.log(ok.info()); // demande l'information dans le tableau
              ok.push(); // envoie l'information au code pkp 
@@ -195,7 +206,7 @@
      }
 
      function del_form(_this) {
-        var input_2c_ = document.getElementById("input_2c_" + _this.title).innerHTML="";
+         var input_2c_ = document.getElementById("input_2c_" + _this.title).innerHTML = "";
 
      }
  </script>
@@ -209,16 +220,18 @@
          margin-top: 20px;
          color: white;
      }
-     .del_form{
-        background-color: rgba(220, 0, 15, 0.3);
+
+     .del_form {
+         background-color: rgba(220, 0, 15, 0.3);
          width: 150px;
          text-align: center;
          margin-top: 20px;
-         border:1px solid rgba(220, 0, 15, 0.1) ;
+         border: 1px solid rgba(220, 0, 15, 0.1);
          color: white;
      }
 
-     .val_form:hover,.del_form:hover{
+     .val_form:hover,
+     .del_form:hover {
          cursor: pointer;
      }
  </style>
