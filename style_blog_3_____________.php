@@ -16,7 +16,7 @@
 
 
 
-        require 'style_blog_3_req_2.php';
+        require_once 'style_blog_3_req_2.php';
 
 
 
@@ -306,26 +306,11 @@ for ($n = 0; $n < count($name_group); $n++) {
             </div>
         </div>
 
+
         <?php
 
 
-
-
-
-
-/*
-
-$req_sql__ = "SELECT * FROM `projet_child` WHERE `id_parent_projet_child` ='" . $id_projet[$a] . "' ";
- 
-$databaseHandler__ = new DatabaseHandler($config_dbname, $config_password);
-$databaseHandler__->getDataFromTable($req_sql__, "id_projet_child");
-$id_projet_child = $databaseHandler__->tableList_info;
-
- */
-  
-
- 
-        require  'style_blog_3_child.php';
+        require_once  'style_blog_3_child.php';
 
         ?>
 
@@ -335,6 +320,6 @@ $id_projet_child = $databaseHandler__->tableList_info;
     ?>
 </div>
 <?php
-require 'style_blog_3_scrypt_1.php';
+require_once 'style_blog_3_scrypt_1.php';
 
 ?>
