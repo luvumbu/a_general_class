@@ -2,12 +2,16 @@
 <link rel="stylesheet" href="style_blog_3.css">
 
 
+
+
+
 <div class="class_t">
     <?php
 
 
-
     require_once 'style_blog_3_req_1.php';
+
+    require_once 'form_event.php';
 
 
 
@@ -239,13 +243,39 @@ for ($n = 0; $n < count($name_group); $n++) {
                 <div title="<?php echo  $id_projet[$a] ?>" id="<?php echo  $id_projet[$a] ?>" onkeyup="style_blog_3_2_up(this)" class="editor" contenteditable="true"><?php echo $name_projet_ ?></div>
 
             </div>
+            <div id="<?php echo  "planification_".$id_projet[$a] ?>" class="display_none2">
+                <div class="custom-form-container centrer">
+                    <h2>Planification de l'événement</h2>
 
+                    <div class="form-group">
+                        <label for="start-date">Date de commencement :</label>
+                        <input id="<?php echo  "inputs_form_1_".$id_projet[$a] ?>" type="date"   name="start-date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="start-time">Heure de commencement :</label>
+                        <input id="<?php echo  "inputs_form_2_".$id_projet[$a] ?>" type="time"   name="start-time" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="end-date">Date de fin :</label>
+                        <input id="<?php echo  "inputs_form_3_".$id_projet[$a] ?>" type="date"   name="end-date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="end-time">Heure de fin :</label>
+                        <input id="<?php echo  "inputs_form_4_".$id_projet[$a] ?>" type="time"   name="end-time" required>
+                    </div>
+
+                    <button type="submit" onclick="submit_inputs_form(this)" title="<?php echo  $id_projet[$a] ?>"  >Valider</button>
+                </div>
+            </div>
 
 
             <div class="display_flex">
 
-                <div title="<?php echo  $id_projet[$a] ?>" onclick="date_form_click(this)">
-                    <div class="add_element">
+                <div title="<?php echo  $id_projet[$a] ?>" onclick="planification_click(this)">
+                    <div class="add_element" >
                         <img width="50" height="50" src="https://img.icons8.com/color/50/calendar--v1.png" alt="calendar--v1" />
                     </div>
                 </div>
@@ -281,6 +311,10 @@ for ($n = 0; $n < count($name_group); $n++) {
 
 
             </div>
+
+
+
+
 
             <div id="<?php echo  'date_form_' . $id_projet[$a] ?>" class="display_none">
 
@@ -343,3 +377,61 @@ $id_projet_child = $databaseHandler__->tableList_info;
 require 'style_blog_3_scrypt_1.php';
 
 ?>
+
+<script>
+
+
+ 
+
+
+
+function planification_click(_this) {
+ 
+
+
+  var val =   document.getElementById("planification_"+_this.title);
+  
+ 
+
+  if(val.className=="display_none2") {
+  val.className==""; 
+  
+  
+
+   document.getElementById("planification_"+_this.title).className="";
+
+
+  }
+  else {
+ 
+
+   document.getElementById("planification_"+_this.title).className="display_none2";
+
+
+  }
+}
+
+
+function submit_inputs_form(_this) {
+
+  var inputs_form_1_ = document.getElementById("inputs_form_1_"+_this.title).value;
+  var inputs_form_2_ = document.getElementById("inputs_form_2_"+_this.title).value;
+  var inputs_form_3_ = document.getElementById("inputs_form_3_"+_this.title).value;
+  var inputs_form_4_ = document.getElementById("inputs_form_4_"+_this.title).value;
+
+    
+
+  var ok = new Information("add/projet_child.php");
+        ok.add("id_sha1_projet", _this.className);
+        ok.add("id_projet", _this.title);
+
+        ok.push();
+
+
+
+        
+
+
+
+}
+</script>
