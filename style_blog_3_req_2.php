@@ -12,6 +12,7 @@
          $id_projet_child = $databaseHandler__->tableList_info;
  
  
+ 
          $databaseHandler__ = new DatabaseHandler($config_dbname, $config_password);
          $databaseHandler__->getDataFromTable($req_sql__, "id_user_projet_child");
          $id_user_projet_child = $databaseHandler__->tableList_info;

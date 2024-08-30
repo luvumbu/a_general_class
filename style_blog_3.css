@@ -179,3 +179,44 @@
 
 
     }
+/**
+
+
+
+**/
+
+
+ 
+ 
+
+.custom-editor #toolbar button, .custom-editor #toolbar select {
+    background: #444;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.custom-editor #toolbar button:hover, .custom-editor #toolbar select:hover {
+    background: #555;
+}
+
+.custom-editor #editor {
+    padding: 20px;
+    min-height: 200px;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: white;
+    border: none;
+    outline: none;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.editor{
+    background-color:rgba(0,0,0,0.1) ; 
+    margin-top:25px ; 
+    height: 150px;
+}
