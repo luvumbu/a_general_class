@@ -124,7 +124,50 @@ for ($n = 0; $n < count($name_group); $n++) {
             </div>
 
 
+            <?php
 
+            // Example usage
+
+
+
+            if ($img_projet_src[$a] != "") {
+
+                if (checkFileExists("img_user_action/" . $img_projet_src[$a])) {
+            ?>
+                    <div class="taille_img">
+                        <img src="<?php echo  'img_user_action/' . $img_projet_src[$a]  ?>" alt="" srcset="">
+                    </div>
+                <?php
+                } else {
+                    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+                    $databaseHandler->action_sql("UPDATE `projet` SET `img_projet_src` = '' WHERE `id_projet` = '" . $id_projet[$a] . "'");
+                ?>
+                    <script>
+                        location.reload();
+                    </script>
+            <?php
+                }
+            }
+            ?>
+
+            <div class="projet">
+                <div title="<?php echo  $id_projet[$a] ?>" class="<?php echo  $id_projet[$a] ?>" onclick="img_user_action(this)"> Modifier la photo </div>
+            </div>
+
+
+            <?php
+           
+
+            ?> 
+            
+            <div class="sup_projet">
+                    <div title="<?php echo  $img_projet_src[$a] ?>" class="<?php echo  $id_projet[$a] ?>" onclick="sup_img_user_action(this)"> Suprimer la photo</div>
+                </div>
+            <?php
+         
+
+
+            ?>
 
 
 
@@ -194,48 +237,7 @@ for ($n = 0; $n < count($name_group); $n++) {
 
             </div>
 
-            <?php
 
-            // Example usage
-
-
-
-            if ($img_projet_src[$a] != "") {
-
-                if (checkFileExists("img_user_action/" . $img_projet_src[$a])) {
-            ?>
-                    <div class="taille_img">
-                        <img src="<?php echo  'img_user_action/' . $img_projet_src[$a]  ?>" alt="" srcset="">
-                    </div>
-                <?php
-                } else {
-                    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-                    $databaseHandler->action_sql("UPDATE `projet` SET `img_projet_src` = '' WHERE `id_projet` = '" . $id_projet[$a] . "'");
-                ?>
-                    <script>
-                        location.reload();
-                    </script>
-            <?php
-                }
-            }
-            ?>
-
-            <div class="projet">
-                <div title="<?php echo  $id_projet[$a] ?>" class="<?php echo  $id_projet[$a] ?>" onclick="img_user_action(this)"> Modifier la photo</div>
-            </div>
-
-
-            <?php
-            if ($img_projet_src[$a] != "") {
-
-            ?> <div class="sup_projet">
-                    <div title="<?php echo  $img_projet_src[$a] ?>" class="<?php echo  $id_projet[$a] ?>" onclick="sup_img_user_action(this)"> Suprimer la photo</div>
-                </div>
-            <?php
-            }
-
-
-            ?>
 
             <div class="display_flex">
 

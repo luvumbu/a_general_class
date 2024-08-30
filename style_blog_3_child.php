@@ -43,13 +43,49 @@
              <?php
 
                 if ($img_projet_child_src[$z] != "") {
-                ?>
 
-                 <div class="taille_img">
-                     <img src="<?php echo "img_user_action/" . $img_projet_child_src[$z]; ?>" alt="">
+ 
+// Example usage
+$path ="img_user_action/" . $img_projet_child_src[$z];
+if (checkFileExists($path)) {
+  
 
-                 </div>
-             <?php
+    ?>
+
+    <div class="taille_img">
+        <img src="<?php echo "img_user_action/" . $img_projet_child_src[$z]; ?>" alt="">
+
+    </div>
+<?php
+
+
+} else {
+ 
+
+   
+ 
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->action_sql("UPDATE `projet_child` SET `img_projet_child_src` = '' WHERE `id_projet_child` = ".$id_projet_child[$z].";") ;
+
+ ?>
+
+<script>
+
+const myTimeout = setTimeout(myGreeting, 100);
+
+function myGreeting() {
+  location.reload() ; 
+}
+
+</script>
+<?php 
+ 
+}
+ 
+
+
+
+ 
                 }
 
                 ?>
@@ -136,11 +172,7 @@
              </div>
 
 
-             <div class="child_photo">
-                 <div onclick="img_user_action_child(this);img_user_action(this) ;" class="<?php echo $id_projet_child[$z] ?>">
-                     Ajouter une photo
-                 </div>
-             </div>
+     
 
 
 
