@@ -43,6 +43,29 @@
 
 
 
+    // ** 
+
+    
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "heure_debut_projet");
+    $heure_debut_projet = $databaseHandler->tableList_info;
+
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "date_debut_projet");
+    $date_debut_projet = $databaseHandler->tableList_info;
+
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "heure_fin_projet");
+    $heure_fin_projet = $databaseHandler->tableList_info;
+
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "date_fin_projet");
+    $date_fin_projet = $databaseHandler->tableList_info;
+// ** 
+
+
+ 
+
     $req_sql_2 = "SELECT * FROM `group_projet` WHERE `id_user_group`='" . $_SESSION["session_general"][0] . "' ORDER BY `group_projet`.`id_group` DESC ";
 
     $databaseHandler_2 = new DatabaseHandler($config_dbname, $config_password);
