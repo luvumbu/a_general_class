@@ -419,11 +419,20 @@ function submit_inputs_form(_this) {
   var inputs_form_3_ = document.getElementById("inputs_form_3_"+_this.title).value;
   var inputs_form_4_ = document.getElementById("inputs_form_4_"+_this.title).value;
 
-    
+ 
 
-  var ok = new Information("add/projet_child.php");
-        ok.add("id_sha1_projet", _this.className);
-        ok.add("id_projet", _this.title);
+  var ok = new Information("update/submit_inputs_form.php");
+  ok.add("id_projet",_this.title);
+
+
+
+        ok.add("heure_debut_projet",inputs_form_1_);
+        ok.add("date_debut_projet",inputs_form_2_);
+        ok.add("heure_fin_projet",inputs_form_3_);
+        ok.add("date_fin_projet",inputs_form_4_);
+        
+        
+ 
 
         ok.push();
 
