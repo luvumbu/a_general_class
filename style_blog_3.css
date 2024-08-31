@@ -110,16 +110,33 @@
 
 
         background-color: black;
-        padding: 25px;
+  
+        
         margin-top: 25px;
         text-align: center;
         color: white;
+        width: 150px;
 
     }
+
+
+
 
     .sup_projet {
         background-color: rgba(200, 15, 15, 0.8);
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
     .projet div {
         padding: 15px;
