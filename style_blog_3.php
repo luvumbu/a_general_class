@@ -10,7 +10,10 @@
 
 
     require_once 'style_blog_3_req_1.php';
+
     require_once 'form_event.php';
+
+
 
     for ($a = 0; $a < count($id_sha1_projet); $a++) {
 
@@ -46,7 +49,10 @@
 
             <input type="text" value="<?php echo $title_projet_; ?>" onkeyup="style_blog_3_2_up(this)" title="<?php echo  $id_projet[$a] ?>" id="<?php echo  't_' . $id_projet[$a] ?>" placeholder="MON TITRE" class="title_projet">
             <input type="text" style="opacity: 0.3;" value="<?php echo $description_projet_; ?>" onkeyup="style_blog_3_2_up(this)" title="<?php echo  $id_projet[$a] ?>" id="<?php echo  'h_' . $id_projet[$a] ?>" placeholder="autre element" class="title_projet">
+
             <input type="text" id="<?php echo  "name_group_" . $id_projet[$a] ?>" title="<?php echo  $id_projet[$a] ?>" id="<?php echo  'h_' . $id_projet[$a] ?>" class="input_group" placeholder="ajouter un groupe">
+
+
             <?php
 
 
@@ -415,15 +421,9 @@ function submit_inputs_form(_this) {
 
     
 
- 
-
-  var ok = new Information("update/submit_inputs_form.php");
-        ok.add("id_sha1_projet", inputs_form_1_);
-        ok.add("id_sha2_projet", inputs_form_2_);
-        ok.add("id_sha3_projet", inputs_form_3_);
-        ok.add("id_sha4_projet", inputs_form_4_);
-
-       
+  var ok = new Information("add/projet_child.php");
+        ok.add("id_sha1_projet", _this.className);
+        ok.add("id_projet", _this.title);
 
         ok.push();
 

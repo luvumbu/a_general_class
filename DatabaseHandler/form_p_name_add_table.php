@@ -70,58 +70,75 @@ $databaseHandler->add_table($input_1);
 
 
 
-$databaseHandler = new DatabaseHandler($input_1, $input_2);
 
-// Define column names and types as arrays
-$columnNames = [
-    "id_projet",
-    "id_user_projet",
-    "id_sha1_projet",
-    "name_projet",
-    "statue_projet",
-    "title_projet",
-    "description_projet",
-    "password_projet",
-    "visibility_1_projet",
-    "visibility_2_projet",
-    "img_projet_src",
-    "img_projet_visibility",
-    "group_projet",
-    "heure_debut_projet",
-    "date_debut_projet",
-    "heure_fin_projet",
-    "date_fin_projet",
-    "date_inscription_projet"
-];
+$databaseHandler = new DatabaseHandler($input_1,$input_2); 
 
-$columnTypes = [
-    "INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY",
-    "LONGTEXT NOT NULL",
-    "LONGTEXT NOT NULL",
-    "LONGTEXT NOT NULL",
-    "LONGTEXT NOT NULL",
-    "LONGTEXT NOT NULL",
-    "LONGTEXT NOT NULL",
-    "LONGTEXT NOT NULL",
-    "LONGTEXT NOT NULL",
-    "LONGTEXT NOT NULL",
-    "LONGTEXT NOT NULL",
-    "LONGTEXT NOT NULL",
-    "LONGTEXT NOT NULL",
-    "TIME NOT NULL",                // Type for heure_debut_projet
-    "DATE NOT NULL",                // Type for date_debut_projet
-    "TIME NOT NULL",                // Type for heure_fin_projet
-    "DATE NOT NULL",                // Type for date_fin_projet
-    "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"  // Type for date_inscription_projet
-];
 
-// Loop through each column name and type and add to the database handler
-foreach ($columnNames as $index => $columnName) {
-    $databaseHandler->set_column_names($columnName);
-    $databaseHandler->set_column_types($columnTypes[$index]);
-}
+$databaseHandler->set_column_names("id_projet");
+$databaseHandler->set_column_names("id_user_projet");
 
-// Finally, add the table
+$databaseHandler->set_column_names("id_sha1_projet");
+
+$databaseHandler->set_column_names("name_projet"); 
+$databaseHandler->set_column_names("statue_projet"); 
+
+$databaseHandler->set_column_names("title_projet"); 
+$databaseHandler->set_column_names("description_projet"); 
+
+
+$databaseHandler->set_column_names("password_projet");
+$databaseHandler->set_column_names("visibility_1_projet");
+$databaseHandler->set_column_names("visibility_2_projet");
+$databaseHandler->set_column_names("img_projet_src");
+$databaseHandler->set_column_names("img_projet_visibility");
+
+
+$databaseHandler->set_column_names("group_projet");
+
+
+
+$databaseHandler->set_column_names("heure_debut_projet");
+$databaseHandler->set_column_names("date_debut_projet");
+
+
+
+$databaseHandler->set_column_names("heure_fin_projet");
+$databaseHandler->set_column_names("date_fin_projet");
+
+
+
+$databaseHandler->set_column_names("date_inscription_projet");
+
+$databaseHandler->set_column_types("INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY");
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+
+$databaseHandler->set_column_types("LONGTEXT");
+$databaseHandler->set_column_types("TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
 $databaseHandler->add_table("projet");
 
 
@@ -136,59 +153,67 @@ $databaseHandler->add_table("projet");
 
 
 
+$databaseHandler = new DatabaseHandler($input_1,$input_2); 
 
-$databaseHandler = new DatabaseHandler($input_1, $input_2);
 
-// Define column names and types as arrays
-$columnNames = [
-    "id_projet_child",
-    "id_user_projet_child",
-    "id_sha1_projet_child",
-    "name_projet_child",
-    "statue_projet_child",
-    "title_projet_child",
-    "description_projet_child",
-    "password_projet_child",
-    "visibility_1_projet_child",
-    "visibility_2_projet_child",
-    "img_projet_src_child",
-    "img_projet_visibility_child",
-    "date_inscription_projet_child",
-    "date_de_commencement",        // New column
-    "heure_de_commencement",       // New column
-    "date_de_fin",                 // New column
-    "heure_de_fin"                 // New column
-];
+$databaseHandler->set_column_names("id_projet_child");
+$databaseHandler->set_column_names("id_user_projet_child");
 
-$columnTypes = [
-    "INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY",
-    "LONGTEXT NOT NULL",
-    "LONGTEXT NOT NULL",
-    "LONGTEXT NOT NULL",
-    "LONGTEXT NOT NULL",
-    "LONGTEXT NOT NULL",
-    "LONGTEXT NOT NULL",
-    "LONGTEXT NOT NULL",
-    "LONGTEXT NOT NULL",
-    "LONGTEXT NOT NULL",
-    "LONGTEXT NOT NULL",
-    "LONGTEXT NOT NULL",
-    "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
-    "DATE NOT NULL",                // Type for date_de_commencement
-    "TIME NOT NULL",                // Type for heure_de_commencement
-    "DATE NOT NULL",                // Type for date_de_fin
-    "TIME NOT NULL"                 // Type for heure_de_fin
-];
+$databaseHandler->set_column_names("id_sha1_projet_child");
 
-// Loop through each column name and type and add to the database handler
-foreach ($columnNames as $index => $columnName) {
-    $databaseHandler->set_column_names($columnName);
-    $databaseHandler->set_column_types($columnTypes[$index]);
-}
+$databaseHandler->set_column_names("id_sha1_parent_projet_child");
+$databaseHandler->set_column_names("id_parent_projet_child");
 
-// Finally, add the table
-$databaseHandler->add_table($input_1 . "_child");
 
+
+$databaseHandler->set_column_names("name_projet_child"); 
+$databaseHandler->set_column_names("statue_projet_child"); 
+
+$databaseHandler->set_column_names("title_projet_child"); 
+$databaseHandler->set_column_names("alt_projet_child"); 
+
+$databaseHandler->set_column_names("description_projet_child"); 
+
+
+$databaseHandler->set_column_names("password_projet_child");
+$databaseHandler->set_column_names("visibility_1_projet_child");
+$databaseHandler->set_column_names("visibility_2_projet_child");
+$databaseHandler->set_column_names("img_projet_child_src");
+$databaseHandler->set_column_names("img_projet_child_visibility");
+
+
+
+$databaseHandler->set_column_names("date_inscription_projet_child");
+
+$databaseHandler->set_column_types("INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY");
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+
+$databaseHandler->set_column_types("LONGTEXT");
+$databaseHandler->set_column_types("TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
+$databaseHandler->add_table("projet_child");
 
 
 
