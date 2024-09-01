@@ -315,22 +315,22 @@ for ($n = 0; $n < count($name_group); $n++) {
 
                     <div class="form-group">
                         <label for="start-date">Date de commencement :</label>
-                        <input value="<?php echo $heure_debut_projet[$a] ?>" id="<?php echo  "inputs_form_1_" . $id_projet[$a] ?>" type="date" name="start-date" required>
+                        <input  onchange="submit_inputs_form(this)" title="<?php echo  $id_projet[$a] ?>"  value="<?php echo $heure_debut_projet[$a] ?>" id="<?php echo  "inputs_form_1_" . $id_projet[$a] ?>" type="date" name="start-date" required>
                     </div>
 
                     <div class="form-group">
                         <label for="start-time">Heure de commencement :</label>
-                        <input value="<?php echo $date_debut_projet[$a] ?>" id="<?php echo  "inputs_form_2_" . $id_projet[$a] ?>" type="time" name="start-time" required>
+                        <input onchange="submit_inputs_form(this)" title="<?php echo  $id_projet[$a] ?>" value="<?php echo $date_debut_projet[$a] ?>" id="<?php echo  "inputs_form_2_" . $id_projet[$a] ?>" type="time" name="start-time" required>
                     </div>
 
                     <div class="form-group">
                         <label for="end-date">Date de fin :</label>
-                        <input value="<?php echo $heure_fin_projet[$a] ?>" id="<?php echo  "inputs_form_3_" . $id_projet[$a] ?>" type="date" name="end-date" required>
+                        <input onchange="submit_inputs_form(this)" title="<?php echo  $id_projet[$a] ?>" value="<?php echo $heure_fin_projet[$a] ?>" id="<?php echo  "inputs_form_3_" . $id_projet[$a] ?>" type="date" name="end-date" required>
                     </div>
 
                     <div class="form-group">
                         <label for="end-time">Heure de fin :</label>
-                        <input value="<?php echo $date_fin_projet[$a] ?>" id="<?php echo  "inputs_form_4_" . $id_projet[$a] ?>" type="time" name="end-time" required>
+                        <input onchange="submit_inputs_form(this)" title="<?php echo  $id_projet[$a] ?>" value="<?php echo $date_fin_projet[$a] ?>" id="<?php echo  "inputs_form_4_" . $id_projet[$a] ?>" type="time" name="end-time" required>
                     </div>
 
                     <button type="submit" onclick="submit_inputs_form(this)" title="<?php echo  $id_projet[$a] ?>">Valider</button>
