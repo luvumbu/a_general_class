@@ -191,12 +191,44 @@ function myGreeting() {
      
 
 
+             <div id="<?php echo  "planification_child_" . $id_projet_child[$z] ?>" class="display_none2">
+                <div class="custom-form-container centrer">
+                    <h2>Planification de l'événement</h2>
 
 
 
 
+
+
+
+                    <div class="form-group">
+                        <label for="start-date">Date de commencement :</label>
+                        <input  onchange="submit_inputs_form(this)" title="<?php echo  $id_projet_child[$z] ?>"  value="<?php echo $heure_debut_projet[$a] ?>" id="<?php echo  "inputs_form_1_" .$id_projet_child[$z] ?>" type="date" name="start-date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="start-time">Heure de commencement :</label>
+                        <input onchange="submit_inputs_form(this)" title="<?php echo  $id_projet_child[$z] ?>" value="<?php echo $date_debut_projet[$a] ?>" id="<?php echo  "inputs_form_2_" .$id_projet_child[$z] ?>" type="time" name="start-time" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="end-date">Date de fin :</label>
+                        <input onchange="submit_inputs_form(this)" title="<?php echo  $id_projet_child[$z] ?>" value="<?php echo $heure_fin_projet[$a] ?>" id="<?php echo  "inputs_form_3_" .$id_projet_child[$z] ?>" type="date" name="end-date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="end-time">Heure de fin :</label>
+                        <input onchange="submit_inputs_form(this)" title="<?php echo  $id_projet_child[$z] ?>" value="<?php echo $date_fin_projet[$a] ?>" id="<?php echo  "inputs_form_4_" .$id_projet_child[$z] ?>" type="time" name="end-time" required>
+                    </div>
+
+                    <button type="submit" onclick="submit_inputs_form(this)" title="<?php echo  $id_projet_child[$z] ?>">Valider</button>
+                </div>
+            </div>
+
+
+            
              <div class="display_flex">
-                 <div class="add_element">
+                 <div class="add_element" onclick="planification_child(this)"  title="<?php echo $id_projet_child[$z] ?>">
                      <img width="50" height="50" src="https://img.icons8.com/color/50/calendar--v1.png" alt="calendar--v1" />
                  </div>
                  <div title="<?php echo $id_projet_child[$z] ?>" onclick="remove_projet_child(this)">
@@ -380,6 +412,26 @@ function myGreeting() {
 }
 
 
+    }
+
+
+
+
+    function planification_child(_this){
+            console.log(_this.title) ; 
+       var planification_child=  document.getElementById("planification_child_"+_this.title) ; 
+
+
+
+       if(planification_child.className=="display_none2") {
+        planification_child.className ="" ; 
+       }
+       else {
+        planification_child.className ="display_none2" ; 
+
+       }
+   
+   
     }
  </script>
 
