@@ -24,7 +24,7 @@ echo $_POST["date_form_4_"]  ;
  
 
 $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-$databaseHandler->action_sql('UPDATE `root`.`projet` SET `heure_debut_projet` = "555555555555500", `date_debut_projet` = "00555555555555501", `heure_fin_projet` = "0000001", `date_fin_projet` = "00000000000000000000000001" WHERE `projet`.`id_projet` = 1;');
+$databaseHandler->action_sql('UPDATE `projet` SET `heure_debut_projet` = "555555555555500", `date_debut_projet` = "00555555555555501", `heure_fin_projet` = "0000001", `date_fin_projet` = "00000000000000000000000001" WHERE `projet`.`id_projet` = 1;');
 
 
  

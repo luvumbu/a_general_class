@@ -62,4 +62,28 @@
          $databaseHandler__->getDataFromTable($req_sql__, "img_projet_child_src");
          $img_projet_child_src = $databaseHandler__->tableList_info;
 
+
+
+   
+         
+         
+         
+         
+
+         $databaseHandler__ = new DatabaseHandler($config_dbname, $config_password);
+         $databaseHandler__->getDataFromTable($req_sql__, "heure_debut_projet_child");
+         $heure_debut_projet_child = $databaseHandler__->tableList_info;
+
+         $databaseHandler__ = new DatabaseHandler($config_dbname, $config_password);
+         $databaseHandler__->getDataFromTable($req_sql__, "date_debut_projet_child");
+         $date_debut_projet_child = $databaseHandler__->tableList_info;
+
+         $databaseHandler__ = new DatabaseHandler($config_dbname, $config_password);
+         $databaseHandler__->getDataFromTable($req_sql__, "heure_fin_projet_child");
+         $heure_fin_projet_child = $databaseHandler__->tableList_info;
+
+         $databaseHandler__ = new DatabaseHandler($config_dbname, $config_password);
+         $databaseHandler__->getDataFromTable($req_sql__, "date_fin_projet_child");
+         $date_fin_projet_child = $databaseHandler__->tableList_info;
+
          ?>

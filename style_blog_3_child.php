@@ -1,9 +1,9 @@
  <?php
- 
+
     if (count($id_projet_child) > 0) {
 
 
-      
+
 
 
 
@@ -44,63 +44,56 @@
 
                 if ($img_projet_child_src[$z] != "") {
 
- 
-// Example usage
-$path ="img_user_action/" . $img_projet_child_src[$z];
-if (checkFileExists($path)) {
-  
 
-    ?>
-
-    <div class="taille_img">
-        <img src="<?php echo "img_user_action/" . $img_projet_child_src[$z]; ?>" alt="">
-
-    </div>
-<?php
+                    // Example usage
+                    $path = "img_user_action/" . $img_projet_child_src[$z];
+                    if (checkFileExists($path)) {
 
 
-} else {
- 
+                ?>
 
-   
- 
-$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-$databaseHandler->action_sql("UPDATE `projet_child` SET `img_projet_child_src` = '' WHERE `id_projet_child` = ".$id_projet_child[$z].";") ;
+                     <div class="taille_img">
+                         <img src="<?php echo "img_user_action/" . $img_projet_child_src[$z]; ?>" alt="">
 
- ?>
+                     </div>
+                 <?php
 
-<script>
 
-const myTimeout = setTimeout(myGreeting, 100);
-
-function myGreeting() {
-  location.reload() ; 
-}
-
-</script>
-<?php 
- 
-}
- 
+                    } else {
 
 
 
- 
+
+                        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+                        $databaseHandler->action_sql("UPDATE `projet_child` SET `img_projet_child_src` = '' WHERE `id_projet_child` = " . $id_projet_child[$z] . ";");
+
+                    ?>
+
+                     <script>
+                         const myTimeout = setTimeout(myGreeting, 100);
+
+                         function myGreeting() {
+                             location.reload();
+                         }
+                     </script>
+             <?php
+
+                    }
                 }
 
                 ?>
 
 
-<div class="projet2">
-<div onclick="img_user_action_child(this);img_user_action(this) ;" class="<?php echo $id_projet_child[$z] ?>">
+             <div class="projet2">
+                 <div onclick="img_user_action_child(this);img_user_action(this) ;" class="<?php echo $id_projet_child[$z] ?>">
                      Ajouter un fichier
                  </div>
-</div>
+             </div>
 
- 
-                <div class="sup_projet2 sup_projet3">
-                    <div title="<?php echo  $img_projet_child_src[$z] ?>" class="<?php echo  $id_projet[$a] ?>" onclick="sup_img_user_action_child(this)">Suprimer le fichier</div>
-                </div>
+
+             <div class="sup_projet2 sup_projet3">
+                 <div title="<?php echo  $img_projet_child_src[$z] ?>" class="<?php echo  $id_projet[$a] ?>" onclick="sup_img_user_action_child(this)">Suprimer le fichier</div>
+             </div>
 
 
              <!--    
@@ -188,12 +181,12 @@ function myGreeting() {
              </div>
 
 
-     
+
 
 
              <div id="<?php echo  "planification_child_" . $id_projet_child[$z] ?>" class="display_none2">
-                <div class="custom-form-container centrer">
-                    <h2>Planification de l'événement</h2>
+                 <div class="custom-form-container centrer">
+                     <h2>Planification de l'événement</h2>
 
 
 
@@ -201,34 +194,34 @@ function myGreeting() {
 
 
 
-                    <div class="form-group">
-                        <label for="start-date">Date de commencement :</label>
-                        <input  onchange="submit_inputs_form(this)" title="<?php echo  $id_projet_child[$z] ?>"  value="<?php echo $heure_debut_projet[$a] ?>" id="<?php echo  "inputs_form_1_" .$id_projet_child[$z] ?>" type="date" name="start-date" required>
-                    </div>
+                     <div class="form-group">
+                         <label for="start-date">Date de commencement :</label>
+                         <input onchange="submit_inputs_form_child(this)" title="<?php echo  $id_projet_child[$z] ?>" value="<?php echo $heure_debut_projet_child[$z] ?>" id="<?php echo  "inputs_form_1_child_" . $id_projet_child[$z] ?>" type="date" name="start-date" required>
+                     </div>
 
-                    <div class="form-group">
-                        <label for="start-time">Heure de commencement :</label>
-                        <input onchange="submit_inputs_form(this)" title="<?php echo  $id_projet_child[$z] ?>" value="<?php echo $date_debut_projet[$a] ?>" id="<?php echo  "inputs_form_2_" .$id_projet_child[$z] ?>" type="time" name="start-time" required>
-                    </div>
+                     <div class="form-group">
+                         <label for="start-time">Heure de commencement :</label>
+                         <input onchange="submit_inputs_form_child(this)" title="<?php echo  $id_projet_child[$z] ?>" value="<?php echo $date_debut_projet_child[$z] ?>" id="<?php echo  "inputs_form_2_child_" . $id_projet_child[$z] ?>" type="time" name="start-time" required>
+                     </div>
 
-                    <div class="form-group">
-                        <label for="end-date">Date de fin :</label>
-                        <input onchange="submit_inputs_form(this)" title="<?php echo  $id_projet_child[$z] ?>" value="<?php echo $heure_fin_projet[$a] ?>" id="<?php echo  "inputs_form_3_" .$id_projet_child[$z] ?>" type="date" name="end-date" required>
-                    </div>
+                     <div class="form-group">
+                         <label for="end-date">Date de fin :</label>
+                         <input onchange="submit_inputs_form_child(this)" title="<?php echo  $id_projet_child[$z] ?>" value="<?php echo $heure_fin_projet_child[$z] ?>" id="<?php echo  "inputs_form_3_child_" . $id_projet_child[$z] ?>" type="date" name="end-date" required>
+                     </div>
 
-                    <div class="form-group">
-                        <label for="end-time">Heure de fin :</label>
-                        <input onchange="submit_inputs_form(this)" title="<?php echo  $id_projet_child[$z] ?>" value="<?php echo $date_fin_projet[$a] ?>" id="<?php echo  "inputs_form_4_" .$id_projet_child[$z] ?>" type="time" name="end-time" required>
-                    </div>
+                     <div class="form-group">
+                         <label for="end-time">Heure de fin :</label>
+                         <input onchange="submit_inputs_form_child(this)" title="<?php echo  $id_projet_child[$z] ?>" value="<?php echo $date_fin_projet_child[$z] ?>" id="<?php echo  "inputs_form_4_child_" . $id_projet_child[$z] ?>" type="time" name="end-time" required>
+                     </div>
 
-                    <button type="submit" onclick="submit_inputs_form(this)" title="<?php echo  $id_projet_child[$z] ?>">Valider</button>
-                </div>
-            </div>
+                     <button type="submit" onclick="submit_inputs_form_child(this)" title="<?php echo  $id_projet_child[$z] ?>">Valider</button>
+                 </div>
+             </div>
 
 
-            
+
              <div class="display_flex">
-                 <div class="add_element" onclick="planification_child(this)"  title="<?php echo $id_projet_child[$z] ?>">
+                 <div class="add_element" onclick="planification_child(this)" title="<?php echo $id_projet_child[$z] ?>">
                      <img width="50" height="50" src="https://img.icons8.com/color/50/calendar--v1.png" alt="calendar--v1" />
                  </div>
                  <div title="<?php echo $id_projet_child[$z] ?>" onclick="remove_projet_child(this)">
@@ -382,62 +375,94 @@ function myGreeting() {
  </style>
 
  <script>
-    function sup_img_user_action_child(_this) {
-        console.log(_this.title) ; 
+     function sup_img_user_action_child(_this) {
+         console.log(_this.title);
 
 
+
+
+
+
+
+         var ok = new Information("update_child/sup_img_user_action_child.php"); // création de la classe 
+         ok.add("img_projet_child_src", _this.title); // ajout de l'information pour lenvoi 
+
+
+
+         console.log(ok.info()); // demande l'information dans le tableau
+         ok.push(); // envoie l'information au code pkp 
+
+
+
+
+
+
+
+         const myTimeout = setTimeout(myGreeting, 5000);
+
+         function myGreeting() {
+             location.reload();
+         }
+
+
+     }
+
+
+
+
+     function planification_child(_this) {
+         console.log(_this.title);
+         var planification_child = document.getElementById("planification_child_" + _this.title);
+
+
+
+         if (planification_child.className == "display_none2") {
+             planification_child.className = "";
+         } else {
+             planification_child.className = "display_none2";
+
+         }
+
+
+     }
+
+     function submit_inputs_form_child(_this) {
+         console.log(_this.title);
+
+
+
+
+
+         var inputs_form_1_ = document.getElementById("inputs_form_1_child_" + _this.title).value;
+         var inputs_form_2_ = document.getElementById("inputs_form_2_child_" + _this.title).value;
+         var inputs_form_3_ = document.getElementById("inputs_form_3_child_" + _this.title).value;
+         var inputs_form_4_ = document.getElementById("inputs_form_4_child_" + _this.title).value;
 
 
  
 
 
-        var ok = new Information("update_child/sup_img_user_action_child.php"); // création de la classe 
-             ok.add("img_projet_child_src", _this.title); // ajout de l'information pour lenvoi 
-  
-
-
-             console.log(ok.info()); // demande l'information dans le tableau
-             ok.push(); // envoie l'information au code pkp 
-
- 
+         var ok = new Information("update_child/submit_inputs_form_child.php"); // création de la classe 
+         ok.add("id_projet_child", _this.title); // ajout de l'information pour lenvoi 
+         ok.add("heure_debut_projet_child", inputs_form_1_); // ajout de l'information pour lenvoi 
+         ok.add("date_debut_projet_child", inputs_form_2_); // ajout de l'information pour lenvoi 
+         ok.add("heure_fin_projet_child", inputs_form_3_); // ajout de l'information pour lenvoi 
+         ok.add("date_fin_projet_child", inputs_form_4_); // ajout de l'information pour lenvoi 
 
 
 
-
-
-             const myTimeout = setTimeout(myGreeting, 5000);
-
-function myGreeting() {
-   location.reload() ; 
-}
-
-
-    }
+         console.log(ok.info()); // demande l'information dans le tableau
+         ok.push(); // envoie l'information au code pkp 
 
 
 
 
-    function planification_child(_this){
-            console.log(_this.title) ; 
-       var planification_child=  document.getElementById("planification_child_"+_this.title) ; 
-
-
-
-       if(planification_child.className=="display_none2") {
-        planification_child.className ="" ; 
-       }
-       else {
-        planification_child.className ="display_none2" ; 
-
-       }
-   
-   
-    }
+     }
  </script>
 
 
-<style>
-    .sup_projet3{
-        margin-bottom: 50px;
-    }
-</style>
+ <style>
+     .sup_projet3 {
+         margin-bottom: 50px;
+     }
+ </style>
