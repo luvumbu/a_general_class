@@ -98,8 +98,42 @@
     $img_projet_src_img = $databaseHandler->tableList_info;
 
 
- 
+
+
+
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "id_projet_img_auto");
+    $id_projet_img_auto = $databaseHandler->tableList_info;
+
+
  
 
+
+ 
+
+
+ 
+
+
+for($wx = 0 ; $wx <count($img_projet_src_img) ; $wx++) {
+ 
+
+
+
+    if (checkFileExists("img_user_action/".$img_projet_src_img[$wx])) {
+     //   echo "The file exists.";
+
+    } else {
+      //  echo "The file does not exist.";
+
+
+ 
+      $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->action_sql('DELETE FROM `projet_img` WHERE `id_projet_img_auto` ="'.$id_projet_img_auto[$wx].'" ') ;
+
+    }
+  
+
+} 
 
     ?>
