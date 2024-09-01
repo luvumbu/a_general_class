@@ -405,7 +405,7 @@ for ($n = 0; $n < count($name_group); $n++) {
                 
             </div>
 
- 
+             
             <div class="display_flex">
                 <div title="<?php echo  $id_projet[$a] ?>" onclick="my_pictures_click(this)">
 

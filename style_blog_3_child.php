@@ -181,12 +181,7 @@
              </div>
 
 
-
- <?php 
-
- echo  $visibility_1_projet_child[$z] ; 
-var_dump($visibility_1_projet_child) ; 
- ?>
+ 
 
              <div id="<?php echo  "planification_child_" . $id_projet_child[$z] ?>" class="display_none2">
                  <div class="custom-form-container centrer">
@@ -235,7 +230,7 @@ var_dump($visibility_1_projet_child) ;
                      <?php
  
 
-                        if ($visibility_1_projet_child[$z] != "") {
+                        if ($visibility_1_projet_child[$z] == "") {
                         ?>
                          <div title="<?php echo $id_projet_child[$z] ?>">
                              <img width="50" name="<?php echo $visibility_1_projet_child[$z] ?>" title="<?php echo  $id_projet_child[$z] ?>" onclick="visibility_1_projet_child(this)" class="add_element" height="50" src="https://img.icons8.com/ios-glyphs/50/invisible.png" alt="invisible" />
@@ -358,15 +353,30 @@ var_dump($visibility_1_projet_child) ;
 
         var img1 ="https://img.icons8.com/ios/50/invisible.png";
         var img2 ="https://img.icons8.com/ios-glyphs/50/invisible.png";
-
+        var visibility_1_projet_child =".0" ;
         if(_this.src==img1){
             _this.src =img2;
+            visibility_1_projet_child="" ; 
         }
         else{
             _this.src =img1;
-           
+            visibility_1_projet_child="(0-0)" ; 
 
         }
+ 
+        
+        var ok = new Information("update_child/visibility_1_projet_child.php"); // création de la classe 
+             ok.add("id_projet_child", _this.title); // ajout de l'information pour lenvoi 
+             ok.add("visibility_1_projet_child", visibility_1_projet_child); // ajout d'une deuxieme information denvoi  
+       
+
+
+             console.log(ok.info()); // demande l'information dans le tableau
+             ok.push(); // envoie l'information au code pkp 
+
+
+
+
 
      }
  </script>
