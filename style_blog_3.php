@@ -677,4 +677,7 @@ function myGreeting() {
         max-height: 200px;
 
     }
+    .sup_projet2{
+        background-color: rgba(220, 40, 12,0.6);
+    }
 </style>

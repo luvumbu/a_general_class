@@ -91,11 +91,27 @@ function myGreeting() {
                 ?>
 
 
+<div class="projet2">
+<div onclick="img_user_action_child(this);img_user_action(this) ;" class="<?php echo $id_projet_child[$z] ?>">
+                     Ajouter un fichier
+                 </div>
+</div>
+
+ 
+                <div class="sup_projet2 sup_projet3">
+                    <div title="<?php echo  $img_projet_child_src[$z] ?>" class="<?php echo  $id_projet[$a] ?>" onclick="sup_img_user_action_child(this)">Suprimer le fichier</div>
+                </div>
+
+
+             <!--    
+
              <div class="child_photo">
                  <div onclick="img_user_action_child(this);img_user_action(this) ;" class="<?php echo $id_projet_child[$z] ?>">
-                     Ajouter une photo
+                     Ajouter un fichier
                  </div>
              </div>
+
+            -->
 
              <div class="custom-editor">
                  <div id="editor-container">
@@ -332,3 +348,44 @@ function myGreeting() {
          cursor: pointer;
      }
  </style>
+
+ <script>
+    function sup_img_user_action_child(_this) {
+        console.log(_this.title) ; 
+
+
+
+
+ 
+
+
+        var ok = new Information("update_child/sup_img_user_action_child.php"); // création de la classe 
+             ok.add("img_projet_child_src", _this.title); // ajout de l'information pour lenvoi 
+  
+
+
+             console.log(ok.info()); // demande l'information dans le tableau
+             ok.push(); // envoie l'information au code pkp 
+
+ 
+
+
+
+
+
+             const myTimeout = setTimeout(myGreeting, 5000);
+
+function myGreeting() {
+   location.reload() ; 
+}
+
+
+    }
+ </script>
+
+
+<style>
+    .sup_projet3{
+        margin-bottom: 50px;
+    }
+</style>
