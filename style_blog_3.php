@@ -365,8 +365,11 @@ for ($n = 0; $n < count($name_group); $n++) {
                         } elseif ($extension == 'pdf') {
                             // Si c'est un PDF, l'afficher dans un iframe
                         ?>
-                            <div class="iframes" class="<?php echo $file_path ?>" title="<?php echo  $id_projet[$a] ?>" onclick="iframes_doc(this)">
+
+                            <div class="iframes" >
+                            <div class="<?php echo $file_path ?>" title="<?php echo  $id_projet[$a] ?>" onclick="iframes_doc(this)">
                                 <iframe style="height: 50px;" src="<?php echo $file_path ?>" width="100%" height="500px"></iframe>
+                            </div>
                             </div>
                         <?php
                         } elseif (in_array($extension, ['mp4', 'webm', 'ogg'])) {
@@ -597,9 +600,9 @@ else {
 var ok = new Information("update/iframes_doc.php");
         ok.add("id_projet", _this.title);
 
+        let img_projet_src =  _this.className.replace("img_user_action/", "");
 
-
-        ok.add("img_projet_src", _this.className);
+        ok.add("img_projet_src", img_projet_src);
  
 
 
@@ -612,7 +615,6 @@ var ok = new Information("update/iframes_doc.php");
 function myGreeting() {
   location.reload() ; 
 }
-
 
 
 
