@@ -182,7 +182,11 @@
 
 
 
+ <?php 
 
+ echo  $visibility_1_projet_child[$z] ; 
+var_dump($visibility_1_projet_child) ; 
+ ?>
 
              <div id="<?php echo  "planification_child_" . $id_projet_child[$z] ?>" class="display_none2">
                  <div class="custom-form-container centrer">
@@ -229,18 +233,18 @@
                  </div>
                  <div>
                      <?php
-
+ 
 
                         if ($visibility_1_projet_child[$z] != "") {
                         ?>
                          <div title="<?php echo $id_projet_child[$z] ?>">
-                             <img width="50" name="<?php echo $visibility_1_projet_child[$z] ?>" title="<?php echo  $id_projet[$z] ?>" onclick="visibility_1_projet_child(this)" class="add_element" height="50" src="https://img.icons8.com/ios-glyphs/50/invisible.png" alt="invisible" />
+                             <img width="50" name="<?php echo $visibility_1_projet_child[$z] ?>" title="<?php echo  $id_projet_child[$z] ?>" onclick="visibility_1_projet_child(this)" class="add_element" height="50" src="https://img.icons8.com/ios-glyphs/50/invisible.png" alt="invisible" />
                          </div>
                      <?php
                         } else {
                         ?>
                          <div title="<?php echo $id_projet_child[$z] ?>">
-                             <img width="50" name="<?php echo $visibility_1_projet_child[$z] ?>" title="<?php echo  $id_projet[$z] ?>" onclick="visibility_1_projet_child(this)" class="add_element" height="50" src="https://img.icons8.com/ios/50/invisible.png" alt="invisible" />
+                             <img width="50" name="<?php echo $visibility_1_projet_child[$z] ?>" title="<?php echo  $id_projet_child[$z] ?>" onclick="visibility_1_projet_child(this)" class="add_element" height="50" src="https://img.icons8.com/ios/50/invisible.png" alt="invisible" />
                          </div>
                      <?php
                         }
@@ -345,6 +349,24 @@
 
      function del_form(_this) {
          var input_2c_ = document.getElementById("input_2c_" + _this.title).innerHTML = "";
+
+     }
+
+     function visibility_1_projet_child(_this) {
+
+        console.log(_this.src) ; 
+
+        var img1 ="https://img.icons8.com/ios/50/invisible.png";
+        var img2 ="https://img.icons8.com/ios-glyphs/50/invisible.png";
+
+        if(_this.src==img1){
+            _this.src =img2;
+        }
+        else{
+            _this.src =img1;
+           
+
+        }
 
      }
  </script>
