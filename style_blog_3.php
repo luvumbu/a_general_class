@@ -315,7 +315,7 @@ for ($n = 0; $n < count($name_group); $n++) {
 
                     <div class="form-group">
                         <label for="start-date">Date de commencement :</label>
-                        <input  onchange="submit_inputs_form(this)" title="<?php echo  $id_projet[$a] ?>"  value="<?php echo $heure_debut_projet[$a] ?>" id="<?php echo  "inputs_form_1_" . $id_projet[$a] ?>" type="date" name="start-date" required>
+                        <input onchange="submit_inputs_form(this)" title="<?php echo  $id_projet[$a] ?>" value="<?php echo $heure_debut_projet[$a] ?>" id="<?php echo  "inputs_form_1_" . $id_projet[$a] ?>" type="date" name="start-date" required>
                     </div>
 
                     <div class="form-group">
@@ -337,76 +337,86 @@ for ($n = 0; $n < count($name_group); $n++) {
                 </div>
             </div>
 
-<style>
-    .iframes iframe{
-        background-color: black;
-        padding: 25px;
-    }
-</style>
-            <div class="display_none2"   id="<?php echo  "all_docs_".$id_projet[$a] ?>">
-       
+            <style>
+                .iframes iframe {
+                    background-color: black;
+                    padding: 25px;
+                }
+            </style>
+            <div class="display_none2" id="<?php echo  "all_docs_" . $id_projet[$a] ?>">
 
-                
+
+
+                <?php
+                for ($x = 0; $x < count($img_projet_src_img); $x++) {
+                    $file_path = 'img_user_action/' . $img_projet_src_img[$x];
+
+                    // Extraire l'extension du fichier
+                    $extension = strtolower(pathinfo($file_path, PATHINFO_EXTENSION));
+
+                    // Vérifier le type de fichier et afficher en conséquence
+                    if (in_array($extension, ['jpg', 'jpeg', 'png', 'gif'])) {
+                        // Si c'est une image, l'afficher avec une balise <img>
+                ?>
+                        <div class="<?php echo $file_path ?>" title="<?php echo  $id_projet[$a] ?>" onclick="iframes_doc(this)">
+                            <img src="<?php echo $file_path ?>" alt="Image">
+                        </div>
                     <?php
-                    for ($x = 0; $x < count($img_projet_src_img); $x++) {
-                        $file_path = 'img_user_action/' . $img_projet_src_img[$x];
-
-                        // Extraire l'extension du fichier
-                        $extension = strtolower(pathinfo($file_path, PATHINFO_EXTENSION));
-
-                        // Vérifier le type de fichier et afficher en conséquence
-                        if (in_array($extension, ['jpg', 'jpeg', 'png', 'gif'])) {
-                            // Si c'est une image, l'afficher avec une balise <img>
+                    } elseif ($extension == 'pdf') {
+                        // Si c'est un PDF, l'afficher dans un iframe
                     ?>
-                            <div class="<?php echo $file_path ?>" title="<?php echo  $id_projet[$a] ?>" onclick="iframes_doc(this)">
-                                <img src="<?php echo $file_path ?>" alt="Image">
-                            </div>
-                        <?php
-                        } elseif ($extension == 'pdf') {
-                            // Si c'est un PDF, l'afficher dans un iframe
-                        ?>
 
-                            <div class="iframes" >
+                        <div class="iframes">
                             <div class="<?php echo $file_path ?>" title="<?php echo  $id_projet[$a] ?>" onclick="iframes_doc(this)">
                                 <iframe style="height: 50px;" src="<?php echo $file_path ?>" width="100%" height="500px"></iframe>
                             </div>
-                            </div>
-                        <?php
-                        } elseif (in_array($extension, ['mp4', 'webm', 'ogg'])) {
-                            // Si c'est une vidéo, l'afficher dans une balise <video>
-                        ?>
-                            <div class="<?php echo $file_path ?>" title="<?php echo  $id_projet[$a] ?>" onclick="iframes_doc(this)">
-                                <video width="100%" controls>
-                                    <source src="<?php echo $file_path ?>" type="video/<?php echo $extension ?>">
-                                    Votre navigateur ne supporte pas la balise video.
-                                </video>
-                            </div>
-                        <?php
-                        } elseif (in_array($extension, ['mp3', 'wav', 'ogg'])) {
-                            // Si c'est un fichier audio, l'afficher dans une balise <audio>
-                        ?>
-                            <div class="<?php echo $file_path ?>" title="<?php echo  $id_projet[$a] ?>" onclick="iframes_doc(this)">
-                                <audio controls>
-                                    <source src="<?php echo $file_path ?>" type="audio/<?php echo $extension ?>">
-                                    Votre navigateur ne supporte pas la balise audio.
-                                </audio>
-                            </div>
-                        <?php
-                        } else {
-                            // Pour les autres fichiers, afficher un lien de téléchargement
-                        ?>
-                            <div class="<?php echo $file_path ?>" title="<?php echo  $id_projet[$a] ?>" onclick="iframes_doc(this)">
-                                <a href="<?php echo $file_path ?>" target="_blank">Télécharger le fichier</a>
-                            </div>
+                        </div>
                     <?php
-                        }
-                    }
+                    } elseif (in_array($extension, ['mp4', 'webm', 'ogg'])) {
+                        // Si c'est une vidéo, l'afficher dans une balise <video>
                     ?>
-                
+                        <div class="<?php echo $file_path ?>" title="<?php echo  $id_projet[$a] ?>" onclick="iframes_doc(this)">
+                            <video width="100%" controls>
+                                <source src="<?php echo $file_path ?>" type="video/<?php echo $extension ?>">
+                                Votre navigateur ne supporte pas la balise video.
+                            </video>
+                        </div>
+                    <?php
+                    } elseif (in_array($extension, ['mp3', 'wav', 'ogg'])) {
+                        // Si c'est un fichier audio, l'afficher dans une balise <audio>
+                    ?>
+                        <div class="<?php echo $file_path ?>" title="<?php echo  $id_projet[$a] ?>" onclick="iframes_doc(this)">
+                            <audio controls>
+                                <source src="<?php echo $file_path ?>" type="audio/<?php echo $extension ?>">
+                                Votre navigateur ne supporte pas la balise audio.
+                            </audio>
+                        </div>
+                    <?php
+                    } else {
+                        // Pour les autres fichiers, afficher un lien de téléchargement
+                    ?>
+                        <div class="<?php echo $file_path ?>" title="<?php echo  $id_projet[$a] ?>" onclick="iframes_doc(this)">
+                            <a href="<?php echo $file_path ?>" target="_blank">Télécharger le fichier</a>
+                        </div>
+                <?php
+                    }
+                }
+                ?>
+
             </div>
 
-             
+
+            <div class="cryptographie_input">
+                <input type="text" placeholder="cryptographie_input" title="<?php echo  $id_projet[$a] ?>"  id="<?php echo  "cryptographie_input_".$id_projet[$a] ?>">
+            </div>
+
             <div class="display_flex">
+                <div title="<?php echo  $id_projet[$a] ?>" onclick="cryptographie_input(this)">
+
+                    <img class="add_element" width="50" height="50" src="https://img.icons8.com/ios/50/password--v1.png" alt="external-Images-images-and-image-files-those-icons-lineal-those-icons-2" />
+
+                </div>
+
                 <div title="<?php echo  $id_projet[$a] ?>" onclick="my_pictures_click(this)">
 
                     <img class="add_element" width="50" height="50" src="https://img.icons8.com/plumpy/47/file.png" alt="external-Images-images-and-image-files-those-icons-lineal-those-icons-2" />
@@ -520,19 +530,18 @@ require 'style_blog_3_scrypt_1.php';
 <script>
     function my_pictures_click(_this) {
 
-var all_docs_ = document.getElementById("all_docs_"+_this.title) ; 
+        var all_docs_ = document.getElementById("all_docs_" + _this.title);
 
- 
 
- 
-if(all_docs_.className=="display_none2"){
-    all_docs_.className = "display_flex2" ; 
-}
-else {
-    all_docs_.className = "display_none2" ; 
 
-}
-   
+
+        if (all_docs_.className == "display_none2") {
+            all_docs_.className = "display_flex2";
+        } else {
+            all_docs_.className = "display_none2";
+
+        }
+
     }
 
     function planification_click(_this) {
@@ -593,17 +602,17 @@ else {
 
     }
 
-    function iframes_doc(_this){
- 
+    function iframes_doc(_this) {
 
 
-var ok = new Information("update/iframes_doc.php");
+
+        var ok = new Information("update/iframes_doc.php");
         ok.add("id_projet", _this.title);
 
-        let img_projet_src =  _this.className.replace("img_user_action/", "");
+        let img_projet_src = _this.className.replace("img_user_action/", "");
 
         ok.add("img_projet_src", img_projet_src);
- 
+
 
 
 
@@ -612,13 +621,15 @@ var ok = new Information("update/iframes_doc.php");
 
         const myTimeout = setTimeout(myGreeting, 200);
 
-function myGreeting() {
-  location.reload() ; 
-}
+        function myGreeting() {
+            location.reload();
+        }
 
+    }
 
-
-
+    function cryptographie_input(_this) {
+    var el =    document.getElementById("cryptographie_input_"+_this.title) ; 
+    console.log(el.value) ; 
 
     }
 </script>
@@ -640,7 +651,21 @@ function myGreeting() {
         text-align: center;
         color: white;
         width: 150px;
+    }
+    .cryptographie_input {
+        margin: auto;
+        width: 100%;
+        margin-top: 50px;
+        margin-bottom: 50px;
 
+    }
+
+    .cryptographie_input input{
+    
+        width: 100%;
+        padding: 5px; 
+        
+  
     }
 
     .sup_projet2 {}
@@ -677,7 +702,8 @@ function myGreeting() {
         max-height: 200px;
 
     }
-    .sup_projet2{
-        background-color: rgba(220, 40, 12,0.6);
+
+    .sup_projet2 {
+        background-color: rgba(220, 40, 12, 0.6);
     }
 </style>
