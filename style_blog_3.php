@@ -404,18 +404,10 @@ for ($n = 0; $n < count($name_group); $n++) {
                 ?>
 
             </div>
-
-
-            <div class="cryptographie_input">
-                <input type="text" placeholder="cryptographie_input" title="<?php echo  $id_projet[$a] ?>"  id="<?php echo  "cryptographie_input_".$id_projet[$a] ?>">
-            </div>
+ 
 
             <div class="display_flex">
-                <div title="<?php echo  $id_projet[$a] ?>" onclick="cryptographie_input(this)">
-
-                    <img class="add_element" width="50" height="50" src="https://img.icons8.com/ios/50/password--v1.png" alt="external-Images-images-and-image-files-those-icons-lineal-those-icons-2" />
-
-                </div>
+    
 
                 <div title="<?php echo  $id_projet[$a] ?>" onclick="my_pictures_click(this)">
 

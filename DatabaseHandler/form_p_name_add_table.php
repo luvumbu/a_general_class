@@ -79,6 +79,12 @@ $databaseHandler->set_column_names("id_user_projet");
 
 $databaseHandler->set_column_names("id_sha1_projet");
 
+$databaseHandler->set_column_names("cryptage_projet");
+$databaseHandler->set_column_names("input_cryptage_projet");
+
+
+
+
 $databaseHandler->set_column_names("name_projet"); 
 $databaseHandler->set_column_names("statue_projet"); 
 
@@ -113,6 +119,10 @@ $databaseHandler->set_column_types("INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY")
 
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
 
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
