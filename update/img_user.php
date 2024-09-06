@@ -57,5 +57,5 @@ $_SESSION["cookie_img"] = "";
 
 ?>
 <script>
-      window.location.href = "../index2.php";
+      window.location.href = "../index.php";
 </script>
