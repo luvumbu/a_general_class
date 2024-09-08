@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page du Projet</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fafafa;
-            color: #4a4a4a;
+            background-color: #1b1b1d;
+            color: #d3d3d3;
         }
 
         .container {
-            width: 70%;
+            width: 90%;
             margin: 0 auto;
             padding: 40px;
-            background-color: #fff;
-            box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.1);
-            border-radius: 15px;
+            background-color: #2b2b2e;
+            box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.8);
+            border-radius: 20px;
             margin-top: 50px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
+
+
 
         header {
             text-align: center;
@@ -29,10 +33,11 @@
         }
 
         h1 {
-            font-size: 2.8em;
-            color: #3b3b3b;
+            font-size: 3em;
+            color: #ffffff;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
         }
 
         .project-image {
@@ -41,179 +46,136 @@
         }
 
         .project-image img {
-            max-width: 80%;
+            max-width: 100%;
             height: auto;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease;
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.8);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
-        .project-image img:hover {
-            transform: scale(1.05);
-        }
 
         .project-name {
             text-align: center;
-            font-size: 1.8em;
-            color: #7f8c8d;
+            font-size: 2em;
+            color: #00aaff;
             font-weight: bold;
             margin-top: 30px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            text-shadow: 0 0 15px rgba(0, 170, 255, 0.7);
         }
 
-        body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f3f5;
-    color: #4a4a4a;
-}
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1a1a1c;
+            color: #7f8c8d;
+            border-top: 1px solid #333;
+            margin-top: 50px;
+            border-radius: 0 0 20px 20px;
+        }
 
-.container {
-    width: 70%;
-    margin: 0 auto;
-    padding: 40px;
-    background-color: #fff;
-    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-    margin-top: 50px;
-}
+        footer p {
+            margin: 0;
+            color: #555;
+        }
 
-header {
-    text-align: center;
-    margin-bottom: 50px;
-}
+        /* Styles spécifiques pour les projets enfants */
+        .child-project {
+            margin-top: 30px;
+            padding: 25px;
+            background-color: #262629;
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
 
-h1 {
-    font-size: 2.8em;
-    color: #2c3e50;
-    font-weight: 700;
-    letter-spacing: 1px;
-}
 
-.project-image {
-    text-align: center;
-    margin: 40px 0;
-}
+        .child-project h1 {
+            font-size: 2.4em;
+            color: #ffffff;
+            margin-bottom: 15px;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        }
 
-.project-image img {
-    max-width: 80%;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease;
-}
+        .child-project p {
+            font-size: 1.2em;
+            color: #cccccc;
+            line-height: 1.6;
+        }
 
-.project-image img:hover {
-    transform: scale(1.05);
-}
+        .child-project img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-.project-name {
-    text-align: center;
-    font-size: 1.8em;
-    color: #7f8c8d;
-    font-weight: bold;
-    margin-top: 30px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #ecf0f1;
-    color: #7f8c8d;
-    border-top: 1px solid #dcdcdc;
-    margin-top: 50px;
-    border-radius: 0 0 15px 15px;
-}
-
-footer p {
-    margin: 0;
-}
-
-/* Styles spécifiques pour les projets enfants */
-.child-project {
-    margin-top: 30px;
-    padding: 25px;
-    background-color: #f7f9fb;
-    border-radius: 12px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.child-project:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.12);
-}
-
-.child-project h1 {
-    font-size: 2.2em;
-    color: #2980b9;
-    margin-bottom: 15px;
-}
-
-.child-project p {
-    font-size: 1.1em;
-    color: #2c3e50;
-}
-
-.child-project img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    transition: transform 0.3s ease;
-}
-
-.child-project img:hover {
-    transform: scale(1.03);
-}
-
+        .child-project img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 50px rgba(0, 170, 255, 0.3);
+        }
     </style>
 </head>
+
 <body>
 
-    <div class="container">
-        <header>
-            <h1><?php echo AsciiConverter::asciiToString($title_projet[0]); ?></h1>
-        </header>
 
-        <section class="project-image">
-            <img src="<?php echo '../img_user_action/' . $img_projet_src[0]; ?>" alt="Image du projet">
-        </section>
+    <div class="parent_div">
 
-        <section class="project-name">
-            <p><?php echo AsciiConverter::asciiToString($name_projet[0]); ?></p>
-        </section>
 
-        <!-- Boucle pour afficher les projets enfants -->
-        <?php 
-        for($a = 0; $a < count($title_projet_child); $a++) {
-        ?>
-            <div class="child-project">
-                <header>
-                    <h1><?php echo AsciiConverter::asciiToString($name_projet_child[$a]); ?></h1>
-                </header>
+        <div class="container">
+            <header>
+                <h1><?php echo AsciiConverter::asciiToString($title_projet[0]); ?></h1>
+            </header>
 
-                <section class="project-image">
-                    <img src="<?php echo '../img_user_action/' . $img_projet_child_src[$a]; ?>" alt="Image du projet enfant">
-                </section>
+            <section class="project-image">
+                <img src="<?php echo '../img_user_action/' . $img_projet_src[0]; ?>" alt="Image du projet">
+            </section>
 
-                <section>
-                    <p><?php echo AsciiConverter::asciiToString($description_projet_child[$a]); ?></p>
-                </section>
+            <section class="project-name">
+                <p><?php echo AsciiConverter::asciiToString($name_projet[0]); ?></p>
+            </section>
+
+            <!-- Boucle pour afficher les projets enfants -->
+            <?php
+            for ($a = 0; $a < count($title_projet_child); $a++) {
+            ?>
+                <div class="child-project">
+                    <header>
+                        <h1><?php echo AsciiConverter::asciiToString($name_projet_child[$a]); ?></h1>
+                    </header>
+
+                    <section class="project-image">
+                        <img src="<?php echo '../img_user_action/' . $img_projet_child_src[$a]; ?>" alt="Image du projet enfant">
+                    </section>
+
+                    <section>
+                        <p><?php echo AsciiConverter::asciiToString($description_projet_child[$a]); ?></p>
+                    </section>
+                </div>
+            <?php
+            }
+            ?>
+        </div>
+        <div>
+        <div class="author-box">
+            <img src="path_to_author_photo.jpg" alt="Photo de l'auteur">
+            <h2>Nom Prénom</h2>
+            <p>Développeur web</p>
+            <div class="description">
+                <p>Passionné par les technologies modernes et les interfaces utilisateur élégantes. Contributeur clé de plusieurs projets web innovants.</p>
             </div>
-        <?php 
-        }
-        ?>
+        </div>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 Mon Projet Web. Tous droits réservés.</p>
+        <p>&copy; 2024 Mon Projet Web. Tous droits réservés. Bokonzi</p>
     </footer>
 
 </body>
+
 </html>

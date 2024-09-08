@@ -44,6 +44,17 @@
 
 
     ?>
+
+
+
+
+
+
+ <b>
+    <div class="id_p">
+    ID :<?php echo $id_sha1_projet[$a]  ?>
+</div>
+ </b>
         <div class="card">
 
 
@@ -415,6 +426,20 @@ for ($n = 0; $n < count($name_group); $n++) {
 
                 </div>
 
+
+                
+                <div>
+<a href="<?php echo  'user.php/'.$id_sha1_projet[$a] ?>">
+<img class="add_element"  width="50" height="50" src="https://img.icons8.com/emoji/50/link-emoji.png" alt="link-emoji"/>
+
+</a>
+
+                </div>
+
+
+               
+               
+               
                 <div title="<?php echo  $id_projet[$a] ?>" onclick="planification_click(this)">
                     <div class="add_element">
                         <img width="50" height="50" src="https://img.icons8.com/color/50/calendar--v1.png" alt="calendar--v1" />
