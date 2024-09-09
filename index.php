@@ -191,7 +191,7 @@ session_start();
   } else {
     // Si la session est déjà active, inclusion des fichiers pour la configuration et la gestion de session
     require 'class/path_config.php';
-    require_once 'session_log.php';
+    require_once 'view/body.php';
   }
   ?>
 
