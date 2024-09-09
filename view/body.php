@@ -7,7 +7,7 @@
 </head> 
 <div class="header_flex">
   <div>
-    <a href="log_off.php">
+    <a href="class/log_off.php">
       <div>
         <img width="50" height="50" src="https://img.icons8.com/fluency/50/switch-off.png" alt="switch-off" />
       </div>
@@ -64,10 +64,7 @@ function myGreeting() {
   <div class="rightcolumn">
     <?php
     require_once 'view/style_blog_4.php'; 
-    /*
-    require_once 'style_blog_5.php'; 
-    require_once 'style_blog_6.php';
- */
+ 
     ?>
   </div>
 </div>

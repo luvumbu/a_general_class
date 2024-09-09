@@ -532,7 +532,7 @@ $id_projet_child = $databaseHandler__->tableList_info;
 
 
 
-        require  'style_blog_3_child.php';
+        require  'view/style_blog_3_child.php';
 
         ?>
 
@@ -542,7 +542,7 @@ $id_projet_child = $databaseHandler__->tableList_info;
     ?>
 </div>
 <?php
-require 'style_blog_3_scrypt_1.php';
+require 'view/style_blog_3_scrypt_1.php';
 
 ?>
 
