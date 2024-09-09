@@ -8,7 +8,7 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="fr">
-
+<link rel="stylesheet" href="css/index.css">
 <head>
   <!-- Définit l'encodage des caractères en UTF-8 -->
   <meta charset="UTF-8">
@@ -257,18 +257,7 @@ if ($databaseHandler->get_verif()) {
   ?>
 
   <style>
-    /* Style pour le bouton 'xx' */
-    .xx {
-      padding: 10px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
 
-    /* Style pour les éléments ayant les classes taille_img et user_log lors du survol */
-    .taille_img:hover,
-    .user_log:hover {
-      cursor: pointer;
-    }
   </style>
 
 
