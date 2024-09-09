@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="css/style_blog_3_2.css">
 <link rel="stylesheet" href="css/style_blog_3.css">
+<link rel="stylesheet" href="css/form_event.css">
+
 
 
 
@@ -9,9 +11,9 @@
     <?php
 
 
-    require_once 'style_blog_3_req_1.php';
+    require_once 'mysq_req/style_blog_3_req_1.php';
 
-    require_once 'form_event.php';
+ 
 
 
 
@@ -20,7 +22,7 @@
 
 
 
-        require 'style_blog_3_req_2.php';
+        require 'mysq_req/style_blog_3_req_2.php';
 
 
 
