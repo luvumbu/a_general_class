@@ -123,7 +123,7 @@ if ($databaseHandler->get_verif()) {
     $monFormulaire1 = new Creat_form("form_p_name", "form", "");
 
     // Ajout d'une feuille de style au formulaire
-    $monFormulaire1->stylesheet("monFormulaire1.css");
+    $monFormulaire1->stylesheet("css/monFormulaire1.css");
 
     /*
     Plusieurs autres feuilles de styles peuvent être ajoutées, mais elles sont commentées ici
