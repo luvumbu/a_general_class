@@ -33,68 +33,7 @@ session_start();
   require_once 'class/AsciiConverter.php';
   require_once 'class/chercherIndex.php';
   require_once 'class/IsLocal.php';
-
-
-
-
-
-
-
-
-
-
-
-  /*
-
-
-  echo  IsLocal() ; 
-
-
-// Créer une instance de DatabaseHandler
-$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-
  
-
-
-
-
-
-
-// Créer une instance de DatabaseHandler
-$databaseHandler = new DatabaseHandler($config_dbname, 'root');
-
-// Vérifier si la connexion est réussie
-if ($databaseHandler->get_verif()) {
-    // Nom de la table à vérifier
-    $tableName = 'root';
-
-    // Appeler la méthode pour obtenir les colonnes de la table
-    $databaseHandler->getListOfTables_Child($tableName);
-
-    // Accéder à la propriété contenant la liste des colonnes
-    $columns = $databaseHandler->get_tableList_child();
-
-
-    var_dump( $columns ) ; 
- 
-} 
-
-
-
-
-
-
-
-
-*/
-
-
-
-
-
-
-
-
 
   // Si la session n'est pas déjà active (l'utilisateur n'est pas connecté)
   if (!isset($_SESSION["session_log"])) {

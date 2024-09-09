@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="style_blog_3_2.css">
-<link rel="stylesheet" href="style_blog_3.css">
+<link rel="stylesheet" href="css/style_blog_3_2.css">
+<link rel="stylesheet" href="css/style_blog_3.css">
 
 
 
