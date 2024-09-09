@@ -4,7 +4,7 @@ session_start();
 ?>
 
 <!-- Inclusion du fichier JavaScript externe -->
-<script src="js.js"></script>
+<script src="class/js.js"></script>
 
 <!DOCTYPE html>
 <html lang="fr">
