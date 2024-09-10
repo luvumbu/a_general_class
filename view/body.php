@@ -58,13 +58,25 @@ function myGreeting() {
 <div class="row rowrow">
   <div class="leftcolumn">
     <?php
-    require_once 'view/style_blog_3.php';
+
+
+
+if(give_url()=="index.php") {
+  require_once 'view/style_blog_3.php';
+
+}
+
+
+   echo give_url() ;
+
     ?>
   </div>
   <div class="rightcolumn">
     <?php
+
+if(give_url()=="index.php") {
     require_once 'view/style_blog_4.php'; 
- 
+}
     ?>
   </div>
 </div>

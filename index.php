@@ -33,6 +33,8 @@ session_start();
   require_once 'class/AsciiConverter.php';
   require_once 'class/chercherIndex.php';
   require_once 'class/IsLocal.php';
+  require_once 'class/give_url.php';
+
  
 
   // Si la session n'est pas déjà active (l'utilisateur n'est pas connecté)
