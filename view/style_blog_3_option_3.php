@@ -79,7 +79,7 @@
 
                     ?>
 
-            
+
 
                  <?php
 
@@ -92,30 +92,39 @@
                      location.reload();
                  </script>
 
-         <?php
+             <?php
                 }
-            }
-            else {
+            } else {
                 ?>
 
-<div class="taille_img">
-                         <div title="<?php echo $id_projet[$a] ?>" class="<?php echo $id_projet[$a] ?>" onclick="img_user_action(this)">
-                             <img src="src/img/0.png" alt="" srcset="">
-                         </div>
-                     </div>
+             <div class="taille_img">
+                 <div title="<?php echo $id_projet[$a] ?>" class="<?php echo $id_projet[$a] ?>" onclick="img_user_action(this)">
+                     <img src="src/img/0.png" alt="" srcset="">
+                 </div>
+             </div>
 
-<?php 
+         <?php
             }
             ?>
          <div class="card-body">
              <input type="text" value="<?php echo $title_projet_; ?>" onkeyup="style_blog_3_2_up(this)" title="<?php echo  $id_projet[$a] ?>" id="<?php echo  't_' . $id_projet[$a] ?>" placeholder="MON TITRE" class="title_projet">
              <input type="text" style="opacity: 0.3;" value="<?php echo $description_projet_; ?>" onkeyup="style_blog_3_2_up(this)" title="<?php echo  $id_projet[$a] ?>" id="<?php echo  'h_' . $id_projet[$a] ?>" placeholder="autre element" class="title_projet">
          </div>
-         <a href="<?php echo "user.php/" . $id_sha1_projet[$a] ?>">
-             <img class="cursor_pointer" width="50" height="50" src="https://img.icons8.com/emoji/50/link-emoji.png" alt="link-emoji" />
 
-         </a>
-         <img width="50" height="50" src="https://img.icons8.com/ios/50/settings--v1.png" alt="settings--v1" />
+
+
+
+         <div class="display_flex">
+             <div>
+                 <a href="<?php echo "user.php/" . $id_sha1_projet[$a] ?>">
+                     <img class="cursor_pointer" width="50" height="50" src="https://img.icons8.com/emoji/50/link-emoji.png" alt="link-emoji" />
+
+                 </a>
+             </div>
+             <div title="<?php echo $id_projet[$a] ?>" class="<?php echo $id_sha1_projet[$a] ?>" onclick="session_switch(this)">
+                 <img width="50" height="50" src="https://img.icons8.com/ios/50/settings--v1.png" alt="settings--v1" />
+             </div>
+         </div>
 
 
 
@@ -131,8 +140,37 @@
 
      .taille_img {
          width: 100%;
-        min-width: 200px;
-        background-color: black;
-        min-height: 200px;
+         min-width: 200px;
+         background-color: black;
+         min-height: 200px;
      }
  </style>
+
+
+
+
+
+ <script>
+     function session_switch(_this) {
+         
+
+        _this.style.display="none" ; 
+
+         var ok = new Information("cookie/session_switch.php"); // création de la classe 
+         ok.add("session_switch", _this.className); // ajout de l'information pour lenvoi 
+        
+         console.log(ok.info()); // demande l'information dans le tableau
+         ok.push(); // envoie l'information au code pkp 
+
+
+
+         const myTimeout = setTimeout(myGreeting, 100);
+
+function myGreeting() {
+ location.reload() ; 
+}
+
+
+
+     }
+ </script>

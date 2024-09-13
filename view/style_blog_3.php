@@ -11,8 +11,15 @@
     <?php
 
 
+  
+if(isset($_SESSION["session_switch"])){
+    require_once 'mysq_req/style_blog_3_req_0.php';
+
+}
+else {
     require_once 'mysq_req/style_blog_3_req_1.php';
 
+}
 
 
  echo '<div class="display_flex3">';
@@ -31,7 +38,18 @@ $resultat = chercherIndex($id_group, $valeur_a_chercher);
 $resultat = chercherIndex($id_group, $valeur_a_chercher);
 
        
-              require 'style_blog_3_option_3.php';
+              
+
+
+
+              if(isset($_SESSION["session_switch"])){
+                require 'style_blog_3_option_1.php';
+            
+            }
+            else {
+                 require 'style_blog_3_option_3.php';
+            
+            }
       
     } 
     

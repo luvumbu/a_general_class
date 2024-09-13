@@ -1,6 +1,7 @@
 <?php
 // Démarre la session PHP pour conserver les données utilisateur entre les pages
 session_start();
+ 
 ?>
 
 <!-- Inclusion du fichier JavaScript externe -->

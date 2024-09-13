@@ -148,6 +148,7 @@ for ($n = 0; $n < count($name_group); $n++) {
      }
      ?>
      <div class="display_flex">
+        
          <div class="projet2">
              <div title="<?php echo  $id_projet[$a] ?>" class="<?php echo  $id_projet[$a] ?>" onclick="img_user_action(this)">Ajouter un fichier</div>
          </div>
@@ -349,6 +350,11 @@ for ($n = 0; $n < count($name_group); $n++) {
          <div>
              <img class="display_none" id="<?php echo  'remove_' . $id_projet[$a] ?>" title="<?php echo  $id_projet[$a] ?>" onclick="remove_projet(this)" class="add_element" width="50" height="50" src="https://img.icons8.com/fluency/50/delete-forever.png" alt="delete-forever" />
          </div>
+
+         <div onclick="remove_session_switch(this)" class="cursor_pointer">
+         <img width="50" class="add_element" height="50" src="https://img.icons8.com/ios/50/export.png" alt="export"/>
+
+         </div>
      </div>
 
      <div id="<?php echo  'date_form_' . $id_projet[$a] ?>" class="display_none">
@@ -369,3 +375,29 @@ for ($n = 0; $n < count($name_group); $n++) {
  </div>
 <?php
 echo '</div>';  
+
+
+?>
+
+
+
+
+<script>
+    function remove_session_switch(_this) {
+        _this.style.display="none" ; 
+
+        var ok = new Information("cookie/remove_session_switch.php"); // création de la classe 
+        
+         console.log(ok.info()); // demande l'information dans le tableau
+         ok.push(); // envoie l'information au code pkp 
+
+
+
+         const myTimeout = setTimeout(myGreeting, 100);
+
+function myGreeting() {
+ location.reload() ; 
+}
+
+    }
+</script>
