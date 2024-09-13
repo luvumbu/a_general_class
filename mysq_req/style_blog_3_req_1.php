@@ -1,5 +1,5 @@
 <?php 
-    $req_sql = 'SELECT * FROM `projet` WHERE `id_user_projet` = "' . $_SESSION["session_general"][0] . '" ORDER BY `projet`.`id_projet` DESC';
+    $req_sql = 'SELECT * FROM `projet` WHERE `id_user_projet` = "' . $_SESSION["session_general"][0] . '" AND `id_sha1_parent_projet`="" ORDER BY `projet`.`id_projet` DESC';
 
     $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
     $databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
@@ -113,7 +113,6 @@
 
 
  
-
 
 for($wx = 0 ; $wx <count($img_projet_src_img) ; $wx++) {
  

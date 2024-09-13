@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Détail</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="projet-container">
+        <div class="projet-header">
+            <h1 id="title_projet"></h1>
+            <p id="name_projet"></p>
+            <img id="img_projet_src" alt="Image du projet" src="https://i.pinimg.com/564x/7f/97/7b/7f977bff28a6d0e7e3d27363e505ffc8.jpg">
+        </div>
+        <div class="projet-details">
+            <p><strong>ID Projet: </strong><span id="id_projet"></span></p>
+            <p><strong>ID User: </strong><span id="id_user_projet"></span></p>
+            <p><strong>ID Parent Projet: </strong><span id="id_parents_projet"></span></p>
+            <p><strong>Statut: </strong><span id="statue_projet"></span></p>
+            <p><strong>Visibilité: </strong><span id="visibility_1_projet"></span></p>
+            <p><strong>Visites: </strong><span id="visit_projet"></span></p>
+            <p><strong>Groupe: </strong><span id="group_projet"></span></p>
+        </div>
+        <div class="projet-timing">
+            <p><strong>Heure Début: </strong><span id="heure_debut_projet"></span></p>
+            <p><strong>Date Début: </strong><span id="date_debut_projet"></span></p>
+            <p><strong>Heure Fin: </strong><span id="heure_fin_projet"></span></p>
+            <p><strong>Date Fin: </strong><span id="date_fin_projet"></span></p>
+            <p><strong>Date Inscription: </strong><span id="date_inscription_projet"></span></p>
+        </div>
+        <div class="projet-description">
+            <h2>Description du Projet</h2>
+            <p id="description_projet"></p>
+        </div>
+        <div class="projet-qr-code">
+            <h2>QR Code</h2>
+            <img id="qr_code_src_projet" alt="QR Code">
+        </div>
+    </div>
+</body>
+</html>
+
+
+<style>
+    body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #000;
+    color: #00ff00;
+    margin: 0;
+    padding: 0;
+}
+
+.projet-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: #111;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+    border: 2px solid #00ff00;
+}
+
+.projet-header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #00ff00;
+}
+
+.projet-header img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border: 3px solid #00ff00;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+}
+
+.projet-details, .projet-timing, .projet-description, .projet-qr-code {
+    margin-bottom: 25px;
+}
+
+.projet-details p, .projet-timing p {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+h1, h2 {
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+strong {
+    color: #00ff00;
+}
+
+.projet-description p {
+    font-size: 1.1em;
+    color: #00ff00;
+    background-color: #222;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.projet-qr-code img {
+    width: 200px;
+    height: 200px;
+    border: 3px solid #00ff00;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
+}
+
+.projet-timing p, .projet-details p {
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+@media only screen and (max-width: 600px) {
+    .projet-container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.6em;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+}
+
+
+</style>

@@ -13,7 +13,7 @@
       </div>
     </a>
   </div>
-  <div onclick="add_projet()">
+  <div onclick="add_projet(this)">
     <img width="50" height="50" src="https://img.icons8.com/officel/50/add--v1.png" alt="add--v1" />
   </div>
   
@@ -36,12 +36,19 @@
 
 
 <script>
-  function add_projet() {
+  function add_projet(_this) {
  
+ 
+
 
               var ok = new Information("add/add_projet.php"); // création de la classe 
               ok.add("login", "root"); // ajout de l'information pour lenvoi 
+              ok.add("id_sha1_parent_projet", _this.className); // ajout de l'information pour lenvoi 
  
+
+
+
+              
               console.log(ok.info()); // demande l'information dans le tableau
               ok.push(); // envoie l'information au code pkp 
 
@@ -67,7 +74,7 @@ if(give_url()=="index.php") {
 }
 
 
-   echo give_url() ;
+ 
 
     ?>
   </div>

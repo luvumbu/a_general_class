@@ -195,6 +195,16 @@ session_start();
     require 'class/path_config.php';
     require_once 'view/body.php';
   }
+
+
+
+
+
+
+
+
+ 
+
   ?>
 
   <style>
