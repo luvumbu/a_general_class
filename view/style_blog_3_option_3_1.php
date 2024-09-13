@@ -99,14 +99,27 @@
 
          <?php
             }
+
+
+
+            $name_projet_ = AsciiConverter::asciiToString($name_projet[$a] ); // Affiche "Hello"
+            $description_projet_ = AsciiConverter::asciiToString($description_projet[$a]); // Affiche "Hello"
+
+            $title_projet_ = AsciiConverter::asciiToString($title_projet[$a]); // Affiche "Hello"
+
+            
             ?>
 
 
 
 
   <div class="card-body">
-    <h5 class="card-title"><?php echo $name_projet[$a] ?></h5>
-    <p class="card-text"><?php echo $description_projet[$a] ?></p>
+  
+    <h1 class="card-text"><?php echo $title_projet_ ?></p>
+
+
+
+    <p style="color:grey" class="card-title"><?php echo $name_projet_ ?></p>
     <div title="3" class="<?php echo $id_sha1_projet[$a] ?> " onclick="session_switch(this)">
                  <img style="width: 50;height:50px;" width="50" height="50" src="https://img.icons8.com/ios/50/settings--v1.png" alt="settings--v1">
              </div>

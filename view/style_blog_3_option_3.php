@@ -106,9 +106,9 @@
          <?php
             }
             ?>
-         <div class="card-body">
-             <input type="text" value="<?php echo $title_projet_; ?>" onkeyup="style_blog_3_2_up(this)" title="<?php echo  $id_projet[$a] ?>" id="<?php echo  't_' . $id_projet[$a] ?>" placeholder="MON TITRE" class="title_projet">
-             <input type="text" style="opacity: 0.3;" value="<?php echo $description_projet_; ?>" onkeyup="style_blog_3_2_up(this)" title="<?php echo  $id_projet[$a] ?>" id="<?php echo  'h_' . $id_projet[$a] ?>" placeholder="autre element" class="title_projet">
+         <div class="card-body el_max">
+            <h1><?php echo $title_projet_ ?></h1>
+            <p><?php echo $name_projet_; ?></p>
          </div>
 
 
@@ -144,6 +144,35 @@
          background-color: black;
          min-height: 200px;
      }
+
+     .body_projet {
+    background-color: #f0f8ff; /* Couleur de fond bleu clair */
+    padding: 20px; /* Espace intérieur */
+    border-radius: 10px; /* Bords arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+}
+
+.body_projet h1 {
+    font-family: 'Arial', sans-serif; /* Police du titre */
+    font-size: 28px; /* Taille du titre */
+    color: #333; /* Couleur du texte du titre */
+    text-align: center; /* Alignement du titre */
+    margin-bottom: 15px; /* Espace en bas du titre */
+}
+
+.body_projet p {
+    font-family: 'Verdana', sans-serif; /* Police du texte */
+    font-size: 16px; /* Taille du texte */
+    color: #555; /* Couleur du texte du paragraphe */
+    line-height: 1.6; /* Hauteur de ligne pour un meilleur espacement */
+    text-align: justify; /* Justification du texte */
+}
+.el_max {
+    max-width: 100%;
+    max-height: 200px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
  </style>
 
 

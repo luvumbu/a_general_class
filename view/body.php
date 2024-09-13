@@ -77,17 +77,31 @@
 
 
       if (isset($_SESSION["session_switch"])) {
-
+ 
         require_once 'mysq_req/style_blog_3_req_01.php';
 
 
  
+?>
 
+<div class="display_flex flew_wrap">
+
+
+
+<?php 
         for ($a = 0;$a< count($id_projet); $a++) {
 
 
-          require 'view/style_blog_3_option_3_1.php' ; 
+         require 'view/style_blog_3_option_3_1.php' ; 
         }
+
+
+  
+
+?>
+</div>
+
+<?php 
       }  
     }
 
@@ -112,3 +126,11 @@
 ?>
 
 
+
+<style>
+  .flew_wrap{
+    display: flex;
+    flex-wrap: wrap;
+ 
+  }
+</style>
