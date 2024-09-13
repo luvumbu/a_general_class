@@ -19,6 +19,11 @@
 
 
   $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+  $databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
+  $id_sha1_projet = $databaseHandler->tableList_info;
+
+
+  $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
   $databaseHandler->getDataFromTable($req_sql, "id_user_projet");
   $id_user_projet = $databaseHandler->tableList_info;
 
@@ -97,7 +102,23 @@
 
 
 if (!count($id_projet)<1){
-  var_dump($id_projet) ; 
+ 
+  $visibility_1_projet_ = $visibility_1_projet[0] ;
+  
+  if($visibility_1_projet_==""){
+ require "user_data.php" ; 
+  }
+  else {
+    echo '<div class="err404">' ; 
+    echo '<img src="../src/img/404.png" alt="">' ; 
+    echo '</div>' ; 
+  }
 }
  
   ?>
+<style>
+  .err404{
+    text-align: center;
+  }
+</style>
+ 

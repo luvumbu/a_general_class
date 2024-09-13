@@ -160,6 +160,9 @@ for ($n = 0; $n < count($name_group); $n++) {
          <div onclick="editor_container(this)" title="<?php echo  $id_projet[$a] ?>">
              <img class="add_element" width="47" height="47" src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/47/external-design-design-thinking-flatart-icons-outline-flatarticons-6.png" alt="external-design-design-thinking-flatart-icons-outline-flatarticons-6" />
          </div>
+         <div onclick="gomme_container(this)" title="<?php echo  $id_projet[$a] ?>">
+         <img class="add_element"  width="47" height="47" src="https://img.icons8.com/office/47/eraser.png" alt="eraser"/>
+         </div>
      </div>
 
      <div class="custom-editor">
@@ -382,3 +385,11 @@ echo '</div>';
 
 
 
+<script>
+    function gomme_container(_this){
+        
+        document.getElementById(_this.title).innerHTML="" ; 
+
+        style_blog_3_2_up(_this) ; 
+    }
+</script>
