@@ -1,16 +1,11 @@
- <style>
-     .card-img-top {
-         width: 100%;
-         height: 180px;
-         object-fit: cover;
-         /* Empêche la déformation de l'image */
-     }
- </style>
+ 
+
+ 
 
 
- <div class="container mt-5">
-     <div class="card" style="width: 18rem;">
-         <?php
+<div class="card card2" style="width: 18rem;">
+ 
+  <?php
             if ($img_projet_src[$a] != "") {
                 $file_path = "img_user_action/" . $img_projet_src[$a];
 
@@ -25,11 +20,10 @@
                     if (in_array($extension, ['jpg', 'jpeg', 'png', 'gif'])) {
                         // Si c'est une image, l'afficher avec une balise <img>
             ?>
-                     <div class="taille_img">
-                         <div title="<?php echo $id_projet[$a] ?>" class="<?php echo $id_projet[$a] ?>" onclick="img_user_action(this)">
-                             <img src="<?php echo $file_path ?>" alt="" srcset="">
-                         </div>
-                     </div>
+                          <div title="<?php echo $id_projet[$a] ?>" class="<?php echo $id_projet[$a] ?>" onclick="img_user_action(this)">
+                             <img  style="width:200px"  class="card-img-top" src="<?php echo $file_path ?>" alt="" srcset="">
+                         
+                            </div>
                  <?php
                     } elseif ($extension == 'pdf') {
                         // Si c'est un PDF, l'afficher dans un iframe
@@ -97,56 +91,30 @@
             } else {
                 ?>
 
-             <div class="taille_img">
+         
                  <div title="<?php echo $id_projet[$a] ?>" class="<?php echo $id_projet[$a] ?>" onclick="img_user_action(this)">
-                     <img src="src/img/0.png" alt="" srcset="">
-                 </div>
+                     <img  style="width:200px"  class="card-img-top"  src="src/img/0.png" alt="" srcset="">
+             
              </div>
 
          <?php
             }
             ?>
-         <div class="card-body">
-             <input type="text" value="<?php echo $title_projet_; ?>" onkeyup="style_blog_3_2_up(this)" title="<?php echo  $id_projet[$a] ?>" id="<?php echo  't_' . $id_projet[$a] ?>" placeholder="MON TITRE" class="title_projet">
-             <input type="text" style="opacity: 0.3;" value="<?php echo $description_projet_; ?>" onkeyup="style_blog_3_2_up(this)" title="<?php echo  $id_projet[$a] ?>" id="<?php echo  'h_' . $id_projet[$a] ?>" placeholder="autre element" class="title_projet">
-         </div>
 
 
 
 
-         <div class="display_flex">
-             <div>
-                 <a href="<?php echo "user.php/" . $id_sha1_projet[$a] ?>">
-                     <img class="cursor_pointer" width="50" height="50" src="https://img.icons8.com/emoji/50/link-emoji.png" alt="link-emoji" />
-
-                 </a>
+  <div class="card-body">
+    <h5 class="card-title"><?php echo $name_projet[$a] ?></h5>
+    <p class="card-text"><?php echo $description_projet[$a] ?></p>
+    <div title="3" class="<?php echo $id_sha1_projet[$a] ?> " onclick="session_switch(this)">
+                 <img style="width: 50;height:50px;" width="50" height="50" src="https://img.icons8.com/ios/50/settings--v1.png" alt="settings--v1">
              </div>
-             <div title="<?php echo $id_projet[$a] ?>" class="<?php echo $id_sha1_projet[$a] ?>" onclick="session_switch(this)">
-                 <img width="50" height="50" src="https://img.icons8.com/ios/50/settings--v1.png" alt="settings--v1" />
-             </div>
-         </div>
+  </div>
+</div>
 
-
-
-     </div>
-
- </div>
-
-
- <style>
-     .cursor_pointer:hover {
-         cursor: pointer;
-     }
-
-     .taille_img {
-         width: 100%;
-         min-width: 200px;
-         background-color: black;
-         min-height: 200px;
-     }
- </style>
-
-
-
-
-
+<style>
+    .card2 img {
+        width: 100%;
+    }
+</style>

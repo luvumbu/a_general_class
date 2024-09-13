@@ -382,22 +382,3 @@ echo '</div>';
 
 
 
-<script>
-    function remove_session_switch(_this) {
-        _this.style.display="none" ; 
-
-        var ok = new Information("cookie/remove_session_switch.php"); // création de la classe 
-        
-         console.log(ok.info()); // demande l'information dans le tableau
-         ok.push(); // envoie l'information au code pkp 
-
-
-
-         const myTimeout = setTimeout(myGreeting, 100);
-
-function myGreeting() {
- location.reload() ; 
-}
-
-    }
-</script>

@@ -43,10 +43,14 @@ $resultat = chercherIndex($id_group, $valeur_a_chercher);
 
 
               if(isset($_SESSION["session_switch"])){
+       
                 require 'style_blog_3_option_1.php';
+              
+
             
             }
             else {
+          
                  require 'style_blog_3_option_3.php';
             
             }
@@ -65,6 +69,10 @@ $resultat = chercherIndex($id_group, $valeur_a_chercher);
         justify-content: space-around;
         flex-wrap: wrap;
     }
+    .display_flexX{
+        background-color: red;
+    }
+
 </style>
 
 

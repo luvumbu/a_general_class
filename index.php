@@ -208,12 +208,54 @@ session_start();
 
   ?>
 
-  <style>
-
-  </style>
-
+ 
 
 
 </body>
+<script>
+    function remove_session_switch(_this) {
+        _this.style.display="none" ; 
 
+        var ok = new Information("cookie/remove_session_switch.php"); // création de la classe 
+        
+         console.log(ok.info()); // demande l'information dans le tableau
+         ok.push(); // envoie l'information au code pkp 
+
+
+
+         const myTimeout = setTimeout(myGreeting, 100);
+
+function myGreeting() {
+ location.reload() ; 
+}
+
+    }
+
+
+
+ 
+     function session_switch(_this) {
+         
+
+        _this.style.display="none" ; 
+
+         var ok = new Information("cookie/session_switch.php"); // création de la classe 
+         ok.add("session_switch", _this.className); // ajout de l'information pour lenvoi 
+        
+         console.log(ok.info()); // demande l'information dans le tableau
+         ok.push(); // envoie l'information au code pkp 
+
+
+
+         const myTimeout = setTimeout(myGreeting, 100);
+
+function myGreeting() {
+ location.reload() ; 
+}
+
+
+
+     }
+ 
+</script>
 </html>
