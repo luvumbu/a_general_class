@@ -101,6 +101,33 @@
 
 
 
+
+
+
+
+
+
+
+
+  $req_sql = 'SELECT * FROM `'.$config_dbname.'` WHERE `id_user`="'.$id_user_projet[0].'"';
+
+  $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+  $databaseHandler->getDataFromTable($req_sql, "title_user");
+  $title_user = $databaseHandler->tableList_info;
+
+  $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+  $databaseHandler->getDataFromTable($req_sql, "description_user");
+  $description_user = $databaseHandler->tableList_info;
+
+  $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+  $databaseHandler->getDataFromTable($req_sql, "id_user");
+  $id_user = $databaseHandler->tableList_info;
+
+ 
+  $title_user_ =  $title_user[0] ; 
+ 
+
+
 if (!count($id_projet)<1){
  
   $visibility_1_projet_ = $visibility_1_projet[0] ;
@@ -113,6 +140,11 @@ if (!count($id_projet)<1){
     echo '<img src="../src/img/404.png" alt="">' ; 
     echo '</div>' ; 
   }
+}
+else {
+  echo '<div class="err404">' ; 
+  echo '<img src="../src/img/404.png" alt="">' ; 
+  echo '</div>' ; 
 }
  
   ?>

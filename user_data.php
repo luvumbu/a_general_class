@@ -1,150 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
+
 <body>
-  
-
-
-
-
-<?php 
-
 
 
  
 
-for($a = 0 ; $a < count($date_inscription_projet) ; $a ++) {
 
- 
-  $name_projet_ =  AsciiConverter::asciiToString($name_projet[$a]);  
-  $title_projet_ =AsciiConverter::asciiToString($title_projet[$a]);  
-  $description_projet_ =AsciiConverter::asciiToString( $description_projet[$a]);   ; 
-  $img_projet_src_ = $img_projet_src[$a] ; 
-  $heure_debut_projet_ = $heure_debut_projet[$a] ; 
-  $date_debut_projet_ = $date_debut_projet[$a] ; 
-  $heure_fin_projet_ = $heure_fin_projet[$a] ; 
-  $date_fin_projet_ = $date_fin_projet[$a] ; 
-  $date_inscription_projet_ = $date_inscription_projet[$a] ; 
-
-  
-  $id_projet_ =   $id_projet[$a] ; 
-  $id_sha1_projet_ = $id_sha1_projet[$a] ; 
-  
- 
-  ?>
-
-<div class="blog-container">
-        <header class="blog-header">
-        <h1><?php echo  $title_projet_ ?></h1>
-     
-            <p class="blog-metadata">
-                Par <span class="author">Nom du créateur</span> | 
-                <span class="date"><?php echo  $date_inscription_projet_ ?></span>
-            </p>
-        </header>
-        
-        <section class="blog-content">
-            <h2 class="blog-title"><?php  echo $name_projet_ ?></h2>
-        </section>
-        
-        <footer class="blog-footer">
-            <p>&copy; 2024 - Tous droits réservés.</p>
-        </footer>
-    </div>
-
-<?php 
+    <?php
 
 
-  
-}
- 
 
 
-?>
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+    for ($a = 0; $a < count($date_inscription_projet); $a++) {
+
+
+        $name_projet_ =  AsciiConverter::asciiToString($name_projet[$a]);
+        $title_projet_ = AsciiConverter::asciiToString($title_projet[$a]);
+        $description_projet_ = AsciiConverter::asciiToString($description_projet[$a]);;
+        $img_projet_src_ = $img_projet_src[$a];
+        $heure_debut_projet_ = $heure_debut_projet[$a];
+        $date_debut_projet_ = $date_debut_projet[$a];
+        $heure_fin_projet_ = $heure_fin_projet[$a];
+        $date_fin_projet_ = $date_fin_projet[$a];
+        $date_inscription_projet_ = $date_inscription_projet[$a];
+
+
+        $id_projet_ =   $id_projet[$a];
+        $id_sha1_projet_ = $id_sha1_projet[$a];
+
+
+    ?>
+
+        <div class="blog-container">
+            <header class="blog-header">
+                <h1><?php echo  $title_projet_ ?></h1>
+
+                <p class="blog-metadata">
+                    Par <span class="author"><?php echo  $title_user_  ?></span> |
+                    <span class="date"><?php echo  $date_inscription_projet_ ?></span>
+                </p>
+            </header>
+
+            <?php
+if($img_projet_src_!=''){
+    ?>
+
+<div class="user_img">
+<img src="<?php echo   "../img_user_action/" . $img_projet_src_ ?>" alt="">
+
+</div>
+
+ <?php 
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    line-height: 1.6;
-}
+            ?>
+            <section class="blog-content">
+                <h2 class="blog-title"><?php echo $name_projet_ ?></h2>
+            </section>
 
-.blog-container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
+            <footer class="blog-footer">
+                <p>&copy; 2024 - Tous droits réservés.</p>
+            </footer>
+        </div>
 
-.blog-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
+    <?php
 
-.blog-title {
-    font-size: 2.5em;
-    color: #333;
-}
 
-.blog-metadata {
-    font-size: 0.9em;
-    color: #777;
-}
 
-.author {
-    font-weight: bold;
-}
+    }
 
-.date {
-    font-style: italic;
-}
 
-.blog-content {
-    margin-top: 20px;
-}
 
-.blog-content h2 {
-    font-size: 1.8em;
-    color: #333;
-    margin-bottom: 10px;
-}
+    ?>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.blog-content p {
-    margin-bottom: 15px;
-    line-height: 1.8;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
 
-.blog-footer {
-    text-align: center;
-    margin-top: 40px;
-    padding: 10px;
-    font-size: 0.8em;
-    color: #777;
-}
+        .blog-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
 
-.blog-footer p {
-    margin-bottom: 0;
-}
+        .blog-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-</style>
+        .blog-title {
+            font-size: 2.5em;
+            color: #333;
+        }
+
+        .blog-metadata {
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        .author {
+            font-weight: bold;
+        }
+
+        .date {
+            font-style: italic;
+        }
+
+        .blog-content {
+            margin-top: 20px;
+        }
+
+        .blog-content h2 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .blog-content p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .blog-footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 10px;
+            font-size: 0.8em;
+            color: #777;
+        }
+
+        .blog-footer p {
+            margin-bottom: 0;
+        }
+
+
+        .user_img{
+            text-align: center;
+            margin-top: 75px;
+            margin-bottom: 75px;
+        }
+    </style>
 
 
 </body>
+
 </html>
 
- 
+
 </body>
+
 </html>
- 
