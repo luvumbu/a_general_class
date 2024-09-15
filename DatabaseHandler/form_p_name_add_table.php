@@ -194,11 +194,21 @@ $databaseHandler->add_table("projet_img");
 
 
 $databaseHandler = new DatabaseHandler($input_1,$input_2); 
-$databaseHandler->set_column_names("id_visit_img_auto");
+$databaseHandler->set_column_names("id_visit_user");
 
 
-$databaseHandler->set_column_names("id_visit_img");
-$databaseHandler->set_column_names("id_user_visit_img");
+$databaseHandler->set_column_names("ip1_visit_user");
+$databaseHandler->set_column_names("ip2_visit_user");
+$databaseHandler->set_column_names("ip3_visit_user");
+
+$databaseHandler->set_column_names("ip4_visit_user");
+$databaseHandler->set_column_names("ip5_visit_user");
+$databaseHandler->set_column_names("ip6_visit_user");
+
+$databaseHandler->set_column_names("timestamp_visit_user");
+
+
+
  
 
 
@@ -206,8 +216,16 @@ $databaseHandler->set_column_types("INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY")
  
 
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
 $databaseHandler->set_column_types("TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
-$databaseHandler->add_table("visit_img");
+$databaseHandler->add_table("visit_user");
 
 
 
