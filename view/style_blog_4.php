@@ -214,7 +214,7 @@ $img_user = $databaseHandler->tableList_info;
     const myTimeout = setTimeout(myGreeting, 250);
 
     function myGreeting() {
-      window.location.replace("img_user_action2/index.php");
+      window.location.replace("img_user_action/index.php");
     }
 
 
