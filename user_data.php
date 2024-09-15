@@ -262,6 +262,8 @@
 
 
 
+    $ipUser = getUserIP();
+
 
 
     $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
@@ -271,14 +273,17 @@
     ip3_visit_user,
     ip4_visit_user,
     ip5_visit_user,
-    ip6_visit_user
+    ip6_visit_user,
+    ip7_visit_user
+
     ) VALUES (
     '$PHP_SELF',
     '$SERVER_NAME',
     '$HTTP_HOST',
     '$HTTP_REFERER',
     '$HTTP_USER_AGENT',
-    '$SCRIPT_NAME'
+    '$SCRIPT_NAME',
+    '$ipUser'
     )");
 
 
