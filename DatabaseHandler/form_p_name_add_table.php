@@ -205,6 +205,8 @@ $databaseHandler->set_column_names("ip4_visit_user");
 $databaseHandler->set_column_names("ip5_visit_user");
 $databaseHandler->set_column_names("ip6_visit_user");
 $databaseHandler->set_column_names("ip7_visit_user");
+$databaseHandler->set_column_names("ip8_visit_user");
+
 
 
 $databaseHandler->set_column_names("timestamp_visit_user");
@@ -226,6 +228,8 @@ $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
 
 
 $databaseHandler->set_column_types("TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
