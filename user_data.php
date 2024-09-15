@@ -44,7 +44,7 @@
                 <h1><?php echo  $title_projet_ ?></h1>
 
                 <p class="blog-metadata">
-                    Par <span class="author"><?php echo  $title_user_  ?></span> |
+                    Par <span class="author">@<?php echo  $title_user_  ?></span> |
                     <span class="date"><?php echo  $date_inscription_projet_ ?></span>
                 </p>
             </header>
@@ -61,14 +61,17 @@ if($img_projet_src_!=''){
  <?php 
 }
 
-            ?>
+         
+
+
+
+
+         ?>
             <section class="blog-content">
                 <h2 class="blog-title"><?php echo $name_projet_ ?></h2>
             </section>
 
-            <footer class="blog-footer">
-                <p>&copy; 2024 - Tous droits réservés.</p>
-            </footer>
+
         </div>
 
     <?php
@@ -79,7 +82,179 @@ if($img_projet_src_!=''){
 
 
 
+
+
+
+
+
+
+    $req_sql = 'SELECT * FROM `projet` WHERE  `id_sha1_parent_projet` ="'.give_url().'" ';
+
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "id_projet");
+    $id_projet = $databaseHandler->tableList_info;
+  
+
+  
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
+    $id_sha1_projet = $databaseHandler->tableList_info;
+  
+  
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "id_user_projet");
+    $id_user_projet = $databaseHandler->tableList_info;
+  
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "id_parents_projet");
+    $id_parents_projet = $databaseHandler->tableList_info;
+  
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "visit_projet");
+    $visit_projet = $databaseHandler->tableList_info;
+   
+  
+  
+  
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "name_projet");
+    $name_projet = $databaseHandler->tableList_info;
+  
+  
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "statue_projet");
+    $statue_projet = $databaseHandler->tableList_info;
+  
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "title_projet");
+    $title_projet = $databaseHandler->tableList_info;
+  
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "description_projet");
+    $description_projet = $databaseHandler->tableList_info;
+  
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "qr_code_src_projet");
+    $qr_code_src_projet = $databaseHandler->tableList_info;
+  
+  
+  
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "visibility_1_projet");
+    $visibility_1_projet = $databaseHandler->tableList_info;
+  
+  
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "img_projet_src");
+    $img_projet_src = $databaseHandler->tableList_info;
+  
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "group_projet");
+    $group_projet = $databaseHandler->tableList_info;
+  
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "heure_debut_projet");
+    $heure_debut_projet = $databaseHandler->tableList_info;
+  
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "date_debut_projet");
+    $date_debut_projet = $databaseHandler->tableList_info;
+  
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "heure_fin_projet");
+    $heure_fin_projet = $databaseHandler->tableList_info;
+  
+  
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "date_fin_projet");
+    $date_fin_projet = $databaseHandler->tableList_info;
+  
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "date_inscription_projet");
+    $date_inscription_projet = $databaseHandler->tableList_info;
+  
+   
+  
+   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+         
+    for ($a = 0; $a < count($date_inscription_projet); $a++) {
+
+
+        $name_projet_ =  AsciiConverter::asciiToString($name_projet[$a]);
+        $title_projet_ = AsciiConverter::asciiToString($title_projet[$a]);
+        $description_projet_ = AsciiConverter::asciiToString($description_projet[$a]);;
+        $img_projet_src_ = $img_projet_src[$a];
+        $heure_debut_projet_ = $heure_debut_projet[$a];
+        $date_debut_projet_ = $date_debut_projet[$a];
+        $heure_fin_projet_ = $heure_fin_projet[$a];
+        $date_fin_projet_ = $date_fin_projet[$a];
+        $date_inscription_projet_ = $date_inscription_projet[$a];
+    
+    
+        $id_projet_ =   $id_projet[$a];
+        $id_sha1_projet_ = $id_sha1_projet[$a];
+    
+    
     ?>
+    
+        <div class="blog-container">
+            <header class="blog-header">
+                <h1><?php echo  $title_projet_ ?></h1>
+    
+                <p class="blog-metadata">
+                    Par <span class="author">@<?php echo  $title_user_  ?></span> |
+                    <span class="date"><?php echo  $date_inscription_projet_ ?></span>
+                </p>
+            </header>
+    
+            <?php
+    if($img_projet_src_!=''){
+    ?>
+    
+    <div class="user_img">
+    <img src="<?php echo   "../img_user_action/" . $img_projet_src_ ?>" alt="">
+    
+    </div>
+    
+    <?php 
+    }
+    
+            ?>
+            <section class="blog-content">
+                <h2 class="blog-title"><?php echo $name_projet_ ?></h2>
+            </section>
+    
+    
+        </div>
+    
+    <?php
+    
+    
+    
+    }
+
+
+
+
+
+
+    ?>
+       <div class="blog-container">
+                <footer class="blog-footer">
+                <p>&copy; 2024 - Tous droits réservés.</p>
+            </footer>
+
+       </div>
     <style>
         * {
             margin: 0;
@@ -120,6 +295,7 @@ if($img_projet_src_!=''){
 
         .author {
             font-weight: bold;
+            opacity: 0.4;
         }
 
         .date {
