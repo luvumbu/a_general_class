@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Télécharger la page en PDF</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #download-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        #download-btn:hover {
+            background-color: #45a049;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="download-btn">Télécharger cette page en PDF</button>
+
+    <div class="content">
+        <h1>Exemple de page HTML</h1>
+        <p>Ce texte et tout le contenu de la page seront convertis en PDF lorsque vous cliquez sur le bouton ci-dessus.</p>
+        <p>Ajoutez ici le contenu que vous souhaitez voir dans le fichier PDF.</p>
+    </div>
+
+    <script>
+        document.getElementById('download-btn').addEventListener('click', function () {
+            // Importation de la bibliothèque jsPDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Capturer le contenu de la page HTML
+            const content = document.querySelector('.content').innerHTML;
+
+            // Ajouter le contenu capturé au fichier PDF
+            doc.text(content, 10, 10);
+
+            // Sauvegarder le PDF avec un nom de fichier
+            doc.save('page-convertie.pdf');
+        });
+    </script>
+
+</body>
+</html>

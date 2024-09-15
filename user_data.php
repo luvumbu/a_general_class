@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
 </head>
 
 <body>
 
 
-
-
+ 
 
     <?php
 
@@ -328,9 +329,10 @@
         }
 
         .blog-container {
-            max-width: 800px;
+            max-width: 90%;
+          
             margin: 20px auto;
-            padding: 20px;
+            padding: 45px;
             background-color: #fff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
@@ -395,7 +397,7 @@
         }
     </style>
 
-
+</div>
 </body>
 
 </html>
