@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation Technique</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 20px;
+            padding: 0;
+        }
+        h1, h2 {
+            color: #0056b3;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .code-block {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+            position: relative;
+        }
+        .code-block button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            font-size: 14px;
+            background-color: #0056b3;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .code-block button:hover {
+            background-color: #004494;
+        }
+        pre {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <h1>Documentation Technique de la Fonction `IsLocal`</h1>
+
+        <h2>Description</h2>
+        <p>La fonction <code>IsLocal</code> est utilisée pour déterminer si l'environnement d'exécution du script est un environnement local ou de développement. Elle vérifie le nom d'hôte du serveur pour détecter si il correspond à l'un des domaines ou sous-domaines spécifiés comme étant des environnements locaux.</p>
+
+        <h2>Code</h2>
+        <div class="code-block">
+            <button onclick="copyCode(this)">Copier le Code</button>
+            <pre><code>&lt;?php 
+
+function IsLocal()
+{
+  // Vérifiez le nom d'hôte pour détecter l'environnement local
+  $hostname = $_SERVER['HTTP_HOST'];
+
+  // Liste des domaines ou sous-domaines utilisés en local
+  $local_domains = ['localhost', '127.0.0.1', 'dev.example.com'];
+
+  return in_array($hostname, $local_domains);
+}
+
+?&gt;</code></pre>
+        </div>
+
+        <h2>Fonctionnement</h2>
+        <ol>
+            <li><strong>Récupération du Nom d'Hôte:</strong> La variable globale <code>$_SERVER['HTTP_HOST']</code> est utilisée pour obtenir le nom d'hôte du serveur sur lequel le script est exécuté. Cela peut inclure le nom de domaine ou l'adresse IP du serveur.</li>
+            <li><strong>Liste des Domaines Locaux:</strong> Un tableau <code>$local_domains</code> contient une liste de domaines et sous-domaines considérés comme étant des environnements locaux ou de développement. Vous pouvez modifier cette liste pour inclure des domaines spécifiques à votre configuration locale.</li>
+            <li><strong>Vérification de l'Environnement:</strong> La fonction <code>in_array()</code> est utilisée pour vérifier si le nom d'hôte du serveur est présent dans le tableau des domaines locaux. Si le nom d'hôte est trouvé dans le tableau, la fonction retourne <code>true</code>, indiquant que l'environnement est local. Sinon, elle retourne <code>false</code>.</li>
+        </ol>
+
+        <h2>Exemple d'Utilisation</h2>
+        <div class="code-block">
+            <button onclick="copyCode(this)">Copier le Code</button>
+            <pre><code>&lt;?php
+
+if (IsLocal()) {
+    echo "Environnement local détecté.";
+    // Effectuez des actions spécifiques à l'environnement local ici
+} else {
+    echo "Environnement de production détecté.";
+    // Effectuez des actions spécifiques à l'environnement de production ici
+}
+
+?&gt;</code></pre>
+        </div>
+
+        <h2>Points à Noter</h2>
+        <ul>
+            <li><strong>Modification de la Liste des Domaines Locaux:</strong> Vous pouvez ajouter ou supprimer des domaines de la liste <code>$local_domains</code> en fonction de vos besoins spécifiques.</li>
+            <li><strong>Sécurité:</strong> Assurez-vous que les valeurs ajoutées dans <code>$local_domains</code> sont appropriées pour votre environnement de développement et ne compromettent pas la sécurité en production.</li>
+        </ul>
+    </div>
+
+    <script>
+        function copyCode(button) {
+            const codeBlock = button.nextElementSibling;
+            const range = document.createRange();
+            range.selectNode(codeBlock);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+
+            try {
+                document.execCommand('copy');
+                alert('Code copié dans le presse-papiers !');
+            } catch (err) {
+                alert('Impossible de copier le code.');
+            }
+
+            window.getSelection().removeAllRanges();
+        }
+    </script>
+</body>
+</html>

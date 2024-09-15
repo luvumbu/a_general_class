@@ -31,6 +31,7 @@
             padding: 10px;
             border-left: 4px solid #ccc;
             overflow-x: auto;
+            display: inline-block;
         }
 
         .example {
@@ -38,6 +39,22 @@
             padding: 10px;
             margin-top: 10px;
             border-left: 4px solid #2196F3;
+        }
+
+        /* Style du bouton copier */
+        .copy-btn {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .copy-btn:hover {
+            background-color: #0b7dda;
         }
     </style>
 </head>
@@ -50,8 +67,8 @@
     </p>
 
     <h2>Signature de la fonction</h2>
-    <pre>
-function chercherIndex($tableau, $valeur) {
+    <div class="example">
+        <pre id="code1">function chercherIndex($tableau, $valeur) {
     $index = array_search($valeur, $tableau);
 
     if ($index !== false) {
@@ -59,8 +76,9 @@ function chercherIndex($tableau, $valeur) {
     } else {
         return false;
     }
-}
-    </pre>
+}</pre>
+        <button class="copy-btn" onclick="copyToClipboard('code1')">Copier le code</button>
+    </div>
 
     <h2>Paramètres</h2>
     <ul>
@@ -80,8 +98,7 @@ function chercherIndex($tableau, $valeur) {
 
     <h2>Exemple d'utilisation</h2>
     <div class="example">
-        <pre>
-$tableau = array("pomme", "banane", "orange", "fraise");
+        <pre id="code2">$tableau = array("pomme", "banane", "orange", "fraise");
 $valeur_a_chercher = "orange";
 
 $resultat = chercherIndex($tableau, $valeur_a_chercher);
@@ -90,14 +107,28 @@ if ($resultat !== false) {
     echo "L'index de '$valeur_a_chercher' est $resultat.";
 } else {
     echo "'$valeur_a_chercher' n'a pas été trouvé dans le tableau.";
-}
-        </pre>
+}</pre>
+        <button class="copy-btn" onclick="copyToClipboard('code2')">Copier le code</button>
     </div>
 
     <h2>Fonction native utilisée</h2>
     <ul>
         <li><code>array_search(mixed $value, array $array)</code> : Recherche une valeur dans un tableau et retourne la première clé correspondante si trouvée. Retourne <code>false</code> si la valeur n'existe pas.</li>
     </ul>
+
+    <script>
+        // Fonction pour copier le contenu du bloc <pre> spécifié dans le presse-papiers
+        function copyToClipboard(id) {
+            var codeBlock = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(codeBlock).then(function() {
+                var button = document.querySelector(`button[onclick="copyToClipboard('${id}')"]`);
+                button.innerText = "Code copié!";
+                setTimeout(function() {
+                    button.innerText = "Copier le code";
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 
 </html>

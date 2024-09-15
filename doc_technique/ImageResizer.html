@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentation Technique</title>
+    <title>Documentation Technique pour `ImageResizer`</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,19 +27,20 @@
             color: #333;
         }
         code {
-            background: #f4f4f4;
+            background: #e8e8e8; /* Arrière-plan plus clair pour le code */
             border: 1px solid #ddd;
             padding: 2px 4px;
             border-radius: 4px;
             font-size: 90%;
         }
         pre {
-            background: #f4f4f4;
+            background: #f8f8f8; /* Arrière-plan plus clair pour le code */
             border: 1px solid #ddd;
             padding: 10px;
             border-radius: 4px;
             overflow-x: auto;
             font-size: 90%;
+            white-space: pre-wrap; /* Assure que les longues lignes se replient */
         }
         .btn-copy {
             display: inline-block;
@@ -56,6 +57,20 @@
         .btn-copy:hover {
             background-color: #0056b3;
         }
+        .copy-button {
+            display: inline-block;
+            padding: 5px 10px;
+            margin-top: 5px;
+            font-size: 12px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .copy-button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -68,7 +83,10 @@
         <h3>Méthodes</h3>
 
         <h4>Constructeur</h4>
-        <pre><code>public function __construct($filename)</code></pre>
+        <pre><code id="code-construct">
+public function __construct($filename)
+    </code></pre>
+        <button class="copy-button" onclick="copyCode('code-construct')">Copier le code</button>
         <p><strong>Description:</strong> Charge l'image à partir du fichier spécifié et récupère ses dimensions.</p>
         <p><strong>Paramètres:</strong></p>
         <ul>
@@ -76,7 +94,10 @@
         </ul>
 
         <h4><code>load($filename)</code></h4>
-        <pre><code>private function load($filename)</code></pre>
+        <pre><code id="code-load">
+private function load($filename)
+    </code></pre>
+        <button class="copy-button" onclick="copyCode('code-load')">Copier le code</button>
         <p><strong>Description:</strong> Charge l'image et récupère ses dimensions et son type.</p>
         <p><strong>Paramètres:</strong></p>
         <ul>
@@ -84,7 +105,10 @@
         </ul>
 
         <h4><code>resize($maxWidth, $maxHeight)</code></h4>
-        <pre><code>public function resize($maxWidth, $maxHeight)</code></pre>
+        <pre><code id="code-resize">
+public function resize($maxWidth, $maxHeight)
+    </code></pre>
+        <button class="copy-button" onclick="copyCode('code-resize')">Copier le code</button>
         <p><strong>Description:</strong> Redimensionne l'image tout en conservant le rapport d'aspect.</p>
         <p><strong>Paramètres:</strong></p>
         <ul>
@@ -93,7 +117,10 @@
         </ul>
 
         <h4><code>save($filename, $imageType = IMAGETYPE_JPEG, $compression = 75, $permissions = null)</code></h4>
-        <pre><code>public function save($filename, $imageType = IMAGETYPE_JPEG, $compression = 75, $permissions = null)</code></pre>
+        <pre><code id="code-save">
+public function save($filename, $imageType = IMAGETYPE_JPEG, $compression = 75, $permissions = null)
+    </code></pre>
+        <button class="copy-button" onclick="copyCode('code-save')">Copier le code</button>
         <p><strong>Description:</strong> Sauvegarde l'image redimensionnée dans un fichier.</p>
         <p><strong>Paramètres:</strong></p>
         <ul>
@@ -104,7 +131,10 @@
         </ul>
 
         <h4><code>output($imageType = IMAGETYPE_JPEG)</code></h4>
-        <pre><code>public function output($imageType = IMAGETYPE_JPEG)</code></pre>
+        <pre><code id="code-output">
+public function output($imageType = IMAGETYPE_JPEG)
+    </code></pre>
+        <button class="copy-button" onclick="copyCode('code-output')">Copier le code</button>
         <p><strong>Description:</strong> Affiche l'image directement dans le navigateur.</p>
         <p><strong>Paramètres:</strong></p>
         <ul>
@@ -112,11 +142,15 @@
         </ul>
 
         <h4><code>__destruct()</code></h4>
-        <pre><code>public function __destruct()</code></pre>
+        <pre><code id="code-destruct">
+public function __destruct()
+    </code></pre>
+        <button class="copy-button" onclick="copyCode('code-destruct')">Copier le code</button>
         <p><strong>Description:</strong> Libère la mémoire utilisée par l'image.</p>
 
         <h2>Exemples d'Utilisation</h2>
-        <pre><code>&lt;?php
+        <pre><code id="code-example">
+&lt;?php
 // Création d'une instance de ImageResizer
 $resizer = new ImageResizer('path/to/image.jpg');
 
@@ -128,26 +162,36 @@ $resizer->save('path/to/resized_image.jpg');
 
 // Affichage de l'image directement dans le navigateur
 $resizer->output();
-?&gt;</code></pre>
-
-        <button class="btn-copy" onclick="copyCode()">Copier le Code</button>
+?&gt;
+    </code></pre>
+        <button class="copy-button" onclick="copyCode('code-example')">Copier le code</button>
 
         <script>
-            function copyCode() {
-                const codeBlocks = document.querySelectorAll('pre code');
-                codeBlocks.forEach(block => {
-                    const range = document.createRange();
-                    range.selectNode(block);
-                    window.getSelection().removeAllRanges();
-                    window.getSelection().addRange(range);
-                    try {
-                        document.execCommand('copy');
-                        alert('Code copié dans le presse-papiers');
-                    } catch (err) {
-                        alert('Erreur lors de la copie du code');
-                    }
-                    window.getSelection().removeAllRanges();
-                });
+            function copyCode(id) {
+                var code = document.getElementById(id).innerText;
+                var textarea = document.createElement('textarea');
+                textarea.value = code;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+
+                var message = document.createElement('div');
+                message.textContent = 'Code copié dans le presse-papiers !';
+                message.style.position = 'fixed';
+                message.style.bottom = '20px';
+                message.style.left = '50%';
+                message.style.transform = 'translateX(-50%)';
+                message.style.backgroundColor = '#28a745';
+                message.style.color = 'white';
+                message.style.padding = '10px';
+                message.style.borderRadius = '4px';
+                message.style.zIndex = '1000';
+                document.body.appendChild(message);
+                
+                setTimeout(function() {
+                    document.body.removeChild(message);
+                }, 2000); // Message visible pendant 2 secondes
             }
         </script>
     </div>

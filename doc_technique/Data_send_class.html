@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentation Technique de la Classe Data_send_class</title>
+    <title>Documentation Technique de la Classe AsciiConverter</title>
+    <!-- Lien pour importer la police depuis Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css"> <!-- Lien vers le fichier CSS -->
     <style>
+        /* Appliquer la police Roboto à tout le document */
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
         /* Styles pour les boutons de copie */
         .copy-button {
             background-color: #007bff;
@@ -15,6 +22,7 @@
             margin-top: 5px;
             cursor: pointer;
             border-radius: 4px;
+            font-family: inherit; /* Utiliser la même police que le corps du texte */
         }
         .copy-button:hover {
             background-color: #0056b3;
@@ -34,79 +42,55 @@
             z-index: 1000;
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
+            font-family: inherit; /* Appliquer la même police ici aussi */
         }
     </style>
 </head>
 <body>
-    <h1>Documentation Technique de la Classe <code>Data_send_class</code></h1>
+    <h1>Documentation Technique de la Classe <code>AsciiConverter</code></h1>
 
     <h2>Description Générale</h2>
     <p>
-        La classe <code>Data_send_class</code> est utilisée pour gérer l'envoi de données à un serveur en utilisant une classe JavaScript 
-        nommée <code>Information</code>. Elle permet de stocker des paires de valeurs et d'envoyer ces données à l'aide d'un script 
-        JavaScript.
+        La classe <code>AsciiConverter</code> permet de convertir des chaînes de caractères en code ASCII et inversement.
     </p>
 
     <h2>Propriétés</h2>
     <ul>
-        <li><strong><code>$array_add</code></strong> : Tableau pour stocker les paires de valeurs à envoyer.</li>
-        <li><strong><code>$src_push</code></strong> : Source vers laquelle les données seront envoyées.</li>
+        <li><strong><code>$inputString</code></strong> : La chaîne de caractères à convertir.</li>
+        <li><strong><code>$asciiArray</code></strong> : Tableau contenant les valeurs ASCII de la chaîne convertie.</li>
     </ul>
 
     <h2>Méthodes</h2>
 
-    <h3><code>__construct($src_push)</code></h3>
+    <h3><code>__construct($inputString)</code></h3>
     <p>
-        Constructeur de la classe. Initialise la source pour l'envoi des données.
+        Constructeur de la classe. Initialise la chaîne de caractères à convertir.
     </p>
     <p><strong>Exemple d'utilisation :</strong></p>
     <pre><code id="code-construct">
-$dataSend = new Data_send_class("url_de_destination");
+$converter = new AsciiConverter("Bonjour");
     </code></pre>
     <button class="copy-button" onclick="copyCode('code-construct')">Copier le code</button>
 
-    <h3><code>voir($info)</code></h3>
+    <h3><code>convertToAscii()</code></h3>
     <p>
-        Méthode pour examiner les informations fournies et ajouter celles correspondant à un type "input" au tableau des données à envoyer.
+        Convertit la chaîne de caractères en tableau de valeurs ASCII.
     </p>
     <p><strong>Exemple d'utilisation :</strong></p>
-    <pre><code id="code-voir">
-$dataSend->voir([
-    ["nomInput", "input"],
-    ["submitButton", "button"]
-]);
+    <pre><code id="code-convertToAscii">
+$asciiArray = $converter->convertToAscii();
     </code></pre>
-    <button class="copy-button" onclick="copyCode('code-voir')">Copier le code</button>
+    <button class="copy-button" onclick="copyCode('code-convertToAscii')">Copier le code</button>
 
-    <h3><code>set_array_add($var_nam, $value)</code></h3>
+    <h3><code>convertToString()</code></h3>
     <p>
-        Ajoute une paire de valeurs au tableau des données à envoyer.
+        Convertit un tableau de valeurs ASCII en une chaîne de caractères.
     </p>
     <p><strong>Exemple d'utilisation :</strong></p>
-    <pre><code id="code-set_array_add">
-$dataSend->set_array_add("nomInput", "input");
+    <pre><code id="code-convertToString">
+$string = $converter->convertToString([66, 111, 110, 106, 111, 117, 114]);
     </code></pre>
-    <button class="copy-button" onclick="copyCode('code-set_array_add')">Copier le code</button>
-
-    <h3><code>get_array_add()</code></h3>
-    <p>
-        Retourne le tableau des données à envoyer.
-    </p>
-    <p><strong>Exemple d'utilisation :</strong></p>
-    <pre><code id="code-get_array_add">
-$arrayAdd = $dataSend->get_array_add();
-    </code></pre>
-    <button class="copy-button" onclick="copyCode('code-get_array_add')">Copier le code</button>
-
-    <h3><code>push_send_class()</code></h3>
-    <p>
-        Prépare et envoie les données à l'aide de la classe JavaScript <code>Information</code>.
-    </p>
-    <p><strong>Exemple d'utilisation :</strong></p>
-    <pre><code id="code-push_send_class">
-$dataSend->push_send_class();
-    </code></pre>
-    <button class="copy-button" onclick="copyCode('code-push_send_class')">Copier le code</button>
+    <button class="copy-button" onclick="copyCode('code-convertToString')">Copier le code</button>
 
     <div id="confirmation-message" class="confirmation-message">
         Code copié dans le presse-papiers !
@@ -131,39 +115,3 @@ $dataSend->push_send_class();
     </script>
 </body>
 </html>
-
-
-<style>
-    /* styles.css */
-
-/* Styles pour les boutons de copie */
-.copy-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    margin-top: 5px;
-    cursor: pointer;
-    border-radius: 4px;
-}
-.copy-button:hover {
-    background-color: #0056b3;
-}
-
-/* Styles pour le message de confirmation */
-.confirmation-message {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #28a745;
-    color: white;
-    padding: 10px;
-    border-radius: 4px;
-    z-index: 1000;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-</style>

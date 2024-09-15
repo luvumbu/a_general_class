@@ -31,6 +31,7 @@
             padding: 10px;
             border-left: 4px solid #ccc;
             overflow-x: auto;
+            display: inline-block;
         }
 
         .example {
@@ -38,6 +39,22 @@
             padding: 10px;
             margin-top: 10px;
             border-left: 4px solid #2196F3;
+        }
+
+        /* Style du bouton copier */
+        .copy-btn {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .copy-btn:hover {
+            background-color: #0b7dda;
         }
     </style>
 </head>
@@ -72,18 +89,11 @@
         <li>(string) : La chaîne de caractères correspondant aux valeurs ASCII. Par exemple, <code>"Hello"</code>.</li>
     </ul>
 
-    <h4>Détails :</h4>
-    <p>
-        La méthode divise la chaîne <code>$asciiString</code> en un tableau de valeurs ASCII en supprimant les espaces inutiles.
-        Elle vérifie que chaque valeur est bien un nombre avant de la convertir en caractère via la fonction <code>chr()</code>.
-    </p>
-
     <h4>Exemple d'utilisation :</h4>
     <div class="example">
-        <pre>
-$asciiString = "72, 101, 108, 108, 111";
-echo AsciiConverter::asciiToString($asciiString); // Affiche "Hello"
-        </pre>
+        <pre id="code1">$asciiString = "72, 101, 108, 108, 111";
+echo AsciiConverter::asciiToString($asciiString); // Affiche "Hello"</pre>
+        <button class="copy-btn" onclick="copyToClipboard('code1')">Copier le code</button>
     </div>
 
     <h3>2. stringToAscii($string)</h3>
@@ -102,32 +112,24 @@ echo AsciiConverter::asciiToString($asciiString); // Affiche "Hello"
         <li>(string) : Une chaîne de valeurs ASCII séparées par des virgules. Par exemple, <code>"72,101,108,108,111"</code>.</li>
     </ul>
 
-    <h4>Détails :</h4>
-    <p>
-        La méthode parcourt chaque caractère de la chaîne <code>$string</code> et utilise la fonction <code>ord()</code> pour obtenir la valeur ASCII correspondante.
-        Les valeurs ASCII obtenues sont ensuite jointes avec des virgules pour former une chaîne.
-    </p>
-
     <h4>Exemple d'utilisation :</h4>
     <div class="example">
-        <pre>
-$string = "Hello";
-echo AsciiConverter::stringToAscii($string); // Affiche "72,101,108,108,111"
-        </pre>
+        <pre id="code2">$string = "Hello";
+echo AsciiConverter::stringToAscii($string); // Affiche "72,101,108,108,111"</pre>
+        <button class="copy-btn" onclick="copyToClipboard('code2')">Copier le code</button>
     </div>
 
     <h2>Exemple d'utilisation complet :</h2>
     <div class="example">
-        <pre>
-$asciiString = "72, 101, 108, 108, 111";
+        <pre id="code3">$asciiString = "72, 101, 108, 108, 111";
 $string = "Hello";
 
 // Conversion de ASCII à chaîne de caractères
 echo AsciiConverter::asciiToString($asciiString); // Affiche "Hello"
 
 // Conversion de chaîne de caractères à ASCII
-echo AsciiConverter::stringToAscii($string); // Affiche "72,101,108,108,111"
-        </pre>
+echo AsciiConverter::stringToAscii($string); // Affiche "72,101,108,108,111"</pre>
+        <button class="copy-btn" onclick="copyToClipboard('code3')">Copier le code</button>
     </div>
 
     <h2>Fonctions utilisées</h2>
@@ -138,6 +140,20 @@ echo AsciiConverter::stringToAscii($string); // Affiche "72,101,108,108,111"
         <li><code>implode(string $glue, array $pieces)</code> : Joint les éléments d'un tableau en une chaîne de caractères, avec un séparateur.</li>
         <li><code>trim(string $string)</code> : Supprime les espaces au début et à la fin.</li>
     </ul>
+
+    <script>
+        // Fonction pour copier le contenu du bloc <pre> spécifié dans le presse-papiers
+        function copyToClipboard(id) {
+            var codeBlock = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(codeBlock).then(function() {
+                var button = document.querySelector(`button[onclick="copyToClipboard('${id}')"]`);
+                button.innerText = "Code copié!";
+                setTimeout(function() {
+                    button.innerText = "Copier le code";
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 
 </html>

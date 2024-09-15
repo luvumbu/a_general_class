@@ -12,12 +12,13 @@
       margin: 20px;
       padding: 0;
       color: #333;
+      background-color: #f4f4f4;
     }
     h1, h2 {
       color: #0056b3;
     }
     code {
-      background-color: #f4f4f4;
+      background-color: #e8e8e8; /* Arrière-plan plus clair pour le code */
       padding: 2px 4px;
       border-radius: 4px;
     }
@@ -25,11 +26,27 @@
       margin-bottom: 20px;
     }
     .code-block {
-      background-color: #f4f4f4;
+      background-color: #f8f8f8; /* Arrière-plan plus clair pour le code */
       padding: 10px;
       border-radius: 5px;
       border: 1px solid #ddd;
       overflow-x: auto;
+      position: relative;
+    }
+    .copy-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 5px 10px;
+      font-size: 12px;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
@@ -40,12 +57,13 @@
   <div class="section">
     <h2>Démarrage de la Session PHP</h2>
     <div class="code-block">
-      <code>
+      <code id="code-session">
         &lt;?php<br>
         // Démarre la session PHP pour conserver les données utilisateur entre les pages<br>
         session_start();<br>
         ?&gt;
       </code>
+      <button class="copy-button" onclick="copyCode('code-session')">Copier le code</button>
     </div>
     <p><strong>Fonction:</strong> Cette ligne démarre une nouvelle session ou reprend une session existante. Cela permet de stocker des données utilisateur entre les pages, comme les identifiants de connexion.</p>
   </div>
@@ -53,9 +71,10 @@
   <div class="section">
     <h2>Inclusion du Fichier JavaScript</h2>
     <div class="code-block">
-      <code>
+      <code id="code-js">
         &lt;script src="js.js"&gt;&lt;/script&gt;
       </code>
+      <button class="copy-button" onclick="copyCode('code-js')">Copier le code</button>
     </div>
     <p><strong>Fonction:</strong> Inclut le fichier JavaScript externe <code>js.js</code>. Ce script peut contenir des fonctionnalités de traitement côté client, comme la gestion des événements et les interactions avec le DOM.</p>
   </div>
@@ -63,7 +82,7 @@
   <div class="section">
     <h2>Définition de la Structure HTML</h2>
     <div class="code-block">
-      <code>
+      <code id="code-html">
         &lt;!DOCTYPE html&gt;<br>
         &lt;html lang="fr"&gt;<br>
         &lt;head&gt;<br>
@@ -78,6 +97,7 @@
         &lt;/body&gt;<br>
         &lt;/html&gt;
       </code>
+      <button class="copy-button" onclick="copyCode('code-html')">Copier le code</button>
     </div>
     <p><strong>Détails:</strong></p>
     <ul>
@@ -93,7 +113,7 @@
   <div class="section">
     <h2>Traitement PHP</h2>
     <div class="code-block">
-      <code>
+      <code id="code-php">
         &lt;?php<br>
         // Inclusion des fichiers de classe PHP nécessaires<br>
         require_once 'class/Creat_form.php';<br>
@@ -204,6 +224,7 @@
         }<br>
         ?&gt;
       </code>
+      <button class="copy-button" onclick="copyCode('code-php')">Copier le code</button>
     </div>
     <p><strong>Détails:</strong></p>
     <ul>
@@ -215,7 +236,7 @@
   <div class="section">
     <h2>Styles CSS</h2>
     <div class="code-block">
-      <code>
+      <code id="code-css">
         &lt;style&gt;<br>
         &nbsp;&nbsp;.xx {<br>
         &nbsp;&nbsp;&nbsp;&nbsp;padding: 10px;<br>
@@ -229,6 +250,7 @@
         &nbsp;&nbsp;}<br>
         &lt;/style&gt;
       </code>
+      <button class="copy-button" onclick="copyCode('code-css')">Copier le code</button>
     </div>
     <p><strong>Détails:</strong></p>
     <ul>
@@ -236,6 +258,23 @@
       <li><strong>Style pour les éléments avec la classe <code>taille_img</code> et <code>user_log</code> lors du survol:</strong> Change le curseur en pointeur lorsqu'on survole ces éléments.</li>
     </ul>
   </div>
+
+  <script>
+    function copyCode(codeId) {
+      const codeElement = document.getElementById(codeId);
+      const range = document.createRange();
+      range.selectNode(codeElement);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      try {
+        document.execCommand('copy');
+     
+      } catch (err) {
+        console.error('Erreur lors de la copie:', err);
+      }
+      window.getSelection().removeAllRanges(); // Nettoyer la sélection
+    }
+  </script>
 
 </body>
 </html>

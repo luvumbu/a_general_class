@@ -16,14 +16,24 @@
             color: #007bff;
         }
 
+        h2 {
+            color: #0056b3;
+        }
+
         pre {
-            background-color: #000; /* Arrière-plan noir pour le code */
-            color: #fff; /* Texte en blanc pour le code */
-            border: 1px solid #ddd;
+            background-color: #282c34; /* Arrière-plan sombre pour le code */
+            color: #abb2bf; /* Texte en couleur claire pour le code */
+            border: 1px solid #444;
             border-radius: 4px;
             padding: 10px;
             overflow-x: auto;
             white-space: pre-wrap; /* Assure que les longues lignes se replient */
+        }
+
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 4px;
+            border-radius: 4px;
         }
 
         .copy-button {
@@ -61,14 +71,14 @@
 
     <h2>Description Générale</h2>
     <p>
-        La fonction <code>give_url</code> retourne le nom du fichier courant sans son chemin. Elle utilise la variable globale <code>$_SERVER['PHP_SELF']</code> pour obtenir le chemin du script actuel et retourne le nom du fichier après avoir supprimé le chemin.
+        La fonction <code>give_url</code> est utilisée pour obtenir le nom du fichier courant sans le chemin complet. Elle utilise la variable globale <code>$_SERVER['PHP_SELF']</code> pour obtenir le chemin du script en cours et retourne uniquement le nom du fichier.
     </p>
 
     <h2>Fonction</h2>
 
     <h3><code>give_url()</code></h3>
     <p>
-        Retourne le nom du fichier actuel sans le chemin.
+        Cette fonction extrait le nom du fichier du chemin complet du script courant. Elle fonctionne en inversant le chemin du script, en trouvant le premier séparateur de répertoires, puis en inversant à nouveau la chaîne pour obtenir le nom du fichier.
     </p>
     <p><strong>Code :</strong></p>
     <pre><code id="code-give_url">

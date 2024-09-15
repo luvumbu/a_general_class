@@ -31,6 +31,7 @@
             padding: 10px;
             border-left: 4px solid #ccc;
             overflow-x: auto;
+            display: inline-block;
         }
 
         .example {
@@ -38,6 +39,22 @@
             padding: 10px;
             margin-top: 10px;
             border-left: 4px solid #2196F3;
+        }
+
+        /* Style du bouton copier */
+        .copy-btn {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .copy-btn:hover {
+            background-color: #0b7dda;
         }
     </style>
 </head>
@@ -50,15 +67,16 @@
     </p>
 
     <h2>Signature de la fonction</h2>
-    <pre>
-function CheckFileExists($filePath) {
+    <div class="example">
+        <pre id="code1">function CheckFileExists($filePath) {
     if (file_exists($filePath)) {
         return true; // Le fichier existe
     } else {
         return false; // Le fichier n'existe pas
     }
-}
-    </pre>
+}</pre>
+        <button class="copy-btn" onclick="copyToClipboard('code1')">Copier le code</button>
+    </div>
 
     <h2>Paramètre</h2>
     <ul>
@@ -78,21 +96,34 @@ function CheckFileExists($filePath) {
 
     <h2>Exemple d'utilisation</h2>
     <div class="example">
-        <pre>
-$filePath = '/path/to/file.txt';
+        <pre id="code2">$filePath = '/path/to/file.txt';
 
 if (CheckFileExists($filePath)) {
     echo "Le fichier existe.";
 } else {
     echo "Le fichier n'existe pas.";
-}
-        </pre>
+}</pre>
+        <button class="copy-btn" onclick="copyToClipboard('code2')">Copier le code</button>
     </div>
 
     <h2>Fonction native utilisée</h2>
     <ul>
         <li><code>file_exists(string $filePath)</code> : Vérifie si un fichier ou un dossier existe à l'emplacement spécifié.</li>
     </ul>
+
+    <script>
+        // Fonction pour copier le contenu du bloc <pre> spécifié dans le presse-papiers
+        function copyToClipboard(id) {
+            var codeBlock = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(codeBlock).then(function() {
+                var button = document.querySelector(`button[onclick="copyToClipboard('${id}')"]`);
+                button.innerText = "Code copié!";
+                setTimeout(function() {
+                    button.innerText = "Copier le code";
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 
 </html>
