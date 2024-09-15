@@ -18,6 +18,30 @@
   $id_projet = $databaseHandler->tableList_info;
 
 
+
+
+
+
+$give_url = give_url() ; 
+
+
+
+
+  $req_sql__ = 'SELECT * FROM `visit_user` WHERE `ip1_visit_user`="'.$give_url.'";';
+
+  $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+  $databaseHandler->getDataFromTable($req_sql__, 'ip1_visit_user');
+  $ip1_visit_user = $databaseHandler->tableList_info;
+ 
+
+
+
+ 
+  echo '<img width="20" height="20" src="https://img.icons8.com/ios-glyphs/20/user--v1.png" alt="user--v1"/>';
+  echo count($ip1_visit_user);
+ 
+
+
   $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
   $databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
   $id_sha1_projet = $databaseHandler->tableList_info;

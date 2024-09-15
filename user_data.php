@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Document</title>
 </head>
 
@@ -85,7 +86,7 @@
 
 
 
-
+    $give_url = give_url();
 
 
     $req_sql = 'SELECT * FROM `projet` WHERE  `id_sha1_parent_projet` ="' . give_url() . '" ';
@@ -205,6 +206,8 @@
         $id_sha1_projet_ = $id_sha1_projet[$a];
 
 
+ 
+       
     ?>
 
         <div class="blog-container">
@@ -215,6 +218,7 @@
                     Par <span class="author">@<?php echo  $title_user_  ?></span> |
                     <span class="date"><?php echo  $date_inscription_projet_ ?></span>
                 </p>
+
             </header>
 
             <?php
@@ -262,8 +266,8 @@
 
     $ipUser = getUserIP();
     $port = $_SERVER['REMOTE_PORT'];
- 
-/*
+
+    /*
  $ipUser = getUserIP();
  echo "Adresse IP de l'utilisateur : " . $ipUser;
 
@@ -277,11 +281,13 @@
     ip5_visit_user,
     ip6_visit_user,
     ip7_visit_user,
-    ip8_visit_user
+    ip8_visit_user,
+    ip9_visit_user
      
     
 
     ) VALUES (
+    '$give_url',
     '$ipUser',
     '$port', 
     '$PHP_SELF',
