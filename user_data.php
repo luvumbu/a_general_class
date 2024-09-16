@@ -13,7 +13,10 @@
 <body>
 
 
- 
+<a href="../">
+<img width="40" height="40" src="https://img.icons8.com/ios/40/home--v1.png" alt="home--v1"/>
+
+</a>
 
     <?php
 
