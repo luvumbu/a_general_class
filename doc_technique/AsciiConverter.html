@@ -9,6 +9,9 @@
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
+            margin: 0;
+            padding: 0 15px;
+            max-width: 100%;
         }
 
         h1 {
@@ -32,6 +35,8 @@
             border-left: 4px solid #ccc;
             overflow-x: auto;
             display: inline-block;
+            max-width: 100%; /* Limite la largeur à 100% du conteneur parent */
+            word-wrap: break-word; /* Permet de couper les lignes trop longues */
         }
 
         .example {

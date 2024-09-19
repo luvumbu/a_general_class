@@ -35,6 +35,7 @@ session_start();
   require_once 'class/chercherIndex.php';
   require_once 'class/IsLocal.php';
   require_once 'class/give_url.php';
+  require_once 'class/tempsDeLecture.php' ; 
 
  
 
@@ -261,4 +262,21 @@ function myGreeting() {
 
 
 
+<div style="margin-top: 100px;">
+
+</div>
+<?php 
+
+
+if (!isset($_SESSION["session_log"])) {
+
+require 'view/index_all_view.php' ; 
+
+}
+
+?>
+
+
 </html>
+
+ 
