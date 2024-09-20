@@ -96,7 +96,7 @@
 
      function remove_projet(_this) {
 
-    
+        remove_session_switch(_this) ; 
 
 
       

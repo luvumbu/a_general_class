@@ -217,6 +217,9 @@ session_start();
 </body>
 <script>
     function remove_session_switch(_this) {
+
+
+ 
         _this.style.display="none" ; 
 
         var ok = new Information("cookie/remove_session_switch.php"); // création de la classe 
