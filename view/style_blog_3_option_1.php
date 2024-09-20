@@ -347,11 +347,11 @@ for ($n = 0; $n < count($name_group); $n++) {
          }
          ?>
          <div>
-             <img title="<?php echo  $id_projet[$a] ?>" onclick="remove_projet_(this)" class="add_element" width="50" height="50" src="https://img.icons8.com/ios/50/delete-forever--v1.png" alt="delete-forever--v1" />
+             <img title="<?php echo  $id_sha1_projet[$a] ?>" onclick="remove_projet_(this)" class="add_element" width="50" height="50" src="https://img.icons8.com/ios/50/delete-forever--v1.png" alt="delete-forever--v1" />
          </div>
 
          <div>
-             <img class="display_none" id="<?php echo  'remove_' . $id_projet[$a] ?>" title="<?php echo  $id_projet[$a] ?>" onclick="remove_projet(this)" class="add_element" width="50" height="50" src="https://img.icons8.com/fluency/50/delete-forever.png" alt="delete-forever" />
+             <img class="display_none" id="<?php echo  'remove_' . $id_sha1_projet[$a] ?>" title="<?php echo  $id_sha1_projet[$a] ?>" onclick="remove_projet(this)" class="add_element" width="50" height="50" src="https://img.icons8.com/fluency/50/delete-forever.png" alt="delete-forever" />
          </div>
 
          <div onclick="remove_session_switch(this)" class="cursor_pointer">

@@ -88,11 +88,18 @@
      }
 
      function remove_projet_(_this) {
+
+      
          _this.style.display = "none";
          document.getElementById('remove_' + _this.title).className = "add_element";
      }
 
      function remove_projet(_this) {
+
+    
+
+
+      
          _this.style.display = "none";
          var ok = new Information("remove/remove_projet.php");
          ok.add("id_projet", _this.title);
@@ -102,6 +109,8 @@
          function myGreeting() {
              location.reload();
          }
+
+       
      }
 
      function projet_child(_this) {
