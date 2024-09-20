@@ -204,7 +204,7 @@ require_once 'mysq_req/req_index_all_sql.php' ;
 
 <style>
     .limiter {
-        height: 50px;
+        max-height: 450px;
         /* Limite la largeur du conteneur */
         white-space: nowrap;
         /* Empêche le texte de passer à la ligne */

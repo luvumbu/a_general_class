@@ -113,7 +113,7 @@
     $id_projet = $databaseHandler->tableList_info;
 
 
-
+ 
     $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
     $databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
     $id_sha1_projet = $databaseHandler->tableList_info;
@@ -206,7 +206,7 @@
 
 
     for ($a = 0; $a < count($date_inscription_projet); $a++) {
-/*
+
 
         $name_projet_ =  AsciiConverter::asciiToString($name_projet[$a]);
         $title_projet_ = AsciiConverter::asciiToString($title_projet[$a]);
@@ -223,8 +223,51 @@
         $id_sha1_projet_ = $id_sha1_projet[$a];
 
 
- */
-      
+    ?>
+
+<h1>
+     <?php echo  $title_projet_ ?> 
+</h1>
+ 
+       <p>
+         <?php echo  $title_user_  ?> 
+       </p>
+
+       <p>
+           <?php echo  $date_inscription_projet_ ?> 
+       </p>
+
+
+
+                </p>
+     
+
+            <?php
+            if ($img_projet_src_ != '') {
+            ?>
+
+                <div class="user_img">
+                    <img src="<?php echo   "../img_user_action/" . $img_projet_src_ ?>" alt="">
+
+                </div>
+
+            <?php
+            }
+
+
+
+
+
+
+            ?>
+  
+                <h2 class="blog-title"><?php echo $name_projet_ ?></h2>
+    
+
+        </div>
+
+    <?php
+
 
 
     }

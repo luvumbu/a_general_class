@@ -1,6 +1,6 @@
 <?php
 
-$req_sql = 'SELECT * FROM `projet` WHERE 1';
+$req_sql = 'SELECT * FROM `projet` WHERE `id_sha1_parent_projet` ="" ';
 
 $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
 $databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
