@@ -5,8 +5,28 @@ $req_sql = 'SELECT * FROM `projet` WHERE 1';
 $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
 $databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
 $id_sha1_projet = $databaseHandler->tableList_info;
+ 
 
-var_dump($id_sha1_projet);
+
+for($x = 0 ; $x <count($id_sha1_projet) ; $x ++) {
+ 
+
+ 
+ 
+$path = "src/img/qr/".$id_sha1_projet[$x].".png";
+if (checkFileExists($path)) {
+   
+} else {
+   
+?>
+ <meta http-equiv="refresh" content="0; url=qr_code_1/index.php">
+<?php 
+}
+ 
+
+
+
+}
 
 $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
 $databaseHandler->getDataFromTable($req_sql, "id_projet");

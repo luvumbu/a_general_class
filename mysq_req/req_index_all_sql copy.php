@@ -1,0 +1,95 @@
+<?php
+
+$req_sql = 'SELECT * FROM `projet` WHERE 1';
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
+$id_sha1_projet = $databaseHandler->tableList_info;
+
+var_dump($id_sha1_projet);
+
+
+for($x = 0 ; $x <count($id_sha1_projet) ; $x ++) {
+ 
+
+
+
+ 
+// Example usage
+$path = "src/img/qr/".$id_sha1_projet[$x].".png";
+ 
+
+
+if (file_exists($path)) {
+
+    echo "OUI" ; 
+     
+} else {
+     
+    echo "NON" ; 
+
+}
+
+
+
+}
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "id_projet");
+$id_projet = $databaseHandler->tableList_info;
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "name_projet");
+$name_projet = $databaseHandler->tableList_info;
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "statue_projet");
+$statue_projet = $databaseHandler->tableList_info;
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "title_projet");
+$title_projet = $databaseHandler->tableList_info;
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "description_projet");
+$description_projet = $databaseHandler->tableList_info;
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "password_projet");
+$password_projet = $databaseHandler->tableList_info;
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "visibility_1_projet");
+$visibility_1_projet = $databaseHandler->tableList_info;
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "visibility_2_projet");
+$visibility_2_projet = $databaseHandler->tableList_info;
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "img_projet_src");
+$img_projet_src = $databaseHandler->tableList_info;
+
+
+
+// ** 
+
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "heure_debut_projet");
+$heure_debut_projet = $databaseHandler->tableList_info;
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "date_debut_projet");
+$date_debut_projet = $databaseHandler->tableList_info;
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "heure_fin_projet");
+$heure_fin_projet = $databaseHandler->tableList_info;
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "date_fin_projet");
+$date_fin_projet = $databaseHandler->tableList_info;
+
+ 
+?>

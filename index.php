@@ -36,6 +36,8 @@ session_start();
   require_once 'class/IsLocal.php';
   require_once 'class/give_url.php';
   require_once 'class/tempsDeLecture.php' ; 
+  require_once 'class/CheckFileExists.php' ; 
+
 
  
 
@@ -267,7 +269,9 @@ function myGreeting() {
 </div>
 <?php 
 
+ 
 
+require_once "mysq_req/req_index_all_sql.php" ; 
 if (!isset($_SESSION["session_log"])) {
 
 require 'view/index_all_view.php' ; 

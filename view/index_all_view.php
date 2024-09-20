@@ -43,6 +43,8 @@ require_once 'mysq_req/req_index_all_sql.php' ;
 
 
                     ?>
+
+                    <img src="<?php echo 'src/img/qr/'.$id_sha1_projet[$a].'.png' ?>" alt="" srcset="">
                     <div class="limiter">
 
                         <p><?php echo $name_projet_ ?></p>
