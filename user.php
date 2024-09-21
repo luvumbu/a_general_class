@@ -8,9 +8,11 @@
   require_once 'class/IsLocal.php';
   require_once 'class/give_url.php';
   require_once 'class/getUserIP.php';
+  require_once 'class/tempsDeLecture.php';
 
 
 
+ 
   $req_sql = 'SELECT * FROM `projet` WHERE  `id_sha1_projet` ="'.give_url().'" ';
 
   $databaseHandler = new DatabaseHandler($config_dbname, $config_password);

@@ -51,15 +51,15 @@
 
     ?>
 
-<h1>
+<h1 style="text-align: center;">
      <?php echo  $title_projet_ ?> 
 </h1>
  
-       <p>
+       <p  style="text-align: center;">
          <?php echo  $title_user_  ?> 
        </p>
 
-       <p>
+       <p  style="text-align: center;">
            <?php echo  $date_inscription_projet_ ?> 
        </p>
 
@@ -212,6 +212,11 @@
  
 
 
+$name_projet__  =  AsciiConverter::asciiToString($name_projet[$a]); // Affiche "Hello" ; 
+$title_projet__ = AsciiConverter::asciiToString($title_projet[$a]); ; 
+$description_projet__ = AsciiConverter::asciiToString($description_projet[$a]); ; 
+
+
 ?>
 <div class="card largeur_card">
 <h5 class="card-title"> </h5>
@@ -229,7 +234,19 @@
         <div class="card-body">
       
       
-            
+            <?php 
+
+$somm_text = $name_projet__.
+$title_projet__.
+$description_projet__;
+$tempsEstime = tempsDeLecture($somm_text);
+
+ 
+
+echo "⏰ Temps de lecture estimé : $tempsEstime minute(s)";
+
+
+?>
             
             
              
@@ -438,3 +455,14 @@ body {
     }
 </style>
 </html>
+
+
+
+<?php 
+
+
+
+
+
+
+?>
