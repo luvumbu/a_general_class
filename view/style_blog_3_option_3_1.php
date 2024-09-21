@@ -115,19 +115,36 @@
 
   <div class="card-body">
   
-    <h1 class="card-text"><?php echo $title_projet_ ?></p>
+    <h1 class="card-text"><?php echo $title_projet_ ?></h1>
+    <p>
+        <?php echo $description_projet_ ?>
+    </p>
 
 
-
-    <p style="color:grey" class="card-title"><?php echo $name_projet_ ?></p>
-    <div title="3" class="<?php echo $id_sha1_projet[$a] ?> " onclick="session_switch(this)">
+ <div class="cursor_pointer">
+        <div style="padding: 30px;" title="3" class="<?php echo $id_sha1_projet[$a] ?> " onclick="session_switch(this)">
                  <img style="width: 50;height:50px;" width="50" height="50" src="https://img.icons8.com/ios/50/settings--v1.png" alt="settings--v1">
              </div>
+ </div>
+
   </div>
 </div>
 
 <style>
     .card2 img {
         width: 100%;
+      
+    
+    
+    }
+
+    .card2   {
+ 
+  
+  
+      
+    }
+    .cursor_pointer:hover{
+        cursor: pointer;
     }
 </style>

@@ -71,6 +71,8 @@
     if (give_url() == "index.php") {
 
 
+
+
       require_once 'view/style_blog_3.php';
 
 
@@ -79,7 +81,7 @@
       if (isset($_SESSION["session_switch"])) {
  
         require_once 'mysq_req/style_blog_3_req_01.php';
-
+ 
 
  
 ?>
@@ -103,6 +105,7 @@
 
 <?php 
       }  
+      
     }
 
 

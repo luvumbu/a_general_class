@@ -16,16 +16,14 @@ require_once 'mysq_req/req_index_all_sql.php';
 
 <body>
 
-<div class="display_flex__">
 
- 
     <?php
 
 
-   
+    $somm_text = "";
 
     for ($a = 0; $a < count($id_sha1_projet); $a++) {
- $somm_text = "";
+
 
         $name_projet_  = AsciiConverter::asciiToString($name_projet[$a]);
         $title_projet_ = AsciiConverter::asciiToString($title_projet[$a]);
@@ -37,9 +35,15 @@ require_once 'mysq_req/req_index_all_sql.php';
 
         $somm_text = $somm_text . $name_projet_ . $title_projet_ . $description_projet_;
 
-  
- 
-/*
+    ?>
+        <div class="project">
+            <div class="project-content">
+                <div class="project-header">
+                    <div class="project-number"> <?php echo  $$title_projet_ . "  : " . $a + 1 ?></div>
+                    <h2><?php echo  $title_projet_ ?></h2>
+                    <p><?php echo $description_projet_ ?></p>
+
+
 
                     <img src="<?php echo 'img_user_action/' . $img_projet_src[$a] ?>" alt="" srcset="">
 
@@ -50,19 +54,11 @@ require_once 'mysq_req/req_index_all_sql.php';
 
 
 
-*/
-
-?>
-
- 
 
 
 
-<?php 
 
-
-
-                 
+                    <?php
 
 
 
@@ -114,32 +110,7 @@ require_once 'mysq_req/req_index_all_sql.php';
 
 
 
-?>
 
-
-<div class="card largeur_card">
-<h5 class="card-title"><?php echo  $title_projet_  ?></h5>
-    <a href="<?php echo 'img_user_action/' . $img_projet_src[$a] ?>">
-
-   
-  <img src="<?php echo 'img_user_action/' . $img_projet_src[$a] ?>" alt="" srcset="">
- </a>
-        <div class="card-body">
-      
-            <p class="card-text"><?php echo $description_projet_ ?></p>
-            
-            
-            
-            
-            <div class="qr_code">
-                        <img style="width: 100px;" src="<?php echo 'src/img/qr/' . $id_sha1_projet[$a] . '.png' ?>" alt="" srcset="">
-                    </div>
-    
-
-                    
-        </div>
-    
-<?php
 
 
 
@@ -151,16 +122,16 @@ require_once 'mysq_req/req_index_all_sql.php';
 
                     ?>
 
-
-<a href="<?php echo 'user.php/' . $id_sha1_projet[$a] ?>">
+                    <a href="<?php echo 'user.php/' . $id_sha1_projet[$a] ?>">
                         <div class="art_c">
                             VOIR ARTICLE COMPLET
                         </div>
                     </a>
 
-</div>
+                </div>
 
-        
+            </div>
+        </div>
 
     <?php
 
@@ -170,7 +141,7 @@ require_once 'mysq_req/req_index_all_sql.php';
 
 
     ?>
-</div>
+
 
 
 </body>
@@ -314,29 +285,5 @@ require_once 'mysq_req/req_index_all_sql.php';
         /* Masque le texte qui dépasse */
         text-overflow: ellipsis;
         /* Ajoute des points de suspension à la fin */
-    }
-</style>
-
-<style>
-    .largeur_card{
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        text-align: center;
-        width: 300px;
-        padding: 20px;
-    }
-    .largeur_card img {
-        max-width: 100%;  /* La largeur maximale est de 100% du conteneur parent */
-    max-height: 200px; /* Hauteur maximale fixée à 200px */
-    object-fit: cover;  /* Garde les proportions de l'image sans déformation */
-    }
-    .display_flex__{
-     
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-     
-    }
-    .display_flex__ p{
-        text-align: justify;
     }
 </style>
