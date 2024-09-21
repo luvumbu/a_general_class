@@ -26,6 +26,8 @@ require_once 'mysq_req/req_index_all_sql.php';
 
     for ($a = 0; $a < count($id_sha1_projet); $a++) {
  $somm_text = "";
+ $somm_text2 = "";
+
 
         $name_projet_  = AsciiConverter::asciiToString($name_projet[$a]);
         $title_projet_ = AsciiConverter::asciiToString($title_projet[$a]);
@@ -92,27 +94,28 @@ require_once 'mysq_req/req_index_all_sql.php';
 
 
 
-                    
+                  
   
  
 
 
-/*
+ 
                     for ($ab = 0; $ab < count($id_sha1_projet_2); $ab++) {
+ 
+                       
 
+                        $name_projet__2  = AsciiConverter::asciiToString($title_projet_2[$ab]);
+                        $title_projet__2 = AsciiConverter::asciiToString($description_projet_2[$ab]);
+                        $description_projet__2 =  AsciiConverter::asciiToString($name_projet_2[$ab]);
+ 
 
+ 
 
-                        $name_projet__2  = AsciiConverter::asciiToString($title_projet_2[$a]);
-                        $title_projet__2 = AsciiConverter::asciiToString($description_projet_2[$a]);
-                        $description_projet__2 =  AsciiConverter::asciiToString($name_projet_2[$a]);
-
-                        $somm_text  =  $somm_text . $name_projet__2 . $title_projet__2 . $description_projet__2;
-                 
-                 
-                
+                        $somm_text2 =$somm_text2.$name_projet__2.$title_projet__2.$description_projet__2;
+               
                         }
 
- */
+ 
 
 
 
@@ -157,9 +160,24 @@ require_once 'mysq_req/req_index_all_sql.php';
 
 
 
-                    $tempsEstime = tempsDeLecture($somm_text);
+                    $tempsEstime1 = tempsDeLecture($somm_text);
 
-                    echo "⏰ Temps de lecture estimé : $tempsEstime minute(s)";
+
+                   
+
+
+                    echo "⏰ Temps de lecture estimé : $tempsEstime1 minute(s)";
+
+                    $tempsEstime2 = tempsDeLecture($somm_text2);
+                    
+
+
+
+                    if( count($id_sha1_projet_2)>1){
+ 
+                        echo "⏰ Total avec sous projet: ".($tempsEstime1+$tempsEstime2)." minute(s)";
+                    }
+                 
 
 
                     ?>
