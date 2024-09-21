@@ -133,7 +133,7 @@ function stylesheet ($source) {
             function input_1_onkeyup(_this) {
                 _this.style.opacity = 0.2;
                 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-                const myTimeout_1 = setTimeout(myGreeting, 100);
+                const myTimeout_1 = setTimeout(myGreeting, 289);
 
                 function myGreeting() {
                     if (envoyer) {

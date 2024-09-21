@@ -1,6 +1,6 @@
 <?php
 
-require_once 'mysq_req/req_index_all_sql.php' ; 
+require_once 'mysq_req/req_index_all_sql.php';
 ?>
 
 
@@ -19,39 +19,110 @@ require_once 'mysq_req/req_index_all_sql.php' ;
 
     <?php
 
+
+    $somm_text = "";
+
     for ($a = 0; $a < count($id_sha1_projet); $a++) {
+
 
         $name_projet_  = AsciiConverter::asciiToString($name_projet[$a]);
         $title_projet_ = AsciiConverter::asciiToString($title_projet[$a]);
         $description_projet_ =  AsciiConverter::asciiToString($description_projet[$a]);
+
+
+
+
+
+        $somm_text = $somm_text . $name_projet_ . $title_projet_ . $description_projet_;
+
     ?>
         <div class="project">
             <div class="project-content">
                 <div class="project-header">
-                    <div class="project-number"> <?php echo $a + 1 ?></div>
+                    <div class="project-number"> <?php echo  $description_projet_ . "  : " . $a + 1 ?></div>
                     <h2><?php echo  $title_projet_ ?></h2>
                     <p><?php echo $description_projet_ ?></p>
+
+
+
+                    <img src="<?php echo 'img_user_action/' . $img_projet_src[$a] ?>" alt="" srcset="">
+
+
+                    <div class="qr_code">
+                        <img src="<?php echo 'src/img/qr/' . $id_sha1_projet[$a] . '.png' ?>" alt="" srcset="">
+                    </div>
+
+
+
+
+
 
 
                     <?php
 
 
-                    $tempsEstime = tempsDeLecture($name_projet_);
+
+
+
+
+                    $req_sql = 'SELECT * FROM `projet` WHERE `id_sha1_parent_projet` ="' . $id_sha1_projet[$a] . '" ';
+                    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+                    $databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
+                    $id_sha1_projet_2 = $databaseHandler->tableList_info;
+
+                    $req_sql = 'SELECT * FROM `projet` WHERE `id_sha1_parent_projet` ="' . $id_sha1_projet[$a] . '" ';
+                    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+                    $databaseHandler->getDataFromTable($req_sql, "title_projet");
+                    $title_projet_2 = $databaseHandler->tableList_info;
+
+                    $req_sql = 'SELECT * FROM `projet` WHERE `id_sha1_parent_projet` ="' . $id_sha1_projet[$a] . '" ';
+                    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+                    $databaseHandler->getDataFromTable($req_sql, "description_projet");
+                    $description_projet_2 = $databaseHandler->tableList_info;
+
+
+                    $req_sql = 'SELECT * FROM `projet` WHERE `id_sha1_parent_projet` ="' . $id_sha1_projet[$a] . '" ';
+                    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+                    $databaseHandler->getDataFromTable($req_sql, "name_projet");
+                    $name_projet_2 = $databaseHandler->tableList_info;
+
+
+
+
+
+                    for ($ab = 0; $ab < count($id_sha1_projet_2); $ab++) {
+
+
+
+                        $name_projet__2  = AsciiConverter::asciiToString($title_projet_2[$a]);
+                        $title_projet__2 = AsciiConverter::asciiToString($description_projet_2[$a]);
+                        $description_projet__2 =  AsciiConverter::asciiToString($name_projet_2[$a]);
+
+                        $somm_text  =  $somm_text . $name_projet__2 . $title_projet__2 . $description_projet__2;
+                    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    $tempsEstime = tempsDeLecture($somm_text);
 
                     echo "⏰ Temps de lecture estimé : $tempsEstime minute(s)";
 
 
-
                     ?>
 
-                    <img src="<?php echo 'src/img/qr/'.$id_sha1_projet[$a].'.png' ?>" alt="" srcset="">
-                    <div class="limiter">
-
-                        <p><?php echo $name_projet_ ?></p>
-                    </div>
-
- 
-                    <a href="<?php echo 'user.php/'.$id_sha1_projet[$a] ?>">
+                    <a href="<?php echo 'user.php/' . $id_sha1_projet[$a] ?>">
                         <div class="art_c">
                             VOIR ARTICLE COMPLET
                         </div>
@@ -62,8 +133,9 @@ require_once 'mysq_req/req_index_all_sql.php' ;
             </div>
         </div>
 
-
     <?php
+
+
     }
 
 
@@ -88,7 +160,8 @@ require_once 'mysq_req/req_index_all_sql.php' ;
         border-radius: 8px;
         margin-top: 50px;
     }
-  a {
+
+    a {
         text-decoration: none;
         margin-top: 100px;
         margin-bottom: 100px;
