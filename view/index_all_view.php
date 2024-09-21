@@ -92,6 +92,10 @@ require_once 'mysq_req/req_index_all_sql.php';
 
 
 
+                    
+  
+ 
+
 
 
                     for ($ab = 0; $ab < count($id_sha1_projet_2); $ab++) {
@@ -119,8 +123,14 @@ require_once 'mysq_req/req_index_all_sql.php';
 
 <div class="card largeur_card">
 <h5 class="card-title"><?php echo  $title_projet_  ?></h5>
+
+ 
+ 
+
+
     <a href="<?php echo 'img_user_action/' . $img_projet_src[$a] ?>">
 
+    <p class="data_time"><?php echo $date_inscription_projet[$a]  ?></p>
    
   <img src="<?php echo 'img_user_action/' . $img_projet_src[$a] ?>" alt="" srcset="">
  </a>
@@ -211,6 +221,7 @@ require_once 'mysq_req/req_index_all_sql.php';
         padding: 0;
         border-left: 6px solid #008080;
         overflow: hidden;
+       
     }
 
     .project-content {
@@ -338,5 +349,9 @@ require_once 'mysq_req/req_index_all_sql.php';
     }
     .display_flex__ p{
         text-align: justify;
+    }
+    .data_time{
+        font-size: 0.8em ;
+        color: rgba(0, 0, 0, 0.6);
     }
 </style>

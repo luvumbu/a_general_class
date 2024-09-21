@@ -85,5 +85,17 @@ $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
 $databaseHandler->getDataFromTable($req_sql, "date_fin_projet");
 $date_fin_projet = $databaseHandler->tableList_info;
 
+
+
+
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "date_inscription_projet");
+$date_inscription_projet = $databaseHandler->tableList_info;
+
+
+
+
+
  
 ?>
