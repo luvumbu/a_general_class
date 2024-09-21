@@ -92,6 +92,9 @@
 
         </div>
 
+
+
+        <div class="display_flexx">
     <?php
 
 
@@ -206,7 +209,61 @@
 
 
     for ($a = 0; $a < count($date_inscription_projet); $a++) {
+ 
 
+
+?>
+<div class="card largeur_card">
+<h5 class="card-title"> </h5>
+
+ 
+ 
+
+
+     
+
+    <p class="data_time"><?php echo $date_inscription_projet[$a]  ?></p>
+   
+  <img src="<?php echo   '../img_user_action/'.$img_projet_src[$a] ?>" alt="" srcset="">
+ 
+        <div class="card-body">
+      
+      
+            
+            
+            
+             
+        <div class="qr_code">
+                        <img style="width: 100px;" src="<?php echo '../src/img/qr/' . $id_sha1_projet[$a] . '.png' ?>" alt="" srcset="">
+                    </div>
+    
+    
+
+                    
+        </div>
+    
+<?php
+
+
+
+
+                
+ 
+
+                    ?>
+
+
+<a href="<?php echo  $id_sha1_projet[$a] ?>">
+                        <div class="art_c">
+                            VOIR ARTICLE COMPLET
+                        </div>
+                    </a>
+
+</div>
+
+
+<?php 
+        /*
 
         $name_projet_ =  AsciiConverter::asciiToString($name_projet[$a]);
         $title_projet_ = AsciiConverter::asciiToString($title_projet[$a]);
@@ -269,7 +326,7 @@
     <?php
 
 
-
+*/
     }
 
 
@@ -332,6 +389,8 @@
 
 
     ?>
+    
+</div>
     <div class="blog-container">
         <footer class="blog-footer">
             <p>&copy; 2024 - Tous droits réservés.</p>
@@ -341,8 +400,41 @@
  
 </body>
 <style>
+    .display_flexx{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
 body {
     font-family: 'Abel';font-size: 22px;
 }
+
+
+.largeur_card{
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 300px;
+        padding: 20px;
+    }
+    .largeur_card img {
+        max-width: 100%;  /* La largeur maximale est de 100% du conteneur parent */
+    max-height: 200px; /* Hauteur maximale fixée à 200px */
+    object-fit: cover;  /* Garde les proportions de l'image sans déformation */
+    }
+    .display_flex__{
+     
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+     
+    }
+    .display_flex__ p{
+        text-align: justify;
+    }
+    .data_time{
+        font-size: 0.8em ;
+        color: rgba(0, 0, 0, 0.6);
+      
+    }
 </style>
 </html>

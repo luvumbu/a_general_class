@@ -6,60 +6,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentation - AsciiConverter</title>
     <style>
+        /* Styles globaux */
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+            background: linear-gradient(145deg, #1a1c29, #10121b);
+            font-family: 'Roboto', sans-serif;
+            color: #ffffff;
             margin: 0;
-            padding: 0 15px;
-            max-width: 100%;
+            padding: 20px;
         }
 
-        h1 {
-            color: #333;
+        h1, h2, h3, h4 {
+            color: #0070f3;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
         }
 
-        h2 {
-            color: #555;
+        p, ul, li, code {
+            color: #b5b7c0;
+            line-height: 1.6;
         }
 
-        code {
-            background-color: #f4f4f4;
-            padding: 2px 4px;
-            border-radius: 4px;
-            font-size: 90%;
+        /* Style pour les sections de la documentation */
+        .example {
+            background: #1a1f35;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            border: 1px solid #2e3451;
         }
 
         pre {
-            background-color: #f4f4f4;
-            padding: 10px;
-            border-left: 4px solid #ccc;
+            background: #0f1220;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
             overflow-x: auto;
-            display: inline-block;
-            max-width: 100%; /* Limite la largeur à 100% du conteneur parent */
-            word-wrap: break-word; /* Permet de couper les lignes trop longues */
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
         }
 
-        .example {
-            background-color: #e7f3fe;
-            padding: 10px;
-            margin-top: 10px;
-            border-left: 4px solid #2196F3;
-        }
-
-        /* Style du bouton copier */
+        /* Style des boutons */
         .copy-btn {
-            margin-left: 10px;
-            padding: 5px 10px;
-            background-color: #2196F3;
-            color: white;
+            background: #0070f3;
+            color: #ffffff;
+            padding: 10px 20px;
             border: none;
+            border-radius: 50px;
             cursor: pointer;
-            border-radius: 4px;
-            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 112, 243, 0.5); /* Effet lumineux */
         }
 
         .copy-btn:hover {
-            background-color: #0b7dda;
+            background: #0059c7;
+            box-shadow: 0 0 15px rgba(0, 89, 199, 0.8);
+        }
+
+        /* Ajout de l'effet glow aux exemples */
+        .example::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, #0070f3, transparent);
+            opacity: 0.2;
+            z-index: -1;
+            filter: blur(10px);
+            border-radius: 10px;
+            animation: glowing 3s infinite;
+        }
+
+        @keyframes glowing {
+            0% { filter: blur(10px); opacity: 0.1; }
+            50% { filter: blur(15px); opacity: 0.3; }
+            100% { filter: blur(10px); opacity: 0.1; }
+        }
+
+        /* Style des listes */
+        ul {
+            margin-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: #2e3451;
+            padding: 3px 6px;
+            border-radius: 5px;
         }
     </style>
 </head>

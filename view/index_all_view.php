@@ -97,7 +97,7 @@ require_once 'mysq_req/req_index_all_sql.php';
  
 
 
-
+/*
                     for ($ab = 0; $ab < count($id_sha1_projet_2); $ab++) {
 
 
@@ -107,9 +107,12 @@ require_once 'mysq_req/req_index_all_sql.php';
                         $description_projet__2 =  AsciiConverter::asciiToString($name_projet_2[$a]);
 
                         $somm_text  =  $somm_text . $name_projet__2 . $title_projet__2 . $description_projet__2;
-                    }
+                 
+                 
+                
+                        }
 
-
+ */
 
 
 
