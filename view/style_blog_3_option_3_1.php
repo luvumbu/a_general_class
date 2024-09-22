@@ -2,7 +2,7 @@
 
  
 
-
+ 
 <div class="card card2" style="width: 18rem;">
  
   <?php

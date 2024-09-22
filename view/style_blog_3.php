@@ -14,13 +14,17 @@
   
 if(isset($_SESSION["session_switch"])){
     require_once 'mysq_req/style_blog_3_req_0.php';
+ 
+
 
 }
 else {
     require_once 'mysq_req/style_blog_3_req_1.php';
-
 }
 
+
+
+ 
 
  echo '<div class="display_flex3">';
 

@@ -1,9 +1,108 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <?php 
     $req_sql = 'SELECT * FROM `projet` WHERE `id_sha1_projet` = "' .$_SESSION["session_switch"]. '"  ORDER BY `projet`.`id_projet` DESC';
 
     $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
     $databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
     $id_sha1_projet = $databaseHandler->tableList_info;
+
+
+
+
+    
+
+    $req_sqlxx = 'SELECT * FROM `visit_user` WHERE `ip1_visit_user` = "' .$_SESSION["session_switch"]. '" ORDER BY `ip1_visit_user` ASC';
+
+
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sqlxx, "ip2_visit_user");
+    $ip2_visit_user = $databaseHandler->tableList_info;
+
+
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sqlxx, "ip4_visit_user");
+    $ip4_visit_user = $databaseHandler->tableList_info;
+
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sqlxx, "ip5_visit_user");
+    $ip5_visit_user = $databaseHandler->tableList_info;
+
+
+
+
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sqlxx, "ip8_visit_user");
+    $ip8_visit_user = $databaseHandler->tableList_info;
+
+
+
+
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sqlxx, "timestamp_visit_user");
+    $timestamp_visit_user = $databaseHandler->tableList_info;
+
+
+
+     
+
+?>
+
+
+<h1>Liste de visites</h1>
+
+
+<div class="container mt-3 max_table">
+<table class="table">
+    <thead>
+      <tr>
+      <th>Info</th>
+      <th>Info</th>
+      <th>Info</th>
+      <th>Info</th>
+      <th>Info</th>
+     
+      </tr>
+    </thead>
+    <tbody>
+
+<?php 
+
+
+for($w = 0 ; $w < count( $timestamp_visit_user) ; $w ++) {
+
+
+    ?>
+
+
+<tr>
+        <td><?php echo $ip2_visit_user[$w] ?></td>
+        <td><?php echo $ip4_visit_user[$w] ?></td>
+        <td><?php echo $ip5_visit_user[$w] ?></td>
+        <td><?php echo $ip8_visit_user[$w] ?></td>
+        <td><?php echo $timestamp_visit_user[$w] ?></td>
+  
+
+
+        
+
+
+
+
+  
+      </tr>
+<?php 
+    
+}
+
+?>
+
+ 
+    </tbody>
+  </table>
+</div>
+<?php 
 
     $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
     $databaseHandler->getDataFromTable($req_sql, "id_projet");
@@ -136,3 +235,11 @@ $databaseHandler->action_sql('DELETE FROM `projet_img` WHERE `id_projet_img_auto
 } 
 
     ?>
+
+    <style>
+        .max_table{
+            
+            max-height: 400px;
+            overflow-y: scroll;
+        }
+    </style>
