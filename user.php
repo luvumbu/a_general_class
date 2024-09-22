@@ -1,3 +1,6 @@
+
+  
+
 <?php
   // Inclusion des fichiers de classe PHP nécessaires
   require_once 'class/Creat_form.php';
@@ -23,6 +26,17 @@
 
 
 
+  $req_sql = 'SELECT * FROM `projet` WHERE  `id_sha1_projet` ="'.give_url().'" ';
+
+  $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+  $databaseHandler->getDataFromTable($req_sql, "id_sha1_parent_projet");
+  $id_sha1_parent_projet__p = $databaseHandler->tableList_info;
+
+
+
+ 
+
+
 
 $give_url = give_url() ; 
 
@@ -39,16 +53,14 @@ $give_url = give_url() ;
 
 
  
-  echo '<img width="20" height="20" src="https://img.icons8.com/ios-glyphs/20/user--v1.png" alt="user--v1"/>';
-  echo count($ip1_visit_user);
+
  
 
   $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
   $databaseHandler->getDataFromTable($req_sql, "visibility_1_projet");
   $visibility_1_projet = $databaseHandler->tableList_info;
 
-
-
+ 
 
  
 
@@ -61,7 +73,7 @@ if($visibility_1_projet[0]==""){
   $databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
   $id_sha1_projet = $databaseHandler->tableList_info;
 
-
+ 
   $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
   $databaseHandler->getDataFromTable($req_sql, "id_user_projet");
   $id_user_projet = $databaseHandler->tableList_info;
@@ -69,6 +81,10 @@ if($visibility_1_projet[0]==""){
   $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
   $databaseHandler->getDataFromTable($req_sql, "id_parents_projet");
   $id_parents_projet = $databaseHandler->tableList_info;
+
+
+
+ 
 
   $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
   $databaseHandler->getDataFromTable($req_sql, "visit_projet");
@@ -165,12 +181,28 @@ if($visibility_1_projet[0]==""){
  
 
 
+ 
+
+?>
+
+
+
+
+ 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+ 
+<?php 
+
 if (!count($id_projet)<1){
  
   $visibility_1_projet_ = $visibility_1_projet[0] ;
   
   if($visibility_1_projet_==""){
- require "user_data.php" ; 
+        require "user_data.php" ; 
   }
   else {
     echo '<div class="err404">' ; 
@@ -200,3 +232,16 @@ else {
   }
 </style>
  
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>&copy; 2024 - Tous droits r&eacute;serv&eacute;s.</p>
+</body>
+</html>

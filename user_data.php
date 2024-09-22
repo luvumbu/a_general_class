@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,14 +22,41 @@
 <body>
 
 
-<a href="../">
-<img width="40" height="40" src="https://img.icons8.com/ios/40/home--v1.png" alt="home--v1"/>
 
-</a>
+
+
+<nav class="navbar navbar-expand-lg bg-light" >
+  <div class="container-fluid">
+ 
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="add_nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="../">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+<img width="20" height="20" src="https://img.icons8.com/ios-glyphs/20/user--v1.png" alt="user--v1"/>
+
+            <?php   echo count($ip1_visit_user); ?>
+          </a>
+        </li>
+ 
+ 
+  
+      </ul>
+ 
+    </div>
+  </div>
+</nav>
+
 
     <?php
 
 
+ 
 
 
 
@@ -115,6 +144,85 @@
     $databaseHandler->getDataFromTable($req_sql, "id_projet");
     $id_projet = $databaseHandler->tableList_info;
 
+ 
+
+
+
+
+    $req_sql = 'SELECT * FROM `projet` WHERE  `id_sha1_parent_projet` ="' . give_url() . '" ';
+
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "id_projet");
+    $id_projet = $databaseHandler->tableList_info;
+
+
+ 
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "title_projet");
+    $title_projet_i = $databaseHandler->tableList_info;
+
+
+
+
+     
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
+    $id_sha1_projet_i = $databaseHandler->tableList_info;
+
+
+
+
+
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "id_sha1_parent_projet");
+    $id_sha1_parent_projet_i = $databaseHandler->tableList_info;
+
+ 
+ 
+ 
+
+
+for($xx = 0 ; $xx <count($id_projet); $xx++) {
+ 
+?>
+
+<script>
+    var  para = document.createElement("li");
+para.innerHTML = '<a class="nav-link active" aria-current="page" href="<?php echo $id_sha1_projet_i[$xx] ?>"><?php echo AsciiConverter::asciiToString($title_projet_i[$xx]);    ?></a>';
+para.setAttribute("class","nav-item") ; 
+document.getElementById("add_nav").appendChild(para);
+
+
+
+
+</script>
+
+ 
+<?php 
+
+
+}
+
+
+
+
+if($id_sha1_parent_projet__p[0]!=""){
+    ?>
+<script>
+    var  para = document.createElement("li");
+para.innerHTML = '<a class="nav-link active" aria-current="page" href="<?php echo $id_sha1_parent_projet__p[0] ?>"><?php echo "_Source_";    ?></a>';
+para.setAttribute("class","nav-item") ; 
+document.getElementById("add_nav").appendChild(para);
+
+
+
+
+</script>
+
+
+
+<?php 
+}
 
  
     $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
@@ -510,10 +618,7 @@ if(count($name_projet___)>0) {
     ?>
     
 </div>
-    <div class="blog-container">
-        <footer class="blog-footer">
-            <p>&copy; 2024 - Tous droits réservés.</p>
-        </footer>
+ 
 
     </div>
  
