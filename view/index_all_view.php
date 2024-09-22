@@ -185,10 +185,20 @@ require_once 'mysq_req/req_index_all_sql.php';
  
     <?php
 
-
+ 
    
 
     for ($a = 0; $a < count($id_sha1_projet); $a++) {
+
+
+
+
+
+        if($visibility_1_projet[$a]==""){
+
+     
+
+       
  $somm_text = "";
  $somm_text2 = "";
 
@@ -364,7 +374,7 @@ require_once 'mysq_req/req_index_all_sql.php';
 
 
     }
-
+    }
 
 
     ?>

@@ -241,14 +241,22 @@ $databaseHandler->getDataFromTable($req_sql, "description_projet");
 $description_projet___ = $databaseHandler->tableList_info;
 
 
+
+
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "visibility_1_projet");
+$visibility_1_projet___x = $databaseHandler->tableList_info;
+
+
  
+
 
  
 
  
 ?>
-<div class="card largeur_card">
-<h5 class="card-title"> </h5>
+
 
  
  <?php 
@@ -256,17 +264,23 @@ $description_projet___ = $databaseHandler->tableList_info;
  
  $somm_text2 = "";
 
-
   
+ if($visibility_1_projet[$a]==""){
+
+   echo ' <div class="card largeur_card">
+<h5 class="card-title"> </h5>' ; 
+ 
  echo AsciiConverter::asciiToString($title_projet[$a]); 
 for($b = 0 ; $b <count($id_sha1_projet___) ; $b ++) {
 
 
 
- 
 
+
+
+ //var_dump($visibility_1_projet___x);
      
-    echo "<br/>" ; 
+
 
   $name_projet___x =   AsciiConverter::asciiToString($name_projet___[$b]); 
   $title_projet___x =   AsciiConverter::asciiToString($title_projet___[$b]); 
@@ -285,7 +299,7 @@ for($b = 0 ; $b <count($id_sha1_projet___) ; $b ++) {
 
 }
  
-
+  
 ?>
 
 
@@ -434,7 +448,7 @@ if(count($name_projet___)>0) {
 */
     }
 
-
+  }
 
 
     $PHP_SELF = $_SERVER['PHP_SELF'];

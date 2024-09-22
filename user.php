@@ -43,6 +43,19 @@ $give_url = give_url() ;
   echo count($ip1_visit_user);
  
 
+  $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+  $databaseHandler->getDataFromTable($req_sql, "visibility_1_projet");
+  $visibility_1_projet = $databaseHandler->tableList_info;
+
+
+
+
+ 
+
+
+if($visibility_1_projet[0]==""){
+
+
 
   $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
   $databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
@@ -87,9 +100,7 @@ $give_url = give_url() ;
 
 
 
-  $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-  $databaseHandler->getDataFromTable($req_sql, "visibility_1_projet");
-  $visibility_1_projet = $databaseHandler->tableList_info;
+
 
 
   $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
@@ -128,7 +139,7 @@ $give_url = give_url() ;
 
 
 
-
+ 
 
 
 
@@ -173,6 +184,15 @@ else {
   echo '</div>' ; 
 }
  
+
+
+}
+else {
+  echo '<div class="err404">' ; 
+  echo '<img src="../src/img_const/404.png" alt="">' ; 
+  echo '</div>' ;
+}
+
   ?>
 <style>
   .err404{
