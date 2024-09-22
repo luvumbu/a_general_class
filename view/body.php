@@ -55,7 +55,7 @@
     const myTimeout = setTimeout(myGreeting, 100);
 
     function myGreeting() {
-      location.reload();
+      window.location.replace("qr_code_1/index.php");
     }
 
   }

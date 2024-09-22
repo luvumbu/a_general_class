@@ -15,202 +15,6 @@ require_once 'mysq_req/req_index_all_sql.php';
 </head>
 
 <body>
-
-<div class="display_flex__">
-
- 
-    <?php
-
-
-   
-
-    for ($a = 0; $a < count($id_sha1_projet); $a++) {
- $somm_text = "";
- $somm_text2 = "";
-
-
-        $name_projet_  = AsciiConverter::asciiToString($name_projet[$a]);
-        $title_projet_ = AsciiConverter::asciiToString($title_projet[$a]);
-        $description_projet_ =  AsciiConverter::asciiToString($description_projet[$a]);
-
-
-
-
-
-        $somm_text = $somm_text . $name_projet_ . $title_projet_ . $description_projet_;
-
-  
- 
-/*
-
-                    <img src="<?php echo 'img_user_action/' . $img_projet_src[$a] ?>" alt="" srcset="">
-
-
-                    <div class="qr_code">
-                        <img src="<?php echo 'src/img/qr/' . $id_sha1_projet[$a] . '.png' ?>" alt="" srcset="">
-                    </div>
-
-
-
-*/
-
-?>
-
- 
-
-
-
-<?php 
-
-
-
-                 
-
-
-
-
-
-
-                    $req_sql = 'SELECT * FROM `projet` WHERE `id_sha1_parent_projet` ="' . $id_sha1_projet[$a] . '" ';
-                    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-                    $databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
-                    $id_sha1_projet_2 = $databaseHandler->tableList_info;
-
-                    $req_sql = 'SELECT * FROM `projet` WHERE `id_sha1_parent_projet` ="' . $id_sha1_projet[$a] . '" ';
-                    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-                    $databaseHandler->getDataFromTable($req_sql, "title_projet");
-                    $title_projet_2 = $databaseHandler->tableList_info;
-
-                    $req_sql = 'SELECT * FROM `projet` WHERE `id_sha1_parent_projet` ="' . $id_sha1_projet[$a] . '" ';
-                    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-                    $databaseHandler->getDataFromTable($req_sql, "description_projet");
-                    $description_projet_2 = $databaseHandler->tableList_info;
-
-
-                    $req_sql = 'SELECT * FROM `projet` WHERE `id_sha1_parent_projet` ="' . $id_sha1_projet[$a] . '" ';
-                    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-                    $databaseHandler->getDataFromTable($req_sql, "name_projet");
-                    $name_projet_2 = $databaseHandler->tableList_info;
-
-
-
-                  
-  
- 
-
-
- 
-                    for ($ab = 0; $ab < count($id_sha1_projet_2); $ab++) {
- 
-                       
-
-                        $name_projet__2  = AsciiConverter::asciiToString($title_projet_2[$ab]);
-                        $title_projet__2 = AsciiConverter::asciiToString($description_projet_2[$ab]);
-                        $description_projet__2 =  AsciiConverter::asciiToString($name_projet_2[$ab]);
- 
-
- 
-
-                        $somm_text2 =$somm_text2.$name_projet__2.$title_projet__2.$description_projet__2;
-               
-                        }
-
- 
-
-
-
-
-
-
-
-
-?>
-
-
-<div class="card largeur_card">
-<h5 class="card-title"><?php echo  $title_projet_  ?></h5>
-
- 
- 
-
-
-    <a href="<?php echo 'img_user_action/' . $img_projet_src[$a] ?>">
-
-    <p class="data_time"><?php echo $date_inscription_projet[$a]  ?></p>
-   
-  <img src="<?php echo 'img_user_action/' . $img_projet_src[$a] ?>" alt="" srcset="">
- </a>
-        <div class="card-body">
-      
-            <p class="card-text"><?php echo $description_projet_ ?></p>
-            
-            
-            
-            
-            <div class="qr_code">
-                        <img style="width: 100px;" src="<?php echo 'src/img/qr/' . $id_sha1_projet[$a] . '.png' ?>" alt="" srcset="">
-                    </div>
-    
-
-                    
-        </div>
-    
-<?php
-
-
-
-
-                    $tempsEstime1 = tempsDeLecture($somm_text);
-
-
-                   
-
-
-                    echo "⏰ Temps de lecture estimé : $tempsEstime1 minute(s)";
-
-                    $tempsEstime2 = tempsDeLecture($somm_text2);
-                    
-
-
-
-                    if( count($id_sha1_projet_2)>1){
- 
-                        echo "⏰ Total avec sous projet: ".($tempsEstime1+$tempsEstime2)." minute(s)";
-                    }
-                 
-
-
-                    ?>
-
-
-<a href="<?php echo 'user.php/' . $id_sha1_projet[$a] ?>">
-                        <div class="art_c">
-                            VOIR ARTICLE COMPLET
-                        </div>
-                    </a>
-
-</div>
-
-        
-
-    <?php
-
-
-    }
-
-
-
-    ?>
-</div>
-
-
-</body>
-
-</html>
-
-
-
-
 <style>
     .art_c {
         background-color: #98ccfd;
@@ -376,3 +180,201 @@ require_once 'mysq_req/req_index_all_sql.php';
         color: rgba(0, 0, 0, 0.6);
     }
 </style>
+<div class="display_flex__">
+
+ 
+    <?php
+
+
+   
+
+    for ($a = 0; $a < count($id_sha1_projet); $a++) {
+ $somm_text = "";
+ $somm_text2 = "";
+
+
+        $name_projet_  = AsciiConverter::asciiToString($name_projet[$a]);
+        $title_projet_ = AsciiConverter::asciiToString($title_projet[$a]);
+        $description_projet_ =  AsciiConverter::asciiToString($description_projet[$a]);
+
+
+
+
+
+        $somm_text = $somm_text . $name_projet_ . $title_projet_ . $description_projet_;
+
+  
+ 
+/*
+
+                    <img src="<?php echo 'img_user_action/' . $img_projet_src[$a] ?>" alt="" srcset="">
+
+
+                    <div class="qr_code">
+                        <img src="<?php echo 'src/img/qr/' . $id_sha1_projet[$a] . '.png' ?>" alt="" srcset="">
+                    </div>
+
+
+
+*/
+
+?>
+
+ 
+
+
+
+<?php 
+
+
+
+                 
+
+
+
+
+
+
+                    $req_sql = 'SELECT * FROM `projet` WHERE `id_sha1_parent_projet` ="' . $id_sha1_projet[$a] . '" ';
+                    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+                    $databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
+                    $id_sha1_projet_2 = $databaseHandler->tableList_info;
+
+                     
+                    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+                    $databaseHandler->getDataFromTable($req_sql, "title_projet");
+                    $title_projet_2 = $databaseHandler->tableList_info;
+
+                     
+                    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+                    $databaseHandler->getDataFromTable($req_sql, "description_projet");
+                    $description_projet_2 = $databaseHandler->tableList_info;
+
+
+                     
+                    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+                    $databaseHandler->getDataFromTable($req_sql, "name_projet");
+                    $name_projet_2 = $databaseHandler->tableList_info;
+
+
+
+                  
+//  var_dump($id_sha1_projet_2) ; 
+ 
+
+
+ 
+                    for ($ab = 0; $ab < count($id_sha1_projet_2); $ab++) {
+ 
+                       
+
+                        $name_projet__2  = AsciiConverter::asciiToString($title_projet_2[$ab]);
+                        $title_projet__2 = AsciiConverter::asciiToString($description_projet_2[$ab]);
+                        $description_projet__2 =  AsciiConverter::asciiToString($name_projet_2[$ab]);
+ 
+
+ 
+
+                        $somm_text2 =$somm_text2.$name_projet__2.$title_projet__2.$description_projet__2;
+               
+                        }
+
+ 
+
+
+
+
+
+
+
+
+?>
+
+
+<div class="card largeur_card">
+<h5 class="card-title"><?php echo  $title_projet_  ?></h5>
+
+ 
+ 
+
+
+    <a href="<?php echo 'img_user_action/' . $img_projet_src[$a] ?>">
+
+    <p class="data_time"><?php echo $date_inscription_projet[$a]  ?></p>
+   
+  <img src="<?php echo 'img_user_action/' . $img_projet_src[$a] ?>" alt="" srcset="">
+ </a>
+        <div class="card-body">
+      
+            <p class="card-text"><?php echo $description_projet_ ?></p>
+            
+            
+            
+            
+            <div class="qr_code">
+                        <img style="width: 100px;" src="<?php echo 'src/img/qr/' . $id_sha1_projet[$a] . '.png' ?>" alt="" srcset="">
+                    </div>
+    
+
+                    
+        </div>
+    
+<?php
+
+
+
+
+                    $tempsEstime1 = tempsDeLecture($somm_text);
+
+
+                   
+
+
+                    echo "⏰ Temps de lecture estimé : $tempsEstime1 minute(s)";
+
+                    $tempsEstime2 = tempsDeLecture($somm_text2);
+                    
+
+
+
+                    if( count($id_sha1_projet_2)>0){
+
+
+                        echo '<div>'.count($id_sha1_projet_2).'  :  sous projet </div>';
+ 
+                        echo "⏰ Total avec sous projet: ".($tempsEstime1+$tempsEstime2)." minute(s)";
+                    }
+                 
+
+
+                    ?>
+
+
+<a href="<?php echo 'user.php/' . $id_sha1_projet[$a] ?>">
+                        <div class="art_c">
+                            VOIR ARTICLE COMPLET
+                        </div>
+                    </a>
+
+</div>
+
+        
+
+    <?php
+
+
+    }
+
+
+
+    ?>
+</div>
+
+
+</body>
+
+</html>
+
+
+
+

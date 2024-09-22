@@ -199,7 +199,7 @@
 
 
 
-
+ 
 
 
 
@@ -217,12 +217,63 @@ $title_projet__ = AsciiConverter::asciiToString($title_projet[$a]); ;
 $description_projet__ = AsciiConverter::asciiToString($description_projet[$a]); ; 
 
 
+
+
+$req_sql = 'SELECT * FROM `projet` WHERE  `id_sha1_parent_projet` ="' .$id_sha1_projet[$a] . '" ';
+
+ 
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
+$id_sha1_projet___ = $databaseHandler->tableList_info;
+
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "name_projet");
+$name_projet___ = $databaseHandler->tableList_info;
+
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "title_projet");
+$title_projet___ = $databaseHandler->tableList_info;
+
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "description_projet");
+$description_projet___ = $databaseHandler->tableList_info;
+
+
+ 
+
+ 
 ?>
 <div class="card largeur_card">
 <h5 class="card-title"> </h5>
 
  
+ <?php 
  
+ 
+ $somm_text2 = "";
+
+for($b = 0 ; $b <count($id_sha1_projet___) ; $b ++) {
+
+
+
+  $name_projet___x =   AsciiConverter::asciiToString($name_projet___[$b]); 
+  $title_projet___x =   AsciiConverter::asciiToString($title_projet___[$b]); 
+  $description_projet___x =   AsciiConverter::asciiToString($description_projet___[$b]); 
+
+
+
+ 
+
+  $somm_text2= $somm_text2.$name_projet___x.$title_projet___x.$description_projet___x;
+ 
+
+}
+ 
+
+?>
 
 
      
@@ -235,15 +286,39 @@ $description_projet__ = AsciiConverter::asciiToString($description_projet[$a]); 
       
       
             <?php 
+ 
+
+echo "<br/>" ; 
 
 $somm_text = $name_projet__.
 $title_projet__.
 $description_projet__;
 $tempsEstime = tempsDeLecture($somm_text);
 
+
+$tempsEstime2 = tempsDeLecture($somm_text.$somm_text2);
+
+
  
 
 echo "⏰ Temps de lecture estimé : $tempsEstime minute(s)";
+echo "<br/>" ; 
+ 
+
+if(count($name_projet___)>0) {
+   echo "⏰ Total: $tempsEstime2 minute(s)"; 
+   echo "<br/>" ; 
+
+   echo "sous articles ".count($name_projet___) ; 
+}
+
+
+
+
+
+
+
+ 
 
 
 ?>
