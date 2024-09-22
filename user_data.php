@@ -48,7 +48,7 @@
         $id_projet_ =   $id_projet[$a];
         $id_sha1_projet_ = $id_sha1_projet[$a];
 
-
+ 
     ?>
 
 <h1 style="text-align: center;">
@@ -202,8 +202,7 @@
  
 
 
-
-
+ 
 
 
 
@@ -245,6 +244,8 @@ $description_projet___ = $databaseHandler->tableList_info;
  
 
  
+
+ 
 ?>
 <div class="card largeur_card">
 <h5 class="card-title"> </h5>
@@ -255,9 +256,17 @@ $description_projet___ = $databaseHandler->tableList_info;
  
  $somm_text2 = "";
 
+
+  
+ echo AsciiConverter::asciiToString($title_projet[$a]); 
 for($b = 0 ; $b <count($id_sha1_projet___) ; $b ++) {
 
 
+
+ 
+
+     
+    echo "<br/>" ; 
 
   $name_projet___x =   AsciiConverter::asciiToString($name_projet___[$b]); 
   $title_projet___x =   AsciiConverter::asciiToString($title_projet___[$b]); 
@@ -269,6 +278,10 @@ for($b = 0 ; $b <count($id_sha1_projet___) ; $b ++) {
 
   $somm_text2= $somm_text2.$name_projet___x.$title_projet___x.$description_projet___x;
  
+
+ 
+  
+
 
 }
  
