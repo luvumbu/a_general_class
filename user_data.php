@@ -1,62 +1,83 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
- 
-<link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
 
- 
- 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+
 <body>
-
-
-
-
-
-<nav class="navbar navbar-expand-lg bg-light" >
-  <div class="container-fluid">
+    <div id="header">
+        <div id="mon_title">
+            <b>Là Buanderie Pressing
+        </div>
  
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="add_nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="../">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-<img width="20" height="20" src="https://img.icons8.com/ios-glyphs/20/user--v1.png" alt="user--v1"/>
+            
 
-            <?php   echo count($ip1_visit_user); ?>
-          </a>
-        </li>
- 
- 
-  
-      </ul>
- 
+
+
+        
+        
+    <nav class="navbar navbar-expand-lg bg-light" >
+        <div class="container-fluid">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div  class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="add_nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <img width="20" height="20" src="https://img.icons8.com/ios-glyphs/20/user--v1.png" alt="user--v1" />
+
+                            <?php echo count($ip1_visit_user); ?>
+                        </a>
+                    </li>
+
+
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
     </div>
-  </div>
-</nav>
+   
+
+<style>
+    #header{
+        display: flex;
+        justify-content: space-between;
+       
+    }
+    .total_green{
+        background-color: green;
+        width: 100%;
+    }
+</style>
+
+
 
 
     <?php
 
 
- 
+
 
 
 
@@ -77,54 +98,59 @@
         $id_projet_ =   $id_projet[$a];
         $id_sha1_projet_ = $id_sha1_projet[$a];
 
- 
+
     ?>
 
-<h1 style="text-align: center;">
-     <?php echo  $title_projet_ ?> 
-</h1>
  
-       <p  style="text-align: center;">
-         <?php echo  $title_user_  ?> 
-       </p>
-
-       <p  style="text-align: center;">
-           <?php echo  $date_inscription_projet_ ?> 
-       </p>
 
 
+        <script>
+            document.getElementById("mon_title").innerHTML ="<b><?php echo $title_projet_ ?></b>" ; 
+            document.getElementById("mon_title").style.padding="15px" ; 
+        
+        </script>
 
-                </p>
-     
+        <p style="text-align: center;">
+            <?php echo  $title_user_  ?>
+        </p>
 
-            <?php
-            if ($img_projet_src_ != '') {
-            ?>
-
-                <div class="user_img">
-                    <img src="<?php echo   "../img_user_action/" . $img_projet_src_ ?>" alt="">
-
-                </div>
-
-            <?php
-            }
+        <p style="text-align: center;">
+            <?php echo  $date_inscription_projet_ ?>
+        </p>
 
 
 
+        </p>
+
+
+        <?php
+        if ($img_projet_src_ != '') {
+        ?>
+
+            <div class="user_img">
+                <img src="<?php echo   "../img_user_action/" . $img_projet_src_ ?>" alt="">
+
+            </div>
+
+        <?php
+        }
 
 
 
-            ?>
-  
-                <h2 class="blog-title"><?php echo $name_projet_ ?></h2>
-    
+
+
+
+        ?>
+
+        <h2 class="blog-title"><?php echo $name_projet_ ?></h2>
+
 
         </div>
 
 
 
         <div class="display_flexx">
-    <?php
+        <?php
 
 
 
@@ -144,7 +170,7 @@
     $databaseHandler->getDataFromTable($req_sql, "id_projet");
     $id_projet = $databaseHandler->tableList_info;
 
- 
+
 
 
 
@@ -156,7 +182,7 @@
     $id_projet = $databaseHandler->tableList_info;
 
 
- 
+
     $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
     $databaseHandler->getDataFromTable($req_sql, "title_projet");
     $title_projet_i = $databaseHandler->tableList_info;
@@ -164,7 +190,7 @@
 
 
 
-     
+
     $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
     $databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
     $id_sha1_projet_i = $databaseHandler->tableList_info;
@@ -177,54 +203,46 @@
     $databaseHandler->getDataFromTable($req_sql, "id_sha1_parent_projet");
     $id_sha1_parent_projet_i = $databaseHandler->tableList_info;
 
- 
- 
- 
-
-
-for($xx = 0 ; $xx <count($id_projet); $xx++) {
- 
-?>
-
-<script>
-    var  para = document.createElement("li");
-para.innerHTML = '<a class="nav-link active" aria-current="page" href="<?php echo $id_sha1_projet_i[$xx] ?>"><?php echo AsciiConverter::asciiToString($title_projet_i[$xx]);    ?></a>';
-para.setAttribute("class","nav-item") ; 
-document.getElementById("add_nav").appendChild(para);
 
 
 
 
-</script>
 
- 
-<?php 
+    for ($xx = 0; $xx < count($id_projet); $xx++) {
+
+        ?>
+
+            <script>
+                var para = document.createElement("li");
+                para.innerHTML = '<a class="nav-link active" aria-current="page" href="<?php echo $id_sha1_projet_i[$xx] ?>"><?php echo AsciiConverter::asciiToString($title_projet_i[$xx]);    ?></a>';
+                para.setAttribute("class", "nav-item");
+                document.getElementById("add_nav").appendChild(para);
+            </script>
 
 
-}
+        <?php
 
 
-
-
-if($id_sha1_parent_projet__p[0]!=""){
-    ?>
-<script>
-    var  para = document.createElement("li");
-para.innerHTML = '<a class="nav-link active" aria-current="page" href="<?php echo $id_sha1_parent_projet__p[0] ?>"><?php echo "_Source_";    ?></a>';
-para.setAttribute("class","nav-item") ; 
-document.getElementById("add_nav").appendChild(para);
-
+    }
 
 
 
-</script>
+
+    if ($id_sha1_parent_projet__p[0] != "") {
+        ?>
+            <script>
+                var para = document.createElement("li");
+                para.innerHTML = '<a class="nav-link active" aria-current="page" href="<?php echo $id_sha1_parent_projet__p[0] ?>"><?php echo "_Source_";    ?></a>';
+                para.setAttribute("class", "nav-item");
+                document.getElementById("add_nav").appendChild(para);
+            </script>
 
 
 
-<?php 
-}
+        <?php
+    }
 
- 
+
     $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
     $databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
     $id_sha1_projet = $databaseHandler->tableList_info;
@@ -307,190 +325,184 @@ document.getElementById("add_nav").appendChild(para);
 
 
 
- 
 
 
- 
+
+
 
 
 
 
     for ($a = 0; $a < count($date_inscription_projet); $a++) {
- 
 
 
-$name_projet__  =  AsciiConverter::asciiToString($name_projet[$a]); // Affiche "Hello" ; 
-$title_projet__ = AsciiConverter::asciiToString($title_projet[$a]); ; 
-$description_projet__ = AsciiConverter::asciiToString($description_projet[$a]); ; 
 
+        $name_projet__  =  AsciiConverter::asciiToString($name_projet[$a]); // Affiche "Hello" ; 
+        $title_projet__ = AsciiConverter::asciiToString($title_projet[$a]);;
+        $description_projet__ = AsciiConverter::asciiToString($description_projet[$a]);;
 
 
 
-$req_sql = 'SELECT * FROM `projet` WHERE  `id_sha1_parent_projet` ="' .$id_sha1_projet[$a] . '" ';
 
- 
-$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-$databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
-$id_sha1_projet___ = $databaseHandler->tableList_info;
+        $req_sql = 'SELECT * FROM `projet` WHERE  `id_sha1_parent_projet` ="' . $id_sha1_projet[$a] . '" ';
 
 
-$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-$databaseHandler->getDataFromTable($req_sql, "name_projet");
-$name_projet___ = $databaseHandler->tableList_info;
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
+        $id_sha1_projet___ = $databaseHandler->tableList_info;
 
 
-$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-$databaseHandler->getDataFromTable($req_sql, "title_projet");
-$title_projet___ = $databaseHandler->tableList_info;
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql, "name_projet");
+        $name_projet___ = $databaseHandler->tableList_info;
 
 
-$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-$databaseHandler->getDataFromTable($req_sql, "description_projet");
-$description_projet___ = $databaseHandler->tableList_info;
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql, "title_projet");
+        $title_projet___ = $databaseHandler->tableList_info;
 
 
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql, "description_projet");
+        $description_projet___ = $databaseHandler->tableList_info;
 
 
 
-$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-$databaseHandler->getDataFromTable($req_sql, "visibility_1_projet");
-$visibility_1_projet___x = $databaseHandler->tableList_info;
 
 
- 
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql, "visibility_1_projet");
+        $visibility_1_projet___x = $databaseHandler->tableList_info;
 
 
- 
 
- 
-?>
 
 
- 
- <?php 
- 
- 
- $somm_text2 = "";
 
-  
- if($visibility_1_projet[$a]==""){
 
-   echo ' <div class="card largeur_card">
-<h5 class="card-title"> </h5>' ; 
- 
- echo AsciiConverter::asciiToString($title_projet[$a]); 
-for($b = 0 ; $b <count($id_sha1_projet___) ; $b ++) {
 
+        ?>
 
 
 
+            <?php
 
 
- //var_dump($visibility_1_projet___x);
-     
+            $somm_text2 = "";
 
 
-  $name_projet___x =   AsciiConverter::asciiToString($name_projet___[$b]); 
-  $title_projet___x =   AsciiConverter::asciiToString($title_projet___[$b]); 
-  $description_projet___x =   AsciiConverter::asciiToString($description_projet___[$b]); 
+            if ($visibility_1_projet[$a] == "") {
 
+                echo ' <div class="card largeur_card">
+<h5 class="card-title"> </h5>';
 
+                echo AsciiConverter::asciiToString($title_projet[$a]);
+                for ($b = 0; $b < count($id_sha1_projet___); $b++) {
 
- 
 
-  $somm_text2= $somm_text2.$name_projet___x.$title_projet___x.$description_projet___x;
- 
 
- 
-  
 
 
-}
- 
-  
-?>
 
+                    //var_dump($visibility_1_projet___x);
 
-     
 
-    <p class="data_time"><?php echo $date_inscription_projet[$a]  ?></p>
-   
-  <img src="<?php echo   '../img_user_action/'.$img_projet_src[$a] ?>" alt="" srcset="">
- 
-        <div class="card-body">
-      
-      
-            <?php 
- 
 
-echo "<br/>" ; 
+                    $name_projet___x =   AsciiConverter::asciiToString($name_projet___[$b]);
+                    $title_projet___x =   AsciiConverter::asciiToString($title_projet___[$b]);
+                    $description_projet___x =   AsciiConverter::asciiToString($description_projet___[$b]);
 
-$somm_text = $name_projet__.
-$title_projet__.
-$description_projet__;
-$tempsEstime = tempsDeLecture($somm_text);
 
 
-$tempsEstime2 = tempsDeLecture($somm_text.$somm_text2);
 
 
- 
+                    $somm_text2 = $somm_text2 . $name_projet___x . $title_projet___x . $description_projet___x;
+                }
 
-echo "⏰ Temps de lecture estimé : $tempsEstime minute(s)";
-echo "<br/>" ; 
- 
 
-if(count($name_projet___)>0) {
-   echo "⏰ Total: $tempsEstime2 minute(s)"; 
-   echo "<br/>" ; 
+            ?>
 
-   echo "sous articles ".count($name_projet___) ; 
-}
 
 
 
+                <p class="data_time"><?php echo $date_inscription_projet[$a]  ?></p>
 
+                <img src="<?php echo   '../img_user_action/' . $img_projet_src[$a] ?>" alt="" srcset="">
 
+                <div class="card-body">
 
 
- 
+                    <?php
 
 
-?>
-            
-            
-             
-        <div class="qr_code">
-                        <img style="width: 100px;" src="<?php echo '../src/img/qr/' . $id_sha1_projet[$a] . '.png' ?>" alt="" srcset="">
-                    </div>
-    
-    
+                    echo "<br/>";
 
-                    
-        </div>
-    
-<?php
+                    $somm_text = $name_projet__ .
+                        $title_projet__ .
+                        $description_projet__;
+                    $tempsEstime = tempsDeLecture($somm_text);
 
 
+                    $tempsEstime2 = tempsDeLecture($somm_text . $somm_text2);
 
 
-                
- 
+
+
+                    echo "⏰ Temps de lecture estimé : $tempsEstime minute(s)";
+                    echo "<br/>";
+
+
+                    if (count($name_projet___) > 0) {
+                        echo "⏰ Total: $tempsEstime2 minute(s)";
+                        echo "<br/>";
+
+                        echo "sous articles " . count($name_projet___);
+                    }
+
+
+
+
+
+
+
+
+
 
                     ?>
 
 
-<a href="<?php echo  $id_sha1_projet[$a] ?>">
-                        <div class="art_c">
-                            VOIR ARTICLE COMPLET
-                        </div>
-                    </a>
 
-</div>
+                    <div class="qr_code">
+                        <img style="width: 100px;" src="<?php echo '../src/img/qr/' . $id_sha1_projet[$a] . '.png' ?>" alt="" srcset="">
+                    </div>
 
 
-<?php 
-        /*
+
+
+                </div>
+
+                <?php
+
+
+
+
+
+
+
+                ?>
+
+
+                <a href="<?php echo  $id_sha1_projet[$a] ?>">
+                    <div class="art_c">
+                        VOIR ARTICLE COMPLET
+                    </div>
+                </a>
+
+        </div>
+
+
+<?php
+                /*
 
         $name_projet_ =  AsciiConverter::asciiToString($name_projet[$a]);
         $title_projet_ = AsciiConverter::asciiToString($title_projet[$a]);
@@ -554,35 +566,34 @@ if(count($name_projet___)>0) {
 
 
 */
-    }
-
-  }
-
-
-    $PHP_SELF = $_SERVER['PHP_SELF'];
-
-    $SERVER_NAME = $_SERVER['SERVER_NAME'];
-
-    $HTTP_HOST = $_SERVER['HTTP_HOST'];
-
-    $HTTP_REFERER = $_SERVER['HTTP_REFERER'];
-
-    $HTTP_USER_AGENT = $_SERVER['HTTP_USER_AGENT'];
-
-    $SCRIPT_NAME = $_SERVER['SCRIPT_NAME'];
+            }
+        }
 
 
+        $PHP_SELF = $_SERVER['PHP_SELF'];
 
-    $ipUser = getUserIP();
-    $port = $_SERVER['REMOTE_PORT'];
+        $SERVER_NAME = $_SERVER['SERVER_NAME'];
 
-    /*
+        $HTTP_HOST = $_SERVER['HTTP_HOST'];
+
+        $HTTP_REFERER = $_SERVER['HTTP_REFERER'];
+
+        $HTTP_USER_AGENT = $_SERVER['HTTP_USER_AGENT'];
+
+        $SCRIPT_NAME = $_SERVER['SCRIPT_NAME'];
+
+
+
+        $ipUser = getUserIP();
+        $port = $_SERVER['REMOTE_PORT'];
+
+        /*
  $ipUser = getUserIP();
  echo "Adresse IP de l'utilisateur : " . $ipUser;
 
 */
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->action_sql("INSERT INTO `visit_user` (
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->action_sql("INSERT INTO `visit_user` (
     ip1_visit_user,
     ip2_visit_user,
     ip3_visit_user,
@@ -615,57 +626,67 @@ if(count($name_projet___)>0) {
 
 
 
-    ?>
-    
-</div>
- 
+?>
 
-    </div>
- 
+</div>
+
+
+</div>
+
 </body>
 <style>
-    .display_flexx{
+    .display_flexx {
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
     }
-body {
-    font-family: 'Abel';font-size: 22px;
-}
+
+    body {
+        font-family: 'Abel';
+        font-size: 22px;
+    }
 
 
-.largeur_card{
+    .largeur_card {
         border: 1px solid rgba(0, 0, 0, 0.1);
         text-align: center;
         width: 300px;
         padding: 20px;
     }
+
     .largeur_card img {
-        max-width: 100%;  /* La largeur maximale est de 100% du conteneur parent */
-    max-height: 200px; /* Hauteur maximale fixée à 200px */
-    object-fit: cover;  /* Garde les proportions de l'image sans déformation */
+        max-width: 100%;
+        /* La largeur maximale est de 100% du conteneur parent */
+        max-height: 200px;
+        /* Hauteur maximale fixée à 200px */
+        object-fit: cover;
+        /* Garde les proportions de l'image sans déformation */
     }
-    .display_flex__{
-     
+
+    .display_flex__ {
+
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-     
+
     }
-    .display_flex__ p{
+
+    .display_flex__ p {
         text-align: justify;
     }
-    .data_time{
-        font-size: 0.8em ;
+
+    .data_time {
+        font-size: 0.8em;
         color: rgba(0, 0, 0, 0.6);
-      
+
     }
 </style>
+
 </html>
 
 
 
-<?php 
+<?php
 
 
 

@@ -7,11 +7,32 @@
     <title>Document</title>
 </head>
 <body>
+
+
+<?php 
+
+
+$directory = '../src/img/qr';
+
+if (!is_dir($directory)) {
+    // Le dossier n'existe pas, on le crée
+    if (mkdir($directory, 0777, true)) {
+        echo "Le dossier a été créé avec succès.";
+    } else {
+        echo "Erreur lors de la création du dossier.";
+    }
+} else {
+    echo "Le dossier existe déjà.";
+}
+
+
+?>
  <style>
     body{
         margin: 0;
         padding: 0;
         background-color: black;
+        
     }
  </style>   
 

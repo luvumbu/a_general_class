@@ -1,11 +1,6 @@
 <link rel="stylesheet" href="css/style_blog_3_2.css">
 <link rel="stylesheet" href="css/style_blog_3.css">
-<link rel="stylesheet" href="css/form_event.css">
-
-
-
-
-
+<link rel="stylesheet" href="css/form_event.css"> 
 
 <div class="class_t">
     <?php
@@ -14,9 +9,6 @@
   
 if(isset($_SESSION["session_switch"])){
     require_once 'mysq_req/style_blog_3_req_0.php';
- 
-
-
 }
 else {
     require_once 'mysq_req/style_blog_3_req_1.php';
@@ -39,19 +31,9 @@ else {
 // require 'mysq_req/style_blog_3_req_2.php';
 $valeur_a_chercher = $group_projet[$a];
 $resultat = chercherIndex($id_group, $valeur_a_chercher);
-$resultat = chercherIndex($id_group, $valeur_a_chercher);
-
-       
-              
-
-
-
-              if(isset($_SESSION["session_switch"])){
-       
-                require 'style_blog_3_option_1.php';
-              
-
-            
+$resultat = chercherIndex($id_group, $valeur_a_chercher);    
+              if(isset($_SESSION["session_switch"])){       
+                require 'style_blog_3_option_1.php';                  
             }
             else {
           
