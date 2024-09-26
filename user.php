@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="icon" type="image/x-icon" href="data:image/png;base64,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">
 </head>
 <body>
   
@@ -237,18 +238,44 @@ else {
   .err404{
     text-align: center;
   }
+  .footer_250{
+    background-color: #f8f9fa;
+    padding: 10px;
+    color: black;
+    margin-top: 300px;
+    text-align: center;
+  }
+
+
+  /* Appliquer ce style à l'ensemble de la page */
+body {
+  scrollbar-width: thin; /* Pour Firefox */
+  scrollbar-color: #1f1f1f #cccccc; /* Couleur du curseur et de l'arrière-plan de la scrollbar */
+}
+
+/* Pour Chrome, Edge, et Safari */
+::-webkit-scrollbar {
+  width: 12px; /* Largeur de la scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #cccccc; /* Couleur du fond de la scrollbar */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1f1f1f; /* Couleur de la partie qui défile */
+  border-radius: 10px; /* Bord arrondi pour un effet plus doux */
+  border: 2px solid #cccccc; /* Ajout d'un effet de bordure */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Couleur lors du survol */
+}
+
 </style>
  
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <p>&copy; 2024 - Tous droits r&eacute;serv&eacute;s.</p>
+
+  <p class="footer_250">&copy; 2024 - Tous droits r&eacute;serv&eacute;s.</p>
 </body>
 </html>
