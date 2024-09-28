@@ -19,14 +19,22 @@
 
 </div>
 <style>
+  
   .header_flex {
     display: flex;
     justify-content: space-around;
     margin-bottom: 15px;
+ 
+    margin: 0;
+    padding: 0;
   }
 
   .header_flex div:hover {
     cursor: pointer;
+  }
+  body{
+    margin: 0;
+    padding: 0;
   }
 </style>
 

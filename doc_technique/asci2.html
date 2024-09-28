@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation Technique - ajouterProjet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #0056b3;
+        }
+        pre {
+            background-color: #f7f7f7;
+            padding: 10px;
+            border-left: 3px solid #0056b3;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .code-copy-btn {
+            margin: 10px 0;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .code-copy-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Documentation de la fonction <code>ajouterProjet</code></h1>
+
+        <p><strong>Description :</strong> La fonction <code>ajouterProjet</code> permet d'insérer un nouveau projet dans une base de données MySQL. Elle accepte trois paramètres :</p>
+        
+        <ul>
+            <li><code>$projetNom</code> : Le nom du projet (type : <code>string</code>)</li>
+            <li><code>$projetDescription</code> : La description du projet (type : <code>string</code>)</li>
+            <li><code>$projetDate</code> : La date de création du projet (type : <code>date</code>)</li>
+        </ul>
+
+        <h2>Exemple d'utilisation :</h2>
+        <pre><code>ajouterProjet('Portfolio', 'Projet de portfolio personnel', '2024-09-26');</code></pre>
+
+        <h2>Code source :</h2>
+        <pre><code><?php
+function ajouterProjet($projetNom, $projetDescription, $projetDate) {
+    // Crée une connexion à la base de données
+    $connexion = new PDO('mysql:host=localhost;dbname=projet', 'username', 'password');
+    
+    // Prépare une requête SQL pour insérer un nouveau projet
+    $requete = $connexion->prepare('INSERT INTO projets (nom, description, date_creation) VALUES (:nom, :description, :date_creation)');
+    
+    // Associe les paramètres à la requête
+    $requete->bindParam(':nom', $projetNom);
+    $requete->bindParam(':description', $projetDescription);
+    $requete->bindParam(':date_creation', $projetDate);
+    
+    // Exécute la requête
+    return $requete->execute();
+}
+        </code></pre>
+
+        <h2>Fonctionnement détaillé :</h2>
+        <ul>
+            <li><strong>Connexion à la base de données :</strong> La fonction utilise PDO pour se connecter à une base de données MySQL.</li>
+            <li><strong>Préparation de la requête :</strong> La requête SQL est préparée pour insérer un projet avec les valeurs fournies.</li>
+            <li><strong>Exécution :</strong> La fonction exécute la requête et renvoie un booléen (true si la requête a réussi).</li>
+        </ul>
+
+        <button class="code-copy-btn" onclick="copyCode()">Copier le code</button>
+    </div>
+
+    <script>
+        function copyCode() {
+            const code = `<?php
+function ajouterProjet($projetNom, $projetDescription, $projetDate) {
+    $connexion = new PDO('mysql:host=localhost;dbname=projet', 'username', 'password');
+    $requete = $connexion->prepare('INSERT INTO projets (nom, description, date_creation) VALUES (:nom, :description, :date_creation)');
+    $requete->bindParam(':nom', $projetNom);
+    $requete->bindParam(':description', $projetDescription);
+    $requete->bindParam(':date_creation', $projetDate);
+    return $requete->execute();
+}
+            `;
+            navigator.clipboard.writeText(code);
+            alert('Code copié dans le presse-papiers');
+        }
+    </script>
+</body>
+</html>

@@ -297,6 +297,8 @@ require 'view/index_all_view.php' ;
 
 
 <style>
+
+/*
     .err404{
     text-align: center;
   }
@@ -309,32 +311,33 @@ require 'view/index_all_view.php' ;
   }
 
 
-  /* Appliquer ce style à l'ensemble de la page */
+ 
 body {
-  scrollbar-width: thin; /* Pour Firefox */
-  scrollbar-color: #1f1f1f #cccccc; /* Couleur du curseur et de l'arrière-plan de la scrollbar */
+  scrollbar-width: thin; 
+  scrollbar-color: #1f1f1f #cccccc; /* Couleur du curseur et de l'arrière-plan de la scrollba 
 }
 
-/* Pour Chrome, Edge, et Safari */
+ 
 ::-webkit-scrollbar {
-  width: 12px; /* Largeur de la scrollbar */
+  width: 12px; 
 }
 
 ::-webkit-scrollbar-track {
-  background: #cccccc; /* Couleur du fond de la scrollbar */
+  background: #cccccc; 
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #1f1f1f; /* Couleur de la partie qui défile */
-  border-radius: 10px; /* Bord arrondi pour un effet plus doux */
-  border: 2px solid #cccccc; /* Ajout d'un effet de bordure */
+  background-color: #1f1f1f; / 
+  border-radius: 10px;  
+  border: 2px solid #cccccc; 
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #555; /* Couleur lors du survol */
+  background-color: #555;  
 }
 
+*/
 </style>
 </html>
 
