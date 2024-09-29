@@ -1,6 +1,4 @@
 <?php
-
-
  
 /*
  
@@ -13,14 +11,16 @@ $name_projet = $databaseHandler->tableList_info;
  
 $host = $_SERVER['HTTP_HOST'];
 
+require_once 'form_p_name_log_local.php';
 
+/*
 if ( $host =='localhost' || $host== '127.0.0.1' ) {
  
-require_once 'form_p_name_log_local.php';
+
 } else {
     
    require_once 'form_p_name_log_local_production.php';
 }
-
+*/
 
 ?>

@@ -32,33 +32,17 @@ class Creat_form
         $this->name_type = $name_type;
         // Génération de code JavaScript pour créer un nouvel élément HTML et lui attribuer un ID
         //$_SESSION["ok"]= time();
-
-
-
-
         $_SESSION["DatabaseHandler_switch"] = "DatabaseHandler_switch";
-
         if (CheckFileExists($this->path_config)) {
-
             require_once $this->path_config;
             $this->config_dbname  = $config_dbname;
             $this->config_password  = $config_password;
             //$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-
-
-
             $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
             $this->databaseHandler_verif = $databaseHandler->verif;
-
-
             if ($this->databaseHandler_verif) {
               
-            } else {
-
-
-               
-
-                
+            } else {               
 
                if(!isset($_SESSION["session_log"])){
                      delete_file($this->path_config);
@@ -236,37 +220,8 @@ function stylesheet ($source) {
                 $contenu = "<?php\n";
                 $contenu .= "session_start();";
                 $contenu .= "\n";
-
-
                 $contenu .= 'require_once "../class/DatabaseHandler.php";';
                 $contenu .= "\n";
-
-                $contenu .= "\n";
-
-
-
-
-
-
-
-
-                $contenu .= "\n";
-
-
-
-
-
-                // demande la liste de table contenant root 
-
-                // fonction ok 22/07/2024  X1-
-                //var_dump($databaseHandler->getListOfTables());
-                // fonction ok 22/07/2024  X1_
-                $contenu .= "\n";
-                //  $contenu .='$databaseHandler->getTables("root")';
-                $contenu .= "\n";
-
-
-
 
 
                 // Boucle pour ajouter chaque élément de `$this->array_select_Atribut` au contenu
@@ -277,15 +232,9 @@ function stylesheet ($source) {
                     // Ajoute la valeur récupérée au contenu du fichier, suivi d'une nouvelle ligne
                     $contenu .= '$' . $data_x . '=$_POST["' . $data_x . '"];';
                     $contenu .= "\n";
-
-                    $contenu .= "\n";
                 }
                 $contenu .= 'require_once "../DatabaseHandler/' . $this->nom_fichier . '";';
-
-
                 $contenu .= "\n";
-
-
                 // Ajoute la fermeture du tag PHP au contenu
                 $contenu .= "?>\n";
 

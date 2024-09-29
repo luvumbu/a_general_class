@@ -2,53 +2,55 @@
 
 
 
-$req_sql = 'SELECT * FROM `' . $input_1 . '` WHERE `nom_user`="' . $input_1 . '"  AND `password_user` ="' . $input_2 . '" ';
+$req_sql = 'SELECT * FROM `' . $config_dbname. '` WHERE `nom_user`="' . $input_1 . '"  AND `password_user` ="' . $input_2 . '" ';
 $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
 $databaseHandler->getDataFromTable($req_sql, "social_media_id_sha1");
 
 
 
-$databaseHandler = new DatabaseHandler($input_1, $input_2);
+
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
 $databaseHandler->getDataFromTable($req_sql, "id_user");
 $id_user = $databaseHandler->tableList_info;
 
-$databaseHandler = new DatabaseHandler($input_1, $input_2);
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
 $databaseHandler->getDataFromTable($req_sql, "id_sha1_user");
 $id_sha1_user = $databaseHandler->tableList_info;
 
-$databaseHandler = new DatabaseHandler($input_1, $input_2);
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
 $databaseHandler->getDataFromTable($req_sql, "id_parent_user");
 $id_parent_user = $databaseHandler->tableList_info;
 
-$databaseHandler = new DatabaseHandler($input_1, $input_2);
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
 $databaseHandler->getDataFromTable($req_sql, "description_user");
 $description_user = $databaseHandler->tableList_info;
 
-$databaseHandler = new DatabaseHandler($input_1, $input_2);
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
 $databaseHandler->getDataFromTable($req_sql, "title_user");
 $title_user = $databaseHandler->tableList_info;
 
-$databaseHandler = new DatabaseHandler($input_1, $input_2);
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
 $databaseHandler->getDataFromTable($req_sql, "img_user");
 $img_user = $databaseHandler->tableList_info;
 
-$databaseHandler = new DatabaseHandler($input_1, $input_2);
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
 $databaseHandler->getDataFromTable($req_sql, "nom_user");
 $nom_user = $databaseHandler->tableList_info;
 
-$databaseHandler = new DatabaseHandler($input_1, $input_2);
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
 $databaseHandler->getDataFromTable($req_sql, "prenom_user");
 $prenom_user = $databaseHandler->tableList_info;
 
-$databaseHandler = new DatabaseHandler($input_1, $input_2);
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
 $databaseHandler->getDataFromTable($req_sql, "password_user");
 $password_user = $databaseHandler->tableList_info;
 
-$databaseHandler = new DatabaseHandler($input_1, $input_2);
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
 $databaseHandler->getDataFromTable($req_sql, "email_user");
 $email_user = $databaseHandler->tableList_info;
 
-$databaseHandler = new DatabaseHandler($input_1, $input_2);
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
 $databaseHandler->getDataFromTable($req_sql, "date_inscription_user");
 $date_inscription_user = $databaseHandler->tableList_info;
 
