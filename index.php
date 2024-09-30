@@ -47,8 +47,8 @@ session_start();
 
     // Déclaration des variables de formulaire
     $label_1 = "label_1";
-    $label_1_text = "Dbname"; // Texte pour le label 1
-    $label_2_text = "Username"; // Texte pour le label 2
+    $label_1_text = "Mail"; // Texte pour le label 1
+    $label_2_text = "password"; // Texte pour le label 2
 
     // Déclaration des noms et événements pour les champs input
     $input_1 = "input_1";
@@ -136,7 +136,7 @@ session_start();
     if ($monFormulaire1->databaseHandler_verif == 1) {
       $monFormulaire1_div_3 = [
         [$btn, "div"],
-        [$btn, "style", "background-color:blue;"]
+        [$btn, "style", "background-color:#ad2d2d;"]
       ];
     }
 

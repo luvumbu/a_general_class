@@ -272,7 +272,21 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background-color: #555; /* Couleur lors du survol */
 }
+.user_img img {
+  width: 300px; 
+  background-color: red;
+  text-align: center;
+}
 
+
+.user_img   {
+  width: 100%; 
+ 
+  text-align: center;
+  margin-top: 150px;
+  margin-bottom: 150px;
+
+}
 </style>
  
 
