@@ -26,6 +26,8 @@ $databaseHandler->set_column_names("nom_user");
 $databaseHandler->set_column_names("prenom_user");
 $databaseHandler->set_column_names("password_user");
 $databaseHandler->set_column_names("email_user");
+$databaseHandler->set_column_names("activation_user");
+
 
 
 $databaseHandler->set_column_names("date_inscription_user");
@@ -40,6 +42,8 @@ $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
 
 
 

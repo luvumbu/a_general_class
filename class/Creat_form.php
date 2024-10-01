@@ -41,12 +41,11 @@ class Creat_form
             $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
             $this->databaseHandler_verif = $databaseHandler->verif;
             if ($this->databaseHandler_verif) {
-              
-            } else {               
+            } else {
 
-               if(!isset($_SESSION["session_log"])){
-                     delete_file($this->path_config);
-               }
+                if (!isset($_SESSION["session_log"])) {
+                    delete_file($this->path_config);
+                }
             }
         } else {
         }
@@ -87,12 +86,13 @@ class Creat_form
     <?php
     }
 
-function stylesheet ($source) {
+    function stylesheet($source)
+    {
     ?>
-<link rel="stylesheet" href="monFormulaire1.css">
-    <?php 
-    echo '<link rel="stylesheet" href="'.$source.'">'; 
-}
+        <link rel="stylesheet" href="monFormulaire1.css">
+    <?php
+        echo '<link rel="stylesheet" href="' . $source . '">';
+    }
     function select_Atribut_function()
     {
     ?>
@@ -126,10 +126,10 @@ function stylesheet ($source) {
                     envoyer = false;
                 }
 
- 
+
 
                 function myGreeting_2() {
-                _this.style.opacity = 1;
+                    _this.style.opacity = 1;
 
                     envoyer = true;
                     //alert() ; 
@@ -159,7 +159,17 @@ function stylesheet ($source) {
                         console.log(ok.info()); // demande l'information dans le tableau
                         ok.push(); // envoie l'information au code pkp 
                     */
-                 location.reload() ; 
+                   
+
+
+                    const myTimeout = setTimeout(xxx, 300);
+
+                    function xxx() {
+                        location.reload();
+                    }
+
+
+
                 }
                 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
                 for (var xx = 0; xx < list_id.length; xx++) {
@@ -168,9 +178,6 @@ function stylesheet ($source) {
                     console.log("002 : " + list_id[xx]);
                 }
             }
-
-
- 
         </script>
     <?php
 

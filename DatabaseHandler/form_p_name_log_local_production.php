@@ -1,17 +1,20 @@
  <?php 
 
 
+$activation = time() ; 
+$SERVER_NAME =  $_SERVER['SERVER_NAME'];
+
    // Adresse e-mail de destination
-   $to = 'luvumbu.n@gmail.com';
+   $to = $input_1;
    
    // Sujet de l'e-mail
-   $subject = 'Bienvenue sur Bokonzi';
+   $subject = 'Bienvenue sur '.$SERVER_NAME.'';
    
    // Message stylé avec HTML et CSS inline
    $message = '
    <html>
    <head>
-     <title>Bienvenue sur Bokonzi</title>
+     <title>Bienvenue sur '.$SERVER_NAME.'</title>
      <style>
        body {
          font-family: Arial, sans-serif;
@@ -65,19 +68,19 @@
    <body>
      <div class="container">
        <div class="header">
-         <h1>Bienvenue sur Bokonzi</h1>
+         <h1>Bienvenue sur '.$SERVER_NAME.'</h1>
        </div>
        <div class="content">
          <p>Bonjour,</p>
-         <p>Merci de vous être inscrit sur Bokonzi. Nous sommes heureux de vous compter parmi nous.</p>
+         <p>Merci de vous être inscrit sur '.$SERVER_NAME.'. Nous sommes heureux de vous compter parmi nous.</p>
          <p>Pour finaliser votre inscription, veuillez cliquer sur le bouton ci-dessous afin d\'activer votre compte :</p>
-         <a href="https://bokonzi.com/activation" class="btn">Activer votre compte</a>
-         <p>Pour toute question ou assistance, n\'hésitez pas à nous contacter sur contact@bokonzi.com.</p>
+         <a href="'.$SERVER_NAME.'/activation.php/'.$activation.'" class="btn">Activer votre compte</a>
+         <p>Pour toute question ou assistance, n\'hésitez pas à nous contacter sur contact@'.$SERVER_NAME.' .</p>
          <p>Cordialement,</p>
-         <p><strong>L\'équipe Bokonzi</strong></p>
+         <p><strong>L\'équipe '.$SERVER_NAME.'</strong></p>
        </div>
        <div class="footer">
-         <p>&copy; 2024 Bokonzi - Tous droits réservés</p>
+         <p>&copy; 2024 '.$SERVER_NAME.' - Tous droits réservés</p>
        </div>
      </div>
    </body>
@@ -89,8 +92,8 @@
    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
    
    // En-têtes supplémentaires (facultatif)
-   $headers .= 'From: contact@bokonzi.com' . "\r\n";
-   $headers .= 'Reply-To: contact@bokonzi.com' . "\r\n";
+   $headers .= 'From: contact@' .$SERVER_NAME. "\r\n";
+   $headers .= 'Reply-To: contact@' .$SERVER_NAME. "\r\n";
    
    // Envoi de l'e-mail
    if(mail($to, $subject, $message, $headers)) {

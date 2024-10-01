@@ -89,19 +89,34 @@ if (count($databaseHandler->tableList_info) > 0) {
 } else {
 
      echo  count($databaseHandler->tableList_info);
+
+
+
+
+     if ( $host =='localhost' || $host== '127.0.0.1' ) {
+ 
+
+     } else {
+         
+      require_once 'form_p_name_log_local_production.php' ;  
+     
+
+
+      // fonction ok 22/07/2024  X4-
+$databaseHandler->action_sql('INSERT INTO `' . $config_dbname.'` (`nom_user`,`password_user`,`id_sha1_user`) VALUES ("'.$input_1.'","'.$input_2.'","'.$activation.'")') ;
+// fonction ok 22/07/2024  X4_
+
+        
+     }
+
+
+
+
 }
 
 
  
-if ( $host =='localhost' || $host== '127.0.0.1' ) {
- 
 
-} else {
-    
- require_once 'form_p_name_log_local_production.php' ;  
-
-   
-}
  
 ?>
  

@@ -2,6 +2,9 @@
 // Démarre la session PHP pour conserver les données utilisateur entre les pages
 session_start();
  
+
+
+
 ?>
 
 <!-- Inclusion du fichier JavaScript externe -->
@@ -278,9 +281,14 @@ function myGreeting() {
 require_once "mysq_req/req_index_all_sql.php" ; 
 if (!isset($_SESSION["session_log"])) {
 
+
+
+
+
 require 'view/index_all_view.php' ; 
 
 }
+ 
 
 
 
