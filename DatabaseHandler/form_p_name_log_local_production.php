@@ -75,7 +75,7 @@ $SERVER_NAME =  $_SERVER['SERVER_NAME'];
          <p>Merci de vous être inscrit sur '.$SERVER_NAME.'. Nous sommes heureux de vous compter parmi nous.</p>
          <p>Pour finaliser votre inscription, veuillez cliquer sur le bouton ci-dessous afin d\'activer votre compte :</p>
          <a href="'.$SERVER_NAME.'/activation.php/'.$activation.'" class="btn">Activer votre compte</a>
-         <p>Pour toute question ou assistance, n\'hésitez pas à nous contacter sur contact@'.$SERVER_NAME.' .</p>
+         <p>Pour toute question ou assistance, n\'hésitez pas à nous contacter sur support@'.$SERVER_NAME.' .</p>
          <p>Cordialement,</p>
          <p><strong>L\'équipe '.$SERVER_NAME.'</strong></p>
        </div>
@@ -92,8 +92,8 @@ $SERVER_NAME =  $_SERVER['SERVER_NAME'];
    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
    
    // En-têtes supplémentaires (facultatif)
-   $headers .= 'From: contact@' .$SERVER_NAME. "\r\n";
-   $headers .= 'Reply-To: contact@' .$SERVER_NAME. "\r\n";
+   $headers .= 'From: support@' .$SERVER_NAME. "\r\n";
+   $headers .= 'Reply-To: support@' .$SERVER_NAME. "\r\n";
    
    // Envoi de l'e-mail
    if(mail($to, $subject, $message, $headers)) {

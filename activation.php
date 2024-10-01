@@ -19,10 +19,11 @@ require_once 'class/DatabaseHandler.php';
 <body>
   <style>
     body{
-      background-color: black;
-      color: white;
+      background-color: black; 
       text-align: center;
       font-size: 4em;
+      margin: 0;
+      padding: 0;
     }
   </style>
 
