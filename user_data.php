@@ -82,7 +82,7 @@
 
 
     for ($a = 0; $a < count($date_inscription_projet); $a++) {
-
+ 
 
         $name_projet_ =  AsciiConverter::asciiToString($name_projet[$a]);
         $title_projet_ = AsciiConverter::asciiToString($title_projet[$a]);
@@ -153,7 +153,7 @@
         <?php
 
 
-
+ 
     }
 
 
@@ -214,7 +214,7 @@
 
             <script>
                 var para = document.createElement("li");
-                para.innerHTML = '<a class="nav-link active" aria-current="page" href="<?php echo $id_sha1_projet_i[$xx] ?>"><?php echo AsciiConverter::asciiToString($title_projet_i[$xx]);    ?></a>';
+                para.innerHTML = '<h1><a class="nav-link active" aria-current="page" href="<?php echo $id_sha1_projet_i[$xx] ?>"><?php echo AsciiConverter::asciiToString($title_projet_i[$xx]);    ?></h1></a>';
                 para.setAttribute("class", "nav-item");
                 document.getElementById("add_nav").appendChild(para);
             </script>
@@ -393,10 +393,9 @@
 
             if ($visibility_1_projet[$a] == "") {
 
-                echo ' <div class="card largeur_card">
-<h5 class="card-title"> </h5>';
+                echo ' <div class="card largeur_card"> ';
 
-                echo AsciiConverter::asciiToString($title_projet[$a]);
+                echo "<h1>".AsciiConverter::asciiToString($title_projet[$a]).'</h1>';
                 for ($b = 0; $b < count($id_sha1_projet___); $b++) {
 
 

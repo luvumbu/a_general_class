@@ -223,15 +223,7 @@ $headers .= 'Reply-To: support@' .$SERVER_NAME."\r\n";
 
 
 
-
-// Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
-$headers2 = 'MIME-Version: 1.0' . "\r\n";
-$headers2 .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-// En-têtes supplémentaires (facultatif)
-$headers2 .= 'From: support@bokonzi.com'."\r\n";
-$headers2 .= 'Reply-To: support@bokonzi.com'."\r\n";
-
+ 
 // Envoi de l'e-mail
 if(mail($to, $subject, $message, $headers)) {
     echo 'E-mail envoyé avec succès.';
@@ -242,12 +234,7 @@ if(mail($to, $subject, $message, $headers)) {
 
 
 
-// Envoi de l'e-mail
-if(mail($to, $subject, $message, $headers2)) {
-  echo 'E-mail envoyé avec succès.';
-} else {
-  echo 'Échec de l\'envoi de l\'e-mail.';
-}
+ 
 
  
 

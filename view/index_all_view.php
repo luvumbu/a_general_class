@@ -302,7 +302,7 @@ require_once 'mysq_req/req_index_all_sql.php';
 
 
 <div class="card largeur_card">
-<h5 class="card-title"><?php echo  $title_projet_  ?></h5>
+<h1 class="card-title"><?php echo  $title_projet_  ?></h1>
 
  
  
