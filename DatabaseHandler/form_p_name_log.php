@@ -11,7 +11,7 @@ $name_projet = $databaseHandler->tableList_info;
 $host = $_SERVER['HTTP_HOST'];
 
 
-
+$activation = time() ; 
 
 
 
@@ -119,7 +119,32 @@ if (count($databaseHandler->tableList_info) > 0) {
      echo  count($databaseHandler->tableList_info);
 
 
+     $req_sql = 'SELECT * FROM `' . $config_dbname. '` WHERE `nom_user`="' . $input_1 . '"    ';
+     $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+     $databaseHandler->getDataFromTable($req_sql, "social_media_id_sha1");
+     
+     $social_media_id_sha1 = $databaseHandler->tableList_info;
+     
 
+if(count($social_media_id_sha1)==0){
+$activation = time() ; 
+     $input_2 = "" ; 
+$databaseHandler->action_sql('INSERT INTO `' . $config_dbname.'` (`nom_user`,`password_user`,`id_sha1_user`) VALUES ("'.$input_1.'","'.$input_2.'","'.$activation.'")') ;
+// fonction ok 22/07/2024  X4_
+
+
+
+
+
+}
+else {
+  $_SESSION["session_info"] = "Mot de passe incorrect" ;
+
+  $_SESSION["session_info_coumpt"] = 1 ;  
+  
+  
+  
+}
 
      if ( $host =='localhost' || $host== '127.0.0.1' ) {
  
@@ -127,50 +152,14 @@ if (count($databaseHandler->tableList_info) > 0) {
 
 
 
-          $req_sql = 'SELECT * FROM `' . $config_dbname. '` WHERE `nom_user`="' . $input_1 . '"    ';
-          $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-          $databaseHandler->getDataFromTable($req_sql, "social_media_id_sha1");
-          
-          $social_media_id_sha1 = $databaseHandler->tableList_info;
-          
-
-if(count($social_media_id_sha1)==0){
-     
-          // fonction ok 22/07/2024  X4-
-    $databaseHandler->action_sql('INSERT INTO `' . $config_dbname.'` (`nom_user`,`password_user`,`id_sha1_user`) VALUES ("'.$input_1.'","'.$input_2.'","'.$activation.'")') ;
-    // fonction ok 22/07/2024  X4_
 
 
 
+     }  
 
-  
-}
-else {
-       $_SESSION["session_info"] = "Mot de passe incorrect" ;
-
-       $_SESSION["session_info_coumpt"] = 1 ;  
-       
-       
-       
-}
-
-
-     } else {
-         
-      require_once 'form_p_name_log_local_production.php' ;  
-     
-      if(count($social_media_id_sha1)==0){
-
-      $input_2  ="" ;
-      // fonction ok 22/07/2024  X4-
-$databaseHandler->action_sql('INSERT INTO `' . $config_dbname.'` (`nom_user`,`password_user`,`id_sha1_user`) VALUES ("'.$input_1.'","'.$input_2.'","'.$activation.'")') ;
-// fonction ok 22/07/2024  X4_
-      }
-
-
-        
+     else {
+          require_once 'form_p_name_log_local_production.php' ;  
      }
-
 
 
 

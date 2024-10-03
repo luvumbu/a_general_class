@@ -178,7 +178,7 @@ $_SESSION["session_info_coumpt"] ++ ;
     if ($monFormulaire1->databaseHandler_verif == 1) {
       $monFormulaire1_div_3 = [
         [$btn, "div"],
-        [$btn, "style", "background-color:#ad2d2d;"]
+        [$btn, "style", "background-color:rgb(26, 188, 156);"]
       ];
     }
 
@@ -247,10 +247,32 @@ $_SESSION["session_info_coumpt"] ++ ;
  
 
  
+/*
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "id_projet");
+$id_projet = $databaseHandler->tableList_info;
 
 
-if($_SESSION["session_general"][8]==""){
-echo "Changer votre mot de passe" ; 
+
+*/ 
+ 
+
+
+$session_general_1 = $_SESSION["session_general"][1] ; 
+$req_sqll = 'SELECT * FROM `'.$config_dbname.'` WHERE `id_sha1_user` ="'.$session_general_1.'" ';
+
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sqll, "password_user");
+$password_user__ = $databaseHandler->tableList_info[0];
+
+
+ 
+
+
+if($password_user__ ==""){
+ require_once 'change_password.php' ; 
 }
 else {
   require_once 'view/body.php';

@@ -1,134 +1,154 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste des Noms de Domaine</title>
+    <title>Coop' à Fourchon</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
+            background-color: #f2f2f2;
             margin: 0;
-            padding: 20px;
+            padding: 0;
         }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        .domain-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            padding: 20px;
-        }
-        .domain-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 15px 0;
-            border-bottom: 1px solid #ddd;
-        }
-        .domain-item:last-child {
-            border-bottom: none;
-        }
-        .domain-info {
-            display: flex;
-            align-items: center;
-        }
-        .domain-logo {
-            width: 50px;
-            height: 50px;
-            background-color: #eee;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 15px;
-        }
-        .domain-logo img {
-            width: 100%;
-        }
-        .domain-name {
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-            margin-right: 10px;
-        }
-        .domain-performance {
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-        }
-        .performance-indicator {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            margin-left: 5px;
-        }
-        .performance-100 { background-color: #4CAF50; }
-        .performance-90 { background-color: #8BC34A; }
-        .performance-80 { background-color: #FF9800; }
-        .performance-70 { background-color: #FF5722; }
-        .dashboard-btn {
-            background-color: #6C63FF;
+
+        header {
+            background-color: #C3562D;
             color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            text-transform: uppercase;
+            text-align: center;
+            padding: 20px;
         }
-        .dashboard-btn:hover {
-            background-color: #5a54d8;
+
+        .container {
+            margin: 20px auto;
+            max-width: 800px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .star-icon, .more-options {
-            margin-left: 15px;
-            font-size: 20px;
-            color: #aaa;
-            cursor: pointer;
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .input-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .input-container textarea {
+            width: 100%;
+            height: 60px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-size: 1em;
+        }
+
+        .input-container img {
+            margin-left: 10px;
+            width: 40px;
+            height: 40px;
+        }
+
+        .documents {
+            text-align: center;
+        }
+
+        .documents h3 {
+            margin-bottom: 20px;
+        }
+
+        .document-items {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .document-item {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 150px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: 0.3s ease;
+        }
+
+        .document-item:hover {
+            border: 2px solid #C3562D;
+        }
+
+        .document-item img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+
+        .document-item p {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .document-item small {
+            font-size: 0.8em;
+            color: #666;
         }
     </style>
 </head>
+
 <body>
+    <header>
+        <h1>Coop' à Fourchon</h1>
+    </header>
 
-<h1>Gestion des Noms de Domaine</h1>
-
-<div class="domain-container">
-    <div class="domain-item">
-        <div class="domain-info">
-            <div class="domain-logo">
-                <img src="https://via.placeholder.com/50" alt="logo">
-            </div>
-            <div class="domain-name">mariondelval.fr</div>
-            <div class="domain-performance">Performance: 94
-                <div class="performance-indicator performance-90"></div>
+    <div class="container">
+        <div class="section">
+            <h2>Nos prochaines réunions</h2>
+            <div class="input-container">
+                <textarea placeholder="Écrivez votre message"></textarea>
+                <img src="calendar-icon.png" alt="Calendrier">
             </div>
         </div>
-        <button class="dashboard-btn">Tableau de bord</button>
-        <span class="star-icon">⭐</span>
-        <span class="more-options">⋮</span>
-    </div>
-    <div class="domain-item">
-        <div class="domain-info">
-            <div class="domain-logo">
-                <img src="https://via.placeholder.com/50" alt="logo">
-            </div>
-            <div class="domain-name">bokonzi.eu</div>
-            <div class="domain-performance">Performance: 78
-                <div class="performance-indicator performance-80"></div>
+
+        <div class="section">
+            <h2>Nos actualités</h2>
+            <div class="input-container">
+                <textarea placeholder="Écrivez votre message"></textarea>
+                <img src="news-icon.png" alt="Actualités">
             </div>
         </div>
-        <button class="dashboard-btn">Tableau de bord</button>
-        <span class="star-icon">⭐</span>
-        <span class="more-options">⋮</span>
-    </div>
-    <!-- Répéter pour chaque domaine -->
-</div>
 
+        <div class="documents">
+            <h3>Mes Documents</h3>
+            <div class="document-items">
+                <div class="document-item">
+                    <img src="reunion-icon.png" alt="Nos réunions">
+                    <p>Nos réunions</p>
+                    <small>1</small>
+                </div>
+                <div class="document-item">
+                    <img src="syndicat-icon.png" alt="Notre syndicat">
+                    <p>Notre syndicat</p>
+                    <small>2</small>
+                </div>
+                <div class="document-item">
+                    <img src="commissions-icon.png" alt="Nos commissions">
+                    <p>Nos commissions</p>
+                    <small>3</small>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
