@@ -67,6 +67,8 @@ function myGreeting() {
 }
 
             }
+
+            
             else{
   document.getElementById("div_info").innerHTML ='<div class="btn_alert2"><strong>Mot de passe trop court</strong>';
             }
