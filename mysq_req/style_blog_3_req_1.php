@@ -5,8 +5,7 @@
     $databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
     $id_sha1_projet = $databaseHandler->tableList_info;
    
-
-
+ 
  
 
 

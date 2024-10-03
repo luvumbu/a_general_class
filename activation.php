@@ -198,7 +198,7 @@ $message = '
         <li><strong>Accédez à votre compte :</strong> Vous pouvez désormais vous connecter à votre compte en utilisant vos identifiants.</li>
         <li><strong>Explorez nos fonctionnalités :</strong> Découvrez les outils et services que '.$SERVER_NAME.' met à votre disposition pour réaliser vos projets.</li>
       </ul>
-      <p>Si vous avez des questions ou avez besoin d\'aide, n\'hésitez pas à nous contacter à l\'adresse suivante : <a href="mailto:support@'.$SERVER_NAME.'">support@'.$SERVER_NAME.'.com</a>. Nous serons heureux de vous assister dans vos premiers pas.</p>
+      <p>Si vous avez des questions ou avez besoin d\'aide, n\'hésitez pas à nous contacter à l\'adresse suivante : <a href="mailto:support@'.$SERVER_NAME.'">support@'.$SERVER_NAME.'</a>. Nous serons heureux de vous assister dans vos premiers pas.</p>
       <p>Merci de faire confiance à <strong>'.$SERVER_NAME.'</strong>. Nous sommes impatients de vous voir accomplir de grandes choses avec nous !</p>
       <a href="'.$SERVER_NAME.'/activation_info.php" class="btn">Accéder à mon compte</a>
     </div>

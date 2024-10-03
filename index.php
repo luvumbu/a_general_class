@@ -2,9 +2,6 @@
 // Démarre la session PHP pour conserver les données utilisateur entre les pages
 session_start();
  
-
-
-
 ?>
 
 <!-- Inclusion du fichier JavaScript externe -->
@@ -29,6 +26,48 @@ session_start();
 </head>
 
 <body>
+<?php 
+
+if(isset(   $_SESSION["session_info"])) {
+
+ 
+
+
+
+
+  if($_SESSION["session_info_coumpt"]==1){
+  ?>
+<style>
+    .style_reed {
+    background-color: #f8d7da;
+    color: #c01f2e;
+    padding: 15px;
+    text-align: center;
+    margin: auto;
+    width: 300px;
+
+  }
+</style>
+<div class="style_reed">
+  <?php 
+
+
+  echo    $_SESSION["session_info"] ; 
+
+
+  
+
+?>
+</div>
+<?php 
+}
+$_SESSION["session_info_coumpt"] ++ ; 
+}
+
+
+?>
+
+
   <!-- Inclusion potentielle d'une feuille de style CSS (commentée) -->
   <!-- <link rel="stylesheet" href="monFormulaire1.css"> -->
 
@@ -200,9 +239,27 @@ session_start();
     }
   } else {
     // Si la session est déjà active, inclusion des fichiers pour la configuration et la gestion de session
+    
+   
     require 'class/path_config.php';
-    require_once 'view/body.php';
-  }
+
+
+ 
+
+ 
+
+
+if($_SESSION["session_general"][8]==""){
+echo "Changer votre mot de passe" ; 
+}
+else {
+  require_once 'view/body.php';
+}
+
+
+     
+   
+    }
 
 
 
@@ -284,8 +341,13 @@ if (!isset($_SESSION["session_log"])) {
 
 
 
+  
 
 require 'view/index_all_view.php' ; 
+
+
+
+
 
 }
  
@@ -346,6 +408,8 @@ body {
 }
 
 */
+ 
+
 </style>
 </html>
 
