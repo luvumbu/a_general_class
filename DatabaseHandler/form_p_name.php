@@ -1,6 +1,10 @@
 <?php
 
 require_once '../class/CheckFileExists.php';
+require_once '../class/EmailValidator.php';
+
+
+
 
 if ($_SESSION["path_config"] == 1) {
  

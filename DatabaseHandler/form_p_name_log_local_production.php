@@ -1,4 +1,14 @@
- <?php 
+ 
+
+<?php
+function validateEmail($email) {
+    // Expression régulière pour vérifier le format d'une adresse e-mail
+    $emailRegex = '/^[^\s@]+@[^\s@]+\.[^\s@]+$/';
+
+    // Teste si l'email correspond au format
+    return preg_match($emailRegex, $email);
+}
+
 
 
 $activation = time() ; 
@@ -6,6 +16,16 @@ $SERVER_NAME =  $_SERVER['SERVER_NAME'];
 
    // Adresse e-mail de destination
    $to = $input_1;
+
+
+
+
+   // Exemple d'utilisation
+$emailInput = $to;
+
+if (validateEmail($emailInput)) {
+
+ 
    
    // Sujet de l'e-mail
    $subject = 'Bienvenue sur '.$SERVER_NAME.'';
@@ -106,7 +126,12 @@ $SERVER_NAME =  $_SERVER['SERVER_NAME'];
 
 
  
+   echo "L'adresse e-mail est valide.";
+  } else {
+    $_SESSION["session_info"] = "Adresse mail incorrect" ;
 
+    $_SESSION["session_info_coumpt"] = 1 ;  
+  }
  
 
 

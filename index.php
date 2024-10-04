@@ -34,7 +34,7 @@ if(isset(   $_SESSION["session_info"])) {
 
 
 
-
+  if(isset(   $_SESSION["session_info_coumpt"])) {
   if($_SESSION["session_info_coumpt"]==1){
   ?>
 <style>
@@ -61,7 +61,10 @@ if(isset(   $_SESSION["session_info"])) {
 </div>
 <?php 
 }
+
 $_SESSION["session_info_coumpt"] ++ ; 
+  }
+
 }
 
 
