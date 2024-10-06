@@ -69,7 +69,6 @@ for ($n = 0; $n < count($name_group); $n++) {
          </div>
      </div>
 
-
      <?php
      if ($img_projet_src[$a] != "") {
          $file_path = "img_user_action/" . $img_projet_src[$a];
@@ -147,6 +146,8 @@ for ($n = 0; $n < count($name_group); $n++) {
          }
      }
      ?>
+
+     
      <div class="display_flex">
          <div class="projet2">
              <div title="<?php echo  $id_projet[$a] ?>" class="<?php echo  $id_projet[$a] ?>" onclick="img_user_action(this)">Ajouter un fichier</div>
@@ -162,7 +163,7 @@ for ($n = 0; $n < count($name_group); $n++) {
      </div>
 
  
-    
+ 
 
      <style>
          .iframes iframe {

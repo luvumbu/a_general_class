@@ -167,6 +167,9 @@ $img_projet_src_img = $databaseHandler->tableList_info;
 
 $img_projet_src_img__x = $databaseHandler->tableList_info;
 
+
+
+ 
 //
 
 
@@ -177,7 +180,7 @@ $databaseHandler->getDataFromTable($req_sql, "id_projet_img_auto");
 $id_projet_img_auto = $databaseHandler->tableList_info;
 
 
-
+ 
 
 
  

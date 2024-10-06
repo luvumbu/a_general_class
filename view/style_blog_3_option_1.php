@@ -65,17 +65,17 @@ for ($n = 0; $n < count($name_group); $n++) {
 
 
 
- 
 
-   
+
+
     for ($b_ = 0; $b_ < count($img_projet_src_img__x); $b_++) {
 
 
 
         if ($img_projet_src[$a] != $img_projet_src_img__x[$b_]) {
 
-//
-      
+            //
+
 
 
 
@@ -91,7 +91,7 @@ for ($n = 0; $n < count($name_group); $n++) {
 
 
                 if ($img_projet_src_img__x[$b_]  != "") {
-                   
+
 
 
                     $file_path = "img_user_action/" . $img_projet_src_img[$b_];
@@ -110,20 +110,24 @@ for ($n = 0; $n < count($name_group); $n++) {
                         // Vérifier le type de fichier et afficher en conséquence
                         if (in_array($extension, ['jpg', 'jpeg', 'png', 'gif'])) {
                             // Si c'est une image, l'afficher avec une balise <img>
-                
-    
-                
+
+
+
                 ?>
 
- 
-            <img src="<?php echo "img_user_action/" . $img_projet_src_img[$b_] ?>" alt="" srcset="">
+
+                            <img   src="<?php echo "img_user_action/" . $img_projet_src_img[$b_] ?>" alt="" srcset="">
                             <div>
-                                <button type="button" class="btn btn-success">Choisir l'image</button>
-                                <br />
-                                <button style="margin-top: 10px;" type="button" class="btn btn-danger">Suprimer l'image</button>
+                                <div class="btn btn-success">
+                                    <div title="<?php echo $img_projet_src_img[$b_] ?>" class="<?php echo $id_sha1_projet[$a]  ?>" onclick="projet_img_action1(this)" type="button">Choisir l'image</div>
+
+                                </div>
+                                <div class="btn btn-danger">
+                                    <div title="<?php echo $img_projet_src_img[$b_] ?>" class="<?php echo $id_sha1_projet[$a]  ?>" onclick="projet_img_action2(this)" type="button">Effacer l'image</div>
+
+                                </div>
                             </div>
- 
-                    
+
 
                         <?php
                         } elseif ($extension == 'pdf') {
@@ -134,6 +138,17 @@ for ($n = 0; $n < count($name_group); $n++) {
                                     <iframe src="<?php echo $file_path ?>" width="100%" height="500px"></iframe>
                                 </div>
                             </div>
+                            <div>
+                                <div class="btn btn-success">
+                                    <div title="<?php echo $img_projet_src_img[$b_] ?>" class="<?php echo $id_sha1_projet[$a]  ?>" onclick="projet_img_action1(this)" type="button">Choisir l'image</div>
+
+                                </div>
+                                <div class="btn btn-danger">
+                                    <div title="<?php echo $img_projet_src_img[$b_] ?>" class="<?php echo $id_sha1_projet[$a]  ?>" onclick="projet_img_action2(this)" type="button">Effacer l'image</div>
+
+                                </div>
+                            </div>
+
                         <?php
                         } elseif (in_array($extension, ['mp4', 'webm', 'ogg'])) {
                             // Si c'est une vidéo, l'afficher dans une balise <video>
@@ -156,6 +171,17 @@ for ($n = 0; $n < count($name_group); $n++) {
                                         <source src="<?php echo $file_path ?>" type="audio/<?php echo $extension ?>">
                                         Votre navigateur ne supporte pas la balise audio.
                                     </audio>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="btn btn-success">
+                                    <div title="<?php echo $img_projet_src_img[$b_] ?>" class="<?php echo $id_sha1_projet[$a]  ?>" onclick="projet_img_action1(this)" type="button">Choisir l'image</div>
+
+                                </div>
+                                <div class="btn btn-danger">
+                                    <div title="<?php echo $img_projet_src_img[$b_] ?>" class="<?php echo $id_sha1_projet[$a]  ?>" onclick="projet_img_action2(this)" type="button">Effacer l'image</div>
+
                                 </div>
                             </div>
                         <?php
@@ -219,7 +245,7 @@ for ($n = 0; $n < count($name_group); $n++) {
 
             width: 70%;
             margin: auto;
-    
+
 
         }
 
@@ -266,23 +292,23 @@ for ($n = 0; $n < count($name_group); $n++) {
             if (in_array($extension, ['jpg', 'jpeg', 'png', 'gif'])) {
                 // Si c'est une image, l'afficher avec une balise <img>
     ?>
-                <div class="taille_img">
+                <div  class="taille_img">
                     <div title="<?php echo $id_projet[$a] ?>" class="<?php echo $id_projet[$a] ?>" onclick="img_user_action(this)">
-                        <img src="<?php echo $file_path ?>" alt="" srcset="">
+                        <img id="<?php echo 'src_'.$id_sha1_projet[$a] ?>" src="<?php echo $file_path ?>" alt="" srcset="">
                     </div>
                 </div>
             <?php
             } elseif ($extension == 'pdf') {
-               
+
             ?>
 
-<iframe height="600px" src="<?php echo $file_path  ?>" frameborder="0"></iframe>
-<div class="file_path">
+                <iframe height="600px" src="<?php echo $file_path  ?>" frameborder="0"></iframe>
+                <div class="file_path">
 
- 
 
-        </div>
- 
+
+                </div>
+
             <?php
             } elseif (in_array($extension, ['mp4', 'webm', 'ogg'])) {
                 // Si c'est une vidéo, l'afficher dans une balise <video>
@@ -490,7 +516,7 @@ for ($n = 0; $n < count($name_group); $n++) {
             } elseif ($extension == 'pdf') {
                 // Si c'est un PDF, l'afficher dans un iframe
             ?>
- 
+
                 <div class="iframes">
                     <div class="<?php echo $file_path ?>" title="<?php echo  $id_projet[$a] ?>" onclick="iframes_doc(this)">
                         <iframe style="height: 50px;" src="<?php echo $file_path ?>" width="100%" height="500px"></iframe>
@@ -648,14 +674,66 @@ echo '</div>';
 </script>
 
 <style>
-    .file_path{
+    .file_path {
         width: 100%;
         color: white;
         background-color: black;
         text-align: center;
         padding: 15px;
     }
-    .file_path:hover{
+
+    .file_path:hover {
         cursor: pointer;
     }
 </style>
+
+
+
+<script>
+    function projet_img_action1(_this) {
+     
+
+        document.getElementById("src_"+_this.className).style.display="block" ; 
+ 
+document.getElementById("src_"+_this.className).src="img_user_action/"+_this.title ; 
+      
+        var ok = new Information("update/projet_img_action1.php"); // création de la classe 
+        ok.add("id_sha1_projet",_this.className); // ajout de l'information pour lenvoi 
+        ok.add("img_projet_src",  _this.title); // ajout de l'information pour lenvoi 
+   
+        console.log(ok.info()); // demande l'information dans le tableau
+        ok.push(); // envoie l'information au code pkp 
+
+ 
+
+
+
+
+    }
+
+
+
+    function projet_img_action2(_this) {
+     
+
+ 
+     document.getElementById("src_"+_this.className).src="" ; 
+     document.getElementById("src_"+_this.className).style.display="none" ; 
+
+ 
+
+           
+             var ok = new Information("update/projet_img_action2.php"); // création de la classe 
+             ok.add("id_sha1_projet",_this.className); // ajout de l'information pour lenvoi 
+             ok.add("img_projet_src",  _this.title); // ajout de l'information pour lenvoi 
+        
+             console.log(ok.info()); // demande l'information dans le tableau
+             ok.push(); // envoie l'information au code pkp 
+     
+      
+     
+     
+     
+     
+         }
+</script>
