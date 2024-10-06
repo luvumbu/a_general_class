@@ -80,7 +80,7 @@ for ($n = 0; $n < count($name_group); $n++) {
 
 
     ?>
-
+   <div id="<?php  echo $id_projet_img_auto[$b_]  ?>">
             <div class="mon_test_child">
 
 
@@ -116,7 +116,7 @@ for ($n = 0; $n < count($name_group); $n++) {
                 ?>
 
 
-                            <div id="<?php  echo $id_projet_img_auto[$b_]  ?>">
+                         
 
                             <div>
                             <img   src="<?php echo "img_user_action/" . $img_projet_src_img[$b_] ?>" alt="" srcset="">
@@ -131,7 +131,7 @@ for ($n = 0; $n < count($name_group); $n++) {
                                     <div title="<?php echo $img_projet_src_img[$b_] ?>" class="<?php echo $id_projet_img_auto[$b_]   ?>" onclick="projet_img_action2(this)" type="button">Effacer l'image</div>
 
                                 </div>
-                            </div>
+                          
 
 
                         <?php
@@ -217,6 +217,7 @@ for ($n = 0; $n < count($name_group); $n++) {
 
 
 
+            </div>
             </div>
     <?php
         }
