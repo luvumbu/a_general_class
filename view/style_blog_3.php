@@ -43,7 +43,7 @@ $resultat = chercherIndex($id_group, $valeur_a_chercher);
       
     } 
     
-    
+
     echo '</div>';
     ?>
 
@@ -111,7 +111,6 @@ require 'view/style_blog_3_scrypt_1.php';
         }
     }
 
-
     function submit_inputs_form(_this) {
 
         var inputs_form_1_ = document.getElementById("inputs_form_1_" + _this.title).value;
@@ -174,6 +173,10 @@ require 'view/style_blog_3_scrypt_1.php';
         console.log(el.value);
 
     }
+
+
+
+
 </script>
 
 <style>

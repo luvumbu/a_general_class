@@ -178,4 +178,8 @@ for ($n = 0; $n < count($name_group); $n++) {
  
  
 <?php
+
+
 echo '</div>';  
+
+?>
