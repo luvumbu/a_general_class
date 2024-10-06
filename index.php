@@ -108,7 +108,7 @@ $_SESSION["session_info_coumpt"] ++ ;
 
     // Lien vers une fonctionnalité "Mot de passe oublié"
     $info___ = "Mot de passe oublié";
-    $src_info = "http://google.com";
+    $src_info = "reset_password.php";
 
     // Création d'une nouvelle instance de formulaire
     $monFormulaire1 = new Creat_form("form_p_name", "form", "");
@@ -436,6 +436,9 @@ body {
  
 
 </style>
+
+
+ 
 </html>
 
  

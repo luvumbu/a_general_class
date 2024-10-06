@@ -22,3 +22,16 @@ class Information {
         console.log(this.req);	 
     }
 }
+
+
+/*
+
+
+var ok = new Information("php.php"); // création de la classe 
+ok.add("login", "root"); // ajout de l'information pour lenvoi 
+ok.add("password", "root"); // ajout d'une deuxieme information denvoi  
+console.log(ok.info()); // demande l'information dans le tableau
+ok.push(); // envoie l'information au code pkp 
+
+
+*/

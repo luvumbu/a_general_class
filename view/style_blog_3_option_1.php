@@ -243,7 +243,9 @@ for ($n = 0; $n < count($name_group); $n++) {
                  </div>
              </div>
              <div title="<?php echo  $id_projet[$a] ?>" id="<?php echo  $id_projet[$a] ?>" onkeyup="style_blog_3_2_up(this)" class="editor" contenteditable="true"><?php echo $name_projet_ ?></div>
-         </div>
+       <textarea style="width: 100%;" title="<?php echo  $id_projet[$a] ?>" id="<?php echo  '_'.$id_projet[$a] ?>" onkeyup="style_blog_3_2_up2(this)" class="editor" contenteditable="true"><?php echo $name_projet_ ?></textarea>
+         
+            </div>
          <div id="<?php echo  "planification_" . $id_projet[$a] ?>" class="display_none2">
              <div class="custom-form-container centrer">
                  <h2>Planification de l'événement</h2>
@@ -442,4 +444,23 @@ ok.push(); // envoie l'information au code pkp
 
 
          }
+
+
+
+
+
+
+
+
+         function style_blog_3_2_up2(_this) {
+            console.log(_this.id) ; 
+        var sed=    _this.id.replace("_", "");
+
+        document.getElementById(sed).innerHTML = _this.value ; 
+
+        style_blog_3_2_up(_this);
+
+         } 
+
+
      </script>
