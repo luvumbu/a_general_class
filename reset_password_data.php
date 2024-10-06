@@ -38,11 +38,13 @@ require_once 'class/DatabaseHandler.php';
 echo "session_general : ".$_SESSION["session_general"][0] ;
 echo "<br/>" ; 
  
+ 
 
  
 // Adresse e-mail de destination
 $to = $_POST["nom_user"]; // Remplacer par l'adresse du nouvel utilisateur
 
+$_SESSION["nom_user"] = $_POST["nom_user"]; // Remplacer par l'adresse du nouvel utilisateur
 // Sujet de l'e-mail
 $subject = 'Confirmation de la validation de votre inscription sur'.$SERVER_NAME;
 
@@ -104,7 +106,7 @@ $message = '
 <body>
   <div class="container">
     <div class="header">
-      <h1>Bienvenue sur '.$SERVER_NAME.'</h1>
+      <h1>Bienvenue sur '.$SERVER_NAME.'   :  '.$to.' </h1>
     </div>
     <div class="content">
       <p>Bonjour,</p>
@@ -117,7 +119,7 @@ $message = '
       </ul>
       <p>Si vous avez des questions ou avez besoin d\'aide, n\'hésitez pas à nous contacter à l\'adresse suivante : <a href="mailto:support@'.$SERVER_NAME.'">support@'.$SERVER_NAME.'</a>. Nous serons heureux de vous assister dans vos premiers pas.</p>
       <p>Merci de faire confiance à <strong>'.$SERVER_NAME.'</strong>. Nous sommes impatients de vous voir accomplir de grandes choses avec nous !</p>
-      <a href="'.$SERVER_NAME.'/activation_info.php" class="btn">Accéder à mon compte</a>
+      <a href="'.$SERVER_NAME.'/reset_password_data2.php" class="btn">Accéder à mon compte</a>
     </div>
     <div class="footer">
       <p>&copy; 2024 '.$SERVER_NAME.' - Tous droits réservés</p>
