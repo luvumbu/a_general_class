@@ -116,14 +116,19 @@ for ($n = 0; $n < count($name_group); $n++) {
                 ?>
 
 
-                            <img   src="<?php echo "img_user_action/" . $img_projet_src_img[$b_] ?>" alt="" srcset="">
+                            <div id="<?php  echo $id_projet_img_auto[$b_]  ?>">
+
                             <div>
+                            <img   src="<?php echo "img_user_action/" . $img_projet_src_img[$b_] ?>" alt="" srcset="">
+
+                            </div>
+
                                 <div class="btn btn-success">
                                     <div title="<?php echo $img_projet_src_img[$b_] ?>" class="<?php echo $id_sha1_projet[$a]  ?>" onclick="projet_img_action1(this)" type="button">Choisir l'image</div>
 
                                 </div>
-                                <div class="btn btn-danger">
-                                    <div title="<?php echo $img_projet_src_img[$b_] ?>" class="<?php echo $id_sha1_projet[$a]  ?>" onclick="projet_img_action2(this)" type="button">Effacer l'image</div>
+                                <div class="btn btn-danger" >
+                                    <div title="<?php echo $img_projet_src_img[$b_] ?>" class="<?php echo $id_projet_img_auto[$b_]   ?>" onclick="projet_img_action2(this)" type="button">Effacer l'image</div>
 
                                 </div>
                             </div>
@@ -715,10 +720,10 @@ document.getElementById("src_"+_this.className).src="img_user_action/"+_this.tit
 
     function projet_img_action2(_this) {
      
-
  
-     document.getElementById("src_"+_this.className).src="" ; 
-     document.getElementById("src_"+_this.className).style.display="none" ; 
+ 
+ document.getElementById(_this.className).style.display="none" ; 
+
 
  
 
@@ -729,9 +734,7 @@ document.getElementById("src_"+_this.className).src="img_user_action/"+_this.tit
         
              console.log(ok.info()); // demande l'information dans le tableau
              ok.push(); // envoie l'information au code pkp 
-     
-      
-     
+   
      
      
      
