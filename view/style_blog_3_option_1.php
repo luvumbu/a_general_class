@@ -67,7 +67,7 @@ for ($n = 0; $n < count($name_group); $n++) {
 
 
 
-
+ 
         for ($b_ = 0; $b_ < count($img_projet_src_img__x); $b_++) {
 
 
@@ -166,9 +166,9 @@ for ($n = 0; $n < count($name_group); $n++) {
                                     <?php
                                     }
                                     ?>
+<br/>
 
-
-
+<input title="<?php echo $id_projet_img_auto[$b_]    ?>" onkeyup="input_btn_projet_img(this)" type="text" class="input_btn_projet_img" value="<?php echo $input_btn_projet_img[$b_] ?>">
 
                                 <?php
                                 } elseif ($extension == 'pdf') {
@@ -804,4 +804,28 @@ var ok = new Information("update/projet_img_action3.php"); // création de la cl
             ok.push(); // envoie l'information au code pkp 
 
         }
+
+        function input_btn_projet_img(_this) {
+            console.log(_this.value)  ; 
+            console.log(_this.title)  ; 
+
+
+ 
+            var ok = new Information("update/input_btn_projet_img.php"); // création de la classe 
+            ok.add("id_projet_img_auto", _this.title); // ajout de l'information pour lenvoi 
+            ok.add("input_btn_projet_img", _this.value); // ajout de l'information pour lenvoi 
+
+            console.log(ok.info()); // demande l'information dans le tableau
+            ok.push(); // envoie l'information au code pkp 
+ 
+        }
     </script>
+
+    <style>
+        .input_btn_projet_img{
+            margin-top: 15px;
+            width: 100%;
+            border-radius: 5px;
+            border-color: rgb(200, 0, 0, 0.2);
+        }
+    </style>

@@ -1,48 +1,51 @@
-<?php
-// Fonction pour pixeliser l'image
-function pixeliserImage($imagePath, $pixelSize = 10) {
-    // Vérification si le fichier image existe
-    if (!file_exists($imagePath)) {
-        die("L'image n'existe pas.");
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-    // Charger l'image
-    $sourceImage = imagecreatefromjpeg($imagePath);
-    if (!$sourceImage) {
-        die("Erreur lors du chargement de l'image.");
-    }
+<div class="container">
+  <h2>Carousel Example</h2>  
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
 
-    // Obtenir les dimensions de l'image
-    $width = imagesx($sourceImage);
-    $height = imagesy($sourceImage);
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="https://www.w3schools.com/bootstrap/la.jpg" alt="Los Angeles" style="width:100%;">
+      </div>
 
-    // Créer une nouvelle image avec les mêmes dimensions
-    $outputImage = imagecreatetruecolor($width, $height);
+      <div class="item">
+        <img src="https://www.w3schools.com/bootstrap/chicago.jpg" alt="Chicago" style="width:100%;">
+      </div>
+    
+      <div class="item">
+        <img src="https://www.w3schools.com/bootstrap/ny.jpg" alt="New york" style="width:100%;">
+      </div>
+    </div>
 
-    // Parcourir chaque pixel selon la taille de la "grille"
-    for ($y = 0; $y < $height; $y += $pixelSize) {
-        for ($x = 0; $x < $width; $x += $pixelSize) {
-            // Obtenir la couleur moyenne de la région de pixels
-            $rgb = imagecolorat($sourceImage, $x, $y);
-            $colors = imagecolorsforindex($sourceImage, $rgb);
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
 
-            // Remplir la région avec cette couleur
-            $color = imagecolorallocate($outputImage, $colors['red'], $colors['green'], $colors['blue']);
-            imagefilledrectangle($outputImage, $x, $y, $x + $pixelSize - 1, $y + $pixelSize - 1, $color);
-        }
-    }
-
-    // Afficher l'image pixelisée
-    header('Content-Type: image/jpeg');
-    imagejpeg($outputImage);
-
-    // Libérer la mémoire
-    imagedestroy($sourceImage);
-    imagedestroy($outputImage);
-}
-
-// Chemin de l'image dans la racine (exemple: "image.jpg")
-$imagePath = '404.png';
-
-// Appeler la fonction pour pixeliser l'image
-pixeliserImage($imagePath, 10);
+</body>
+</html>

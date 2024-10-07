@@ -169,6 +169,8 @@ $databaseHandler->add_table("projet");
 $databaseHandler = new DatabaseHandler($input_1,$input_2); 
 $databaseHandler->set_column_names("id_projet_img_auto");
 $databaseHandler->set_column_names("id_sha1_projet_img");
+$databaseHandler->set_column_names("input_btn_projet_img");
+
 
 
 
@@ -183,6 +185,8 @@ $databaseHandler->set_column_names("date_inscription_projet_img");
 $databaseHandler->set_column_types("INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
 
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
