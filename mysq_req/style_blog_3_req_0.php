@@ -169,6 +169,19 @@ $img_projet_src_img__x = $databaseHandler->tableList_info;
 
 
 
+
+
+$req_sql = 'SELECT * FROM `projet_img` WHERE `id_user_projet_img` ="' . $_SESSION["session_general"][0] . '" ORDER BY   `img_projet_src_img` ASC';
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "img_projet_src_visivility_img");
+$img_projet_src_visivility_img = $databaseHandler->tableList_info;
+
+
+ 
+
+
+
  
 //
 

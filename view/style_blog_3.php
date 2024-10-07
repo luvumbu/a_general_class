@@ -191,7 +191,7 @@ require 'view/style_blog_3_scrypt_1.php';
 
         background-color: black;
 
-        padding: 5px;
+       
         margin-top: 25px;
         text-align: center;
         color: white;
@@ -209,7 +209,7 @@ require 'view/style_blog_3_scrypt_1.php';
     .cryptographie_input input {
 
         width: 100%;
-        padding: 5px;
+       
 
 
     }
@@ -227,7 +227,7 @@ require 'view/style_blog_3_scrypt_1.php';
 
     .display_flex2 div {
 
-        padding: 10px;
+ 
         margin-top: 25px;
         width: 100px;
         height: 100px;

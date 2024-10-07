@@ -175,11 +175,15 @@ $databaseHandler->set_column_names("id_sha1_projet_img");
 $databaseHandler->set_column_names("id_projet_img");
 $databaseHandler->set_column_names("id_user_projet_img");
 $databaseHandler->set_column_names("img_projet_src_img");
+$databaseHandler->set_column_names("img_projet_src_visivility_img");
+
 $databaseHandler->set_column_names("date_inscription_projet_img");
 
 
 $databaseHandler->set_column_types("INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 

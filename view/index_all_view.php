@@ -35,7 +35,7 @@ require_once 'mysq_req/req_index_all_sql.php';
         font-family: Arial, sans-serif;
         background-color: #f5f5f5;
         margin: 0;
-        padding: 20px;
+    
     }
 
     .project {
@@ -50,19 +50,19 @@ require_once 'mysq_req/req_index_all_sql.php';
     }
 
     .project-content {
-        padding: 20px;
+    
     }
 
     .project-header {
         border-bottom: 1px solid #e0e0e0;
-        padding-bottom: 15px;
+       
     }
 
     .project-number {
         background-color: #006400;
         color: white;
         display: inline-block;
-        padding: 5px 10px;
+  
         border-radius: 5px;
         font-size: 14px;
         font-weight: bold;
@@ -158,7 +158,7 @@ require_once 'mysq_req/req_index_all_sql.php';
         border: 1px solid rgba(0, 0, 0, 0.1);
         text-align: center;
         width: 300px;
-        padding: 20px;
+    
     }
     .largeur_card img {
         max-width: 100%;  /* La largeur maximale est de 100% du conteneur parent */
