@@ -806,11 +806,23 @@ var ok = new Information("update/projet_img_action3.php"); // création de la cl
         }
 
         function input_btn_projet_img(_this) {
-            console.log(_this.value)  ; 
-            console.log(_this.title)  ; 
+ 
 
 
  
+
+
+
+
+            const myTimeout = setTimeout(myGreeting, 500);
+
+function deux_a() {
+    onkeyup_action_bool2 = false;
+ 
+ 
+
+
+
             var ok = new Information("update/input_btn_projet_img.php"); // création de la classe 
             ok.add("id_projet_img_auto", _this.title); // ajout de l'information pour lenvoi 
             ok.add("input_btn_projet_img", _this.value); // ajout de l'information pour lenvoi 
@@ -818,7 +830,31 @@ var ok = new Information("update/projet_img_action3.php"); // création de la cl
             console.log(ok.info()); // demande l'information dans le tableau
             ok.push(); // envoie l'information au code pkp 
  
+
+    onkeyup_action_bool = true;
+}
+
+function myGreeting() {
+    if (onkeyup_action_bool2 == false) {
+        onkeyup_action_bool2 = true;
+        const deux = setTimeout(deux_a, 500);
+    }
+}
+
+
+
+
+
+            
         }
+
+
+
+
+
+
+
+        
     </script>
 
     <style>
