@@ -8,22 +8,6 @@ $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
 $databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
 $id_sha1_projet = $databaseHandler->tableList_info;
 
- 
-
-
-
-
-
-
-$req_sql = 'SELECT * FROM `projet` WHERE `id_sha1_parent_projet_` = "' . $_SESSION["session_switch"] . '"  ORDER BY `projet`.`id_projet` DESC';
-
-$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-$databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
-$id_sha1_parent_projet_ = $databaseHandler->tableList_info;
-
- 
- 
-
 
 
  
@@ -182,26 +166,6 @@ $img_projet_src_img = $databaseHandler->tableList_info;
 
 
 $img_projet_src_img__x = $databaseHandler->tableList_info;
-
-
-
-
-
-$req_sql = 'SELECT * FROM `projet_img` WHERE `id_user_projet_img` ="' . $_SESSION["session_general"][0] . '" ORDER BY   `img_projet_src_img` ASC';
-
-$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-$databaseHandler->getDataFromTable($req_sql, "img_projet_src_visivility_img");
-$img_projet_src_visivility_img = $databaseHandler->tableList_info;
-
-
-$req_sql = 'SELECT * FROM `projet_img` WHERE `id_user_projet_img` ="' . $_SESSION["session_general"][0] . '" ORDER BY   `img_projet_src_img` ASC';
-
-$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-$databaseHandler->getDataFromTable($req_sql, "input_btn_projet_img");
-$input_btn_projet_img = $databaseHandler->tableList_info;
-
-
- 
 
 
 

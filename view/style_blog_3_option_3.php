@@ -97,11 +97,12 @@
             } else {
                 ?>
 
-             <div class="taille_img">
+<div class="mgrand">
                  <div title="<?php echo $id_projet[$a] ?>" class="<?php echo $id_projet[$a] ?>" onclick="img_user_action(this)">
-                     <img src="src/img/0.png" alt="" srcset="">
-                 </div>
+           ajouter une image
              </div>
+</div>
+
 
          <?php
             }
@@ -134,6 +135,15 @@
 
 
  <style>
+    .mgrand div {
+        background-color: black;
+        padding: 25px;
+        color:white ; 
+        text-align: center;
+    }
+    .mgrand:hover {
+        cursor: pointer;
+    }
      .cursor_pointer:hover {
          cursor: pointer;
      }

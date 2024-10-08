@@ -33,11 +33,11 @@ $valeur_a_chercher = $group_projet[$a];
 $resultat = chercherIndex($id_group, $valeur_a_chercher);
 $resultat = chercherIndex($id_group, $valeur_a_chercher);    
               if(isset($_SESSION["session_switch"])){       
-                require 'style_blog_3_option_1.php';                  
+               require 'style_blog_3_option_1.php';                  
             }
             else {
           
-                 require 'style_blog_3_option_3.php';
+              require 'style_blog_3_option_3.php';
             
             }
       
@@ -65,7 +65,7 @@ $resultat = chercherIndex($id_group, $valeur_a_chercher);
  
 </div>
 <?php
-require 'view/style_blog_3_scrypt_1.php';
+  require 'view/style_blog_3_scrypt_1.php';
 
 ?>
 
@@ -191,7 +191,7 @@ require 'view/style_blog_3_scrypt_1.php';
 
         background-color: black;
 
-       
+        padding: 5px;
         margin-top: 25px;
         text-align: center;
         color: white;
@@ -209,7 +209,7 @@ require 'view/style_blog_3_scrypt_1.php';
     .cryptographie_input input {
 
         width: 100%;
-       
+        padding: 5px;
 
 
     }
@@ -227,7 +227,7 @@ require 'view/style_blog_3_scrypt_1.php';
 
     .display_flex2 div {
 
- 
+        padding: 10px;
         margin-top: 25px;
         width: 100px;
         height: 100px;

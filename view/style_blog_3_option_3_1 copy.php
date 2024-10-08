@@ -150,5 +150,3 @@
         cursor: pointer;
     }
 </style>
-
-lore
