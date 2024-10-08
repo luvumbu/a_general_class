@@ -67,7 +67,7 @@ for ($n = 0; $n < count($name_group); $n++) {
 
 
 
- 
+
         for ($b_ = 0; $b_ < count($img_projet_src_img__x); $b_++) {
 
 
@@ -78,7 +78,7 @@ for ($n = 0; $n < count($name_group); $n++) {
 
 
 
- 
+
 
         ?>
                 <div id="<?php echo $id_projet_img_auto[$b_]  ?>">
@@ -143,7 +143,7 @@ for ($n = 0; $n < count($name_group); $n++) {
                                     ?>
 
 
-                                        <div id="<?php echo "btn_".$id_projet_img_auto[$b_]    ?>" class="btn btn-secondary" >
+                                        <div id="<?php echo "btn_" . $id_projet_img_auto[$b_]    ?>" class="btn btn-secondary">
 
                                             <div title="<?php echo ''    ?>" onclick="projet_img_action3(this)" class="<?php echo $id_projet_img_auto[$b_]    ?>" type="button">Selection</div>
 
@@ -155,7 +155,7 @@ for ($n = 0; $n < count($name_group); $n++) {
                                     } else {
                                     ?>
 
-                                        <div id="<?php echo "btn_".$id_projet_img_auto[$b_]    ?>" class="btn btn-warning" >
+                                        <div id="<?php echo "btn_" . $id_projet_img_auto[$b_]    ?>" class="btn btn-warning">
 
 
 
@@ -166,9 +166,9 @@ for ($n = 0; $n < count($name_group); $n++) {
                                     <?php
                                     }
                                     ?>
-<br/>
+                                    <br />
 
-<input title="<?php echo $id_projet_img_auto[$b_]    ?>" onkeyup="input_btn_projet_img(this)" type="text" class="input_btn_projet_img" value="<?php echo $input_btn_projet_img[$b_] ?>">
+                                    <input title="<?php echo $id_projet_img_auto[$b_]    ?>" onkeyup="input_btn_projet_img(this)" type="text" class="input_btn_projet_img" value="<?php echo $input_btn_projet_img[$b_] ?>">
 
                                 <?php
                                 } elseif ($extension == 'pdf') {
@@ -416,6 +416,11 @@ for ($n = 0; $n < count($name_group); $n++) {
                 <img class="add_element" width="47" height="47" src="https://img.icons8.com/office/47/eraser.png" alt="eraser" />
             </div>
 
+
+
+            <div onclick="id_sha1_parent_projet_(this)" title="<?php echo  $id_sha1_projet[$a] ?>">
+                <img class="add_element" width="47" height="47" src="https://img.icons8.com/cotton/47/plus--v2.png" alt="plus--v2" />
+            </div>
             <div>
 
 
@@ -523,6 +528,7 @@ for ($n = 0; $n < count($name_group); $n++) {
 
                 <button type="submit" onclick="submit_inputs_form(this)" title="<?php echo  $id_projet[$a] ?>">Valider</button>
             </div>
+
         </div>
 
         <style>
@@ -649,6 +655,12 @@ for ($n = 0; $n < count($name_group); $n++) {
             </div>
         </div>
 
+
+        <?php
+
+require_once "id_sha1_parent_projet_.php" ; 
+        ?>
+
         <div id="<?php echo  'date_form_' . $id_projet[$a] ?>" class="display_none">
             <form>
                 <label for="event-date">Date de l'événement debut :</label>
@@ -664,6 +676,8 @@ for ($n = 0; $n < count($name_group); $n++) {
                 <div style="margin-top: 30px;" class="date_form_click" onclick="date_form_click2(this)" title="<?php echo    $id_projet[$a] ?>"> Valider</div>
             </form>
         </div>
+
+
     </div>
     <?php
     echo '</div>';
@@ -779,24 +793,23 @@ for ($n = 0; $n < count($name_group); $n++) {
 
 
         function projet_img_action3(_this) {
-       
-       
- 
-
-if(_this.title==""){
-    document.getElementById("btn_"+_this.className).className="btn btn-warning";
-    _this.title ="(0-0)" ;
-}
-else {
-    document.getElementById("btn_"+_this.className).className="btn btn-secondary";
-    _this.title ="" ;
-
-}
 
 
 
 
-var ok = new Information("update/projet_img_action3.php"); // création de la classe 
+            if (_this.title == "") {
+                document.getElementById("btn_" + _this.className).className = "btn btn-warning";
+                _this.title = "(0-0)";
+            } else {
+                document.getElementById("btn_" + _this.className).className = "btn btn-secondary";
+                _this.title = "";
+
+            }
+
+
+
+
+            var ok = new Information("update/projet_img_action3.php"); // création de la classe 
             ok.add("id_sha1_projet", _this.className); // ajout de l'information pour lenvoi 
             ok.add("img_projet_src_visivility_img", _this.title); // ajout de l'information pour lenvoi 
 
@@ -806,62 +819,70 @@ var ok = new Information("update/projet_img_action3.php"); // création de la cl
         }
 
         function input_btn_projet_img(_this) {
- 
 
 
- 
+
+
 
 
 
 
             const myTimeout = setTimeout(myGreeting, 500);
 
-function deux_a() {
-    onkeyup_action_bool2 = false;
- 
- 
-
-
-
-            var ok = new Information("update/input_btn_projet_img.php"); // création de la classe 
-            ok.add("id_projet_img_auto", _this.title); // ajout de l'information pour lenvoi 
-            ok.add("input_btn_projet_img", _this.value); // ajout de l'information pour lenvoi 
-
-            console.log(ok.info()); // demande l'information dans le tableau
-            ok.push(); // envoie l'information au code pkp 
- 
-
-    onkeyup_action_bool = true;
-}
-
-function myGreeting() {
-    if (onkeyup_action_bool2 == false) {
-        onkeyup_action_bool2 = true;
-        const deux = setTimeout(deux_a, 500);
-    }
-}
+            function deux_a() {
+                onkeyup_action_bool2 = false;
 
 
 
 
 
-            
+                var ok = new Information("update/input_btn_projet_img.php"); // création de la classe 
+                ok.add("id_projet_img_auto", _this.title); // ajout de l'information pour lenvoi 
+                ok.add("input_btn_projet_img", _this.value); // ajout de l'information pour lenvoi 
+
+                console.log(ok.info()); // demande l'information dans le tableau
+                ok.push(); // envoie l'information au code pkp 
+
+
+                onkeyup_action_bool = true;
+            }
+
+            function myGreeting() {
+                if (onkeyup_action_bool2 == false) {
+                    onkeyup_action_bool2 = true;
+                    const deux = setTimeout(deux_a, 500);
+                }
+            }
+
+
+
+
+
+
         }
-
-
-
-
-
-
-
-        
     </script>
 
     <style>
-        .input_btn_projet_img{
+        .input_btn_projet_img {
             margin-top: 15px;
             width: 100%;
             border-radius: 5px;
             border-color: rgb(200, 0, 0, 0.2);
         }
     </style>
+
+    <script>
+        function id_sha1_parent_projet_(_this) {
+
+
+            var ok = new Information("add/id_sha1_parent_projet_.php"); // création de la classe 
+            ok.add("id_sha1_parent_projet_", _this.title); // ajout de l'information pour lenvoi 
+
+            console.log(ok.info()); // demande l'information dans le tableau
+            ok.push(); // envoie l'information au code pkp 
+
+
+
+
+        }
+    </script>

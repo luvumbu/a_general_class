@@ -84,6 +84,7 @@ $databaseHandler->set_column_names("id_user_projet");
 $databaseHandler->set_column_names("id_sha1_projet");
 
 $databaseHandler->set_column_names("id_sha1_parent_projet");
+$databaseHandler->set_column_names("id_sha1_parent_projet_");
 
 
 $databaseHandler->set_column_names("cryptage_projet");
@@ -128,6 +129,8 @@ $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
@@ -197,6 +200,69 @@ $databaseHandler->set_column_types("TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDAT
 $databaseHandler->add_table("projet_img");
 
 
+
+
+// 
+
+
+$databaseHandler = new DatabaseHandler($input_1,$input_2); 
+$databaseHandler->set_column_names("id_projet_option_id");
+$databaseHandler->set_column_names("id_sha1_projet_option");
+$databaseHandler->set_column_names("input_btn_projet_option");
+
+
+
+
+$databaseHandler->set_column_names("id_projet_option");
+$databaseHandler->set_column_names("id_user_projet_option");
+ 
+$databaseHandler->set_column_names("img_visivility_projet_option");
+
+
+$databaseHandler->set_column_names("ip1_visit_option");
+$databaseHandler->set_column_names("ip2_visit_option");
+$databaseHandler->set_column_names("ip3_visit_option");
+
+$databaseHandler->set_column_names("ip4_visit_option");
+$databaseHandler->set_column_names("ip5_visit_option");
+$databaseHandler->set_column_names("ip6_visit_option");
+$databaseHandler->set_column_names("ip7_visit_option");
+$databaseHandler->set_column_names("ip8_visit_option");
+$databaseHandler->set_column_names("ip9_visit_option");
+
+$databaseHandler->set_column_names("date_inscription_projet_option");
+
+
+$databaseHandler->set_column_types("INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY");
+ 
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
+$databaseHandler->add_table("projet_option");
+
+
+// 
 
 
 
