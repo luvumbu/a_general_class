@@ -84,6 +84,8 @@ $databaseHandler->set_column_names("id_user_projet");
 $databaseHandler->set_column_names("id_sha1_projet");
 
 $databaseHandler->set_column_names("id_sha1_parent_projet");
+$databaseHandler->set_column_names("id_sha1_parent_projet2");
+
 
 
 $databaseHandler->set_column_names("cryptage_projet");
@@ -131,6 +133,8 @@ $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 
 

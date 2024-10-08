@@ -131,7 +131,7 @@
  
   </div>
 </div>
-
+ 
 <style>
     .card2 img {
         width: 100%;
@@ -140,15 +140,10 @@
     
     }
 
-    .card2   {
- 
-  
-  
-      
-    }
+    
     .cursor_pointer:hover{
         cursor: pointer;
     }
 </style>
 
-lore
+ 

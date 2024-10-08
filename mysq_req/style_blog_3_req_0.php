@@ -169,6 +169,24 @@ $img_projet_src_img__x = $databaseHandler->tableList_info;
 
 
 
+
+
+
+
+
+
+
+
+ 
+
+ 
+$req_sql = 'SELECT * FROM `projet` WHERE `id_sha1_parent_projet2` ="'.$_SESSION["session_switch"].'" ';
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "id_projet");
+$id_projet_bv = $databaseHandler->tableList_info;
+ 
+
  
 //
 

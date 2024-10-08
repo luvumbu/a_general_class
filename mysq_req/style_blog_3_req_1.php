@@ -6,8 +6,8 @@
     $id_sha1_projet = $databaseHandler->tableList_info;
    
  
-
-
+ 
+  
   
  
     $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
@@ -23,6 +23,9 @@
     $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
     $databaseHandler->getDataFromTable($req_sql, "name_projet");
     $name_projet = $databaseHandler->tableList_info;
+
+
+
 
     $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
     $databaseHandler->getDataFromTable($req_sql, "statue_projet");

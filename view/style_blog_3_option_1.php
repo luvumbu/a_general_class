@@ -597,6 +597,7 @@ for ($n = 0; $n < count($name_group); $n++) {
 
         </div>
 
+        
         <?php
 
         if ($visibility_1_projet[$a] != "") {
@@ -623,9 +624,19 @@ for ($n = 0; $n < count($name_group); $n++) {
 
         <div onclick="remove_session_switch(this)" class="cursor_pointer">
             <img width="50" class="add_element" height="50" src="https://img.icons8.com/ios/50/export.png" alt="export" />
-
         </div>
     </div>
+<div>
+<img onclick="id_sha1_parent_projet2(this)" title="<?php  echo   $id_sha1_projet[$a] ?>" class="add_element"  width="50" height="50" src="https://img.icons8.com/cotton/50/plus--v2.png" alt="plus--v2"/>
+
+
+<?php 
+
+require_once 'id_sha1_parent_projet2.php' ; 
+
+?>
+
+</div>
 
     <div id="<?php echo  'date_form_' . $id_projet[$a] ?>" class="display_none">
         <form>
@@ -751,6 +762,21 @@ document.getElementById("src_"+_this.title).style.display="none" ;
 
 
 
+
+    }
+
+
+
+    function id_sha1_parent_projet2(_this) {
+      
+
+
+
+        var ok = new Information("add/id_sha1_parent_projet2.php"); // création de la classe 
+        ok.add("id_sha1_parent_projet2", _this.title); // ajout de l'information pour lenvoi 
+
+        console.log(ok.info()); // demande l'information dans le tableau
+        ok.push(); // envoie l'information au code pkp 
 
     }
 </script>
