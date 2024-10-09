@@ -17,14 +17,23 @@ for ($bc_ = 0; $bc_ < count($id_sha1_parent_projet2); $bc_++) {
 
 
 ?>
-    <div id="<?php echo "all_".$id_sha1_parent_projet2[$bc_] ?>" >
+    <div id="<?php echo "all_" . $id_sha1_parent_projet2[$bc_] ?>">
 
 
 
         <div class="for_div">
             <input value="<?php echo $title_projet__ ?>" title="<?php echo $id_sha1_parent_projet2[$bc_] ?>" onkeyup="id_sha1_parent_projet2_input(this)" type="text" id="<?php echo 'title_projet_' . $id_sha1_parent_projet2[$bc_] ?>">
+            <div class="img_class_eles">
+                <img src="<?php echo 'img_user_action/' . $img_projet_src2[$bc_]  ?>" alt="" srcset="">
 
-            <div class="for_img"></div>
+            </div>
+
+            <div class="for_img">
+                <div onclick="img_user_action(this)" title="<?php echo  $id_projet2[$bc_] ?>" class="<?php echo  $id_projet2[$bc_] ?>">Ajouter une photo</div>
+
+            </div>
+
+
 
         </div>
 
@@ -67,22 +76,28 @@ for ($bc_ = 0; $bc_ < count($id_sha1_parent_projet2); $bc_++) {
 
     }
 
-    .for_img {
+    .for_img div {
         border: 1px solid black;
-        width: 100px;
-        height: 100px;
+        width: 300px;
+
+
+        padding: 50px;
+
+
         margin: auto;
         margin-top: 50px;
         margin-bottom: 50px;
         transition: 0.8s all;
+        text-align: center;
 
     }
 
-    .for_img:hover {
+    .for_img div:hover {
         cursor: pointer;
         background-color: black;
         transition: 1s all;
         border: 1px solid rgba(0, 0, 0, 0.1);
+        color: white;
 
     }
 </style>
@@ -233,17 +248,17 @@ for ($bc_ = 0; $bc_ < count($id_sha1_parent_projet2); $bc_++) {
 
 
     function remove_el_ok(_this) {
-             document.getElementById("all_"+_this.title).style.display="none" ; 
+        document.getElementById("all_" + _this.title).style.display = "none";
 
 
- 
-             var ok = new Information("remove/remove_el_ok.php"); // création de la classe 
-            ok.add("id_sha1_projet", _this.title); // ajout de l'information pour lenvoi 
- 
-            console.log(ok.info()); // demande l'information dans le tableau
-            ok.push(); // envoie l'information au code pkp 
 
- 
+        var ok = new Information("remove/remove_el_ok.php"); // création de la classe 
+        ok.add("id_sha1_projet", _this.title); // ajout de l'information pour lenvoi 
+
+        console.log(ok.info()); // demande l'information dans le tableau
+        ok.push(); // envoie l'information au code pkp 
+
+
 
 
     }
@@ -253,5 +268,9 @@ for ($bc_ = 0; $bc_ < count($id_sha1_parent_projet2); $bc_++) {
 <style>
     .cursor_pointer:hover {
         cursor: pointer;
+    }
+    .img_class_eles {
+ 
+        text-align: center;
     }
 </style>

@@ -196,6 +196,18 @@ $title_projet2 = $databaseHandler->tableList_info;
 $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
 $databaseHandler->getDataFromTable($req_sql, "name_projet");
 $name_projet2 = $databaseHandler->tableList_info;
+
+
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "id_projet");
+$id_projet2 = $databaseHandler->tableList_info;
+
+
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "img_projet_src");
+$img_projet_src2 = $databaseHandler->tableList_info;
  
 
  
@@ -204,13 +216,7 @@ $name_projet2 = $databaseHandler->tableList_info;
 
 
 
-$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-$databaseHandler->getDataFromTable($req_sql, "id_projet_img_auto");
-$id_projet_img_auto = $databaseHandler->tableList_info;
-
-
  
-
 
  
 
