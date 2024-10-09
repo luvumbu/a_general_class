@@ -627,7 +627,7 @@ for ($n = 0; $n < count($name_group); $n++) {
         </div>
     </div>
 <div>
-<img onclick="id_sha1_parent_projet2(this)" title="<?php  echo   $id_sha1_projet[$a] ?>" class="add_element"  width="50" height="50" src="https://img.icons8.com/cotton/50/plus--v2.png" alt="plus--v2"/>
+<img onclick="id_sha1_parent_projet2_(this)" title="<?php  echo   $id_sha1_projet[$a] ?>" class="add_element"  width="50" height="50" src="https://img.icons8.com/cotton/50/plus--v2.png" alt="plus--v2"/>
 
 
 <?php 
@@ -767,7 +767,7 @@ document.getElementById("src_"+_this.title).style.display="none" ;
 
 
 
-    function id_sha1_parent_projet2(_this) {
+    function id_sha1_parent_projet2_(_this) {
       
 
 
@@ -778,5 +778,7 @@ document.getElementById("src_"+_this.title).style.display="none" ;
         console.log(ok.info()); // demande l'information dans le tableau
         ok.push(); // envoie l'information au code pkp 
 
+
+        location.reload() ; 
     }
 </script>
