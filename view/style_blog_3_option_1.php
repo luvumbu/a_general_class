@@ -126,15 +126,7 @@ for ($n = 0; $n < count($name_group); $n++) {
                                         <div title="<?php echo $img_projet_src_img[$b_] ?>" class="<?php echo $id_sha1_projet[$a]  ?>" onclick="projet_img_action1(this)" type="button">Choisir l'image</div>
 
                                     </div>
-                                    <div class="btn btn-danger">
-                                        <div title="<?php echo $id_projet_img_auto[$b_] ?>" class="<?php echo $id_sha1_projet[$a]  ?>" onclick="projet_img_action2(this)" type="button">Effacer l'image</div>
-
-                                    </div>
-
-                                    <div class="btn btn-warning" style="color: white;">
-                                        <div title="<?php echo $img_projet_src_img[$b_] ?>" class="<?php echo $id_sha1_projet[$a]  ?>" onclick="projet_img_action2(this)" type="button">Choisir image</div>
-
-                                    </div>
+ 
                                 </div>
 
                             </div>
@@ -154,10 +146,7 @@ for ($n = 0; $n < count($name_group); $n++) {
                                     <div title="<?php echo $img_projet_src_img[$b_] ?>" class="<?php echo $id_sha1_projet[$a]  ?>" onclick="projet_img_action1(this)" type="button">Choisir l'image</div>
 
                                 </div>
-                                <div class="btn btn-danger">
-                                    <div title="<?php echo $img_projet_src_img[$b_] ?>" class="<?php echo $id_sha1_projet[$a]  ?>" onclick="projet_img_action2(this)" type="button">Effacer l'image</div>
-
-                                </div>
+          
                             </div>
 
                         <?php

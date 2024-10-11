@@ -229,7 +229,7 @@ for ($bc_ = 0; $bc_ < count($id_sha1_parent_projet2); $bc_++) {
 
     function gomme(_this) {
 
-        _this.style.display = "none";
+ 
         document.getElementById("name_projet_" + _this.title).innerHTML = "";
         document.getElementById("ifram_" + _this.title).value = "";
         id_sha1_parent_projet2_input(_this);

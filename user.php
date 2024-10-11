@@ -6,27 +6,16 @@
   <title>Document</title>
   <?php
   // Inclusion des fichiers de classe PHP nécessaires
-  require_once 'class/Creat_form.php';
-  require_once 'class/AsciiConverter.php';
-  require_once 'class/path_config.php';
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
 
-  require_once 'class/chercherIndex.php';
-  require_once 'class/IsLocal.php';
-  require_once 'class/give_url.php';
-  require_once 'class/getUserIP.php';
-  require_once 'class/tempsDeLecture.php';
-
-
-
-
-  ?>
-
-
-
-
-
-
-<?php
+ 
   // Inclusion des fichiers de classe PHP nécessaires
   require_once 'class/Creat_form.php';
   require_once 'class/AsciiConverter.php';
