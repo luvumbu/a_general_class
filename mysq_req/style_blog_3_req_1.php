@@ -16,6 +16,12 @@
 
 
 
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "id_sha1_parent_projet2");
+    $id_sha1_parent_projet2__ = $databaseHandler->tableList_info;
+
+
+
 
 
 
@@ -126,6 +132,7 @@
  
 
 
+ 
  
 
 for($wx = 0 ; $wx <count($img_projet_src_img) ; $wx++) {

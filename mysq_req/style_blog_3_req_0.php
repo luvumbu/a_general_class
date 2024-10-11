@@ -60,7 +60,7 @@ $databaseHandler->getDataFromTable($req_sql, "id_projet");
 $id_projet = $databaseHandler->tableList_info;
 
 
-//var_dump($id_projet ) ; 
+ 
 $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
 $databaseHandler->getDataFromTable($req_sql, "name_projet");
 $name_projet = $databaseHandler->tableList_info;
@@ -238,6 +238,8 @@ for ($wx = 0; $wx < count($img_projet_src_img); $wx++) {
         $databaseHandler->action_sql('DELETE FROM `projet_img` WHERE `id_projet_img_auto` ="' . $id_projet_img_auto[$wx] . '" ');
     }
 }
+
+
 
 ?>
 

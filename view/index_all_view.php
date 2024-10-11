@@ -269,7 +269,6 @@ require_once 'mysq_req/req_index_all_sql.php';
 
 
                   
-//  var_dump($id_sha1_projet_2) ; 
  
 
 
