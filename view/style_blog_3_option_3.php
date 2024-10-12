@@ -7,9 +7,7 @@
      }
  </style>
 
-<?php if($id_sha1_parent_projet2__[$a]==""){
 
-?>
  <div class="container mt-5">
      <div class="card" style="width: 18rem;">
          <?php
@@ -99,19 +97,19 @@
             } else {
                 ?>
 
-             <div class="mgrand">
+<div class="mgrand">
                  <div title="<?php echo $id_projet[$a] ?>" class="<?php echo $id_projet[$a] ?>" onclick="img_user_action(this)">
-                     ajouter une image
-                 </div>
+           ajouter une image
              </div>
+</div>
 
 
          <?php
             }
             ?>
          <div class="card-body el_max">
-             <h1><?php echo $title_projet_ ?></h1>
-             <p><?php echo $name_projet_; ?></p>
+            <h1><?php echo $title_projet_ ?></h1>
+            <p><?php echo $name_projet_; ?></p>
          </div>
 
 
@@ -124,11 +122,6 @@
 
                  </a>
              </div>
-
-             <?php
-
- 
-                ?>
              <div title="<?php echo $id_projet[$a] ?>" class="<?php echo $id_sha1_projet[$a] ?>" onclick="session_switch(this)">
                  <img width="50" height="50" src="https://img.icons8.com/ios/50/settings--v1.png" alt="settings--v1" />
              </div>
@@ -139,23 +132,18 @@
      </div>
 
  </div>
-<?php 
 
-        }
-        ?>
 
  <style>
-     .mgrand div {
-         background-color: black;
-         padding: 25px;
-         color: white;
-         text-align: center;
-     }
-
-     .mgrand:hover {
-         cursor: pointer;
-     }
-
+    .mgrand div {
+        background-color: black;
+        padding: 25px;
+        color:white ; 
+        text-align: center;
+    }
+    .mgrand:hover {
+        cursor: pointer;
+    }
      .cursor_pointer:hover {
          cursor: pointer;
      }
@@ -168,46 +156,36 @@
      }
 
      .body_projet {
-         background-color: #f0f8ff;
-         /* Couleur de fond bleu clair */
-         padding: 20px;
-         /* Espace intérieur */
-         border-radius: 10px;
-         /* Bords arrondis */
-         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-         /* Ombre subtile */
-     }
+    background-color: #f0f8ff; /* Couleur de fond bleu clair */
+    padding: 20px; /* Espace intérieur */
+    border-radius: 10px; /* Bords arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+}
 
-     .body_projet h1 {
-         font-family: 'Arial', sans-serif;
-         /* Police du titre */
-         font-size: 28px;
-         /* Taille du titre */
-         color: #333;
-         /* Couleur du texte du titre */
-         text-align: center;
-         /* Alignement du titre */
-         margin-bottom: 15px;
-         /* Espace en bas du titre */
-     }
+.body_projet h1 {
+    font-family: 'Arial', sans-serif; /* Police du titre */
+    font-size: 28px; /* Taille du titre */
+    color: #333; /* Couleur du texte du titre */
+    text-align: center; /* Alignement du titre */
+    margin-bottom: 15px; /* Espace en bas du titre */
+}
 
-     .body_projet p {
-         font-family: 'Verdana', sans-serif;
-         /* Police du texte */
-         font-size: 16px;
-         /* Taille du texte */
-         color: #555;
-         /* Couleur du texte du paragraphe */
-         line-height: 1.6;
-         /* Hauteur de ligne pour un meilleur espacement */
-         text-align: justify;
-         /* Justification du texte */
-     }
-
-     .el_max {
-         max-width: 100%;
-         max-height: 200px;
-         overflow: hidden;
-         overflow-y: scroll;
-     }
+.body_projet p {
+    font-family: 'Verdana', sans-serif; /* Police du texte */
+    font-size: 16px; /* Taille du texte */
+    color: #555; /* Couleur du texte du paragraphe */
+    line-height: 1.6; /* Hauteur de ligne pour un meilleur espacement */
+    text-align: justify; /* Justification du texte */
+}
+.el_max {
+    max-width: 100%;
+    max-height: 200px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
  </style>
+
+
+
+
+
