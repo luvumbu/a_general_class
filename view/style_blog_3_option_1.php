@@ -63,60 +63,23 @@ for ($n = 0; $n < count($name_group); $n++) {
 
     echo '<div class="mon_test">';
 
-
-
-
-
-
     for ($b_ = 0; $b_ < count($img_projet_src_img__x); $b_++) {
-
-
-
         if ($img_projet_src[$a] != $img_projet_src_img__x[$b_]) {
-
-            //
-
-
-
-
     ?>
 
             <div class="mon_test_child">
-
-
-
-
-
                 <?php
-
-
                 if ($img_projet_src_img__x[$b_]  != "") {
-
-
-
                     $file_path = "img_user_action/" . $img_projet_src_img[$b_];
-
-
-
-
-
                     if (checkFileExists($file_path)) {
                         // Extraire l'extension du fichier
                         $extension = strtolower(pathinfo($file_path, PATHINFO_EXTENSION));
-
                         // Afficher l'extension du fichier
-
-
                         // Vérifier le type de fichier et afficher en conséquence
                         if (in_array($extension, ['jpg', 'jpeg', 'png', 'gif'])) {
                             // Si c'est une image, l'afficher avec une balise <img>
-
-
-
                 ?>
-
-
-                            <div id="<?php echo "src_".$id_projet_img_auto[$b_] ?>">
+                            <div id="<?php echo "src_" . $id_projet_img_auto[$b_] ?>">
                                 <div>
                                     <div>
                                         <img src="<?php echo "img_user_action/" . $img_projet_src_img[$b_] ?>" alt="" srcset="">
@@ -126,7 +89,7 @@ for ($n = 0; $n < count($name_group); $n++) {
                                         <div title="<?php echo $img_projet_src_img[$b_] ?>" class="<?php echo $id_sha1_projet[$a]  ?>" onclick="projet_img_action1(this)" type="button">Choisir l'image</div>
 
                                     </div>
- 
+
                                 </div>
 
                             </div>
@@ -146,7 +109,7 @@ for ($n = 0; $n < count($name_group); $n++) {
                                     <div title="<?php echo $img_projet_src_img[$b_] ?>" class="<?php echo $id_sha1_projet[$a]  ?>" onclick="projet_img_action1(this)" type="button">Choisir l'image</div>
 
                                 </div>
-          
+
                             </div>
 
                         <?php
@@ -586,7 +549,7 @@ for ($n = 0; $n < count($name_group); $n++) {
 
         </div>
 
-        
+
         <?php
 
         if ($visibility_1_projet[$a] != "") {
@@ -615,17 +578,17 @@ for ($n = 0; $n < count($name_group); $n++) {
             <img width="50" class="add_element" height="50" src="https://img.icons8.com/ios/50/export.png" alt="export" />
         </div>
     </div>
-<div>
-<img onclick="id_sha1_parent_projet2_(this)" title="<?php  echo   $id_sha1_projet[$a] ?>" class="add_element"  width="50" height="50" src="https://img.icons8.com/cotton/50/plus--v2.png" alt="plus--v2"/>
+    <div>
+        <img onclick="id_sha1_parent_projet2_(this)" title="<?php echo   $id_sha1_projet[$a] ?>" class="add_element" width="50" height="50" src="https://img.icons8.com/cotton/50/plus--v2.png" alt="plus--v2" />
 
 
-<?php 
+        <?php
 
-require_once 'id_sha1_parent_projet2.php' ; 
+        require_once 'id_sha1_parent_projet2.php';
 
-?>
+        ?>
 
-</div>
+    </div>
 
     <div id="<?php echo  'date_form_' . $id_projet[$a] ?>" class="display_none">
         <form>
@@ -738,7 +701,7 @@ echo '</div>';
 
 
 
-document.getElementById("src_"+_this.title).style.display="none" ; 
+        document.getElementById("src_" + _this.title).style.display = "none";
 
 
 
@@ -757,7 +720,7 @@ document.getElementById("src_"+_this.title).style.display="none" ;
 
 
     function id_sha1_parent_projet2_(_this) {
-      
+
 
 
 
@@ -768,6 +731,6 @@ document.getElementById("src_"+_this.title).style.display="none" ;
         ok.push(); // envoie l'information au code pkp 
 
 
-        location.reload() ; 
+        location.reload();
     }
 </script>
