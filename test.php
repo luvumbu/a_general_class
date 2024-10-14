@@ -1,154 +1,109 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coop' à Fourchon</title>
+    <title>Architecture Projet Web</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: #C3562D;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .container {
-            margin: 20px auto;
-            max-width: 800px;
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section h2 {
-            text-align: center;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
-
-        .input-container {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            margin-bottom: 20px;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
         }
-
-        .input-container textarea {
-            width: 100%;
-            height: 60px;
-            border-radius: 10px;
-            border: 1px solid #ccc;
-            padding: 10px;
-            font-size: 1em;
+        canvas {
+            border: 3px solid #333;
+            background-color: #fff;
         }
-
-        .input-container img {
-            margin-left: 10px;
-            width: 40px;
-            height: 40px;
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
-
-        .documents {
-            text-align: center;
-        }
-
-        .documents h3 {
-            margin-bottom: 20px;
-        }
-
-        .document-items {
-            display: flex;
-            justify-content: space-around;
-        }
-
-        .document-item {
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            width: 150px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transition: 0.3s ease;
-        }
-
-        .document-item:hover {
-            border: 2px solid #C3562D;
-        }
-
-        .document-item img {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 10px;
-        }
-
-        .document-item p {
-            font-size: 1.1em;
-            font-weight: bold;
-        }
-
-        .document-item small {
-            font-size: 0.8em;
-            color: #666;
+        button:hover {
+            background-color: #2980b9;
         }
     </style>
 </head>
-
 <body>
-    <header>
-        <h1>Coop' à Fourchon</h1>
-    </header>
 
-    <div class="container">
-        <div class="section">
-            <h2>Nos prochaines réunions</h2>
-            <div class="input-container">
-                <textarea placeholder="Écrivez votre message"></textarea>
-                <img src="calendar-icon.png" alt="Calendrier">
-            </div>
-        </div>
+<canvas id="architectureCanvas" width="1000" height="600"></canvas>
+<button id="downloadBtn">Télécharger le Diagramme</button>
 
-        <div class="section">
-            <h2>Nos actualités</h2>
-            <div class="input-container">
-                <textarea placeholder="Écrivez votre message"></textarea>
-                <img src="news-icon.png" alt="Actualités">
-            </div>
-        </div>
+<script>
+    const canvas = document.getElementById('architectureCanvas');
+    const ctx = canvas.getContext('2d');
 
-        <div class="documents">
-            <h3>Mes Documents</h3>
-            <div class="document-items">
-                <div class="document-item">
-                    <img src="reunion-icon.png" alt="Nos réunions">
-                    <p>Nos réunions</p>
-                    <small>1</small>
-                </div>
-                <div class="document-item">
-                    <img src="syndicat-icon.png" alt="Notre syndicat">
-                    <p>Notre syndicat</p>
-                    <small>2</small>
-                </div>
-                <div class="document-item">
-                    <img src="commissions-icon.png" alt="Nos commissions">
-                    <p>Nos commissions</p>
-                    <small>3</small>
-                </div>
-            </div>
-        </div>
-    </div>
+    // Fonction pour dessiner des rectangles avec texte et couleur
+    function drawBox(x, y, width, height, color, text) {
+        ctx.fillStyle = color;
+        ctx.fillRect(x, y, width, height);
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 3;
+        ctx.strokeRect(x, y, width, height);
+
+        ctx.fillStyle = '#fff';
+        ctx.font = '18px Arial';
+        ctx.fillText(text, x + 10, y + height / 2);
+    }
+
+    // Fonction pour dessiner des flèches
+    function drawArrow(fromX, fromY, toX, toY) {
+        ctx.strokeStyle = '#333';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(fromX, fromY);
+        ctx.lineTo(toX, toY);
+        ctx.stroke();
+
+        const headLength = 10; 
+        const angle = Math.atan2(toY - fromY, toX - fromX);
+        ctx.beginPath();
+        ctx.moveTo(toX, toY);
+        ctx.lineTo(toX - headLength * Math.cos(angle - Math.PI / 6), toY - headLength * Math.sin(angle - Math.PI / 6));
+        ctx.lineTo(toX - headLength * Math.cos(angle + Math.PI / 6), toY - headLength * Math.sin(angle + Math.PI / 6));
+        ctx.lineTo(toX, toY);
+        ctx.fillStyle = '#333';
+        ctx.fill();
+    }
+
+    // Dessin de l'architecture web avec des couleurs attrayantes
+    drawBox(50, 100, 200, 100, '#3498db', 'Client (Navigateur)');
+    drawBox(300, 100, 200, 100, '#1abc9c', 'Serveur Web (Apache/Nginx)');
+    drawBox(550, 100, 200, 100, '#e74c3c', 'Serveur App (Node.js/PHP)');
+    drawBox(300, 300, 200, 100, '#f1c40f', 'Base de Données (MySQL/MongoDB)');
+    drawBox(550, 300, 200, 100, '#9b59b6', 'API Externe (REST)');
+
+    // Dessin des flèches avec du texte
+    drawArrow(250, 150, 300, 150);  // Client -> Serveur Web
+    drawArrow(500, 150, 550, 150);  // Serveur Web -> Serveur App
+    drawArrow(400, 200, 400, 300);  // Serveur Web -> Base de Données
+    drawArrow(650, 200, 650, 300);  // Serveur App -> API Externe
+
+    // Légendes des flèches
+    ctx.fillStyle = '#000';
+    ctx.font = '14px Arial';
+    ctx.fillText('Requête HTTP', 260, 140);
+    ctx.fillText('Appel API', 610, 190);
+    ctx.fillText('Requêtes DB', 410, 260);
+
+    // Fonction pour télécharger l'image
+    document.getElementById('downloadBtn').addEventListener('click', function() {
+        const link = document.createElement('a');
+        link.download = 'architecture-web.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+    });
+</script>
+
 </body>
-
 </html>

@@ -67,7 +67,7 @@ for ($n = 0; $n < count($name_group); $n++) {
         if ($img_projet_src[$a] != $img_projet_src_img__x[$b_]) {
     ?>
 
-            <div class="mon_test_child">
+            <div class="mon_test_child" id="<?php echo  $img_projet_src_img__x[$b_]?>">
                 <?php
                 if ($img_projet_src_img__x[$b_]  != "") {
                     $file_path = "img_user_action/" . $img_projet_src_img[$b_];
@@ -87,7 +87,9 @@ for ($n = 0; $n < count($name_group); $n++) {
                                     </div>
                                     <div class="btn btn-success">
                                         <div title="<?php echo $img_projet_src_img[$b_] ?>" class="<?php echo $id_sha1_projet[$a]  ?>" onclick="projet_img_action1(this)" type="button">Choisir l'image</div>
-
+                                    </div>
+                                    <div class="btn btn-danger">
+                                        <div title="<?php echo $img_projet_src_img[$b_] ?>" class="<?php echo $id_sha1_projet[$a]  ?>" onclick="projet_img_action2(this)" type="button">effacer l'image</div>
                                     </div>
 
                                 </div>
@@ -698,21 +700,25 @@ echo '</div>';
 
     function projet_img_action2(_this) {
 
+ 
 
 
+ 
 
-        document.getElementById("src_" + _this.title).style.display = "none";
+        document.getElementById(_this.title).style.display="none" ; 
 
+ 
+ 
 
 
         var ok = new Information("remove/projet_img_action2.php"); // création de la classe 
-        ok.add("id_projet_img_auto", _this.title); // ajout de l'information pour lenvoi 
+        ok.add("img_projet_src_img", _this.title); // ajout de l'information pour lenvoi 
 
         console.log(ok.info()); // demande l'information dans le tableau
         ok.push(); // envoie l'information au code pkp 
 
-
-
+ 
+ 
 
 
     }
