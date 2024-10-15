@@ -244,13 +244,13 @@ else {
 }
  
 
-
 }
 else {
   echo '<div class="err404">' ; 
   echo '<img src="../src/img_const/404.png" alt="">' ; 
   echo '</div>' ;
 }
+
 
   ?>
 <style>

@@ -82,7 +82,7 @@ for ($n = 0; $n < count($name_group); $n++) {
                             <div id="<?php echo "src_" . $id_projet_img_auto[$b_] ?>">
                                 <div>
                                     <div>
-                                        <img src="<?php echo "img_user_action/" . $img_projet_src_img[$b_] ?>" alt="" srcset="">
+                                        <img id="<?php echo "src_this_".$img_projet_src_img[$b_]  ?>" src="<?php echo "img_user_action/" . $img_projet_src_img[$b_] ?>" alt="" srcset="">
 
                                     </div>
                                     <div class="btn btn-success">
@@ -678,16 +678,34 @@ echo '</div>';
     function projet_img_action1(_this) {
 
 
-        document.getElementById("src_" + _this.className).style.display = "block";
 
-        document.getElementById("src_" + _this.className).src = "img_user_action/" + _this.title;
+ var stock =document.getElementById("src_" + _this.className).src ;
 
+
+  
+ 
+        var src_this = "img_user_action/"+_this.title ; 
+        var src_autre = document.getElementById("src_" + _this.className).src ; 
+
+        var src_id = _this.id ; 
+
+ 
+
+
+       // document.getElementById("src_" + _this.className).style.display = "block";
+
+        document.getElementById("src_" + _this.className).src = src_this;
+
+
+       
+        
         var ok = new Information("update/projet_img_action1.php"); // création de la classe 
         ok.add("id_sha1_projet", _this.className); // ajout de l'information pour lenvoi 
         ok.add("img_projet_src", _this.title); // ajout de l'information pour lenvoi 
 
         console.log(ok.info()); // demande l'information dans le tableau
         ok.push(); // envoie l'information au code pkp 
+
 
 
 
