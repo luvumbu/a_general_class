@@ -2,6 +2,10 @@
 // Démarre la session PHP pour conserver les données utilisateur entre les pages
 session_start();
 require_once 'class/Get_anne.php' ; 
+require_once 'class/Publication.php' ; 
+
+
+
  
 ?>
 

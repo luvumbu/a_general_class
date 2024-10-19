@@ -17,12 +17,14 @@ require_once 'mysq_req/req_index_all_sql.php';
 <body>
 <style>
     .art_c {
-        background-color: #98ccfd;
+        background-color: rgb(26, 188, 156);
         color: white;
         width: 200px;
         padding: 5px;
         border-radius: 8px;
         margin-top: 50px;
+        padding: 8px;
+        text-align: center;
     }
 
     a {
@@ -305,12 +307,47 @@ require_once 'mysq_req/req_index_all_sql.php';
 <h1 class="card-title"><?php echo  $title_projet_  ?></h1>
 
  
- 
+
 
 
     <a href="<?php echo 'img_user_action/' . $img_projet_src[$a] ?>">
 
-    <p class="data_time"><?php echo $date_inscription_projet[$a]  ?></p>
+    <div class="data_time"><?php
+    
+
+    
+    
+
+    $publication = new Publication( $date_inscription_projet[$a]);
+    $apple = new Get_anne( $date_inscription_projet[$a]);
+
+    if($publication->getDaysElapsed()==0){
+            echo "Publié aujourd'hui a " ; 
+
+        
+
+       echo  $apple ->get_heure_complet() ;
+    }
+    else {
+    echo "Publie depuis " . $publication->getDaysElapsed()." jours ";
+
+    echo "<br/>" ; 
+
+    echo  $apple->get_jour();
+    echo "/" ; 
+    echo  $apple ->get_mois();
+    echo "/" ; 
+    echo  $apple ->get_anne();
+   echo "  " ; 
+    echo  $apple ->get_heure_complet() ;
+
+
+
+    }
+    
+    
+    
+    ?></div>
    
   <img src="<?php echo 'img_user_action/' . $img_projet_src[$a] ?>" alt="" srcset="">
  </a>
@@ -380,6 +417,16 @@ require_once 'mysq_req/req_index_all_sql.php';
     ?>
 </div>
 
+
+<style>
+    .data_time{
+       
+        text-align: center;
+        padding: 10px;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+</style>
 
 </body>
 
