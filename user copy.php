@@ -392,7 +392,13 @@ if ($verif1 == "") {
 }
 
 ?>
+<div class="text_option_projet">
+  <div>
+    ajouter un commentaire a l'article
+  </div>
+<img width="100" height="100" src="https://img.icons8.com/fluency-systems-filled/100/multiline-text.png" alt="multiline-text" />
 
+</div>
 
 
 <style>

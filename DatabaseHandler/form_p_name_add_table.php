@@ -206,7 +206,6 @@ $databaseHandler->add_table("projet_img");
 
 
 
-
 $databaseHandler = new DatabaseHandler($input_1,$input_2); 
 $databaseHandler->set_column_names("id_visit_user");
 
@@ -255,7 +254,146 @@ $databaseHandler->add_table("visit_user");
 
 
 
+
+
+
+
+
+$databaseHandler = new DatabaseHandler($input_1,$input_2); 
+$databaseHandler->set_column_names("id_option_projet");
+$databaseHandler->set_column_names("id_sha1__option_projet");
+
+$databaseHandler->set_column_names("start_option_projet");
+$databaseHandler->set_column_names("text_option_projet");
+
+$databaseHandler->set_column_names("sha1_option_projet");
+
+
+$databaseHandler->set_column_names("ip1_option_projet");
+$databaseHandler->set_column_names("ip2_option_projet");
+$databaseHandler->set_column_names("ip3_option_projet");
+$databaseHandler->set_column_names("ip4_option_projet");
+$databaseHandler->set_column_names("ip5_option_projet");
+$databaseHandler->set_column_names("ip6_option_projet");
+$databaseHandler->set_column_names("ip7_option_projet");
+$databaseHandler->set_column_names("ip8_option_projet");
+$databaseHandler->set_column_names("ip9_option_projet");
+
+
+
+
+$databaseHandler->set_column_names("timestamp_option_projet");
+
+
+
  
+
+
+$databaseHandler->set_column_types("INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY");
+ 
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+
+$databaseHandler->set_column_types("TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
+$databaseHandler->add_table("option_projet");
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+$databaseHandler = new DatabaseHandler($input_1,$input_2); 
+$databaseHandler->set_column_names("id_comment_projet");
+$databaseHandler->set_column_names("id_sha1_comment_projet");
+
+$databaseHandler->set_column_names("start_comment_projet");
+$databaseHandler->set_column_names("text_comment_projet");
+$databaseHandler->set_column_names("name_comment_projet");
+
+
+$databaseHandler->set_column_names("sha1_comment_projet");
+
+
+$databaseHandler->set_column_names("ip1_comment_projet");
+$databaseHandler->set_column_names("ip2_comment_projet");
+$databaseHandler->set_column_names("ip3_comment_projet");
+$databaseHandler->set_column_names("ip4_comment_projet");
+$databaseHandler->set_column_names("ip5_comment_projet");
+$databaseHandler->set_column_names("ip6_comment_projet");
+$databaseHandler->set_column_names("ip7_comment_projet");
+$databaseHandler->set_column_names("ip8_comment_projet");
+$databaseHandler->set_column_names("ip9_comment_projet");
+
+
+
+
+$databaseHandler->set_column_names("timestamp_comment_projet");
+
+
+
+ 
+
+
+$databaseHandler->set_column_types("INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY");
+ 
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+
+$databaseHandler->set_column_types("TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
+$databaseHandler->add_table("comment_projet");
 
 
 

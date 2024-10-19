@@ -45,8 +45,10 @@
             </div>
         </nav>
     </div>
+<?php 
 
-
+?>
+ 
     <style>
         #header {
             display: flex;
@@ -204,7 +206,7 @@
                 var para = document.createElement("li");
                 para.innerHTML = '<b><h1 style="font-size:0.8em;padding:10px"><a class="nav-link active" aria-current="page" href="<?php echo $id_sha1_projet_i[$xx] ?>"><?php echo AsciiConverter::asciiToString($title_projet_i[$xx]);    ?></h1></b>';
                 para.setAttribute("class", "nav-item");
-           
+
                 document.getElementById("add_nav").appendChild(para);
             </script>
 
@@ -223,7 +225,7 @@
                 var para = document.createElement("li");
                 para.innerHTML = '<a class="nav-link active" aria-current="page" href="<?php echo $id_sha1_parent_projet__p[0] ?>"><?php echo "_Source_";    ?></a>';
                 para.setAttribute("class", "nav-item");
-                
+
 
 
                 document.getElementById("add_nav").appendChild(para);
@@ -231,212 +233,86 @@
 
 
 
-        <?php
-    }
-
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
-    $id_sha1_projet = $databaseHandler->tableList_info;
-
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql, "id_user_projet");
-    $id_user_projet = $databaseHandler->tableList_info;
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql, "id_parents_projet");
-    $id_parents_projet = $databaseHandler->tableList_info;
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql, "visit_projet");
-    $visit_projet = $databaseHandler->tableList_info;
-
-
-
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql, "name_projet");
-    $name_projet = $databaseHandler->tableList_info;
-
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql, "statue_projet");
-    $statue_projet = $databaseHandler->tableList_info;
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql, "title_projet");
-    $title_projet = $databaseHandler->tableList_info;
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql, "description_projet");
-    $description_projet = $databaseHandler->tableList_info;
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql, "qr_code_src_projet");
-    $qr_code_src_projet = $databaseHandler->tableList_info;
-
-
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql, "visibility_1_projet");
-    $visibility_1_projet = $databaseHandler->tableList_info;
-
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql, "img_projet_src");
-    $img_projet_src = $databaseHandler->tableList_info;
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql, "group_projet");
-    $group_projet = $databaseHandler->tableList_info;
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql, "heure_debut_projet");
-    $heure_debut_projet = $databaseHandler->tableList_info;
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql, "date_debut_projet");
-    $date_debut_projet = $databaseHandler->tableList_info;
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql, "heure_fin_projet");
-    $heure_fin_projet = $databaseHandler->tableList_info;
-
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql, "date_fin_projet");
-    $date_fin_projet = $databaseHandler->tableList_info;
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql, "date_inscription_projet");
-    $date_inscription_projet = $databaseHandler->tableList_info;
-
-
-
-
-
-
-
-
-    $req_sql_parent22 = 'SELECT * FROM `projet` WHERE  `id_sha1_parent_projet2` ="' . give_url() . '" ';
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql_parent22, "id_projet");
-    $id_projet22 = $databaseHandler->tableList_info;
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql_parent22, "id_user_projet");
-    $id_user_projet22 = $databaseHandler->tableList_info;
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql_parent22, "id_sha1_projet");
-    $id_sha1_projet22 = $databaseHandler->tableList_info;
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql_parent22, "id_sha1_parent_projet");
-    $id_sha1_parent_projet22 = $databaseHandler->tableList_info;
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql_parent22, "id_sha1_parent_projet2");
-    $id_sha1_parent_projet222 = $databaseHandler->tableList_info;
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql_parent22, "name_projet");
-    $name_projet22 = $databaseHandler->tableList_info;
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql_parent22, "title_projet");
-    $title_projet22 = $databaseHandler->tableList_info;
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql_parent22, "img_projet_src");
-    $img_projet_src22 = $databaseHandler->tableList_info;
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql_parent22, "heure_debut_projet");
-    $heure_debut_projet22 = $databaseHandler->tableList_info;
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql_parent22, "date_debut_projet");
-    $date_debut_projet22 = $databaseHandler->tableList_info;
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql_parent22, "heure_fin_projet");
-    $heure_fin_projet22 = $databaseHandler->tableList_info;
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql_parent22, "date_fin_projet");
-    $date_fin_projet22 = $databaseHandler->tableList_info;
-
-    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-    $databaseHandler->getDataFromTable($req_sql_parent22, "date_inscription_projet");
-    $date_inscription_projet22 = $databaseHandler->tableList_info;
-
-
-
-
-echo "<div class='child_els'>" ; 
-
-    for ($xc = 0; $xc < count($date_inscription_projet22); $xc++) {
-
-
-
-
-        echo "<h1 >";
-
-        echo  AsciiConverter::asciiToString($title_projet22[$xc]);
-        echo "</h1>";
-
-        echo "<div>";
-
-        echo  AsciiConverter::asciiToString($name_projet22[$xc]);
-        echo "</div>";
-    }
-
-
-    echo "</div>" ; 
-
-    for ($a = 0; $a < count($date_inscription_projet); $a++) {
-
-
-
-        $name_projet__  =  AsciiConverter::asciiToString($name_projet[$a]); // Affiche "Hello" ; 
-        $title_projet__ = AsciiConverter::asciiToString($title_projet[$a]);;
-        $description_projet__ = AsciiConverter::asciiToString($description_projet[$a]);;
-
-
-
-
-        $req_sql = 'SELECT * FROM `projet` WHERE  `id_sha1_parent_projet` ="' . $id_sha1_projet[$a] . '" ';
+            <?php
+        }
 
 
         $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
         $databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
-        $id_sha1_projet___ = $databaseHandler->tableList_info;
+        $id_sha1_projet = $databaseHandler->tableList_info;
+
+
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql, "id_user_projet");
+        $id_user_projet = $databaseHandler->tableList_info;
+
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql, "id_parents_projet");
+        $id_parents_projet = $databaseHandler->tableList_info;
+
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql, "visit_projet");
+        $visit_projet = $databaseHandler->tableList_info;
+
+
 
 
         $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
         $databaseHandler->getDataFromTable($req_sql, "name_projet");
-        $name_projet___ = $databaseHandler->tableList_info;
+        $name_projet = $databaseHandler->tableList_info;
 
+
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql, "statue_projet");
+        $statue_projet = $databaseHandler->tableList_info;
 
         $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
         $databaseHandler->getDataFromTable($req_sql, "title_projet");
-        $title_projet___ = $databaseHandler->tableList_info;
-
+        $title_projet = $databaseHandler->tableList_info;
 
         $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
         $databaseHandler->getDataFromTable($req_sql, "description_projet");
-        $description_projet___ = $databaseHandler->tableList_info;
+        $description_projet = $databaseHandler->tableList_info;
 
-
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql, "qr_code_src_projet");
+        $qr_code_src_projet = $databaseHandler->tableList_info;
 
 
 
         $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
         $databaseHandler->getDataFromTable($req_sql, "visibility_1_projet");
-        $visibility_1_projet___x = $databaseHandler->tableList_info;
+        $visibility_1_projet = $databaseHandler->tableList_info;
+
+
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql, "img_projet_src");
+        $img_projet_src = $databaseHandler->tableList_info;
+
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql, "group_projet");
+        $group_projet = $databaseHandler->tableList_info;
+
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql, "heure_debut_projet");
+        $heure_debut_projet = $databaseHandler->tableList_info;
+
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql, "date_debut_projet");
+        $date_debut_projet = $databaseHandler->tableList_info;
+
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql, "heure_fin_projet");
+        $heure_fin_projet = $databaseHandler->tableList_info;
+
+
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql, "date_fin_projet");
+        $date_fin_projet = $databaseHandler->tableList_info;
+
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql, "date_inscription_projet");
+        $date_inscription_projet = $databaseHandler->tableList_info;
 
 
 
@@ -445,7 +321,194 @@ echo "<div class='child_els'>" ;
 
 
 
-        ?>
+        $req_sql_parent22 = 'SELECT * FROM `projet` WHERE  `id_sha1_parent_projet2` ="' . give_url() . '" ';
+
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql_parent22, "id_projet");
+        $id_projet22 = $databaseHandler->tableList_info;
+
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql_parent22, "id_user_projet");
+        $id_user_projet22 = $databaseHandler->tableList_info;
+
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql_parent22, "id_sha1_projet");
+        $id_sha1_projet22 = $databaseHandler->tableList_info;
+
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql_parent22, "id_sha1_parent_projet");
+        $id_sha1_parent_projet22 = $databaseHandler->tableList_info;
+
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql_parent22, "id_sha1_parent_projet2");
+        $id_sha1_parent_projet222 = $databaseHandler->tableList_info;
+
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql_parent22, "name_projet");
+        $name_projet22 = $databaseHandler->tableList_info;
+
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql_parent22, "title_projet");
+        $title_projet22 = $databaseHandler->tableList_info;
+
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql_parent22, "img_projet_src");
+        $img_projet_src22 = $databaseHandler->tableList_info;
+
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql_parent22, "heure_debut_projet");
+        $heure_debut_projet22 = $databaseHandler->tableList_info;
+
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql_parent22, "date_debut_projet");
+        $date_debut_projet22 = $databaseHandler->tableList_info;
+
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql_parent22, "heure_fin_projet");
+        $heure_fin_projet22 = $databaseHandler->tableList_info;
+
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql_parent22, "date_fin_projet");
+        $date_fin_projet22 = $databaseHandler->tableList_info;
+
+        $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+        $databaseHandler->getDataFromTable($req_sql_parent22, "date_inscription_projet");
+        $date_inscription_projet22 = $databaseHandler->tableList_info;
+
+
+
+
+
+
+
+
+      
+
+
+ 
+        $ip = $_SERVER["REMOTE_ADDR"];
+        
+        // Vérifier si l'adresse IP est celle d'un environnement local
+        if ($ip == '127.0.0.1' || $ip == '::1') {
+             
+
+        $ip2_option_projet_ =  "localhost";
+
+ 
+
+        } else {
+        $ip2_option_projet_ = gethostbyaddr($_SERVER["REMOTE_ADDR"]);
+            
+        }
+     
+        
+
+
+
+ 
+
+
+
+        echo "<div class='child_els'>";
+
+
+        $src_elements = "";
+
+        for ($xc = 0; $xc < count($date_inscription_projet22); $xc++) {
+
+            echo "<h1 >";
+            echo  AsciiConverter::asciiToString($title_projet22[$xc]);
+            echo "</h1>";
+
+
+            if ($img_projet_src22[$xc] != '') {
+            ?>
+
+                <div class="user_img">
+                    <img src="<?php echo   "../img_user_action/" . $img_projet_src22[$xc] ?>" alt="">
+
+                </div>
+
+            <?php
+            }
+
+
+            $anne_complet = new Get_anne($date_inscription_projet22[$xc]);
+
+
+            echo "<div class='ma_date'>";
+            echo $anne_complet->get_jour() . "/";
+            echo $anne_complet->get_mois() . "/";
+
+            echo $anne_complet->get_anne();
+            echo "</div>";
+
+
+
+
+
+
+            echo "<div>";
+
+            echo  AsciiConverter::asciiToString($name_projet22[$xc]);
+            echo "</div>";
+        }
+
+
+        echo "</div>";
+
+        for ($a = 0; $a < count($date_inscription_projet); $a++) {
+
+
+
+            $name_projet__  =  AsciiConverter::asciiToString($name_projet[$a]); // Affiche "Hello" ; 
+            $title_projet__ = AsciiConverter::asciiToString($title_projet[$a]);;
+            $description_projet__ = AsciiConverter::asciiToString($description_projet[$a]);;
+
+
+
+
+            $src_elements =  $name_projet__ + $title_projet__;
+
+
+            $req_sql = 'SELECT * FROM `projet` WHERE  `id_sha1_parent_projet` ="' . $id_sha1_projet[$a] . '" ';
+
+
+            $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+            $databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
+            $id_sha1_projet___ = $databaseHandler->tableList_info;
+
+
+            $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+            $databaseHandler->getDataFromTable($req_sql, "name_projet");
+            $name_projet___ = $databaseHandler->tableList_info;
+
+
+            $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+            $databaseHandler->getDataFromTable($req_sql, "title_projet");
+            $title_projet___ = $databaseHandler->tableList_info;
+
+
+            $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+            $databaseHandler->getDataFromTable($req_sql, "description_projet");
+            $description_projet___ = $databaseHandler->tableList_info;
+
+
+
+
+
+            $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+            $databaseHandler->getDataFromTable($req_sql, "visibility_1_projet");
+            $visibility_1_projet___x = $databaseHandler->tableList_info;
+
+
+
+
+
+
+
+
+            ?>
 
 
 
@@ -479,7 +542,7 @@ echo "<div class='child_els'>" ;
 
 
 
-                    $somm_text2 = $somm_text2 . $name_projet___x . $title_projet___x . $description_projet___x;
+                    $somm_text2 = $src_elements . $somm_text2 . $name_projet___x . $title_projet___x . $description_projet___x;
                 }
 
 
@@ -634,21 +697,33 @@ echo "<div class='child_els'>" ;
 
 
         $PHP_SELF = $_SERVER['PHP_SELF'];
+                $_SESSION["PHP_SELF"] = $_SERVER['PHP_SELF'];
+       
+
 
         $SERVER_NAME = $_SERVER['SERVER_NAME'];
+                $_SESSION["SERVER_NAME"] = $_SERVER['SERVER_NAME'];
 
         $HTTP_HOST = $_SERVER['HTTP_HOST'];
+                $_SESSION["HTTP_HOST"] = $_SERVER['HTTP_HOST'];
 
         $HTTP_REFERER = $_SERVER['HTTP_REFERER'];
+                $_SESSION["HTTP_REFERER"] = $_SERVER['HTTP_REFERER'];
 
         $HTTP_USER_AGENT = $_SERVER['HTTP_USER_AGENT'];
+                $_SESSION["HTTP_USER_AGENT"] = $_SERVER['HTTP_USER_AGENT'];
 
         $SCRIPT_NAME = $_SERVER['SCRIPT_NAME'];
+                $_SESSION["SCRIPT_NAME"] = $_SERVER['SCRIPT_NAME'];
 
 
 
         $ipUser = getUserIP();
         $port = $_SERVER['REMOTE_PORT'];
+
+
+
+ 
 
         /*
  $ipUser = getUserIP();
@@ -673,7 +748,7 @@ echo "<div class='child_els'>" ;
     '$give_url',
     '$ipUser',
     '$port', 
-    '$PHP_SELF',
+    '$host',
     '$SERVER_NAME',
     '$HTTP_HOST',
     '$HTTP_REFERER',
@@ -686,6 +761,7 @@ echo "<div class='child_els'>" ;
 
 
 
+require_once 'start.php' ; 
 
 
 
@@ -745,13 +821,49 @@ echo "<div class='child_els'>" ;
     }
 </style>
 
+
+<?php
+
+require 'comment.php';
+?>
 </html>
 
 
 
- <style>
+<style>
     .child_els .h1 {
         margin-top: 20px;
         text-align: center;
     }
- </style>
+
+    .ma_date {
+
+        background-color: rgba(220, 0, 0, 0.9);
+
+        width: 300px;
+        margin: auto;
+        color: white;
+        text-align: center;
+        padding: 7px;
+        margin-bottom: 75px;
+        box-shadow: 1px 1px 2px black;
+        text-shadow: 1px 1px 2px black;
+        transition: 1s all;
+
+
+
+
+    }
+
+    .ma_date:hover {
+        cursor: pointer;
+
+        background-color: rgba(220, 0, 0, 0.6);
+        transition: 1s all;
+
+
+    }
+</style>
+
+
+ 
