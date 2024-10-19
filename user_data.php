@@ -760,6 +760,9 @@
 
 
 
+echo '</div>';
+
+require_once 'comment.php' ; 
 
 require_once 'start.php' ; 
 
@@ -767,10 +770,7 @@ require_once 'start.php' ;
 
 ?>
 
-</div>
 
-
-</div>
 
 </body>
 <style>
@@ -821,11 +821,6 @@ require_once 'start.php' ;
     }
 </style>
 
-
-<?php
-
-require 'comment.php';
-?>
 </html>
 
 
@@ -864,6 +859,5 @@ require 'comment.php';
 
     }
 </style>
-
 
  

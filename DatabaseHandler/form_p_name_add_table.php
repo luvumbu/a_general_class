@@ -261,11 +261,7 @@ $databaseHandler->add_table("visit_user");
 
 $databaseHandler = new DatabaseHandler($input_1,$input_2); 
 $databaseHandler->set_column_names("id_option_projet");
-$databaseHandler->set_column_names("id_sha1__option_projet");
-
 $databaseHandler->set_column_names("start_option_projet");
-$databaseHandler->set_column_names("text_option_projet");
-
 $databaseHandler->set_column_names("sha1_option_projet");
 
 
@@ -296,10 +292,6 @@ $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
-
-$databaseHandler->set_column_types("LONGTEXT NOT NULL");
-
-$databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 
 
@@ -318,17 +310,6 @@ $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
 $databaseHandler->add_table("option_projet");
 
-
-
-
-
-
-
-
-
-
-
- 
 
 
 
@@ -394,6 +375,14 @@ $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 
 $databaseHandler->set_column_types("TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
 $databaseHandler->add_table("comment_projet");
+
+
+
+
+
+
+
+ 
 
 
 

@@ -25,7 +25,7 @@ $SCRIPT_NAME =  $_SESSION["SCRIPT_NAME"]  ;
  
  
 
-$id_sha1__option_projet = time() ; 
+$session_general = $_SESSION["session_general"][0] ;
 
 
 
@@ -56,7 +56,7 @@ if ($_SERVER["REMOTE_ADDR"] == '127.0.0.1' || $_SERVER["REMOTE_ADDR"] == '::1') 
 
      
 $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-$databaseHandler->action_sql("DELETE FROM  `option_projet` WHERE   `ip2_option_projet` = '$SERVER_NAME'") ;
+$databaseHandler->action_sql("DELETE FROM  `option_projet` WHERE   `ip7_option_projet` = '$session_general'") ;
 
 
 
@@ -67,8 +67,6 @@ $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
 $databaseHandler->action_sql("INSERT INTO `option_projet` (
 start_option_projet,
 sha1_option_projet,
-id_sha1__option_projet,
-
 
 ip1_option_projet,
 ip2_option_projet,
@@ -77,14 +75,16 @@ ip3_option_projet,
 
 ip4_option_projet,
 ip5_option_projet,
-ip6_option_projet
+ip6_option_projet,
+ip7_option_projet
+
+
 
 
 ) 
 VALUES (
 '$start_option_projet',
 '$sha1_option_projet',
-'$id_sha1__option_projet' , 
 
 '$PHP_SELF',
 '$SERVER_NAME',
@@ -92,7 +92,8 @@ VALUES (
 
 '$HTTP_REFERER',
 '$HTTP_USER_AGENT',
-'$SCRIPT_NAME'
+'$SCRIPT_NAME',
+'$session_general'
 
 
 

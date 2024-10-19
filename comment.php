@@ -165,9 +165,13 @@ $timestamp_comment_projet = $databaseHandler->tableList_info;
 <script>
     function btn_comment_section(_this) {
 
-        _this.style.display = "none";
+      //  _this.style.display = "none";
         var text_comment_projet = document.getElementById("text_comment_projet").value;
         var name_comment_projet = document.getElementById("name_comment_projet").value;
+
+
+        console.log(text_comment_projet) ; 
+        console.log(name_comment_projet) ; 
 
 
 
@@ -178,13 +182,13 @@ $timestamp_comment_projet = $databaseHandler->tableList_info;
         ok.add("name_comment_projet", name_comment_projet);
 
 
-        document.getElementById("start_option_projet").innerHTML = "Merci";
+      //  document.getElementById("start_option_projet").innerHTML = "Merci";
 
         ok.push();
 
+ 
 
-
-
+ 
 
 const xhttp = new XMLHttpRequest();
   xhttp.onload = function() {
@@ -194,10 +198,17 @@ const xhttp = new XMLHttpRequest();
   xhttp.open("GET", "../comment_ajax.php");
   xhttp.send();
 
-
+ 
 
 
 
 
     }
 </script>
+
+<style>
+    #comment{
+        max-height: 600px;
+        overflow-y: scroll;
+    }
+</style>
