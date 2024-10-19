@@ -33,7 +33,7 @@ $timestamp_comment_projet = $databaseHandler->tableList_info;
 ?>
 
 
-<div class="comment-section">
+<div class="comment-section" id="comment">
 
 
 
@@ -183,6 +183,16 @@ $timestamp_comment_projet = $databaseHandler->tableList_info;
         ok.push();
 
 
+
+
+
+const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("comment").innerHTML =
+    this.responseText;
+  }
+  xhttp.open("GET", "../comment_ajax.php");
+  xhttp.send();
 
 
 
