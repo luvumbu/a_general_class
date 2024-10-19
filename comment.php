@@ -49,7 +49,62 @@ $timestamp_comment_projet = $databaseHandler->tableList_info;
     <div class="comment">
         <h3><?php echo AsciiConverter::asciiToString($text_comment_projet[$bhu]) ?></h3>
         <p><?php echo  AsciiConverter::asciiToString($name_comment_projet[$bhu]) ?></p>
-        <time datetime="2024-10-19"><?php echo $timestamp_comment_projet[$bhu]?></time>
+        <time>
+            <?php 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            $publication = new Publication($timestamp_comment_projet[$bhu]);
+            $apple = new Get_anne($timestamp_comment_projet[$bhu]);
+
+            if($publication->getDaysElapsed()==0){
+                    echo "Publié aujourd'hui a " ; 
+
+                
+ 
+               echo  $apple ->get_heure_complet() ;
+            }
+            else {
+            echo "Publie depuis " . $publication->getDaysElapsed()." jours ";
+
+            echo "<br/>" ; 
+
+            echo  $apple->get_jour();
+            echo "/" ; 
+            echo  $apple ->get_mois();
+            echo "/" ; 
+            echo  $apple ->get_anne();
+           echo "  " ; 
+            echo  $apple ->get_heure_complet() ;
+
+
+
+            }
+            
+            
+            
+            
+            
+            
+            ?>
+        
+        </time>
     </div>
         <?php 
     }

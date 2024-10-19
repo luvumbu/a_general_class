@@ -22,6 +22,10 @@ session_start() ;
 
   require_once 'class/Get_anne.php';
   require_once 'class/js.php';
+
+
+  require_once 'class/Publication.php';
+
   
 
 

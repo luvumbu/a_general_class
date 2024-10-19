@@ -105,7 +105,41 @@
         </p>
 
         <p style="text-align: center;">
-            <?php echo  $date_inscription_projet_ ?>
+            <?php
+            
+            
+          
+            
+            
+            $publication = new Publication($date_inscription_projet_);
+            $apple = new Get_anne($date_inscription_projet_);
+
+            if($publication->getDaysElapsed()==0){
+                    echo "Publié aujourd'hui a " ; 
+
+                
+ 
+               echo  $apple ->get_heure_complet() ;
+            }
+            else {
+            echo "Publie depuis " . $publication->getDaysElapsed()." jours ";
+
+            echo "<br/>" ; 
+
+            echo  $apple->get_jour();
+            echo "/" ; 
+            echo  $apple ->get_mois();
+            echo "/" ; 
+            echo  $apple ->get_anne();
+           echo "  " ; 
+            echo  $apple ->get_heure_complet() ;
+
+
+
+            }
+            
+            
+            ?>
         </p>
 
 
