@@ -28,7 +28,7 @@ $timestamp_comment_projet = $databaseHandler->tableList_info;
 
 
 
- 
+
 
 ?>
 
@@ -43,70 +43,66 @@ $timestamp_comment_projet = $databaseHandler->tableList_info;
 
 
 
-        
-       
-        ?>
-    <div class="comment">
-        <h3><?php echo AsciiConverter::asciiToString($text_comment_projet[$bhu]) ?></h3>
-        <p><?php echo  AsciiConverter::asciiToString($name_comment_projet[$bhu]) ?></p>
-        <time>
-            <?php 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            $publication = new Publication($timestamp_comment_projet[$bhu]);
-            $apple = new Get_anne($timestamp_comment_projet[$bhu]);
 
-            if($publication->getDaysElapsed()==0){
-                    echo "Publié aujourd'hui a " ; 
 
-                
- 
-               echo  $apple ->get_heure_complet() ;
-            }
-            else {
-            echo "Publie depuis " . $publication->getDaysElapsed()." jours ";
-
-            echo "<br/>" ; 
-
-            echo  $apple->get_jour();
-            echo "/" ; 
-            echo  $apple ->get_mois();
-            echo "/" ; 
-            echo  $apple ->get_anne();
-           echo "  " ; 
-            echo  $apple ->get_heure_complet() ;
+    ?>
+        <div class="comment">
+            <h3><?php echo AsciiConverter::asciiToString($text_comment_projet[$bhu]) ?></h3>
+            <p><?php echo  AsciiConverter::asciiToString($name_comment_projet[$bhu]) ?></p>
+            <time>
+                <?php
 
 
 
-            }
-            
-            
-            
-            
-            
-            
-            ?>
-        
-        </time>
-    </div>
-        <?php 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                $publication = new Publication($timestamp_comment_projet[$bhu]);
+                $apple = new Get_anne($timestamp_comment_projet[$bhu]);
+
+                if ($publication->getDaysElapsed() == 0) {
+                    echo "Publié aujourd'hui a ";
+
+
+
+                    echo  $apple->get_heure_complet();
+                } else {
+                    echo "Publie depuis " . $publication->getDaysElapsed() . " jours ";
+
+                    echo "<br/>";
+
+                    echo  $apple->get_jour();
+                    echo "/";
+                    echo  $apple->get_mois();
+                    echo "/";
+                    echo  $apple->get_anne();
+                    echo "  ";
+                    echo  $apple->get_heure_complet();
+                }
+
+
+
+
+
+
+                ?>
+
+            </time>
+        </div>
+    <?php
     }
 
     ?>
@@ -121,8 +117,25 @@ $timestamp_comment_projet = $databaseHandler->tableList_info;
     <h2>Ajouter un Commentaire</h2>
     <form class="comment-form">
         <input id="text_comment_projet" type="text" placeholder="Votre nom" required>
+        <input id="text_comment_projet" type="text" placeholder="Adresse mail" required>
+
+
         <textarea id="name_comment_projet" rows="4" placeholder="Votre commentaire" required></textarea>
-        <div class="btn btn-primary" onclick="btn_comment_section(this)">Primary</div>
+        <?php
+if(isset( $_SESSION["session_info"])){
+?>
+        <div class="btn btn-primary" onclick="btn_comment_section(this)">Envoyer</div>
+
+<?php 
+}
+else {
+   ?>
+        <div class="btn btn-danger">Inscrivez vous pour pouvoir laiser un commentaire</div>
+   
+   <?php 
+}
+
+        ?>
     </form>
 </div>
 <style>
@@ -220,13 +233,15 @@ $timestamp_comment_projet = $databaseHandler->tableList_info;
 <script>
     function btn_comment_section(_this) {
 
-      //  _this.style.display = "none";
+        _this.style.display="none" ; 
+
+        //  _this.style.display = "none";
         var text_comment_projet = document.getElementById("text_comment_projet").value;
         var name_comment_projet = document.getElementById("name_comment_projet").value;
 
 
-        console.log(text_comment_projet) ; 
-        console.log(name_comment_projet) ; 
+        console.log(text_comment_projet);
+        console.log(name_comment_projet);
 
 
 
@@ -237,23 +252,23 @@ $timestamp_comment_projet = $databaseHandler->tableList_info;
         ok.add("name_comment_projet", name_comment_projet);
 
 
-      //  document.getElementById("start_option_projet").innerHTML = "Merci";
+        //  document.getElementById("start_option_projet").innerHTML = "Merci";
 
         ok.push();
 
- 
 
- 
 
-const xhttp = new XMLHttpRequest();
-  xhttp.onload = function() {
-    document.getElementById("comment").innerHTML =
-    this.responseText;
-  }
-  xhttp.open("GET", "../comment_ajax.php");
-  xhttp.send();
 
- 
+
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            document.getElementById("comment").innerHTML =
+                this.responseText;
+        }
+        xhttp.open("GET", "../comment_ajax.php");
+        xhttp.send();
+
+
 
 
 
@@ -262,7 +277,7 @@ const xhttp = new XMLHttpRequest();
 </script>
 
 <style>
-    #comment{
+    #comment {
         max-height: 600px;
         overflow-y: scroll;
     }

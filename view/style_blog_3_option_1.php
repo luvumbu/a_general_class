@@ -67,7 +67,7 @@ for ($n = 0; $n < count($name_group); $n++) {
         if ($img_projet_src[$a] != $img_projet_src_img__x[$b_]) {
     ?>
 
-            <div class="mon_test_child" id="<?php echo  $img_projet_src_img__x[$b_]?>">
+            <div class="mon_test_child" id="<?php echo  $img_projet_src_img__x[$b_] ?>">
                 <?php
                 if ($img_projet_src_img__x[$b_]  != "") {
                     $file_path = "img_user_action/" . $img_projet_src_img[$b_];
@@ -82,7 +82,7 @@ for ($n = 0; $n < count($name_group); $n++) {
                             <div id="<?php echo "src_" . $id_projet_img_auto[$b_] ?>">
                                 <div>
                                     <div>
-                                        <img id="<?php echo "src_this_".$img_projet_src_img[$b_]  ?>" src="<?php echo "img_user_action/" . $img_projet_src_img[$b_] ?>" alt="" srcset="">
+                                        <img id="<?php echo "src_this_" . $img_projet_src_img[$b_]  ?>" src="<?php echo "img_user_action/" . $img_projet_src_img[$b_] ?>" alt="" srcset="">
 
                                     </div>
                                     <div class="btn btn-success">
@@ -541,6 +541,51 @@ for ($n = 0; $n < count($name_group); $n++) {
             </a>
         </div>
 
+        <div>
+            <a>
+                <img class="add_element" width="50" height="50" src="https://img.icons8.com/office/50/shop.png" alt="link-emoji" />
+            </a>
+
+
+            <div class="price-control">
+                <input  title="<?php echo  $id_projet[$a] ?>"  onchange="change_shop(this)" type="range" min="0" max="100" value="<?php echo $shop_projet[0] ?>" step="5" id="price">
+                <p id="priceValue">
+                    <?php
+
+                    if ($shop_projet[0] == 0) {
+                        echo "Gratuit";
+                    } else {
+                        echo $shop_projet[0] . "€";
+                    }
+                    ?>
+                </p>
+            </div>
+
+
+
+        </div>
+
+
+
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f9f9f9;
+                color: #333;
+                padding: 20px;
+            }
+
+            .radio-group {
+                margin: 10px 0;
+            }
+
+            label {
+                margin-right: 10px;
+            }
+        </style>
+
+
         <div title="<?php echo  $id_projet[$a] ?>" onclick="planification_click(this)">
             <div class="add_element">
                 <img width="50" height="50" src="https://img.icons8.com/color/50/calendar--v1.png" alt="calendar--v1" />
@@ -679,26 +724,26 @@ echo '</div>';
 
 
 
- var stock =document.getElementById("src_" + _this.className).src ;
+        var stock = document.getElementById("src_" + _this.className).src;
 
 
-  
- 
-        var src_this = "img_user_action/"+_this.title ; 
-        var src_autre = document.getElementById("src_" + _this.className).src ; 
-
-        var src_id = _this.id ; 
-
- 
 
 
-       // document.getElementById("src_" + _this.className).style.display = "block";
+        var src_this = "img_user_action/" + _this.title;
+        var src_autre = document.getElementById("src_" + _this.className).src;
+
+        var src_id = _this.id;
+
+
+
+
+        // document.getElementById("src_" + _this.className).style.display = "block";
 
         document.getElementById("src_" + _this.className).src = src_this;
 
 
-       
-        
+
+
         var ok = new Information("update/projet_img_action1.php"); // création de la classe 
         ok.add("id_sha1_projet", _this.className); // ajout de l'information pour lenvoi 
         ok.add("img_projet_src", _this.title); // ajout de l'information pour lenvoi 
@@ -718,15 +763,15 @@ echo '</div>';
 
     function projet_img_action2(_this) {
 
- 
 
 
- 
 
-        document.getElementById(_this.title).style.display="none" ; 
 
- 
- 
+
+        document.getElementById(_this.title).style.display = "none";
+
+
+
 
 
         var ok = new Information("remove/projet_img_action2.php"); // création de la classe 
@@ -735,8 +780,8 @@ echo '</div>';
         console.log(ok.info()); // demande l'information dans le tableau
         ok.push(); // envoie l'information au code pkp 
 
- 
- 
+
+
 
 
     }
@@ -756,5 +801,33 @@ echo '</div>';
 
 
         location.reload();
+    }
+
+
+
+
+    function change_shop(_this) {
+        console.log(_this.value);
+        if (_this.value == "0") {
+            document.getElementById("priceValue").innerHTML = "Gratuiit";
+        } else {
+            document.getElementById("priceValue").innerHTML = "Prix : " + _this.value + '€';
+
+        }
+
+  
+
+        var ok = new Information("update/change_shop.php"); // création de la classe 
+        ok.add("id_projet", _this.title); // ajout de l'information pour lenvoi 
+        ok.add("shop_projet", _this.value); // ajout de l'information pour lenvoi 
+
+        console.log(ok.info()); // demande l'information dans le tableau
+        ok.push(); // envoie l'information au code pkp 
+  
+
+
+
+
+
     }
 </script>
