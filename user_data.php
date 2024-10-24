@@ -114,11 +114,7 @@
             $publication = new Publication($date_inscription_projet_);
             $apple = new Get_anne($date_inscription_projet_);
 
-       
-            echo "Publie depuis " . $publication->getDaysElapsed()." jours ";
-
-            echo "<br/>" ; 
-
+ 
             echo  $apple->get_jour();
             echo "/" ; 
             echo  $apple ->get_mois();

@@ -548,7 +548,7 @@ for ($n = 0; $n < count($name_group); $n++) {
 
 
             <div class="price-control">
-                <input  title="<?php echo  $id_projet[$a] ?>"  onchange="change_shop(this)" type="range" min="0" max="100" value="<?php echo $shop_projet[0] ?>" step="5" id="price">
+                <input  title="<?php echo  $id_projet[$a] ?>"  onchange="change_shop(this)" type="range" min="0" max="20" value="<?php echo $shop_projet[0] ?>" step="5" id="price">
                 <p id="priceValue">
                     <?php
 
