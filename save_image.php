@@ -15,8 +15,8 @@ $id_sha1_projet = time() ;
 
 
 
-
-
+$mouseX = $_SESSION["mouseX"] ; 
+$mouseY = $_SESSION["mouseY"] ; 
   
 $sha1_option_projet = $_SESSION["sha1_option_projet"] ;
 
@@ -63,7 +63,10 @@ ip1_visit_user,
 ip2_visit_user,
 ip3_visit_user,
 ip4_visit_user,
-ip5_visit_user 
+ip5_visit_user,
+x_visit_user,
+y_visit_user
+ 
 
 
 
@@ -76,7 +79,9 @@ ip5_visit_user
 '$HTTP_HOST',
 '$HTTP_REFERER',
 '$HTTP_USER_AGENT',
-'$SCRIPT_NAME' 
+'$SCRIPT_NAME',
+'$mouseX', 
+'$mouseY' 
 
 
 
