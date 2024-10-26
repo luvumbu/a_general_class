@@ -14,9 +14,11 @@ $id_sha1_projet = $databaseHandler->tableList_info;
  
  
 $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-$databaseHandler->getDataFromTable($req_sql, "shop_projet");
-$shop_projet = $databaseHandler->tableList_info;
+$databaseHandler->getDataFromTable($req_sql, "screen_shoot_projet");
+$screen_shoot_projet = $databaseHandler->tableList_info;
 
+
+ 
  
 
 $req_sqlxx = 'SELECT * FROM `visit_user` WHERE `ip1_visit_user` = "' . $_SESSION["session_switch"] . '" ORDER BY `ip1_visit_user` ASC';

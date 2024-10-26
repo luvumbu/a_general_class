@@ -104,6 +104,9 @@ $databaseHandler->set_column_names("description_projet");
 $databaseHandler->set_column_names("password_projet");
 $databaseHandler->set_column_names("visibility_1_projet");
 $databaseHandler->set_column_names("visibility_2_projet");
+
+$databaseHandler->set_column_names("screen_shoot_projet");
+
 $databaseHandler->set_column_names("img_projet_src");
 $databaseHandler->set_column_names("img_projet_visibility");
 
@@ -136,6 +139,8 @@ $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
 
 
 

@@ -548,7 +548,7 @@ for ($n = 0; $n < count($name_group); $n++) {
 
 
             <div class="price-control">
-                <input  title="<?php echo  $id_projet[$a] ?>"  onchange="change_shop(this)" type="range" min="0" max="20" value="<?php echo $shop_projet[0] ?>" step="5" id="price">
+                <input title="<?php echo  $id_projet[$a] ?>" onchange="change_shop(this)" type="range" min="0" max="20" value="<?php echo $shop_projet[0] ?>" step="5" id="price">
                 <p id="priceValue">
                     <?php
 
@@ -565,6 +565,35 @@ for ($n = 0; $n < count($name_group); $n++) {
 
         </div>
 
+        <?php
+        $screen_shoot_projet__ = $screen_shoot_projet[0];
+        if ($screen_shoot_projet__ != "") {
+        ?>
+
+            <div title="<?php echo  $id_projet[$a] ?>" onclick="screen_shoot_projet(this)">
+
+                <img class="add_element" width="50" height="50" src="https://img.icons8.com/ios-filled/50/video-record--v1.png" alt="video-record--v1" alt="screenshot" />
+                <div title="1" id="screen_info" class="screen_class"></div>
+
+
+            </div>
+        <?php
+        } else {
+        ?>
+
+            <div title="<?php echo  $id_projet[$a] ?>" onclick="screen_shoot_projet(this)">
+
+
+                <img class="add_element" width="50" height="50" src="https://img.icons8.com/ios-filled/50/video-record--v1.png" alt="video-record--v1" alt="screenshot" />
+
+                <div title="2" id="screen_info"></div>
+
+
+            </div>
+        <?php
+        }
+
+        ?>
 
 
 
@@ -815,7 +844,7 @@ echo '</div>';
 
         }
 
-  
+
 
         var ok = new Information("update/change_shop.php"); // création de la classe 
         ok.add("id_projet", _this.title); // ajout de l'information pour lenvoi 
@@ -823,11 +852,62 @@ echo '</div>';
 
         console.log(ok.info()); // demande l'information dans le tableau
         ok.push(); // envoie l'information au code pkp 
-  
+
 
 
 
 
 
     }
+
+
+
+    function screen_shoot_projet(_this) {
+
+
+
+
+
+
+
+
+
+
+        if (document.getElementById("screen_info").title == "1") {
+            document.getElementById("screen_info").title = "2";
+
+            document.getElementById("screen_info").className = "";
+
+        } else {
+            document.getElementById("screen_info").title = "1";
+            document.getElementById("screen_info").className = "screen_class";
+
+
+        }
+
+
+
+
+
+
+        var ok = new Information("update/screen_shoot_projet.php"); // création de la classe 
+        ok.add("screen_shoot_projet",  document.getElementById("screen_info").className ); // ajout de l'information pour lenvoi 
+        ok.add("id_projet", _this.title); // ajout de l'information pour lenvoi 
+
+        console.log(ok.info()); // demande l'information dans le tableau
+        ok.push(); // envoie l'information au code pkp 
+
+
+    }
 </script>
+
+
+<style>
+    .screen_class {
+        border-radius: 100%;
+        background-color: red;
+        width: 10px;
+        height: 10px;
+        border: 1px solid black;
+    }
+</style>

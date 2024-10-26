@@ -206,6 +206,11 @@ session_start();
 
 
 
+    $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+    $databaseHandler->getDataFromTable($req_sql, "screen_shoot_projet");
+    $screen_shoot_projet = $databaseHandler->tableList_info;
+ 
+
 
 
 
@@ -498,8 +503,24 @@ ok.push(); // envoie l'information au code pkp
 
  <?php 
 
-require_once "scrip_screen.php";
+
+ 
+ 
+
+
+$screen_shoot_projet__ = $screen_shoot_projet[0] ; 
+
+
+
+
+
+if($screen_shoot_projet__!="") {
+  require_once "scrip_screen.php";
+}
+
 ?>
+
+ 
 
 </body>
 
