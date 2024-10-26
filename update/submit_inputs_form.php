@@ -13,9 +13,26 @@ require_once '../class/AsciiConverter.php' ;
  
  $heure_debut_projet =  $_POST["heure_debut_projet"] ; 
  $date_debut_projet =  $_POST["date_debut_projet"] ; 
+
+
+
+
+
  $heure_fin_projet =  $_POST["heure_fin_projet"] ; 
  $date_fin_projet =  $_POST["date_fin_projet"] ; 
 
+
+
+$dure_projet  = $_POST["dure_projet"] ; 
+
+
+
+echo $dure_projet ; 
+
+
+
+
+ 
  $id_projet =  $_POST["id_projet"] ; 
 
 
@@ -23,7 +40,7 @@ require_once '../class/AsciiConverter.php' ;
 
 
 $databaseHandler = new DatabaseHandler($config_dbname, $config_password);
-$databaseHandler->action_sql('UPDATE  `projet` SET `heure_debut_projet` = "'.$heure_debut_projet.'",`date_debut_projet` = "'.$date_debut_projet.'",`heure_fin_projet` = "'.$heure_fin_projet.'",`date_fin_projet` = "'.$date_fin_projet.'"   WHERE  `id_projet` = "'.$id_projet.'"') ;
+$databaseHandler->action_sql('UPDATE  `projet` SET `heure_debut_projet` = "'.$heure_debut_projet.'",`date_debut_projet` = "'.$date_debut_projet.'" ,`dure_projet` = "'.$dure_projet.'"   WHERE  `id_projet` = "'.$id_projet.'"') ;
  
 
 

@@ -9,7 +9,7 @@
   <div>
     <a href="class/log_off.php">
       <div>
-        <img width="50" height="50" src="https://img.icons8.com/fluency/50/switch-off.png" alt="switch-off" />
+        <img width="50" height="50" src="https://img.icons8.com/external-others-amoghdesign/24/external-off-multimedia-flat-30px-others-amoghdesign.png" alt="switch-off" />
       </div>
     </a>
   </div>

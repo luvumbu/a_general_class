@@ -20,6 +20,7 @@ $name_group
 $id_group
 */
     ?>
+
     <select onchange="select_name_group(this)" title="<?php echo  $id_projet[$a] ?>" id="<?php echo  "form_select_" . $id_projet[$a] ?>" class="form_select" aria-label="Default select example">
         <?php
         $n_s = "";
@@ -178,6 +179,7 @@ for ($n = 0; $n < count($name_group); $n++) {
 
 
             </div>
+
     <?php
         }
     }
@@ -378,21 +380,21 @@ for ($n = 0; $n < count($name_group); $n++) {
 
         </div>
     </div>
-<?php 
+    <?php
 
 
-$publication_date_j_projet__ = $publication_date_j_projet[0];
-$publication_date_h_projet__ = $publication_date_h_projet[0];
+    $publication_date_j_projet__ = $publication_date_j_projet[0];
+    $publication_date_h_projet__ = $publication_date_h_projet[0];
 
 
 
-// Définir le fuseau horaire pour l'Europe/Paris
-date_default_timezone_set('Europe/Paris');
+    // Définir le fuseau horaire pour l'Europe/Paris
+    date_default_timezone_set('Europe/Paris');
 
 
-$dateAujourd = date("Y-m-d");
+    $dateAujourd = date("Y-m-d");
 
-?>
+    ?>
     <div class="custom-editor">
         <div class="display_none2" id="<?php echo  "editor-container_" . $id_projet[$a] ?>">
             <div id="toolbar">
@@ -456,18 +458,60 @@ $dateAujourd = date("Y-m-d");
                 <label for="start-time">Heure de commencement :</label>
                 <input onchange="submit_inputs_form(this)" title="<?php echo  $id_projet[$a] ?>" value="<?php echo $date_debut_projet[$a] ?>" id="<?php echo  "inputs_form_2_" . $id_projet[$a] ?>" type="time" name="start-time" required>
             </div>
+            <form action="traitement.php" method="POST">
 
-            <div class="form-group">
-                <label for="end-date">Date de fin :</label>
-                <input min="<?php echo $dateAujourd  ?>" onchange="submit_inputs_form(this)" title="<?php echo  $id_projet[$a] ?>" value="<?php echo $heure_fin_projet[$a] ?>" id="<?php echo  "inputs_form_3_" . $id_projet[$a] ?>" type="date" name="end-date" required>
-            </div>
+                <?php
 
-            <div class="form-group">
-                <label for="end-time">Heure de fin :</label>
-                <input onchange="submit_inputs_form(this)" title="<?php echo  $id_projet[$a] ?>" value="<?php echo $date_fin_projet[$a] ?>" id="<?php echo  "inputs_form_4_" . $id_projet[$a] ?>" type="time" name="end-time" required>
-            </div>
 
-            <button type="submit" onclick="submit_inputs_form(this)" title="<?php echo  $id_projet[$a] ?>">Valider</button>
+
+
+
+                $dure_projet__ = $dure_projet[0];
+
+
+                ?>
+                <div id="dure_projet_value"><?php echo  $dure_projet__  ?></div>
+
+                <label for="selection">Sélectionnez une heure (1h à 8h) ou un nombre de jours (1 à 7) :</label>
+                <select id="dure_projet"   title="<?php echo  $id_projet[$a] ?>" id="selection" value="<?php echo  $dure_projet__ ?>" onchange="submit_inputs_form(this)" name="selection">
+                    <?php
+
+
+
+                    $bool = false;
+                    // Générer des options d'heure de 1h à 8h
+                    for ($h = 1; $h <= 8; $h++) {
+                        $heure = str_pad($h, 2, "0", STR_PAD_LEFT) . ":00"; // Format HH:00
+                        echo "<option value=\"$heure\">$heure</option>";
+
+                        if ($dure_projet__ == $heure) {
+                            echo "<option selected value=\"$heure\">$heure</option>";
+                            $bool = true;
+                        } else {
+                            echo "<option  value=\"$heure\">$heure</option>";
+                        }
+                    }
+
+                    // Générer des options de quantité de jours de 1 à 7
+                    for ($j = 1; $j <= 7; $j++) {
+
+
+
+                        if ($bool == false && $dure_projet__ == $j) {
+                            echo "<option selected value=\"$j\">$j jour(s)</option>";
+                        } else {
+                            echo "<option value=\"$j\">$j jour(s)</option>";
+                        }
+                    }
+                    ?>
+                </select>
+
+                <br><br>
+
+
+            </form>
+
+
         </div>
     </div>
 
@@ -584,18 +628,19 @@ $dateAujourd = date("Y-m-d");
                 <img class="add_element" width="50" height="50" src="https://img.icons8.com/office/50/shop.png" alt="link-emoji" />
             </a>
 
+            <?php
 
+            if ($shop_projet[0] == 0) {
+
+                $shop_projet[0] = "0";
+            } else {
+                echo $shop_projet[0] . "€";
+            }
+            ?>
             <div class="price-control">
                 <input title="<?php echo  $id_projet[$a] ?>" onchange="change_shop(this)" type="range" min="0" max="20" value="<?php echo $shop_projet[0] ?>" step="5" id="price">
                 <p id="priceValue">
-                    <?php
 
-                    if ($shop_projet[0] == 0) {
-                        echo "Gratuit";
-                    } else {
-                        echo $shop_projet[0] . "€";
-                    }
-                    ?>
                 </p>
             </div>
 
@@ -1006,7 +1051,7 @@ echo '</div>';
 
 
         var ok = new Information("update/submit_inputs_form2.php"); // création de la classe 
-        
+
         ok.add("publication_date_j_projet", document.getElementById("inputs_form_1_2" + _this.title).value); // ajout de l'information pour lenvoi 
         ok.add("publication_date_h_projet", document.getElementById("inputs_form_2_2" + _this.title).value); // ajout de l'information pour lenvoi 
         ok.add("id_projet", _this.title); // ajout de l'information pour lenvoi 
@@ -1018,3 +1063,12 @@ echo '</div>';
 
     }
 </script>
+
+<style>
+
+
+    #dure_projet {
+        background-color:#fafafa;
+         padding: 10px;width:100%; 
+    }
+</style>

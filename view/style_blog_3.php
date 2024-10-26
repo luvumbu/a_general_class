@@ -1,24 +1,23 @@
 <link rel="stylesheet" href="css/style_blog_3_2.css">
 <link rel="stylesheet" href="css/style_blog_3.css">
-<link rel="stylesheet" href="css/form_event.css"> 
+<link rel="stylesheet" href="css/form_event.css">
 
 <div class="class_t">
     <?php
 
 
-  
-if(isset($_SESSION["session_switch"])){
-    require_once 'mysq_req/style_blog_3_req_0.php';
-}
-else {
-    require_once 'mysq_req/style_blog_3_req_1.php';
-}
+
+    if (isset($_SESSION["session_switch"])) {
+        require_once 'mysq_req/style_blog_3_req_0.php';
+    } else {
+        require_once 'mysq_req/style_blog_3_req_1.php';
+    }
 
 
 
- 
 
- echo '<div class="display_flex3">';
+
+    echo '<div class="display_flex3">';
 
     for ($a = 0; $a < count($id_sha1_projet); $a++) {
 
@@ -28,44 +27,41 @@ else {
         $valeur_a_chercher = $group_projet[$a];
         $resultat = chercherIndex($id_group, $valeur_a_chercher);
 
-// require 'mysq_req/style_blog_3_req_2.php';
-$valeur_a_chercher = $group_projet[$a];
-$resultat = chercherIndex($id_group, $valeur_a_chercher);
-$resultat = chercherIndex($id_group, $valeur_a_chercher);    
-              if(isset($_SESSION["session_switch"])){       
-               require 'style_blog_3_option_1.php';                  
-            }
-            else {
-          
-              require 'style_blog_3_option_3.php';
-            
-            }
-      
-    } 
-    
+        // require 'mysq_req/style_blog_3_req_2.php';
+        $valeur_a_chercher = $group_projet[$a];
+        $resultat = chercherIndex($id_group, $valeur_a_chercher);
+        $resultat = chercherIndex($id_group, $valeur_a_chercher);
+        if (isset($_SESSION["session_switch"])) {
+            require 'style_blog_3_option_1.php';
+        } else {
+
+            require 'style_blog_3_option_3.php';
+        }
+    }
+
 
     echo '</div>';
     ?>
 
 
 
-<style>
-    .display_flex3{
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-    }
-    .display_flexX{
-        background-color: red;
-    }
+    <style>
+        .display_flex3 {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
 
-</style>
+        .display_flexX {
+            background-color: red;
+        }
+    </style>
 
 
- 
+
 </div>
 <?php
-  require 'view/style_blog_3_scrypt_1.php';
+require 'view/style_blog_3_scrypt_1.php';
 
 ?>
 
@@ -110,17 +106,19 @@ $resultat = chercherIndex($id_group, $valeur_a_chercher);
 
         }
 
-    document.getElementById("planification_2"+_this.title).className ="display_none2" ; 
+        document.getElementById("planification_2" + _this.title).className = "display_none2";
 
     }
 
     function submit_inputs_form(_this) {
 
+
         var inputs_form_1_ = document.getElementById("inputs_form_1_" + _this.title).value;
         var inputs_form_2_ = document.getElementById("inputs_form_2_" + _this.title).value;
+        /*
         var inputs_form_3_ = document.getElementById("inputs_form_3_" + _this.title).value;
         var inputs_form_4_ = document.getElementById("inputs_form_4_" + _this.title).value;
-
+*/
 
 
         var ok = new Information("update/submit_inputs_form.php");
@@ -130,9 +128,15 @@ $resultat = chercherIndex($id_group, $valeur_a_chercher);
 
         ok.add("heure_debut_projet", inputs_form_1_);
         ok.add("date_debut_projet", inputs_form_2_);
+        ok.add("dure_projet", document.getElementById("dure_projet").value);
+
+
+
+
+        /*
         ok.add("heure_fin_projet", inputs_form_3_);
         ok.add("date_fin_projet", inputs_form_4_);
-
+*/
 
 
 
@@ -176,10 +180,6 @@ $resultat = chercherIndex($id_group, $valeur_a_chercher);
         console.log(el.value);
 
     }
-
-
-
-
 </script>
 
 <style>
@@ -256,3 +256,5 @@ $resultat = chercherIndex($id_group, $valeur_a_chercher);
         background-color: rgba(220, 40, 12, 0.6);
     }
 </style>
+
+ 

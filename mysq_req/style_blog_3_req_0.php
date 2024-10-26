@@ -28,9 +28,17 @@ $databaseHandler->getDataFromTable($req_sql, "publication_date_h_projet");
 $publication_date_h_projet	 = $databaseHandler->tableList_info;
 
 
- 
- 
 
+
+
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "dure_projet");
+$dure_projet	 = $databaseHandler->tableList_info;
+
+
+ 
+ 
+ $dure_projet__ = $dure_projet[0] ; 
 $req_sqlxx = 'SELECT * FROM `visit_user` WHERE `ip1_visit_user` = "' . $_SESSION["session_switch"] . '" ORDER BY `ip1_visit_user` ASC';
 
 
