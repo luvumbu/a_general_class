@@ -6,11 +6,20 @@ session_start();
 <html lang="en">
 
 <head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
+  
   <?php
-  // Inclusion des fichiers de classe PHP nécessaires
+
+
+ 
+ 
+
+// Inclusion des fichiers de classe PHP nécessaires
   require_once 'class/Creat_form.php';
   require_once 'class/AsciiConverter.php';
   require_once 'class/path_config.php';
@@ -229,22 +238,27 @@ session_start();
 
 
 
+ 
 
-
-
-
+$img_projet_src__ = $img_projet_src[0] ; 
   ?>
 
 
-
+<link rel="icon" type="image/x-icon" href="<?php echo "../img_user_action/".$img_projet_src__ ?>">
+ 
 </head>
 
-<body>
+<body id="capture-zone">
 
 
 
 
   <?php
+
+
+
+
+
 
     if (!count($id_projet) < 1) {
 
@@ -443,11 +457,61 @@ session_start();
 
 
 <p class="footer_250">&copy; 2024 - Tous droits r&eacute;serv&eacute;s.</p>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+ 
 
 </html>
 <link rel="stylesheet" href="style.abc123.css">
+<script>
+
+/*
+        document.addEventListener('mousemove', function(event) {
+
+
+            let x = event.clientX;
+            let y = event.clientY;
+            console.log(`Position de la souris: X = ${x}, Y = ${y}`);
+
+
+
+
+
+            var ok = new Information("php.php"); // création de la classe 
+ok.add("x", "root"); // ajout de l'information pour lenvoi 
+ok.add("y", "root"); // ajout d'une deuxieme information denvoi  
+console.log(ok.info()); // demande l'information dans le tableau
+ok.push(); // envoie l'information au code pkp 
+
+
+
+
+
+
+
+        });
+
+        */
+
+        
+    </script>
+
+
+ <?php 
+
+require_once "scrip_screen.php";
+?>
 
 </body>
 
+
+
+
+
 </html>
+
+
+<?php 
+
+
+ 
+?>

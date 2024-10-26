@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivi du mouvement de la souris</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        #tracker {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="tracker">
+        <h1>Mouvement de la souris</h1>
+        <p>Déplace la souris dans la fenêtre et regarde la console !</p>
+    </div>
+
+    <script>
+        document.addEventListener('mousemove', function(event) {
+            let x = event.clientX;
+            let y = event.clientY;
+            console.log(`Position de la souris: X = ${x}, Y = ${y}`);
+        });
+    </script>
+</body>
+</html>

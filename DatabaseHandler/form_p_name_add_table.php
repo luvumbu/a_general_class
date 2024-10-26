@@ -208,6 +208,7 @@ $databaseHandler->add_table("projet_img");
 
 $databaseHandler = new DatabaseHandler($input_1,$input_2); 
 $databaseHandler->set_column_names("id_visit_user");
+$databaseHandler->set_column_names("id_projet_visit_user");
 
 
 $databaseHandler->set_column_names("ip1_visit_user");
@@ -220,6 +221,16 @@ $databaseHandler->set_column_names("ip6_visit_user");
 $databaseHandler->set_column_names("ip7_visit_user");
 $databaseHandler->set_column_names("ip8_visit_user");
 $databaseHandler->set_column_names("ip9_visit_user");
+
+
+
+$databaseHandler->set_column_names("x_visit_user");
+$databaseHandler->set_column_names("y_visit_user");
+$databaseHandler->set_column_names("click_visit_user");
+$databaseHandler->set_column_names("screen_shoot_visit_user");
+
+
+
 
 
 
@@ -236,13 +247,26 @@ $databaseHandler->set_column_types("INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY")
 
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+
+
+
 
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
 
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");

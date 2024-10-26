@@ -746,7 +746,7 @@
 
 
 
- 
+        $_SESSION["GIVE_URL"]  = give_url();
 
         /*
  $ipUser = getUserIP();
