@@ -109,6 +109,9 @@ $resultat = chercherIndex($id_group, $valeur_a_chercher);
 
 
         }
+
+    document.getElementById("planification_2"+_this.title).className ="display_none2" ; 
+
     }
 
     function submit_inputs_form(_this) {

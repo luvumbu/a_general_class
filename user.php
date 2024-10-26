@@ -84,7 +84,7 @@ session_start();
 
 
 
-
+ 
 
 
   $give_url = give_url();
@@ -248,10 +248,7 @@ session_start();
 $img_projet_src__ = $img_projet_src[0] ; 
   ?>
 
-
-<link rel="icon" type="image/x-icon" href="<?php echo "../img_user_action/".$img_projet_src__ ?>">
  
-</head>
 
 <body id="capture-zone">
 

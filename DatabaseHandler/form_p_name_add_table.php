@@ -122,6 +122,10 @@ $databaseHandler->set_column_names("date_debut_projet");
 
 $databaseHandler->set_column_names("heure_fin_projet");
 $databaseHandler->set_column_names("date_fin_projet");
+$databaseHandler->set_column_names("publication_date_j_projet");
+$databaseHandler->set_column_names("publication_date_h_projet");
+
+
 
 
 $databaseHandler->set_column_names("shop_projet");
@@ -139,6 +143,8 @@ $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 
 
@@ -161,6 +167,8 @@ $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");

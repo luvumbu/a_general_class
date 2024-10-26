@@ -378,7 +378,21 @@ for ($n = 0; $n < count($name_group); $n++) {
 
         </div>
     </div>
+<?php 
 
+
+$publication_date_j_projet__ = $publication_date_j_projet[0];
+$publication_date_h_projet__ = $publication_date_h_projet[0];
+
+
+
+// Définir le fuseau horaire pour l'Europe/Paris
+date_default_timezone_set('Europe/Paris');
+
+
+$dateAujourd = date("Y-m-d");
+
+?>
     <div class="custom-editor">
         <div class="display_none2" id="<?php echo  "editor-container_" . $id_projet[$a] ?>">
             <div id="toolbar">
@@ -435,7 +449,7 @@ for ($n = 0; $n < count($name_group); $n++) {
             <h2>Planification de l'événement</h2>
             <div class="form-group">
                 <label for="start-date">Date de commencement :</label>
-                <input onchange="submit_inputs_form(this)" title="<?php echo  $id_projet[$a] ?>" value="<?php echo $heure_debut_projet[$a] ?>" id="<?php echo  "inputs_form_1_" . $id_projet[$a] ?>" type="date" name="start-date" required>
+                <input min="<?php echo $dateAujourd  ?>" onchange="submit_inputs_form(this)" title="<?php echo  $id_projet[$a] ?>" value="<?php echo $heure_debut_projet[$a] ?>" id="<?php echo  "inputs_form_1_" . $id_projet[$a] ?>" type="date" name="start-date" required>
             </div>
 
             <div class="form-group">
@@ -445,7 +459,7 @@ for ($n = 0; $n < count($name_group); $n++) {
 
             <div class="form-group">
                 <label for="end-date">Date de fin :</label>
-                <input onchange="submit_inputs_form(this)" title="<?php echo  $id_projet[$a] ?>" value="<?php echo $heure_fin_projet[$a] ?>" id="<?php echo  "inputs_form_3_" . $id_projet[$a] ?>" type="date" name="end-date" required>
+                <input min="<?php echo $dateAujourd  ?>" onchange="submit_inputs_form(this)" title="<?php echo  $id_projet[$a] ?>" value="<?php echo $heure_fin_projet[$a] ?>" id="<?php echo  "inputs_form_3_" . $id_projet[$a] ?>" type="date" name="end-date" required>
             </div>
 
             <div class="form-group">
@@ -454,6 +468,30 @@ for ($n = 0; $n < count($name_group); $n++) {
             </div>
 
             <button type="submit" onclick="submit_inputs_form(this)" title="<?php echo  $id_projet[$a] ?>">Valider</button>
+        </div>
+    </div>
+
+
+
+    <?php
+
+
+    ?>
+
+    <div id="<?php echo  "planification_2" . $id_projet[$a] ?>" class="display_none2">
+        <div class="custom-form-container centrer">
+            <h2>Planification de publication</h2>
+            <div class="form-group">
+                <label for="start-date">Date de commencement :</label>
+                <input min="<?php echo $dateAujourd  ?>" onchange="submit_inputs_form2(this)" title="<?php echo  $id_projet[$a] ?>" value="<?php echo $publication_date_j_projet__ ?>" id="<?php echo  "inputs_form_1_2" . $id_projet[$a] ?>" type="date" name="start-date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="start-time">Heure de commencement :</label>
+                <input onchange="submit_inputs_form2(this)" title="<?php echo  $id_projet[$a] ?>" value="<?php echo $publication_date_h_projet__ ?>" id="<?php echo  "inputs_form_2_2" . $id_projet[$a] ?>" type="time" name="start-time" required>
+            </div>
+
+            <button type="submit" onclick="submit_inputs_form2(this)" title="<?php echo  $id_projet[$a] ?>">Valider</button>
         </div>
     </div>
 
@@ -620,6 +658,21 @@ for ($n = 0; $n < count($name_group); $n++) {
                 <img width="50" height="50" src="https://img.icons8.com/color/50/calendar--v1.png" alt="calendar--v1" />
             </div>
         </div>
+        <?php
+
+
+
+
+        $publication_date_projet__ = $$publication_date_projet[0];
+
+        ?>
+        <div title="<?php echo  $id_projet[$a] ?>" onclick="planification_click2(this)">
+            <div class="add_element">
+                <img width="50" height="50" src="https://img.icons8.com/color/48/tear-off-calendar--v1.png" alt="calendar--v1" />
+            </div>
+        </div>
+
+
         <div onclick="add_projet(this)" class="<?php echo  $id_sha1_projet[$a] ?>" title="<?php echo  $id_projet[$a] ?>">
             <img class="add_element" width="50" height="50" src="https://img.icons8.com/ios/50/add--v1.png" alt="add--v1" />
 
@@ -627,6 +680,10 @@ for ($n = 0; $n < count($name_group); $n++) {
 
 
         <?php
+
+
+
+
 
         if ($visibility_1_projet[$a] != "") {
         ?>
@@ -891,7 +948,7 @@ echo '</div>';
 
 
         var ok = new Information("update/screen_shoot_projet.php"); // création de la classe 
-        ok.add("screen_shoot_projet",  document.getElementById("screen_info").className ); // ajout de l'information pour lenvoi 
+        ok.add("screen_shoot_projet", document.getElementById("screen_info").className); // ajout de l'information pour lenvoi 
         ok.add("id_projet", _this.title); // ajout de l'information pour lenvoi 
 
         console.log(ok.info()); // demande l'information dans le tableau
@@ -911,3 +968,53 @@ echo '</div>';
         border: 1px solid black;
     }
 </style>
+<script>
+    function planification_click2(_this) {
+
+
+
+
+
+
+
+
+
+
+
+        if (document.getElementById("planification_2" + _this.title).className == "") {
+
+            document.getElementById("planification_2" + _this.title).className = "display_none2";
+
+        } else {
+            document.getElementById("planification_2" + _this.title).className = "";
+            document.getElementById("planification_" + _this.title).className = "display_none2";
+
+
+        }
+
+
+
+
+
+    }
+
+
+
+    function submit_inputs_form2(_this) {
+
+
+
+
+        var ok = new Information("update/submit_inputs_form2.php"); // création de la classe 
+        
+        ok.add("publication_date_j_projet", document.getElementById("inputs_form_1_2" + _this.title).value); // ajout de l'information pour lenvoi 
+        ok.add("publication_date_h_projet", document.getElementById("inputs_form_2_2" + _this.title).value); // ajout de l'information pour lenvoi 
+        ok.add("id_projet", _this.title); // ajout de l'information pour lenvoi 
+
+        console.log(ok.info()); // demande l'information dans le tableau
+        ok.push(); // envoie l'information au code pkp
+
+
+
+    }
+</script>
