@@ -29,6 +29,12 @@ $publication_date_h_projet	 = $databaseHandler->tableList_info;
 
 
 
+$databaseHandler = new DatabaseHandler($config_dbname, $config_password);
+$databaseHandler->getDataFromTable($req_sql, "shop_projet");
+$shop_projet	 = $databaseHandler->tableList_info;
+
+
+
 
 
 $databaseHandler = new DatabaseHandler($config_dbname, $config_password);

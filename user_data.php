@@ -75,6 +75,8 @@
     for ($a = 0; $a < count($date_inscription_projet); $a++) {
 
 
+
+     
         $name_projet_ =  AsciiConverter::asciiToString($name_projet[$a]);
         $title_projet_ = AsciiConverter::asciiToString($title_projet[$a]);
         $description_projet_ = AsciiConverter::asciiToString($description_projet[$a]);;

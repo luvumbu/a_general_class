@@ -4,7 +4,17 @@ session_start();
 require_once 'class/Get_anne.php' ; 
 require_once 'class/Publication.php' ;
 ?>
+<style>
+    .style_reed {
+    background-color: #f8d7da;
+    color: #c01f2e;
+    padding: 15px;
+    text-align: center;
+    margin: auto;
+    width: 300px;
 
+  }
+</style>
 <!-- Inclusion du fichier JavaScript externe -->
 <script src="class/js.js"></script>
 
@@ -38,17 +48,7 @@ if(isset(   $_SESSION["session_info"])) {
   if(isset(   $_SESSION["session_info_coumpt"])) {
   if($_SESSION["session_info_coumpt"]==1){
   ?>
-<style>
-    .style_reed {
-    background-color: #f8d7da;
-    color: #c01f2e;
-    padding: 15px;
-    text-align: center;
-    margin: auto;
-    width: 300px;
 
-  }
-</style>
 <div class="style_reed">
   <?php 
 

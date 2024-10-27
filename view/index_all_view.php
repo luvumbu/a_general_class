@@ -321,8 +321,8 @@ require_once 'mysq_req/req_index_all_sql.php';
     $publication = new Publication( $date_inscription_projet[$a]);
     $apple = new Get_anne( $date_inscription_projet[$a]);
 
-   
- 
+    echo "<br/>" ; 
+  echo    $apple ->get_temps_depuis_publication();
     echo "<br/>" ; 
 
     echo  $apple->get_jour();
@@ -332,6 +332,8 @@ require_once 'mysq_req/req_index_all_sql.php';
     echo  $apple ->get_anne();
    echo "  " ; 
     echo  $apple ->get_heure_complet() ;
+
+    echo "<br/>" ; 
 
 
  

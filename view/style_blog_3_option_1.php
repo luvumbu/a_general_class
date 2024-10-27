@@ -473,7 +473,7 @@ for ($n = 0; $n < count($name_group); $n++) {
                 <div id="dure_projet_value"><?php echo  $dure_projet__  ?></div>
 
                 <label for="selection">Sélectionnez une heure (1h à 8h) ou un nombre de jours (1 à 7) :</label>
-                <select id="dure_projet"   title="<?php echo  $id_projet[$a] ?>" id="selection" value="<?php echo  $dure_projet__ ?>" onchange="submit_inputs_form(this)" name="selection">
+                <select id="dure_projet" title="<?php echo  $id_projet[$a] ?>" id="selection" value="<?php echo  $dure_projet__ ?>" onchange="submit_inputs_form(this)" name="selection">
                     <?php
 
 
@@ -630,18 +630,23 @@ for ($n = 0; $n < count($name_group); $n++) {
 
             <?php
 
-            if ($shop_projet[0] == 0) {
 
-                $shop_projet[0] = "0";
-            } else {
-                echo $shop_projet[0] . "€";
-            }
             ?>
             <div class="price-control">
                 <input title="<?php echo  $id_projet[$a] ?>" onchange="change_shop(this)" type="range" min="0" max="20" value="<?php echo $shop_projet[0] ?>" step="5" id="price">
-                <p id="priceValue">
+                <p id="priceValue"> <?php
 
-                </p>
+
+
+
+                                    if ($shop_projet[0] == "" || $shop_projet[0] == "0") {
+                                        echo "Gratuit";
+                                    } else {
+                                        echo 'Prix :'.$shop_projet[0] . '€';
+                                    }
+
+
+                                    ?> </p>
             </div>
 
 
@@ -1065,10 +1070,9 @@ echo '</div>';
 </script>
 
 <style>
-
-
     #dure_projet {
-        background-color:#fafafa;
-         padding: 10px;width:100%; 
+        background-color: #fafafa;
+        padding: 10px;
+        width: 100%;
     }
 </style>
